@@ -2,7 +2,7 @@
 layout: post
 title:  "Midterm 1"
 date:   2015-10-18 11:14:11
-category: Practice Problems
+category: practice-problems
 ---
 
 **This page is under construction.**

@@ -2,7 +2,7 @@
 layout: post
 title:  "Midterm 2"
 date:   2015-10-18 11:14:11
-categories: [Practice Problems]
+categories: practice-problems
 ---
 
 <p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>

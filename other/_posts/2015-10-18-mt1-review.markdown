@@ -2,7 +2,7 @@
 layout: post
 title:  "Midterm 1 Review Slides"
 date:   2015-10-18 11:14:11
-category: uncategorized
+category: other
 ---
 
 Slides that I made for the Midterm 1 review session in Summer 2015.

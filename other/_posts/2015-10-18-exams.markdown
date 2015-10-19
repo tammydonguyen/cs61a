@@ -2,7 +2,7 @@
 layout: post
 title:  "Taking Exams"
 date:   2015-10-18 11:14:11
-category: uncategorized
+category: other
 ---
 
 ## Minimize studying by staying caught up

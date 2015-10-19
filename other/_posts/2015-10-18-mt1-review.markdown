@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Midterm 1 Review Slides"
+date:   2015-10-18 11:14:11
+category: uncategorized
+---
+
+Slides that I made for the Midterm 1 review session in Summer 2015.
+
+<iframe src="https://docs.google.com/presentation/d/1JCalRQi6SgpNZUppC6gP87vQFzDCaxHE9DGpk7AqVCs/embed?start=false&loop=false&delayms=60000" frameborder="0" width="100%" height="500px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>

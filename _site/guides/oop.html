@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Object Oriented Programming</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Object Oriented Programming</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr>
+
+<h2>Basics</h2>
+
+<p>So far in this course we&#39;ve been writing programs using functions and built-in data types. We&#39;ve also created our own abstract data types (such as the <code>link</code> and <code>tree</code> ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable. </p>
+
+<p>Object oriented programming introduces another paradigm for us to represent and organize our data types. Using OOP, we create <strong>classes</strong>, which provides an outline for an object. Classes consist of <strong>attributes</strong> and <strong>methods</strong>. Attributes allow us to keep track of and, more importantly, <em>modify</em> the state of our objects, something we couldn&#39;t do with ADTs. Methods, as opposed to functions, <em>must</em> be called on an <strong>instance</strong>. Before we go any further, let&#39;s sort out what all this new vocabulary means!</p>
+
+<h3>Terminology</h3>
+
+<p>It is very important to fully understand all the terms that are associated with OOP before you attempt to write any code.  </p>
+
+<ul>
+<li><strong>object:</strong> anything that has attributes and/or performs actions (think real life objects!)<br></li>
+<li><strong>class:</strong> a type or category of objects<br></li>
+<li><strong>instance:</strong>  a single object belonging to some class<br></li>
+<li><strong>instance attribute:</strong>  an attribute that is specific to each instance of a class</li>
+<li><strong>class attribute:</strong>  an attribute that is the same for all instances of a class<br></li>
+<li><strong>method:</strong>  an action that a single object can perform; a function that must be called on an instance</li>
+</ul>
+
+<h3>Example</h3>
+
+<p>Let&#39;s say we wanted to represent puppies as <strong>objects</strong>. Our <strong>class</strong> would be called <code>Puppy</code>. If we want two puppies we would create two <strong>instances</strong> of the <code>Puppy</code> class. Some attributes that are specific to each <code>Puppy</code> are its <code>name</code> and <code>favorite toys</code>. These will be <strong>instance attributes</strong>. It&#39;ll also be useful to keep track of the state of each puppy using <strong>instance attributes</strong>, such as a puppy&#39;s <code>hungriness</code> and <code>happiness</code> level. Let&#39;s say we want to keep the total number of puppies that exist. This would be stored as a <strong>class attribute</strong>, <code>num_puppies</code>, since it is the same for all puppies. Finally, what are our puppies able to do? They should be able to <code>bark</code>, <code>eat</code>, and <code>play</code>. These will be the <strong>methods</strong>.   </p>
+
+<p>If you&#39;re still having trouble differentiating between instance and class attributes, ask yourself this question: if I change this value for one object, must it change for all other objects? In this case, if one puppy <code>eat</code>s and decreases her <code>hungriness</code>, that will not directly affect any other <code>Puppy</code>&#39;s <code>hungriness</code> attribute. However, if more puppies are created and <code>num_puppies</code> gets incremented, this value increases for every <code>Puppy</code> in our puppy world.  </p>
+
+<p>Now let&#39;s implement it!</p>
+
+<h2>Implementation</h2>
+
+<p>Below is the implementation of our <code>Puppy</code> class. Read through it and try to figure out what each line does.</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Puppy</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Class representation of the best creatures to have walked our planet.&quot;&quot;&quot;</span>
+        <span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">fav_toys</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Sets the instance attributes. Instance attributes that start </span>
+<span class="sd">            off differently for each instance are passed through as arguments. </span>
+<span class="sd">            Otherwise, they are set to their default values in here. Every </span>
+<span class="sd">            time a Puppy is created, the class attribute num_puppies gets </span>
+<span class="sd">            incremented.&quot;&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fav_toys</span> <span class="o">=</span> <span class="n">fav_toys</span>  <span class="c"># list of favorite toys</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">=</span> <span class="mi">5</span>
+            <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Prints puppy&#39;s greeting. He just met you but he already loves </span>
+<span class="sd">            you!&quot;&quot;&quot;</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woof! I am {0} and I love you!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toy</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Puppies can eat if they&#39;re not too hungry. Playing will </span>
+<span class="sd">            increase a puppy&#39;s happiness (and hungriness)!&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> 
+                <span class="k">if</span> <span class="n">toy</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fav_toys</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="n">toy</span> <span class="o">+</span> <span class="s">&quot; is my favorite toy EVER.&quot;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">2</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;I am too hungry to play :(&quot;</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Puppies will eat if they&#39;re hungry. Eating will decrease a </span>
+<span class="sd">            puppy&#39;s hungriness and increase its happiness.&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">food</span> <span class="o">+</span> <span class="s">&quot; is my favorite thing to eat EVER.&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;No thanks! Let&#39;s play!&quot;</span><span class="p">)</span></code></pre></div>
+
+<h4>Test your understanding</h4>
+
+<ol>
+<li>What are all the instance attributes of a <code>Puppy</code>?
+<blockquote class="solution"><code>name</code>, <code>fav_toys</code>, <code>hungriness</code>, <code>happyiness</code></blockquote></li>
+<li>What is a puppy&#39;s name initialized to? What are its hungriness and happiness levels initialized to?
+<blockquote class="solution">The <code>name</code> argument passed to the constructor, <code>0</code>, <code>5</code> respectively.</blockquote></li>
+<li>What is the class attribute? Where does it change? What is it keeping track of?
+<blockquote class="solution"><code>num_puppies</code>, changes in constructor (when puppies are created), keeps track of total number puppies.</blockquote></li>
+<li>What common parameter do all methods have?
+<blockquote class="solution"><code>self</code></blockquote></li>
+<li>Does the <code>bark</code> method change the state of the <code>Puppy</code>?
+<blockquote class="solution">no, it does not change any attributes.</blockquote></li>
+<li>What must be passed through to the <code>play</code> method? 
+<blockquote class="solution">a toy argument of type string.</blockquote></li>
+<li>Under what condition will a <code>Puppy</code> <code>play</code>?
+<blockquote class="solution">if <code>hungriness</code> is less than <code>5</code>.</blockquote></li>
+<li>How much does playing increase the puppy&#39;s <code>happiness</code>?
+<blockquote class="solution">if <code>toy</code> is one of the puppies <code>fav_toys</code>, then <code>happiness</code> will increase by <code>2</code>. otherwise it increases by <code>1</code>.</blockquote></li>
+<li>How much does a puppy&#39;s <code>hungriness</code> increase by after playing?
+<blockquote class="solution"><code>hungriness</code> increases by <code>1</code> after playing</blockquote></li>
+<li>What must be passed through to the <code>eat</code> method?
+<blockquote class="solution">a food argument of type string.</blockquote></li>
+<li>Under what condition will a <code>Puppy</code> <code>eat</code>?<br>
+<blockquote class="solution">if hungriness is not <code>0</code>.</blockquote></li>
+<li>How does the state of the puppy change after eating?
+<blockquote class="solution"><code>hungriness</code> decreases by <code>1</code>, <code>happiness</code> increases by <code>1</code>.</blockquote></li>
+</ol>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<h2>Usage</h2>
+
+<p>Now that we have an outline of what <code>Puppy</code> object keeps track of and does, let&#39;s make some puppies!  </p>
+
+<h4>Instantiating</h4>
+
+<p>To create a new puppy object, use the <code>__init__</code> method. The <code>__init__</code> method is a magic method, which you&#39;ll learn more about later. For now, just know that you don&#39;t necessarily have to call it using <code>__init__</code>. Instead, just use the class name, like so:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy = Puppy(&#39;Spot&#39;, [&#39;rope&#39;, &#39;stick&#39;])
+</code></pre></div>
+<p>This puppy&#39;s name is <code>&#39;Spot&#39;</code> and his favorite toys are a <code>&#39;rope&#39;</code> and a <code>&#39;stick&#39;</code>. Notice that we do not have to pass anything through for the <code>self</code> parameter. This implicitly gets &quot;passed through&quot;; the new instance that we are creating gets assigned to <code>self</code>!  </p>
+
+<p>When <code>__init__</code> is called, all our instance variables get initialized. Now we can access them and even change them.</p>
+
+<h4>Accessing Attributes</h4>
+
+<p>Attributes must always be accessed using <strong>dot notation</strong>.<br>
+Instance attributes can only be accessed on an instance. This means that the instance comes before the dot, and the attribute comes after.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy.name
+&#39;Spot&#39;
+</code></pre></div>
+<p>Here, we are using an instance that we&#39;ve already created. We can also create a new instance and retrieve one of its attribute in one line.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; Puppy(&#39;Bear&#39;, [&#39;shoe&#39;, &#39;bone&#39;]).fav_toys
+[&#39;shoe&#39;, &#39;bone&#39;]
+</code></pre></div>
+<p>Class attributes work the same, except they can also be accessed using the class name. Recall that all instances have access to the class attributes, which have the same values for all instances.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; Puppy.num_puppies
+2
+&gt;&gt;&gt; puppy2 = Puppy(&#39;Titan&#39;)
+&gt;&gt;&gt; puppy2.num_puppies
+3
+&gt;&gt;&gt; my_puppy.num_puppies
+3
+</code></pre></div>
+<h4>Changing Attributes</h4>
+
+<p>You can change instance or class attributes by using an assignment statement. Changing instance attributes of one instance does not change attributes of other instances.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy.name = &#39;Boba&#39;
+&gt;&gt;&gt; my_puppy.name
+&#39;Boba&#39;
+&gt;&gt;&gt; puppy2.name 
+&#39;Titan&#39;
+</code></pre></div>
+<p>However, changing class attributes does change the value for all instances.    </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; Puppy.num_puppies = 10
+&gt;&gt;&gt; my_puppy.num_puppies
+10
+&gt;&gt;&gt; puppy2.num_puppies
+10
+</code></pre></div>
+<p>Here&#39;s the tricky part: attempting to change a class attribute while accessing it from an instance will create a <em>new instance attribute</em>, thereby not affecting the class attribute.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy.num_puppies += 5
+&gt;&gt;&gt; my_puppy.num_puppies
+15
+&gt;&gt;&gt; Puppy.num_puppies
+10
+&gt;&gt;&gt; puppy2.num_puppies
+10
+</code></pre></div>
+<p>Now, <code>my_puppy</code> no longer has access to the class attribute <code>num_puppies</code>, because it overwrote it with an instance attribute.</p>
+
+<h4>Calling Methods</h4>
+
+<p>To call a method, you must use dot notation just like with attributes. Otherwise, methods work just like functions; you call them using parentheses and pass through the appropriate arguments. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy.bark()
+Woof! I am Spot and I love you!
+</code></pre></div>
+<p>Notice that we did not pass through any arguments even though <code>bark</code> takes in one parameter <code>self</code>. Dot notation implicitly passes through the instance and assigns it to <code>self</code>. Thus, in the body, <code>self.name</code> is the same as <code>my_puppy.name</code>.  </p>
+
+<p>It is possible to call a method without using dot notation: you can access the method from the class and then pass through the instance as <code>self</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; Puppy.play(my_puppy, &#39;stick&#39;)
+stick is my favorite toy EVER.
+</code></pre></div>
+<p>Remember, without the parentheses, you are only accessing the function object!</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; my_puppy.play
+&lt;function Puppy.play ... &gt;
+&gt;&gt;&gt; my_puppy.play(&#39;rope&#39;)
+rope is my favorite toy EVER.
+</code></pre></div>
+<h4>Test your understanding</h4>
+
+<p>What would Python print after each of the following lines are inputted? Assume we have restarted the interpreter (i.e., ignore all of the above lines).</p>
+
+<pre><code>>>> puppy1 = Puppy('Hercules', ['squeaky duck'])
+>>> puppy1.hungriness
+<span class="solution-2">0</span>
+>>> Puppy.num_puppies
+<span class="solution-2">1</span>
+>>> puppy1.play('stick')
+>>> puppy2 = Puppy('Bruno', ['stick', 'ball'])
+>>> puppy1.num_puppies
+<span class="solution-2">2</span>
+>>> puppy2.play('stick')
+<span class="solution-2">'stick is my favorite toy EVER.'</span>
+>>> puppy2.play('ball')
+<span class="solution-2">'ball is my favorite toy EVER.'</span>
+>>> puppy1.happiness
+<span class="solution-2">6</span>
+>>> puppy2.happiness
+<span class="solution-2">9</span>
+>>> for _ in range(4):
+...     puppy1.play('ball')
+<span class="solution-2">I am too hungry to play :(</span>
+>>> puppy1.hungriness
+<span class="solution-2">5</span>
+>>> puppy1.eat('canned food')
+<span class="solution-2">canned food is my favorite thing to eat EVER.</span>
+>>> puppy1.hungriness
+<span class="solution-2">4</span>
+>>> puppy2.hungriness
+<span class="solution-2">2</span>
+>>> Puppy.num_puppies = 17
+>>> Puppy('Goob', ['stuffed rabbit']).num_puppies
+<span class="solution-2">18</span>
+>>> puppy1.num_puppies
+<span class="solution-2">18</span>
+>>> puppy2.num_puppies = 10
+>>> Puppy.num_puppies
+<span class="solution-2">18</span>
+>>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
+<span class="solution-2">Woof! I am Chewie and I love you!</span></code></pre>
+
+<p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a></p>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

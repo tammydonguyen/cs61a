@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Scheme</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Scheme</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr>
+
+<h2>Intro</h2>
+
+<p>Scheme, a dialect of another language called Lisp, is a very powerful functional programming language. In this class, we are only concerned with a very basic subset of the Scheme language which includes writing basic procedures, manipulating pairs and lists, writing tail recursive procedures, and working with streams. </p>
+
+<p>This guide assumes you know basic Scheme, including primitives, variable and procedure definitions, and call expressions. For a quick review, what would Scheme output after each of the following lines are input? </p>
+
+<pre><code>scm> (define x 3)  
+<span class="solution">x</span>
+scm> (define y (+ 10 x))  
+<span class="solution">y</span>
+scm> y
+<span class="solution">13</span>
+scm> (define (foo x y)  
+    (cond ((> x y) 1)
+        ((< x y) -1)
+        (else 0)))
+<span class="solution">foo</span>
+scm> 'foo
+<span class="solution">foo</span>
+scm> (eval '(foo y x))
+<span class="solution">1</span>
+scm> ((lambda (x y) (if (< x y) 'less-than 'greater-than)) y x)
+<span class="solution">greater-than</span>
+scm> '(a b c)
+<span class="solution">(a b c)</span></code></pre>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<p>If you had any trouble with this, take time to review the <a href="http://cs61a.org/lab/lab11/">Scheme lab</a>.</p>
+
+<h2>Lists</h2>
+
+<p>Lists in Scheme are a lot like Linked Lists in Python. Whereas a Linked List in Python is comprised of several <code>Link</code>s, a list in Scheme is made up of pairs.</p>
+
+<h4>Pairs</h4>
+
+<p>A pair is the fundamental sequential unit in Scheme. To create one, use <code>cons</code>. <code>cons</code> takes in two arguments and creates a pair out of them.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (cons 3 5)
+(3 . 5)
+</code></pre></div>
+<p>The elements in a pair are separated by a dot. To retrieve the first element, use <code>car</code>. To retrieve the second element, use <code>cdr</code>.</p>
+
+<p>scm&gt; (define lst (cons 2 3))
+  lst
+  scm&gt; (car lst)
+  2
+  scm&gt; (cdr (cons 4 5))
+  5</p>
+
+<p>The entries in a pair can be other pairs. </p>
+
+<p>scm&gt; (define lst (cons 3 (cons 4 5)))
+  lst
+  scm&gt; lst
+  (3 4 . 5)
+  scm&gt; (car lst)
+  3
+  scm&gt; (cdr lst)
+  (4 . 5)
+  scm&gt; (cdr (cdr lst))
+  5
+    scm&gt; (cons (cons 4 5) (cons 6 7))
+    ((4 . 5) 6 . 7)</p>
+
+<p>When Scheme sees a <code>.</code> immediately followed by an open parenthesis, it removes the dot, the open parenthesis, <em>and</em> the corresponding close parenthesis. This way, we can construct what&#39;s known as a <strong>well-formed list</strong> from a bunch of pairs!  </p>
+
+<h4>Well-formed lists</h4>
+
+<p>A well-formed list is actually just a pair whose first argument is the first element of the list and the second argument is another well-formed list. The last list argument is an empty list, or <code>nil</code>, to signify the end of the sequence.</p>
+
+<p>scm&gt; (cons 5 nil) ; one-element list
+  (5)
+  scm&gt; (cons 1 (cons 2 (cons 3 nil))) ; three-element list
+  (1 2 3)
+  scm&gt; (cons 1 (cons 2 (cons 3 &#39;()))) ; same as previous
+  (1 2 3)</p>
+
+<p>The take-away is this: <code>cons</code> can be used to create a list if and only if the first arugument is the first element of the list and the second argument is another list, which can be <code>nil</code>.</p>
+
+<p>scm&gt; (define first 1)
+  first
+  scm&gt; (define rest &#39;(2 3 4 5)) 
+  rest
+  scm&gt; (cons first rest)
+  (1 2 3 4 5)</p>
+
+<p>Notice above that it is possible to also create lists with <code>&#39;</code>. Keep in mind that this will create the exact list that comes after it, which means we can&#39;t do something like <code>&#39;(1 (cons 2 nil))</code>.   </p>
+
+<p>Scheme provides us with an alternate to <code>cons</code> that is much more succinct and readable: <code>list</code>. <code>list</code> takes in an arbitrary number of arguments and will simply create a well formed list of them.</p>
+
+<p>scm&gt; (list 1 2 3 4)
+  (1 2 3 4)</p>
+
+<p>Be careful, though; whereas with <code>cons</code> you can pass through the rest of the list as the second argument, passing lists through to <code>list</code> will create nested lists!</p>
+
+<p>scm&gt; (list 1 2 (list 3 4) 5)
+  (1 2 (3 4) 5)
+  scm&gt; (list 1 2 (cons 3 (cons 4 nil)) 5)
+  (1 2 (3 4) 5)</p>
+
+<p>You can check whether a list is empty using <code>(null? lst)</code>. This is like asking whether <code>(= lst nil)</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (null? nil)
+True
+scm&gt; (null? (list 1 2 3))
+False
+scm&gt; (null? &#39;())
+True
+</code></pre></div>
+<blockquote>
+<p><strong>Summary</strong><br>
+1. A list is a pair whose second entry is another list.<br>
+2. To construct a pair, use <code>cons</code>.<br>
+3. To construct a list using <code>cons</code>, pass through its first element as the first argument and the rest of the list as the second argument.
+4. To construct a list using <code>list</code>, pass through every element in the list.<br>
+5. To retrieve the first element of a pair or list, call <code>car</code>.<br>
+6. To retrieve the second element of a pair or the rest of a list, call <code>cdr</code>.  7. Check whether a list is empty using the predicate <code>null?</code>.</p>
+</blockquote>
+
+<p><a class="btn btn-default" href="/cs61a/practice-problems/scheme.html#lists">basic problems</a>&nbsp;&nbsp;
+<a class="btn btn-default" href="/cs61a/practice-problems/final.html#scheme-lists">exam-level problems</a></p>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

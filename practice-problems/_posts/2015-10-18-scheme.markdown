@@ -1,0 +1,107 @@
+---
+layout: post
+title:  "Scheme"
+date:   2015-10-18 11:14:11
+category: Practice Problems
+tags: scheme
+---
+
+**This page is under construction!**
+
+----
+
+<a name="lists" class="anchor"></a>
+## Lists
+1. Write a function `attach` which returns a new list with `elem` added to the end of a list. Do not use the built-in function `append`.
+        scm> (attach 1000 '())
+        (1000)
+        scm> (attach 4 '(1 2 3))
+        (1 2 3 4)
+        scm> (attach 2 (list 4 3 5))
+        (4 3 5 2)
+
+    <pre><code>(define (attach elem lst)
+    <span class="solution-prompt">  "YOUR CODE HERE"
+    )</span>
+    <span class="solution-p"> (if (null? lst) (list elem)
+      (cons (car lst) (attach elem (cdr lst))))
+    )</span></code></pre>
+    <a class="solution-toggle-p btn btn-default">toggle solution</a>
+        
+    What will the following call return?
+    <pre><code>scm> (attach '(d e) '(a b c))<br><span class="solution">(a b c (d e))</span></code></pre>
+    <a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a>
+
+2. Implement `append`, which takes two lists and combines them into one.
+
+    <pre><code>scm> (append '() '(1 2 3))
+(1 2 3)
+scm> (append '(a b c) '())
+(a b c)
+scm> (append '(c s) '(6 1 a))
+(c s 6 1 a)</code></pre>
+
+    <pre><code>(define (append lst1 lst2)
+    <span class="solution-3-prompt">  "YOUR CODE HERE"
+    )</span>
+    <span class="solution-3-p">  (if (null? lst1) lst2
+      &nbsp;(cons (car lst1) (append (cdr lst1) lst2)))
+    )</span></code></pre>
+    <a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a>
+
+<a name="tail" class="anchor"></a>
+## Tail Recursion
+1. Look at the solutions I've provided for `attach` and `append`. What are the tail calls? Are the functions tail recursive? 
+<blockquote class="solution-4">`attach` is not tail recursive. The tail calls are a call to `list` and a call to `cons`. The tail call for `append` is to `cons`. This is also not tail recursive, since the recursive call is passed as an argument to `cons`.  </blockquote>
+<a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a>
+
+2. Implement `len-tail`, which is a tail recursive procedure that returns the length of the input list.
+<blockquote class="solution-3">**Hint:** Use a helper function to keep track of and increment the length.</blockquote> 
+<pre><code>scm> (len-tail '())
+0
+scm> (len-tail '(1 2 3))
+3</code></pre>
+    <pre><code>(define (len-tail lst)
+    <span class="solution-5-prompt">  "YOUR CODE HERE"
+    )</span>
+    <span class="solution-5-p">  (define (helper lst result) 
+      &nbsp; (if (null? lst) result
+      &nbsp; (helper (cdr lst) (+ 1 result))))
+     (helper lst 0)
+    )</span></code></pre>
+    <a class="solution-toggle-5-p btn btn-default">TOGGLE SOLUTION</a> &nbsp; <a class="solution-toggle-3 btn btn-default">TOGGLE HINT</a>
+
+2. Without using `len-tail`, implement `compare-len`, which takes in two lists and outputs 0 if they're the same length, 1 if `lst1` is longer, or `2` if `lst2` is longer.
+<pre><code>scm> (compare-len (list 1 2 3) (list 4 5 6)
+0
+scm>  (compare-len '(3 3 3 3) '(5 5 5))
+1
+scm>  (compare-len '(h i) '(b y e))
+2</code></pre>
+    <pre><code>(define (compare-len lst1 lst2)
+    <span class="solution-6-prompt">  "YOUR CODE HERE"
+    )</span>
+    <span class="solution-6-p">  (cond ((and (null? lst1) (null? lst2)) 0)
+     &nbsp; &nbsp; &nbsp; ((null? lst1) 1)
+     &nbsp; &nbsp; &nbsp; ((null? lst2) 2)
+     &nbsp; &nbsp; &nbsp; (else (compare-len (cdr lst1) (cdr lst2))))
+    )</span></code></pre>
+    <a class="solution-toggle-6-p btn btn-default">TOGGLE SOLUTION</a>
+
+<a name="streams" class="anchor"></a>
+## Streams
+1. Write a function `powers` that returns a stream of all the powers of `n`. 
+<pre><code>scm> (powers 3)
+(3 . #[promise (not forced)])
+scm> (stream-to-list (powers 3) 10)
+(3 9 27 81 243 729 2187 6561 19683 59049)
+scm> (stream-to-list (powers 2) 10)
+(2 4 8 16 32 64 128 256 512 1024)</code></pre>
+    <pre><code>(define (powers n)
+    <span class="solution-4-prompt">  "YOUR CODE HERE"
+    )</span>
+    <span class="solution-4-p">  (define (helper curr)
+     &nbsp; &nbsp;(cons-stream curr (helper (* n curr))))
+     &nbsp; &nbsp;(helper n)
+    )</span></code></pre>
+<a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a>

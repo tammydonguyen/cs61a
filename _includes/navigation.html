@@ -1,0 +1,78 @@
+<div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">{{ site.name }}</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      {% for post in site.categories['guides'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      {% for post in site.categories['practice-problems'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      {% for post in site.categories['other'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="{{ site.baseurl }}/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    {% unless page.path contains '_posts' %}
+    <div style="margin: 10px 40px">{{ site.description }}</div>
+    {% endunless %}
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      {% for post in site.categories['guides'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      {% for post in site.categories['practice-problems'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      {% for post in site.categories['other'] %}
+        <li> 
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <hr />
+  </ul>
+</div>

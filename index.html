@@ -1,0 +1,35 @@
+---
+title: CS 61A Resources
+layout: default
+---
+
+<div id="welcome-greeting">
+  <h1>{{site.name}}</h1>
+</div>
+
+<div class="recent-posts">
+  <h1>Guides</h1>
+  {% for post in site.categories['guides'] %}
+        <h4>
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </h4>
+  {% endfor %}
+</div>
+
+<div class="recent-posts">
+  <h1>Practice Problems</h1>
+  {% for post in site.categories['practice-problems'] %}
+        <h4>
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </h4>
+  {% endfor %}
+</div>
+
+<div class="recent-posts">
+  <h1>Other</h1>
+  {% for post in site.categories['other'] %}
+        <h4>
+          <a href="{{ post.url }}"> {{ post.title }} </a>
+        </h4>
+  {% endfor %}
+</div>

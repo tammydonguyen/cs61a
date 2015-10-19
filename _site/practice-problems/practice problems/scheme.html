@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Scheme</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Scheme</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr>
+
+<p><a name="lists" class="anchor"></a></p>
+
+<h2>Lists</h2>
+
+<ol>
+<li><p>Write a function <code>attach</code> which returns a new list with <code>elem</code> added to the end of a list. Do not use the built-in function <code>append</code>.
+    scm&gt; (attach 1000 &#39;())
+    (1000)
+    scm&gt; (attach 4 &#39;(1 2 3))
+    (1 2 3 4)
+    scm&gt; (attach 2 (list 4 3 5))
+    (4 3 5 2)</p>
+
+<pre><code>(define (attach elem lst)
+<span class="solution-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-p"> (if (null? lst) (list elem)
+  (cons (car lst) (attach elem (cdr lst))))
+)</span></code></pre>
+
+<p><a class="solution-toggle-p btn btn-default">toggle solution</a></p>
+
+<p>What will the following call return?
+<pre><code>scm&gt; (attach &#39;(d e) &#39;(a b c))<br><span class="solution">(a b c (d e))</span></code></pre>
+<a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p></li>
+<li><p>Implement <code>append</code>, which takes two lists and combines them into one.</p>
+
+<pre><code>scm> (append '() '(1 2 3))
+(1 2 3)
+scm> (append '(a b c) '())
+(a b c)
+scm> (append '(c s) '(6 1 a))
+(c s 6 1 a)</code></pre>
+
+<pre><code>(define (append lst1 lst2)
+<span class="solution-3-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-3-p">  (if (null? lst1) lst2
+  &nbsp;(cons (car lst1) (append (cdr lst1) lst2)))
+)</span></code></pre>
+
+<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p></li>
+</ol>
+
+<p><a name="tail" class="anchor"></a></p>
+
+<h2>Tail Recursion</h2>
+
+<ol>
+<li><p>Look at the solutions I&#39;ve provided for <code>attach</code> and <code>append</code>. What are the tail calls? Are the functions tail recursive? 
+<blockquote class="solution-4"><code>attach</code> is not tail recursive. The tail calls are a call to <code>list</code> and a call to <code>cons</code>. The tail call for <code>append</code> is to <code>cons</code>. This is also not tail recursive, since the recursive call is passed as an argument to <code>cons</code>.  </blockquote>
+<a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a></p></li>
+<li><p>Implement <code>len-tail</code>, which is a tail recursive procedure that returns the length of the input list.
+<blockquote class="solution-3"><strong>Hint:</strong> Use a helper function to keep track of and increment the length.</blockquote> 
+<pre><code>scm&gt; (len-tail &#39;())
+0
+scm&gt; (len-tail &#39;(1 2 3))
+3</code></pre>
+<pre><code>(define (len-tail lst)
+<span class="solution-5-prompt">  &quot;YOUR CODE HERE&quot;
+)</span>
+<span class="solution-5-p">  (define (helper lst result) 
+  &nbsp; (if (null? lst) result
+  &nbsp; (helper (cdr lst) (+ 1 result))))
+ (helper lst 0)
+)</span></code></pre>
+<a class="solution-toggle-5-p btn btn-default">TOGGLE SOLUTION</a> &nbsp; <a class="solution-toggle-3 btn btn-default">TOGGLE HINT</a></p></li>
+<li><p>Without using <code>len-tail</code>, implement <code>compare-len</code>, which takes in two lists and outputs 0 if they&#39;re the same length, 1 if <code>lst1</code> is longer, or <code>2</code> if <code>lst2</code> is longer.
+<pre><code>scm&gt; (compare-len (list 1 2 3) (list 4 5 6)
+0
+scm&gt;  (compare-len &#39;(3 3 3 3) &#39;(5 5 5))
+1
+scm&gt;  (compare-len &#39;(h i) &#39;(b y e))
+2</code></pre>
+<pre><code>(define (compare-len lst1 lst2)
+<span class="solution-6-prompt">  &quot;YOUR CODE HERE&quot;
+)</span>
+<span class="solution-6-p">  (cond ((and (null? lst1) (null? lst2)) 0)
+ &nbsp; &nbsp; &nbsp; ((null? lst1) 1)
+ &nbsp; &nbsp; &nbsp; ((null? lst2) 2)
+ &nbsp; &nbsp; &nbsp; (else (compare-len (cdr lst1) (cdr lst2))))
+)</span></code></pre>
+<a class="solution-toggle-6-p btn btn-default">TOGGLE SOLUTION</a></p></li>
+</ol>
+
+<p><a name="streams" class="anchor"></a></p>
+
+<h2>Streams</h2>
+
+<ol>
+<li>Write a function <code>powers</code> that returns a stream of all the powers of <code>n</code>. 
+<pre><code>scm&gt; (powers 3)
+(3 . #[promise (not forced)])
+scm&gt; (stream-to-list (powers 3) 10)
+(3 9 27 81 243 729 2187 6561 19683 59049)
+scm&gt; (stream-to-list (powers 2) 10)
+(2 4 8 16 32 64 128 256 512 1024)</code></pre>
+<pre><code>(define (powers n)
+<span class="solution-4-prompt">  &quot;YOUR CODE HERE&quot;
+)</span>
+<span class="solution-4-p">  (define (helper curr)
+ &nbsp; &nbsp;(cons-stream curr (helper (* n curr))))
+ &nbsp; &nbsp;(helper n)
+)</span></code></pre>
+<a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a></li>
+</ol>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

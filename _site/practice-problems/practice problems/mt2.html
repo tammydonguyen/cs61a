@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Midterm 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Midterm 2</div>
+  <hr/>
+  <div class="post">
+    <p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
+
+<hr>
+
+<p><a name="nonlocal" class="anchor"></a></p>
+
+<h2>Nonlocal and Higher Order Functions</h2>
+
+<p>Draw the environment diagram for the following code:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">def what(a, b):
+    x = a
+    def ha(ha):
+        nonlocal x
+        x = ha * 2
+        return x
+    return b(ha(x), x)
+
+what(4, lambda x, y : x + y)
+</code></pre></div>
+<p><a class="btn btn-default" target="_blank" href="http://pythontutor.com/visualize.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&mode=display&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">OPEN SOLUTION</a>  </p>
+
+<p>What makes <code>what</code> a higher order function?
+a. it returns a function (what function?)
+b. it takes in a function as an argument</p>
+
+<blockquote class="solution-4">`what` is not actually returning a function, but rather a function *call* to `b`. What makes it a higher order function is that it takes in a function as its second argument.</blockquote>
+
+<p><a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p>Write the simplest function possible (1-2 lines) that does the exact same thing as <code>what</code> for any input <code>a</code>, <code>b</code>. </p>
+
+<pre class="solution-3"><code>def foo(a, b):
+    a *= 2
+    return b(a, a)</code></pre>
+
+<p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="scope" class="anchor"></a></p>
+
+<h2>Variable Scope</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">from operator import sub
+
+this = lambda a, b : lambda c: a(b, c)
+d = 30
+
+def that(e, f):
+    if e and f:
+        e, d = f(sub, e)(5), e
+    else:
+        print(e)
+        d = 20
+    def this(g):
+       return lambda : print(g(d, e))
+    return this
+</code></pre></div>
+<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it. </p>
+
+<pre><code>>>> this(sub, d)()
+<span class="solution">Error, second function call missing an argument</span>
+>>> this(print, 40)(d)
+<span class="solution">40 30</span>
+>>> this(lambda x, y : y, d)(20)
+<span class="solution">20</span>
+>>> that(d, 0)(sub)
+<span class="solution">30<br><\function ...></span>
+>>> other = that(10, this)(print)
+<span class="solution"></span>
+>>> other() 
+<span class="solution">10 5<br>None</span></code></pre>
+
+<p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="list-mut" class="anchor"></a> </p>
+
+<h2>List Mutability</h2>
+
+<p>Draw the environment diagram for the following code.  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">wow = [0, &#39;c&#39;, &#39;s&#39;]
+
+def f(x):
+    omg = []
+    y = lambda : x - 5
+    def g():
+        nonlocal x
+        while x &gt; len(omg):
+            x = y()
+            omg.append(x)
+        return omg[0:2]
+    return g()
+
+lol = f(11)
+wow.extend(lol)
+lol = wow + [&#39;a&#39;]
+wow = lol[1:]
+</code></pre></div>
+<p><a class="btn btn-default" target="_blank" href="http://www.pythontutor.com/visualize.html#code=wow+%3D+%5B0,+'c',+'s'%5D%0A%0Adef+f(x%29%3A%0A++++omg+%3D+%5B%5D%0A++++y+%3D+lambda+%3A+x+-+5%0A++++def+g(%29%3A%0A++++++++nonlocal+x%0A++++++++while+x+%3E+len(omg%29%3A%0A++++++++++++x+%3D+y(%29%0A++++++++++++omg.append(x%29%0A++++++++return+omg%5B0%3A2%5D%0A++++return+g(%29%0A%0Alol+%3D+f(11%29%0Awow.extend(lol%29%0Alol+%3D+wow+%2B+%5B'a'%5D%0Awow+%3D+lol%5B1%3A%5D&mode=display&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=28">OPEN SOLUTION</a></p>
+
+<p><a name="link" class="anchor"></a> </p>
+
+<h2>Mutable Linked Lists</h2>
+
+<p>Implement <code>multiply</code>, which takes in a Linked List and mutates it so that each link is duplicated by the amount of its entry. See the doctests for examples.</p>
+
+<pre><code>def multiply(link):
+    """ 
+    >>> link = Link(2, Link(3))
+    >>> multiply(link)
+    >>> link
+    Link(2, Link(2, Link(3, Link(3, Link(3)))))
+    >>> link = Link(4, Link(1, Link(2)))
+    >>> multiply(link)
+    >>> link
+    Link(4, Link(4, Link(4, Link(4, Link(1, Link(2, Link(2)))))))
+    """ 
+    <span class="solution-prompt">"*** YOUR CODE HERE ***"</span>
+    <span class="solution-p">def helper(link, count):
+        if count == 1 and link.rest != Link.empty:
+            multiply(link.rest)
+        elif count != 1 and link != Link.empty:
+            link.rest = Link(link.first, link.rest)
+            helper(link.rest, count - 1)
+    helper(link, link.first)</span></code></pre>
+
+<p><a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="iter" class="anchor"></a>  </p>
+
+<h2>Iterables and Iterators</h2>
+
+<ol>
+<li>Implement <code>mimic_list</code> so that it behaves like Python&#39;s built-in <code>list</code> constructor. See WWPP answers for examples of the behavior.</li>
+</ol>
+
+<pre><code>def mimic_list(iterable):
+    """ mimics the behavior of the built-in list constructor """
+    <span class="solution-3-prompt">"*** YOUR CODE HERE ***"</span>
+    <span class="solution-3-p">i = iter(iterable) # get iterable's iterator object
+lst = []  # create an empty list
+try:
+    while True:   # add every elem in sequence to lst
+        curr = next(i)
+        lst.append(curr)
+except StopIteration as e: # return lst when the sequence is done
+    return lst  </span></code></pre>
+
+<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><span>2</span>. Recall that all <code>__iter__</code> methods must return an iterator type. Well, a generator <em>is</em> an iterator, so you can write <code>__iter__</code> to be a generator function! Write the <code>__iter__</code> method for BinaryTree such that it returns a generator. Calling <code>next</code> on this generator will return the elements of the BinaryTree in ascending order. Assume that all instances of BinaryTree fall under the constraints of a binary <em>search</em> tree: </p>
+
+<ul>
+<li>the root entry is greater than or equal to all entries in the left side of the BinaryTree</li>
+<li>the root entry is lses than or equal to all entries in the right side of the BinaryTree<br></li>
+</ul>
+
+<pre><code>class BinarySearchTree:
+    empty = ()
+
+    def __init__(self, entry, left=empty, right=empty):
+        self.entry = entry
+        if left: assert isinstance(left, BinaryTree) 
+        if right: assert isinstance(right, BinaryTree)
+        self.left = left
+        self.right = right
+
+    def __iter__(self):
+        """
+        >>> tree = BinaryTree(4, BinaryTree(2), BinaryTree(7, BinaryTree(5)))
+        >>> for entry in tree:
+        ...     print(entry)
+        2
+        4
+        5
+        7
+        """
+        <span class="solution-4-prompt">"*** YOUR CODE HERE ***"</span>
+    <span class="solution-4-p">    for value in self.left:
+        yield value
+
+    yield self.entry
+
+    for value in self.right:
+        yield value</span></code></pre>
+
+<p><a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a></p>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Final Practice Problems</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Final Practice Problems</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr>
+
+<p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
+
+<hr>
+
+<p><a name="scheme-lists" class="anchor"></a></p>
+
+<h2>Scheme Lists</h2>
+
+<p>Write a function <code>non-contiguous</code> that checks whether <code>subseq</code> is a non-contiguous subsequence of <code>lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (non-contiguous &#39;() lst)
+True
+scm&gt; (non-contiguous &#39;(1 3 6) &#39;(1 2 3 4 5 6))
+True
+scm&gt; (non-contiguous &#39;(1 5 2) &#39;(1 2 3 4 5 6))
+False
+</code></pre></div>
+<pre><code>(define (non-contiguous subseq lst)
+<span class="solution-2-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-2-p">  (cond ((null? subseq) #t)
+        ((null? lst) #f)
+        ((= (car subseq) (car lst)) (non-contiguous (cdr subseq) (cdr lst)))
+        (else (non-contiguous subseq (cdr lst))))
+)</span></code></pre>
+
+<p><a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="tail" class="anchor"></a></p>
+
+<h2>Tail Recursion</h2>
+
+<p>Write <code>keep-first-n</code> which takes a list and a number <code>n</code> and returns a list that consists of the first <code>n</code> numbers of <code>n</code>, assuming <code>lst</code> is at least length <code>n</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (keep-first-n (list 1 2 3 4 5) 3)
+(1 2 3)
+scm&gt; (keep-first-n (list &#39;a &#39;b &#39;c) 1)
+(a)
+</code></pre></div>
+<pre><code>(define (keep-first-n lst n)
+<span class="solution-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-p">  (define (helper i result lst)
+    (if (= i n) result
+        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
+    )
+  (helper 0 '() lst))
+)</span></code></pre>
+
+<p><a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a>&nbsp;&nbsp; <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep">EXPLANATION</a></p>
+
+<p><a name="stream" class="anchor"></a></p>
+
+<h2>Streams</h2>
+
+<p>Write a function that creates a cyclic stream out of the first <code>n</code> elements of <code>lst</code>, or the entire <code>lst</code> if the length of <code>lst</code> is less than <code>n</code>. </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (cycle-first-n 3 (list 1 2 3 4))
+(1 . #[promise (not forced)])
+scm&gt; (stream-to-list (cycle-first-n 3 (list 1 2 3 4)) 10)  ; prints stream as list
+(1 2 3 1 2 3 1 2 3 1)
+scm&gt; (stream-to-list (cycle-first-n 7 (list 1 2 3 4)) 10)
+(1 2 3 4 1 2 3 4 1 2)
+</code></pre></div>
+<pre><code>(define (cycle-first-n n lst)
+<span class="solution-3-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-3-p">  (define (stream-helper i curr-lst)
+    (if (or (zero? i) (null? curr-lst))
+        (cycle-first-n n lst)
+        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
+    ))
+  (stream-helper n lst))
+)</span></code></pre>
+
+<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="sql" class="anchor"></a></p>
+
+<h2>SQL</h2>
+
+<p>Check back later!</p>
+
+<!-- <pre><code>(define (cycle-first-n n lst)
+<span class="solution-4-prompt">  "YOUR CODE HERE"
+)</span>
+<span class="solution-4-p">  (define (stream-helper i curr-lst)
+    (if (or (zero? i) (null? curr-lst))
+        (cycle-first-n n lst)
+        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
+    ))
+  (stream-helper n lst))
+)</span></code></pre>
+<a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a> -->
+
+<p><a name="logic" class="anchor"></a></p>
+
+<h2>Logic</h2>
+
+<p>Write a fact that states that one list is a suffix of another list.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(query (suffix (a b c) (a b c)))
+; expect Success!
+(query (suffix (4 5) (1 2 3 4 5)))
+; expect Success!
+(query (suffix (1 2) (1 2 3 4 5)))
+; expect Failed.
+</code></pre></div>
+<pre class="solution-5"><code>(fact (suffix ?suf ?suf))
+(fact (suffix ?suf (?first . ?rest))
+      (suffix ?suf ?rest))</code></pre>
+
+<p class="solution-6">**Explanation:** Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When `?rest` is assigned to a list that is the same as `?suf`, the fact becomes a `Success!`.</p>
+
+<p><a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a> &nbsp;
+<a class="solution-toggle-6 btn btn-default">TOGGLE EXPLANATION</a></p>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

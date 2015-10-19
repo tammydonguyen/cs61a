@@ -1,0 +1,237 @@
+---
+layout: post
+title:  "Object Oriented Programming"
+date:   2015-10-18 11:14:11
+category: guides
+---
+
+**This page is under construction!**
+
+----
+## Basics  
+So far in this course we've been writing programs using functions and built-in data types. We've also created our own abstract data types (such as the `link` and `tree` ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable. 
+
+Object oriented programming introduces another paradigm for us to represent and organize our data types. Using OOP, we create **classes**, which provides an outline for an object. Classes consist of **attributes** and **methods**. Attributes allow us to keep track of and, more importantly, *modify* the state of our objects, something we couldn't do with ADTs. Methods, as opposed to functions, *must* be called on an **instance**. Before we go any further, let's sort out what all this new vocabulary means!
+
+### Terminology  
+It is very important to fully understand all the terms that are associated with OOP before you attempt to write any code.  
+
+- **object:** anything that has attributes and/or performs actions (think real life objects!)  
+- **class:** a type or category of objects    
+- **instance:**  a single object belonging to some class  
+- **instance attribute:**  an attribute that is specific to each instance of a class
+- **class attribute:**  an attribute that is the same for all instances of a class  
+- **method:**  an action that a single object can perform; a function that must be called on an instance
+
+### Example
+Let's say we wanted to represent puppies as **objects**. Our **class** would be called `Puppy`. If we want two puppies we would create two **instances** of the `Puppy` class. Some attributes that are specific to each `Puppy` are its `name` and `favorite toys`. These will be **instance attributes**. It'll also be useful to keep track of the state of each puppy using **instance attributes**, such as a puppy's `hungriness` and `happiness` level. Let's say we want to keep the total number of puppies that exist. This would be stored as a **class attribute**, `num_puppies`, since it is the same for all puppies. Finally, what are our puppies able to do? They should be able to `bark`, `eat`, and `play`. These will be the **methods**.   
+
+If you're still having trouble differentiating between instance and class attributes, ask yourself this question: if I change this value for one object, must it change for all other objects? In this case, if one puppy `eat`s and decreases her `hungriness`, that will not directly affect any other `Puppy`'s `hungriness` attribute. However, if more puppies are created and `num_puppies` gets incremented, this value increases for every `Puppy` in our puppy world.  
+
+Now let's implement it!
+
+## Implementation
+Below is the implementation of our `Puppy` class. Read through it and try to figure out what each line does.
+
+{% highlight python %}
+    class Puppy:
+        """Class representation of the best creatures to have walked our planet."""
+        num_puppies = 0
+
+        def __init__(self, name, fav_toys):
+            """Sets the instance attributes. Instance attributes that start 
+            off differently for each instance are passed through as arguments. 
+            Otherwise, they are set to their default values in here. Every 
+            time a Puppy is created, the class attribute num_puppies gets 
+            incremented."""
+            self.name = name
+            self.fav_toys = fav_toys  # list of favorite toys
+            self.hungriness = 0
+            self.happiness = 5
+            Puppy.num_puppies += 1
+
+        def bark(self):
+            """Prints puppy's greeting. He just met you but he already loves 
+            you!"""
+            print("Woof! I am {0} and I love you!".format(self.name))
+
+        def play(self, toy):
+            """Puppies can eat if they're not too hungry. Playing will 
+            increase a puppy's happiness (and hungriness)!"""
+            if self.hungriness < 5: 
+                if toy in self.fav_toys:
+                    print(toy + " is my favorite toy EVER.")
+                    self.happiness += 2
+                else:
+                    self.happiness += 1
+                self.hungriness += 1
+            else:
+                print("I am too hungry to play :(")
+
+        def eat(self, food):
+            """Puppies will eat if they're hungry. Eating will decrease a 
+            puppy's hungriness and increase its happiness."""
+            if self.hungriness:
+                print(food + " is my favorite thing to eat EVER.")
+                self.hungriness -= 1
+                self.happiness += 1
+            else:
+                print("No thanks! Let's play!")
+{% endhighlight %}
+
+#### Test your understanding
+1. What are all the instance attributes of a `Puppy`?
+<blockquote class="solution">`name`, `fav_toys`, `hungriness`, `happyiness`</blockquote>
+2. What is a puppy's name initialized to? What are its hungriness and happiness levels initialized to?
+<blockquote class="solution">The `name` argument passed to the constructor, `0`, `5` respectively.</blockquote>
+3. What is the class attribute? Where does it change? What is it keeping track of?
+<blockquote class="solution">`num_puppies`, changes in constructor (when puppies are created), keeps track of total number puppies.</blockquote>
+4. What common parameter do all methods have?
+<blockquote class="solution">`self`</blockquote>
+5. Does the `bark` method change the state of the `Puppy`?
+<blockquote class="solution">no, it does not change any attributes.</blockquote>
+6. What must be passed through to the `play` method? 
+<blockquote class="solution">a toy argument of type string.</blockquote>
+7. Under what condition will a `Puppy` `play`?
+<blockquote class="solution">if `hungriness` is less than `5`.</blockquote>
+8. How much does playing increase the puppy's `happiness`?
+<blockquote class="solution">if `toy` is one of the puppies `fav_toys`, then `happiness` will increase by `2`. otherwise it increases by `1`.</blockquote>
+9. How much does a puppy's `hungriness` increase by after playing?
+<blockquote class="solution">`hungriness` increases by `1` after playing</blockquote>
+10. What must be passed through to the `eat` method?
+<blockquote class="solution">a food argument of type string.</blockquote>
+11. Under what condition will a `Puppy` `eat`?  
+<blockquote class="solution">if hungriness is not `0`.</blockquote>
+12. How does the state of the puppy change after eating?
+<blockquote class="solution">`hungriness` decreases by `1`, `happiness` increases by `1`.</blockquote>
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+## Usage
+Now that we have an outline of what `Puppy` object keeps track of and does, let's make some puppies!  
+
+#### Instantiating
+To create a new puppy object, use the `__init__` method. The `__init__` method is a magic method, which you'll learn more about later. For now, just know that you don't necessarily have to call it using `__init__`. Instead, just use the class name, like so:
+
+    >>> my_puppy = Puppy('Spot', ['rope', 'stick'])
+
+This puppy's name is `'Spot'` and his favorite toys are a `'rope'` and a `'stick'`. Notice that we do not have to pass anything through for the `self` parameter. This implicitly gets "passed through"; the new instance that we are creating gets assigned to `self`!  
+  
+When `__init__` is called, all our instance variables get initialized. Now we can access them and even change them.
+
+#### Accessing Attributes
+Attributes must always be accessed using **dot notation**.  
+Instance attributes can only be accessed on an instance. This means that the instance comes before the dot, and the attribute comes after.
+
+    >>> my_puppy.name
+    'Spot'
+
+Here, we are using an instance that we've already created. We can also create a new instance and retrieve one of its attribute in one line.
+
+    >>> Puppy('Bear', ['shoe', 'bone']).fav_toys
+    ['shoe', 'bone']
+
+Class attributes work the same, except they can also be accessed using the class name. Recall that all instances have access to the class attributes, which have the same values for all instances.
+
+    >>> Puppy.num_puppies
+    2
+    >>> puppy2 = Puppy('Titan')
+    >>> puppy2.num_puppies
+    3
+    >>> my_puppy.num_puppies
+    3
+
+#### Changing Attributes
+You can change instance or class attributes by using an assignment statement. Changing instance attributes of one instance does not change attributes of other instances.
+
+    >>> my_puppy.name = 'Boba'
+    >>> my_puppy.name
+    'Boba'
+    >>> puppy2.name 
+    'Titan'
+
+However, changing class attributes does change the value for all instances.    
+
+    >>> Puppy.num_puppies = 10
+    >>> my_puppy.num_puppies
+    10
+    >>> puppy2.num_puppies
+    10
+
+Here's the tricky part: attempting to change a class attribute while accessing it from an instance will create a *new instance attribute*, thereby not affecting the class attribute.
+
+    >>> my_puppy.num_puppies += 5
+    >>> my_puppy.num_puppies
+    15
+    >>> Puppy.num_puppies
+    10
+    >>> puppy2.num_puppies
+    10
+
+Now, `my_puppy` no longer has access to the class attribute `num_puppies`, because it overwrote it with an instance attribute.
+
+#### Calling Methods
+To call a method, you must use dot notation just like with attributes. Otherwise, methods work just like functions; you call them using parentheses and pass through the appropriate arguments. 
+
+
+    >>> my_puppy.bark()
+    Woof! I am Spot and I love you!
+
+Notice that we did not pass through any arguments even though `bark` takes in one parameter `self`. Dot notation implicitly passes through the instance and assigns it to `self`. Thus, in the body, `self.name` is the same as `my_puppy.name`.  
+
+It is possible to call a method without using dot notation: you can access the method from the class and then pass through the instance as `self`.
+
+    >>> Puppy.play(my_puppy, 'stick')
+    stick is my favorite toy EVER.
+
+
+Remember, without the parentheses, you are only accessing the function object!
+
+    >>> my_puppy.play
+    <function Puppy.play ... >
+    >>> my_puppy.play('rope')
+    rope is my favorite toy EVER.
+
+#### Test your understanding
+What would Python print after each of the following lines are inputted? Assume we have restarted the interpreter (i.e., ignore all of the above lines).
+
+<pre><code>>>> puppy1 = Puppy('Hercules', ['squeaky duck'])
+>>> puppy1.hungriness
+<span class="solution-2">0</span>
+>>> Puppy.num_puppies
+<span class="solution-2">1</span>
+>>> puppy1.play('stick')
+>>> puppy2 = Puppy('Bruno', ['stick', 'ball'])
+>>> puppy1.num_puppies
+<span class="solution-2">2</span>
+>>> puppy2.play('stick')
+<span class="solution-2">'stick is my favorite toy EVER.'</span>
+>>> puppy2.play('ball')
+<span class="solution-2">'ball is my favorite toy EVER.'</span>
+>>> puppy1.happiness
+<span class="solution-2">6</span>
+>>> puppy2.happiness
+<span class="solution-2">9</span>
+>>> for _ in range(4):
+...     puppy1.play('ball')
+<span class="solution-2">I am too hungry to play :(</span>
+>>> puppy1.hungriness
+<span class="solution-2">5</span>
+>>> puppy1.eat('canned food')
+<span class="solution-2">canned food is my favorite thing to eat EVER.</span>
+>>> puppy1.hungriness
+<span class="solution-2">4</span>
+>>> puppy2.hungriness
+<span class="solution-2">2</span>
+>>> Puppy.num_puppies = 17
+>>> Puppy('Goob', ['stuffed rabbit']).num_puppies
+<span class="solution-2">18</span>
+>>> puppy1.num_puppies
+<span class="solution-2">18</span>
+>>> puppy2.num_puppies = 10
+>>> Puppy.num_puppies
+<span class="solution-2">18</span>
+>>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
+<span class="solution-2">Woof! I am Chewie and I love you!</span></code></pre>
+
+<a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>

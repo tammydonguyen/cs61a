@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Tail Recursion</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/hc.css" rel="stylesheet">
+<link href="/css/slidin.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <li class="cat1-toggle"><h5>Guides</h5></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h5>Practice Problems</h5></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h5>Other</h5></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/"><h1 class="brand">Resources</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/practice-problems/practice%20problems/final.html"> Final Practice Problems </a>
+        </li>
+      
+    </div>
+    <li class="cat3-toggle"><h4>Other</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+        </li>
+      
+    </div>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Tail Recursion</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr>
+
+<p>Scheme supports optimized tail recursion, meaning that if a function is called in <strong>tail context</strong>, Scheme will close the frame that called it and simply return the value that the tail call returns. Scheme thus allows for an unbounded number of tail calls, unlike Python, which will raise a <code>RuntimeError: &#39;maximum recursion depth exceeded&#39;</code> because all the frames stay open. </p>
+
+<p>To write a tail-call optimized function in Scheme, you must make all recursive calls in a tail context.</p>
+
+<hr>
+
+<h4>Tail Context</h4>
+
+<p>An expression is in a <strong>tail context</strong> if it is the last expression to be evaluated in the frame. Thus, a call expression is a <strong>tail call</strong> if it is one of the following:  </p>
+
+<ul>
+<li>the last sub-expression in the body of a tail-context <code>lambda</code> expression</li>
+<li>the second or third sub-expression in a tail-context <code>if</code> expression</li>
+<li>a non-predicate sub-expression in a tail-context <code>cond</code> expression</li>
+<li>the last sub-expression in a tail-context <code>and</code> or <code>or</code> expression</li>
+<li>the last sub-expression in a tail-context <code>begin</code> expression</li>
+</ul>
+
+<p>A function is then <strong>tail recursive</strong> if the recursive call(s) is a/are tail call(s).</p>
+
+<h5>Test your understanding</h5>
+
+<p><strong>Answer these questions for the following functions.</strong> 
+1. What are the tail calls? 
+2. Are the recursive calls tail calls? 
+3. Is the function tail recursive? </p>
+
+<div class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)</span> 
+            <span class="p">(</span><span class="nf">foo</span> <span class="p">(</span><span class="nb">- </span><span class="nv">x</span> <span class="nv">y</span><span class="p">))</span> 
+            <span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)))</span></code></pre></div>
+
+<p><span class="solution">1. <code>(foo (- x y))</code> is a tail call because it is the second subexpression in the <code>if</code> expresssion. <code>(+ x y)</code> is also a tail call because it is the third subexpression in the <code>if</code> expression.<br>
+2. Yes, the recursive call <code>(foo (- x y))</code> is a tail call.<br>
+3. Yes, because the recursive call is a tail call. </span>
+<a class="btn btn-default solution-toggle">toggle solution</a></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (bar x)
+    (if (bar x) x
+        (- (bar 9) 1))
+</code></pre></div>
+<p><span class="solution-2">1. <code>(- (bar 9) 1)</code> is a tail call because it is the third subexpression in the <code>if</code> expresssion.<br>
+2. The recursive calls <code>(bar x)</code> is not a tail call because it is the first subexpression in the <code>if</code> expression. The recursive call <code>(bar 9)</code> is also not a tail call because it is an argument of the tail call.<br>
+3. No, because the recursive calls are not tail calls.</span>
+<a class="btn btn-default solution-toggle-2">toggle solution</a></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (baz x)
+    (cond ((bar x) (begin (foo x x) (baz (+ x x))))
+        ((baz 1) (baz 2))
+        (else (and (foo x 1) #t (bar 4))))
+      )
+</code></pre></div>
+<p><span class="solution-3">1. <code>(baz (+ x x))</code> is a tail call because it is the last subexpression in a tail-context <code>begin</code> expression. <code>(baz 2)</code> is a tail call because it is a non-predicate subexpression in the <code>cond</code> expression. <code>(bar 4)</code> is a tail call because it is the last subexpression in a tail-context <code>and</code> expression.<br>
+2. Two of the tail calls mentioned above are recursive calls. The recursive call <code>(baz 1)</code> is not a tail call because it is a predicate subexpression in the <code>cond</code> expression.<br>
+3. No, even though there are two recursive tail calls, there is a recursive call that is not a tail call.</span>
+<a class="btn btn-default solution-toggle-3">toggle solution</a></p>
+
+<p><a name="keep" class="anchor"></a></p>
+
+<h2>Writing tail recursive functions</h2>
+
+<p>Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let&#39;s try to write a function that makes a list out of the first <code>n</code> elements of a given <code>lst</code> (assume <code>lst</code> is at least length <code>n</code>). If you want to try this out on your own first, click <a href="/cs61a/practice-problems/final.html#tail">here</a>.</p>
+
+<p>To do this, we would start with an empty <code>result</code> list and keep a counter, adding elements to <code>result</code> from <code>lst</code> until our counter hits <code>n</code>. Here&#39;s the iterative Python version for a linked list:  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">def keep_first_n(link, n):
+    i, result = 0, Link.empty
+    while i &lt; n:
+        result = Link(link.first, result)
+        link = link.rest
+        i += 1
+    return result
+</code></pre></div>
+<p>Since there are no <code>while</code> loops in Scheme, we can imitate this using a helper function! A helper function will keep track of variables that change in its parameters! In this case, the counter <code>i</code>, our <code>result</code> list, and the link pointer change, so our helper function will take in three parameters <code>i</code>, <code>result</code>, and <code>lst</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
+  (define (keep-helper i result lst)
+
+    ))
+</code></pre></div>
+<p>To simulate the <code>while</code> condition, we use a base case to return our result when we&#39;re done. We want to stop adding to <code>result</code> and return it when <code>i</code> is equal to <code>n</code>. Whatever happens in the while loop will go in the &quot;else&quot; case.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
+  (define (keep-helper i result)
+      (if (= i n) result)
+    ))
+</code></pre></div>
+<p>So far, so good. Now we need to take care of what goes on in the <code>while</code> loop, which is updating <code>result</code>, <code>lst</code>, and <code>i</code>. Using recursion, we simply update our &quot;variables&quot; by passing their new values as arguments to a recursive call.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
+  (define (keep-helper i result)
+      (if (= i n) result
+        (keep-helper (+ i 1) (append result (list (car lst))) (cdr lst)))
+    ))
+</code></pre></div>
+<p>Almost done! All that&#39;s left to do now is initialize our &quot;variables&quot;. To do this, call our helper function in the body of the original function with the initial values as arguments.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
+  (define (helper i result lst)
+      (if (= i n) result
+        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
+    )
+  (helper 0 &#39;() lst))
+</code></pre></div>
+<p>This function is now a tail-recursive version of the iterative solution!</p>
+
+  </div>
+</div>
+<div id="disqus_thread">
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+
+  <a href="http://disqus.com" class="dsq-brlink">
+    comments powered by <span class="logo-disqus">Disqus</span>
+  </a>
+
+</div>
+
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/hc.js"></script>
+<script src="/js/slidin.js"></script>
+
+  </body>
+</html>

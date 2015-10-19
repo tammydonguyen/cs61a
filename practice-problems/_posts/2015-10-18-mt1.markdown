@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "Midterm 1"
+date:   2015-10-18 11:14:11
+category: Practice Problems
+---
+
+**This page is under construction.**
+
+---
+
+These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!
+
+---
+
+<a name="wwpp" class="anchor"></a>
+## What would Python print?
+
+    from operator import sub
+
+    this = lambda a, b : lambda c: a(b, c)
+    d = 30
+
+    def that(e, f):
+        if e and f:
+            e, d = f(sub, e)(5), e
+        else:
+            print(e)
+            d = 20
+        def this(g):
+           return lambda : print(g(d, e))
+        return this
+
+The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it. 
+   
+<pre><code>>>> this(sub, d)()
+<span class="solution">Error, second function call missing an argument</span>
+>>> this(print, 40)(d)
+<span class="solution">40 30</span>
+>>> this(lambda x, y : y, d)(20)
+<span class="solution">20</span>
+>>> that(d, 0)(sub)
+<span class="solution">30<br><\function ...></span>
+>>> other = that(10, this)(print)
+<span class="solution"></span>
+>>> other() 
+<span class="solution">10 5<br>None</span></code></pre>
+
+<a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a>

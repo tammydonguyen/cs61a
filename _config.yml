@@ -1,0 +1,16 @@
+name: CS 61A Resources
+author: Tammy Nguyen
+baseurl: ""
+email: tammynguyen@berkeley.edu
+location: 42°2'16"N   70°12'47"W
+disqus: tmmydngyn
+permalink: none
+description: This is a work in progress collection of resources for students to review or better understand 61A material.
+
+##Make sure to edit the above fields, especially for disqus.
+
+
+highlighter: pygments
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]

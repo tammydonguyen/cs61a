@@ -5,106 +5,97 @@ date:   2015-10-18 11:14:11
 categories: guides
 ---
 
-**This page is under construction!**
+Although environment diagrams come off as very scary and daunting, it really just is a diagram that keeps track of your variables. It does absolutely nothing else. An environment diagram consists solely of **frames** containing **variables** bound to their **values**. Non-primitive values (such as function objects) are drawn on the side of the frames and have arrows pointing to them. 
 
-----
-
-Scheme supports optimized tail recursion, meaning that if a function is called in **tail context**, Scheme will close the frame that called it and simply return the value that the tail call returns. Scheme thus allows for an unbounded number of tail calls, unlike Python, which will raise a `RuntimeError: 'maximum recursion depth exceeded'` because all the frames stay open. 
-
-To write a tail-call optimized function in Scheme, you must make all recursive calls in a tail context.
+Environment diagrams are, I believe, the most valuable learning tool you can master in 61A. Although they come off as very tricky at first, it's only a matter of knowing all the rules, and then getting a ton of practice in. Mastering environment diagrams will ensure that you know how assignment statements, call expressions, variable scope, and mutation works.
 
 ---
 
-#### Tail Context 
-An expression is in a **tail context** if it is the last expression to be evaluated in the frame. Thus, a call expression is a **tail call** if it is one of the following:  
+For 61A purposes, only 3 things can change the state of your environment diagram: function definitions, assignment statements, and call expressions. Below are the steps to evaluate each of these.
 
-* the last sub-expression in the body of a tail-context `lambda` expression
-* the second or third sub-expression in a tail-context `if` expression
-* a non-predicate sub-expression in a tail-context `cond` expression
-* the last sub-expression in a tail-context `and` or `or` expression
-* the last sub-expression in a tail-context `begin` expression
+## Function Definitions
+There are two different ways you'll learn to create functions in this class. The first is a `def` statement:
 
-A function is then **tail recursive** if the recursive call(s) is a/are tail call(s).
+### def Statements
+Evaluating `def` statements in an environment diagram requires the simplest steps, so don't overcomplicate it! All a `def` statement does is create a new function object in the current environment and binds it to its name. That's it! No evaluating anything, no looking up variables.
 
-##### Test your understanding
-**Answer these questions for the following functions.**  
-1. What are the tail calls?  
-2. Are the recursive calls tail calls?  
-3. Is the function tail recursive?  
-    
-    (define (foo x y)
-    	(if (> x y) 
-    		(foo (- x y)) 
-    		(+ x y)))
+#### Steps
+1. Draw the function object. It should look like this: `func <function name>(<params>) [parent=<parent frame>]`. 
+2. Look for the function's name in the current frame. If it already exists, erase the current binding. If it doesn't, add it there.
+3. Draw an arrow from the name to the function object.
 
-<span class="solution">1. `(foo (- x y))` is a tail call because it is the second subexpression in the `if` expresssion. `(+ x y)` is also a tail call because it is the third subexpression in the `if` expression.  
-2. Yes, the recursive call `(foo (- x y))` is a tail call.  
-3. Yes, because the recursive call is a tail call. </span>
-<a class="btn btn-default solution-toggle">toggle solution</a>
+<iframe width="100%" height="250" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(x,+y%29%3A%0A++++return+x+%2B+y&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
-    (define (bar x)
-    	(if (bar x) x
-    		(- (bar 9) 1))
+#### Important Notes (and Common Pitfalls)
+1. Do not evaluate the body of the function. After completing the 3 steps above, you are DONE. Skip the entire body (all the lines indented under the `def` header).
+2. Draw the entire function object as I've described above and draw the arrow clearly from the name in the frame to the object. Some graders will mark off points if it does not follow this outline exactly.
 
-<span class="solution-2">1. `(- (bar 9) 1)` is a tail call because it is the third subexpression in the `if` expresssion.  
-2. The recursive calls `(bar x)` is not a tail call because it is the first subexpression in the `if` expression. The recursive call `(bar 9)` is also not a tail call because it is an argument of the tail call.  
-3. No, because the recursive calls are not tail calls.</span>
-<a class="btn btn-default solution-toggle-2">toggle solution</a>
+### `lambda` Expressions
+`lambda` expressions follow a different process than `def` statements. This is because `lambda` expressions are *expressions*, meaning it alone cannot change the state of our diagram; it's just an expression like `2 + 3`! On the other hand, a `def` statement can change the state of our diagram without having to be paired with anything else. To better understand this, consider this piece of code:
 
-    (define (baz x)
-    	(cond ((bar x) (begin (foo x x) (baz (+ x x))))
-            ((baz 1) (baz 2))
-            (else (and (foo x 1) #t (bar 4))))
-          )
+    >>> lambda x : x * x 
+    >>> 5 + 5
+    >>> def foo(y):
+    ...     x + x
 
-<span class="solution-3">1. `(baz (+ x x))` is a tail call because it is the last subexpression in a tail-context `begin` expression. `(baz 2)` is a tail call because it is a non-predicate subexpression in the `cond` expression. `(bar 4)` is a tail call because it is the last subexpression in a tail-context `and` expression.  
-2. Two of the tail calls mentioned above are recursive calls. The recursive call `(baz 1)` is not a tail call because it is a predicate subexpression in the `cond` expression.  
-3. No, even though there are two recursive tail calls, there is a recursive call that is not a tail call.</span>
-<a class="btn btn-default solution-toggle-3">toggle solution</a>
+Which line changes our environment? Only the last one! Only the `def` statement creates a new value *and* binds it to a name in the environment.
 
-<a name="keep" class="anchor"></a>
-## Writing tail recursive functions
-Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let's try to write a function that makes a list out of the first `n` elements of a given `lst` (assume `lst` is at least length `n`). If you want to try this out on your own first, click <a href="/cs61a/practice-problems/final.html#tail">here</a>.
+For a `lambda` expression to change the state of our environment, it must be bound to a name. This can happen in one of three ways:
 
-To do this, we would start with an empty `result` list and keep a counter, adding elements to `result` from `lst` until our counter hits `n`. Here's the iterative Python version for a linked list:  
-    
-    def keep_first_n(link, n):
-        i, result = 0, Link.empty
-        while i < n:
-            result = Link(link.first, result)
-            link = link.rest
-            i += 1
-        return result
+1. Explicitly assign the expression to a name. `bar = lambda x : x * x`
+2. Pass the expression to a higher order function. `hof(lambda x : x * x)`
+3. Return a lambda expression during a function call. `return lambda x : x * x`
 
-Since there are no `while` loops in Scheme, we can imitate this using a helper function! A helper function will keep track of variables that change in its parameters! In this case, the counter `i`, our `result` list, and the link pointer change, so our helper function will take in three parameters `i`, `result`, and `lst`.
-    
-    (define (keep-first-n lst n)
-      (define (keep-helper i result lst)
+As you can see, you actually have to evaluate some of the other steps along with or before the `lambda`! In any of these cases, the process is simple:
 
-        ))
+#### Steps
+1. Draw the function object. It should look like this: <code>func &lambda;(\<params\>) [parent=\<parent frame\>]</code>. I often like to put line numbers next to my `lambda`s since it's hard to keep track of which is which after several `lambda`s are created.
+2. Bind the object to whatever it is being assigned to. This depends on how the `lambda` is being used! See [Assignment Statements](#assignment) or [Call Expressions](#call) for details.
 
-To simulate the `while` condition, we use a base case to return our result when we're done. We want to stop adding to `result` and return it when `i` is equal to `n`. Whatever happens in the while loop will go in the "else" case.
-  
-    (define (keep-first-n lst n)
-      (define (keep-helper i result)
-          (if (= i n) result)
-        ))
+<iframe width="100%" height="260" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=lambda+x+%3A+x+%2B+x%0Aadder+%3D+lambda+y+%3A+y+%2B+y%0Aadder2+%3D+adder&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
-So far, so good. Now we need to take care of what goes on in the `while` loop, which is updating `result`, `lst`, and `i`. Using recursion, we simply update our "variables" by passing their new values as arguments to a recursive call.
+#### Important Notes (and Common Pitfalls)
+1. If you didn't read my long winded explanation of how `lambda` expressions on their own don't affect the environment, it might seem intuitive to bind these guys to the name <code>&lambda;</code> in your diagram. Make sure you don't change your diagram unless the `lambda` occurs in one of the three situations listed above!
 
-    (define (keep-first-n lst n)
-      (define (keep-helper i result)
-          (if (= i n) result
-            (keep-helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-        ))
+<a name="assignment"></a>
+## Assignment Statements
+An assignment statement is any statement with a single equals sign: `=`, such as `x = 3`. This is not to be confused with the equality operator `==`. Although assignment statements look fairly simple and even trivial, it still involves a series of steps:
 
-Almost done! All that's left to do now is initialize our "variables". To do this, call our helper function in the body of the original function with the initial values as arguments.
+#### Steps
+1. Evaluate the **expression** on the right hand side. 
+2. Look for the name on the left hand side of the `=` in the current frame of your environment. If it does not exist, write it in.
+3. Bind the value you found in step one to the name you found/wrote in step 2.
+    - if the value is primitive (numbers, strings, booleans, `None`) write it directly next to the name inside the frame
+    - if the value is non-primitive (function objects, lists, tuples, etc.), draw it to the side of the frames and connect it to the name with an arrow
 
-    (define (keep-first-n lst n)
-      (define (helper i result lst)
-          (if (= i n) result
-            (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-        )
-      (helper 0 '() lst))
+<iframe width="100%" height="260" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x+%3D+7+%2B+10%0Ay+%3D+x%0Ax+%3D+%5B1,+2,+3%5D&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
-This function is now a tail-recursive version of the iterative solution!
+#### Important Notes (and Common Pitfalls)
+1. Do NOT write expressions (e.g. `5 + 10`) directly in the frame. Notice how only VALUES are written in the diagram. Expressions have no place there. 
+2. Do not write variables next to names or draw arrows to other variables. Variables *are not* values. Names can only be bound to values. 
+
+If you run into one of the above, you did not complete step 1 for assignment statements. That's why this is the most important step. Executing this step might mean evaluating a function call, which breaks down to even more steps! Let's get into it.
+
+<a name="call"></a>
+## Call Expressions
+This is the most tricky out of the three, but if you follow these steps *exactly* (actually go through each of the steps!), you will never get confused. 
+
+#### Steps
+1. Evaluate the outermost **operator**. The operator is the name to the left of the set of parentheses. In the expression `foo(bar(x))(y)`, `foo` is the operator. Its value should be a function object (i.e. the name in your diagram corresponding to the operator should be pointing to a function object).
+2. Evaluate each of the operands one by one from left to right in the current environment. 
+3. Open a new frame and label it with the **intrinsic name** of the function found in step 1. Also label the parent of the frame with the parent of the function. 
+4. Bind the formal parameters to the values of the operands found in step 2.
+5. Evaluate the body of the function in the new environment.
+
+#### Important Notes (and Common Pitfalls)
+1. Evaluate the operands in the environment where the function was called. Students often open the new frame before evaluating the operands, which leads them to evaluate the operands in this new frame.
+2. Do not open a new frame until you've evaluated all the operands, since they might be call expressions which requires opening more frames. Order of the frames does matter for points!
+3. The first thing you do when you open a new frame is bind the parameters.
+
+<iframe width="100%" height="350" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(x,+y%29%3A%0A++++temp+%3D+x+%0A++++x+%3D+y%0A++++y+%3D+temp%0A++++return+x+-+y%0A%0Az+%3D+foo(5,+10%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
+
+**Bonus question:** What does `foo` return doing for all input `x`, `y`?
+
+Let's try a trickier one!
+
+<iframe width="100%" height="300" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(f,+x,+y%29%3A%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+y%0A++++return+f(y,+x%29%0A++++%0Afoo(lambda+a,+b+%3A+foo(foo,+a+-+1,+b%29,+3,+5%29%0A%0A&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>

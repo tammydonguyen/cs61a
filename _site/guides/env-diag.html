@@ -75,7 +75,7 @@
         </li>
       
         <li> 
-          <a href="/practice-problems/final.html"> Final Practice Problems </a>
+          <a href="/practice-problems/final.html"> Final </a>
         </li>
       
     </div>
@@ -83,11 +83,11 @@
     <div class="cat3">
       
         <li> 
-          <a href="/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+          <a href="/other/mt1-review.html"> Midterm 1 Review Slides </a>
         </li>
       
         <li> 
-          <a href="/other/uncategorized/exams.html"> Taking Exams </a>
+          <a href="/other/exams.html"> Taking Exams </a>
         </li>
       
     </div>
@@ -147,7 +147,7 @@
         </li>
       
         <li> 
-          <a href="/cs61a-resources/practice-problems/final.html"> Final Practice Problems </a>
+          <a href="/cs61a-resources/practice-problems/final.html"> Final </a>
         </li>
       
     </div>
@@ -155,11 +155,11 @@
     <div class="cat3">
       
         <li> 
-          <a href="/cs61a-resources/other/uncategorized/mt1-review.html"> Midterm 1 Review Slides </a>
+          <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
         </li>
       
         <li> 
-          <a href="/cs61a-resources/other/uncategorized/exams.html"> Taking Exams </a>
+          <a href="/cs61a-resources/other/exams.html"> Taking Exams </a>
         </li>
       
     </div>
@@ -172,107 +172,135 @@
   <div class="article-title">Environment Diagrams</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction!</strong></p>
+    <p>Although environment diagrams come off as very scary and daunting, it really just is a diagram that keeps track of your variables. It does absolutely nothing else. An environment diagram consists solely of <strong>frames</strong> containing <strong>variables</strong> bound to their <strong>values</strong>. Non-primitive values (such as function objects) are drawn on the side of the frames and have arrows pointing to them. </p>
+
+<p>Environment diagrams are, I believe, the most valuable learning tool you can master in 61A. Although they come off as very tricky at first, it&#39;s only a matter of knowing all the rules, and then getting a ton of practice in. Mastering environment diagrams will ensure that you know how assignment statements, call expressions, variable scope, and mutation works.</p>
 
 <hr>
 
-<p>Scheme supports optimized tail recursion, meaning that if a function is called in <strong>tail context</strong>, Scheme will close the frame that called it and simply return the value that the tail call returns. Scheme thus allows for an unbounded number of tail calls, unlike Python, which will raise a <code>RuntimeError: &#39;maximum recursion depth exceeded&#39;</code> because all the frames stay open. </p>
+<p>For 61A purposes, only 3 things can change the state of your environment diagram: function definitions, assignment statements, and call expressions. Below are the steps to evaluate each of these.</p>
 
-<p>To write a tail-call optimized function in Scheme, you must make all recursive calls in a tail context.</p>
+<h2>Function Definitions</h2>
 
-<hr>
+<p>There are two different ways you&#39;ll learn to create functions in this class. The first is a <code>def</code> statement:</p>
 
-<h4>Tail Context</h4>
+<h3>def Statements</h3>
 
-<p>An expression is in a <strong>tail context</strong> if it is the last expression to be evaluated in the frame. Thus, a call expression is a <strong>tail call</strong> if it is one of the following:  </p>
+<p>Evaluating <code>def</code> statements in an environment diagram requires the simplest steps, so don&#39;t overcomplicate it! All a <code>def</code> statement does is create a new function object in the current environment and binds it to its name. That&#39;s it! No evaluating anything, no looking up variables.</p>
+
+<h4>Steps</h4>
+
+<ol>
+<li>Draw the function object. It should look like this: <code>func &lt;function name&gt;(&lt;params&gt;) [parent=&lt;parent frame&gt;]</code>. </li>
+<li>Look for the function&#39;s name in the current frame. If it already exists, erase the current binding. If it doesn&#39;t, add it there.</li>
+<li>Draw an arrow from the name to the function object.</li>
+</ol>
+
+<iframe width="100%" height="250" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(x,+y%29%3A%0A++++return+x+%2B+y&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
+
+<h4>Important Notes (and Common Pitfalls)</h4>
+
+<ol>
+<li>Do not evaluate the body of the function. After completing the 3 steps above, you are DONE. Skip the entire body (all the lines indented under the <code>def</code> header).</li>
+<li>Draw the entire function object as I&#39;ve described above and draw the arrow clearly from the name in the frame to the object. Some graders will mark off points if it does not follow this outline exactly.</li>
+</ol>
+
+<h3><code>lambda</code> Expressions</h3>
+
+<p><code>lambda</code> expressions follow a different process than <code>def</code> statements. This is because <code>lambda</code> expressions are <em>expressions</em>, meaning it alone cannot change the state of our diagram; it&#39;s just an expression like <code>2 + 3</code>! On the other hand, a <code>def</code> statement can change the state of our diagram without having to be paired with anything else. To better understand this, consider this piece of code:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; lambda x : x * x 
+&gt;&gt;&gt; 5 + 5
+&gt;&gt;&gt; def foo(y):
+...     x + x
+</code></pre></div>
+<p>Which line changes our environment? Only the last one! Only the <code>def</code> statement creates a new value <em>and</em> binds it to a name in the environment.</p>
+
+<p>For a <code>lambda</code> expression to change the state of our environment, it must be bound to a name. This can happen in one of three ways:</p>
+
+<ol>
+<li>Explicitly assign the expression to a name. <code>bar = lambda x : x * x</code></li>
+<li>Pass the expression to a higher order function. <code>hof(lambda x : x * x)</code></li>
+<li>Return a lambda expression during a function call. <code>return lambda x : x * x</code></li>
+</ol>
+
+<p>As you can see, you actually have to evaluate some of the other steps along with or before the <code>lambda</code>! In any of these cases, the process is simple:</p>
+
+<h4>Steps</h4>
+
+<ol>
+<li>Draw the function object. It should look like this: <code>func &lambda;(&lt;params&gt;) [parent=&lt;parent frame&gt;]</code>. I often like to put line numbers next to my <code>lambda</code>s since it&#39;s hard to keep track of which is which after several <code>lambda</code>s are created.</li>
+<li>Bind the object to whatever it is being assigned to. This depends on how the <code>lambda</code> is being used! See <a href="#assignment">Assignment Statements</a> or <a href="#call">Call Expressions</a> for details.</li>
+</ol>
+
+<iframe width="100%" height="260" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=lambda+x+%3A+x+%2B+x%0Aadder+%3D+lambda+y+%3A+y+%2B+y%0Aadder2+%3D+adder&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
+
+<h4>Important Notes (and Common Pitfalls)</h4>
+
+<ol>
+<li>If you didn&#39;t read my long winded explanation of how <code>lambda</code> expressions on their own don&#39;t affect the environment, it might seem intuitive to bind these guys to the name <code>&lambda;</code> in your diagram. Make sure you don&#39;t change your diagram unless the <code>lambda</code> occurs in one of the three situations listed above!</li>
+</ol>
+
+<p><a name="assignment"></a></p>
+
+<h2>Assignment Statements</h2>
+
+<p>An assignment statement is any statement with a single equals sign: <code>=</code>, such as <code>x = 3</code>. This is not to be confused with the equality operator <code>==</code>. Although assignment statements look fairly simple and even trivial, it still involves a series of steps:</p>
+
+<h4>Steps</h4>
+
+<ol>
+<li>Evaluate the <strong>expression</strong> on the right hand side. </li>
+<li>Look for the name on the left hand side of the <code>=</code> in the current frame of your environment. If it does not exist, write it in.</li>
+<li>Bind the value you found in step one to the name you found/wrote in step 2.
 
 <ul>
-<li>the last sub-expression in the body of a tail-context <code>lambda</code> expression</li>
-<li>the second or third sub-expression in a tail-context <code>if</code> expression</li>
-<li>a non-predicate sub-expression in a tail-context <code>cond</code> expression</li>
-<li>the last sub-expression in a tail-context <code>and</code> or <code>or</code> expression</li>
-<li>the last sub-expression in a tail-context <code>begin</code> expression</li>
-</ul>
+<li>if the value is primitive (numbers, strings, booleans, <code>None</code>) write it directly next to the name inside the frame</li>
+<li>if the value is non-primitive (function objects, lists, tuples, etc.), draw it to the side of the frames and connect it to the name with an arrow</li>
+</ul></li>
+</ol>
 
-<p>A function is then <strong>tail recursive</strong> if the recursive call(s) is a/are tail call(s).</p>
+<iframe width="100%" height="260" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x+%3D+7+%2B+10%0Ay+%3D+x%0Ax+%3D+%5B1,+2,+3%5D&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
-<h5>Test your understanding</h5>
+<h4>Important Notes (and Common Pitfalls)</h4>
 
-<p><strong>Answer these questions for the following functions.</strong><br>
-1. What are the tail calls?<br>
-2. Are the recursive calls tail calls?<br>
-3. Is the function tail recursive?  </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (foo x y)
-    (if (&gt; x y) 
-        (foo (- x y)) 
-        (+ x y)))
-</code></pre></div>
-<p><span class="solution">1. <code>(foo (- x y))</code> is a tail call because it is the second subexpression in the <code>if</code> expresssion. <code>(+ x y)</code> is also a tail call because it is the third subexpression in the <code>if</code> expression.<br>
-2. Yes, the recursive call <code>(foo (- x y))</code> is a tail call.<br>
-3. Yes, because the recursive call is a tail call. </span>
-<a class="btn btn-default solution-toggle">toggle solution</a></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (bar x)
-    (if (bar x) x
-        (- (bar 9) 1))
-</code></pre></div>
-<p><span class="solution-2">1. <code>(- (bar 9) 1)</code> is a tail call because it is the third subexpression in the <code>if</code> expresssion.<br>
-2. The recursive calls <code>(bar x)</code> is not a tail call because it is the first subexpression in the <code>if</code> expression. The recursive call <code>(bar 9)</code> is also not a tail call because it is an argument of the tail call.<br>
-3. No, because the recursive calls are not tail calls.</span>
-<a class="btn btn-default solution-toggle-2">toggle solution</a></p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (baz x)
-    (cond ((bar x) (begin (foo x x) (baz (+ x x))))
-        ((baz 1) (baz 2))
-        (else (and (foo x 1) #t (bar 4))))
-      )
-</code></pre></div>
-<p><span class="solution-3">1. <code>(baz (+ x x))</code> is a tail call because it is the last subexpression in a tail-context <code>begin</code> expression. <code>(baz 2)</code> is a tail call because it is a non-predicate subexpression in the <code>cond</code> expression. <code>(bar 4)</code> is a tail call because it is the last subexpression in a tail-context <code>and</code> expression.<br>
-2. Two of the tail calls mentioned above are recursive calls. The recursive call <code>(baz 1)</code> is not a tail call because it is a predicate subexpression in the <code>cond</code> expression.<br>
-3. No, even though there are two recursive tail calls, there is a recursive call that is not a tail call.</span>
-<a class="btn btn-default solution-toggle-3">toggle solution</a></p>
+<ol>
+<li>Do NOT write expressions (e.g. <code>5 + 10</code>) directly in the frame. Notice how only VALUES are written in the diagram. Expressions have no place there. </li>
+<li>Do not write variables next to names or draw arrows to other variables. Variables <em>are not</em> values. Names can only be bound to values. </li>
+</ol>
 
-<p><a name="keep" class="anchor"></a></p>
+<p>If you run into one of the above, you did not complete step 1 for assignment statements. That&#39;s why this is the most important step. Executing this step might mean evaluating a function call, which breaks down to even more steps! Let&#39;s get into it.</p>
 
-<h2>Writing tail recursive functions</h2>
+<p><a name="call"></a></p>
 
-<p>Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let&#39;s try to write a function that makes a list out of the first <code>n</code> elements of a given <code>lst</code> (assume <code>lst</code> is at least length <code>n</code>). If you want to try this out on your own first, click <a href="/cs61a/practice-problems/final.html#tail">here</a>.</p>
+<h2>Call Expressions</h2>
 
-<p>To do this, we would start with an empty <code>result</code> list and keep a counter, adding elements to <code>result</code> from <code>lst</code> until our counter hits <code>n</code>. Here&#39;s the iterative Python version for a linked list:  </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">def keep_first_n(link, n):
-    i, result = 0, Link.empty
-    while i &lt; n:
-        result = Link(link.first, result)
-        link = link.rest
-        i += 1
-    return result
-</code></pre></div>
-<p>Since there are no <code>while</code> loops in Scheme, we can imitate this using a helper function! A helper function will keep track of variables that change in its parameters! In this case, the counter <code>i</code>, our <code>result</code> list, and the link pointer change, so our helper function will take in three parameters <code>i</code>, <code>result</code>, and <code>lst</code>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
-  (define (keep-helper i result lst)
+<p>This is the most tricky out of the three, but if you follow these steps <em>exactly</em> (actually go through each of the steps!), you will never get confused. </p>
 
-    ))
-</code></pre></div>
-<p>To simulate the <code>while</code> condition, we use a base case to return our result when we&#39;re done. We want to stop adding to <code>result</code> and return it when <code>i</code> is equal to <code>n</code>. Whatever happens in the while loop will go in the &quot;else&quot; case.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
-  (define (keep-helper i result)
-      (if (= i n) result)
-    ))
-</code></pre></div>
-<p>So far, so good. Now we need to take care of what goes on in the <code>while</code> loop, which is updating <code>result</code>, <code>lst</code>, and <code>i</code>. Using recursion, we simply update our &quot;variables&quot; by passing their new values as arguments to a recursive call.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
-  (define (keep-helper i result)
-      (if (= i n) result
-        (keep-helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-    ))
-</code></pre></div>
-<p>Almost done! All that&#39;s left to do now is initialize our &quot;variables&quot;. To do this, call our helper function in the body of the original function with the initial values as arguments.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(define (keep-first-n lst n)
-  (define (helper i result lst)
-      (if (= i n) result
-        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-    )
-  (helper 0 &#39;() lst))
-</code></pre></div>
-<p>This function is now a tail-recursive version of the iterative solution!</p>
+<h4>Steps</h4>
+
+<ol>
+<li>Evaluate the outermost <strong>operator</strong>. The operator is the name to the left of the set of parentheses. In the expression <code>foo(bar(x))(y)</code>, <code>foo</code> is the operator. Its value should be a function object (i.e. the name in your diagram corresponding to the operator should be pointing to a function object).</li>
+<li>Evaluate each of the operands one by one from left to right in the current environment. </li>
+<li>Open a new frame and label it with the <strong>intrinsic name</strong> of the function found in step 1. Also label the parent of the frame with the parent of the function. </li>
+<li>Bind the formal parameters to the values of the operands found in step 2.</li>
+<li>Evaluate the body of the function in the new environment.</li>
+</ol>
+
+<h4>Important Notes (and Common Pitfalls)</h4>
+
+<ol>
+<li>Evaluate the operands in the environment where the function was called. Students often open the new frame before evaluating the operands, which leads them to evaluate the operands in this new frame.</li>
+<li>Do not open a new frame until you&#39;ve evaluated all the operands, since they might be call expressions which requires opening more frames. Order of the frames does matter for points!</li>
+<li>The first thing you do when you open a new frame is bind the parameters.</li>
+</ol>
+
+<iframe width="100%" height="350" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(x,+y%29%3A%0A++++temp+%3D+x+%0A++++x+%3D+y%0A++++y+%3D+temp%0A++++return+x+-+y%0A%0Az+%3D+foo(5,+10%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
+
+<p><strong>Bonus question:</strong> What does <code>foo</code> return doing for all input <code>x</code>, <code>y</code>?</p>
+
+<p>Let&#39;s try a trickier one!</p>
+
+<iframe width="100%" height="300" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+foo(f,+x,+y%29%3A%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+y%0A++++return+f(y,+x%29%0A++++%0Afoo(lambda+a,+b+%3A+foo(foo,+a+-+1,+b%29,+3,+5%29%0A%0A&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
   </div>
 </div>

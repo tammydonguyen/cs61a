@@ -10,3 +10,7 @@
 .cat1, .cat2, .cat3 {
   display: none;
 }
+
+.toggle {
+	cursor: pointer;
+}

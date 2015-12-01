@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Final</title>
+<title>About</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -170,125 +170,15 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Final</div>
+  <div class="article-title">About</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction!</strong></p>
+    <p>I am a teaching assistant for CS 61A. You can find my teaching ratings <a href="https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466">here</a> and my personal website <a href="http://tmmydngyn.com">here</a>.  </p>
 
-<hr>
+<h4>Sections (Fall 2015):</h4>
 
-<p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
-
-<hr>
-
-<p><a name="scheme-lists" class="anchor"></a></p>
-
-<h2>Scheme Lists</h2>
-
-<p>Write a function <code>non-contiguous</code> that checks whether <code>subseq</code> is a non-contiguous subsequence of <code>lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (non-contiguous &#39;() lst)
-True
-scm&gt; (non-contiguous &#39;(1 3 6) &#39;(1 2 3 4 5 6))
-True
-scm&gt; (non-contiguous &#39;(1 5 2) &#39;(1 2 3 4 5 6))
-False
-</code></pre></div>
-<pre><code>(define (non-contiguous subseq lst)
-<span class="solution-2-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-2-p">  (cond ((null? subseq) #t)
-        ((null? lst) #f)
-        ((= (car subseq) (car lst)) (non-contiguous (cdr subseq) (cdr lst)))
-        (else (non-contiguous subseq (cdr lst))))
-)</span></code></pre>
-
-<p><a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a></p>
-
-<p><a name="tail" class="anchor"></a></p>
-
-<h2>Tail Recursion</h2>
-
-<p>Write <code>keep-first-n</code> which takes a list and a number <code>n</code> and returns a list that consists of the first <code>n</code> numbers of <code>n</code>, assuming <code>lst</code> is at least length <code>n</code>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (keep-first-n (list 1 2 3 4 5) 3)
-(1 2 3)
-scm&gt; (keep-first-n (list &#39;a &#39;b &#39;c) 1)
-(a)
-</code></pre></div>
-<pre><code>(define (keep-first-n lst n)
-<span class="solution-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-p">  (define (helper i result lst)
-    (if (= i n) result
-        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-    )
-  (helper 0 '() lst))
-)</span></code></pre>
-
-<p><a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a>&nbsp;&nbsp; <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep">EXPLANATION</a></p>
-
-<p><a name="stream" class="anchor"></a></p>
-
-<h2>Streams</h2>
-
-<p>Write a function that creates a cyclic stream out of the first <code>n</code> elements of <code>lst</code>, or the entire <code>lst</code> if the length of <code>lst</code> is less than <code>n</code>. </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">scm&gt; (cycle-first-n 3 (list 1 2 3 4))
-(1 . #[promise (not forced)])
-scm&gt; (stream-to-list (cycle-first-n 3 (list 1 2 3 4)) 10)  ; prints stream as list
-(1 2 3 1 2 3 1 2 3 1)
-scm&gt; (stream-to-list (cycle-first-n 7 (list 1 2 3 4)) 10)
-(1 2 3 4 1 2 3 4 1 2)
-</code></pre></div>
-<pre><code>(define (cycle-first-n n lst)
-<span class="solution-3-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-3-p">  (define (stream-helper i curr-lst)
-    (if (or (zero? i) (null? curr-lst))
-        (cycle-first-n n lst)
-        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
-    ))
-  (stream-helper n lst))
-)</span></code></pre>
-
-<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
-
-<p><a name="sql" class="anchor"></a></p>
-
-<h2>SQL</h2>
-
-<p>Check back later!</p>
-
-<!-- <pre><code>(define (cycle-first-n n lst)
-<span class="solution-4-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-4-p">  (define (stream-helper i curr-lst)
-    (if (or (zero? i) (null? curr-lst))
-        (cycle-first-n n lst)
-        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
-    ))
-  (stream-helper n lst))
-)</span></code></pre>
-<a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a> -->
-
-<p><a name="logic" class="anchor"></a></p>
-
-<h2>Logic</h2>
-
-<p>Write a fact that states that one list is a suffix of another list.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(query (suffix (a b c) (a b c)))
-; expect Success!
-(query (suffix (4 5) (1 2 3 4 5)))
-; expect Success!
-(query (suffix (1 2) (1 2 3 4 5)))
-; expect Failed.
-</code></pre></div>
-<pre class="solution-5"><code>(fact (suffix ?suf ?suf))
-(fact (suffix ?suf (?first . ?rest))
-      (suffix ?suf ?rest))</code></pre>
-
-<p class="solution-6">**Explanation:** Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When `?rest` is assigned to a list that is the same as `?suf`, the fact becomes a `Success!`.</p>
-
-<p><a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a> &nbsp;
-<a class="solution-toggle-6 btn btn-default">TOGGLE EXPLANATION</a></p>
+<p>Thursday, 11am-12:30pm @ 242 Hearst Gym<br>
+Thursday, 5pm-6:30pm @ 70 Evans</p>
 
   </div>
 </div>

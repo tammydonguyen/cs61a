@@ -49,7 +49,7 @@
     <div style="margin: 10px 40px">{{ site.description }}</div>
     {% endunless %}
     <hr />
-    <li class="cat1-toggle"><h4>Guides</h4></li>
+    <li class="cat1-toggle"><h4 class="toggle">Guides</h4></li>
     <div class="cat1">
       {% for post in site.categories['guides'] %}
         <li> 
@@ -57,7 +57,7 @@
         </li>
       {% endfor %}
     </div>
-    <li class="cat2-toggle"><h4>Practice Problems</h4></li>
+    <li class="cat2-toggle"><h4 class="toggle">Practice Problems</h4></li>
     <div class="cat2">
       {% for post in site.categories['practice-problems'] %}
         <li> 
@@ -65,7 +65,7 @@
         </li>
       {% endfor %}
     </div>
-    <li class="cat3-toggle"><h4>Other</h4></li>
+    <li class="cat3-toggle"><h4 class="toggle">Other</h4></li>
     <div class="cat3">
       {% for post in site.categories['other'] %}
         <li> 
@@ -73,6 +73,7 @@
         </li>
       {% endfor %}
     </div>
+    <li><a href="{{site.baseurl}}/about.html"><h4>About</h4></a></li>
     <hr />
   </ul>
 </div>

@@ -1,0 +1,90 @@
+---
+layout: post
+title:  "Week 1 Quiz"
+date:   2016-01-17 3:53:00
+categories: quizzes
+---
+
+**Coming soon!**
+
+<!-- This quiz reviews topics covered in these lectures:  
+[Functions]()   
+[Names]()  
+[Control]()  
+
+---
+**Question 1**  
+
+{% highlight py3 %}
+>>> a = 3
+>>> b = a
+>>> c = "a"
+{% endhighlight %}
+
+What is `a + b`? What is data type of the value stored in `c`?
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">
+<code>a + b</code> is <code>6</code>. The value <code>3</code> gets assigned to <code>b</code> in the second statement. The value stored in <code>c</code> is <code>"a"</code> which is a string.
+</blockquote>
+
+ --- 
+  
+**Question 2**  
+The following code is entered into the Python interpreter.
+   
+{% highlight py3 %}
+>>> x = 30
+>>> def foo(x):
+        x = 50
+        return x + 50 
+{% endhighlight %}    
+
+If I call the function `foo` with argument `x`, what would the return value be?
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">
+The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> is overwritten by <code>x = 50</code>. So the value that is returned is <code>100</code>.
+</blockquote>
+
+ --- 
+  
+**Question 3**  
+Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
+
+{% highlight py3 %}
+def cs61a(n):
+    """
+    >>> cs61a(3)
+    cs
+    61a
+    cs
+    >>> cs61a(2)
+    cs
+    61a
+    """
+    i = 0
+    while __________:
+        if _________:
+            print("cs")
+        else:
+            print("61a")
+        ____________
+{% endhighlight %}    
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<div class="solution-3">
+{% highlight py3 %}
+def cs61a(n):
+    i = 0
+    while i < n:
+        if i % 2 == 0:
+            print("cs")
+        else:
+            print("61a")
+        i += 1
+{% endhighlight %}    
+</blockquote> -->

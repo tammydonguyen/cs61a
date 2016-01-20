@@ -65,8 +65,16 @@
         </li>
       {% endfor %}
     </div>
-    <li class="cat3-toggle"><h4 class="toggle">Other</h4></li>
+    <li class="cat3-toggle"><h4 class="toggle">Quizzes</h4></li>
     <div class="cat3">
+      {% for post in site.categories['quizzes'] %}
+        <li> 
+          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
+    <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
+    <div class="cat4">
       {% for post in site.categories['other'] %}
         <li> 
           <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>

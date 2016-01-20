@@ -11,6 +11,6 @@ description: This is a work in progress collection of resources for students to 
 
 
 highlighter: pygments
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["tables"]

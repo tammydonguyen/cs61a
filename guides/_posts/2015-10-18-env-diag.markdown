@@ -16,7 +16,7 @@ For 61A purposes, only 3 things can change the state of your environment diagram
 ## Function Definitions
 There are two different ways you'll learn to create functions in this class. The first is a `def` statement:
 
-### def Statements
+### `def` Statements
 Evaluating `def` statements in an environment diagram requires the simplest steps, so don't overcomplicate it! All a `def` statement does is create a new function object in the current environment and binds it to its name. That's it! No evaluating anything, no looking up variables.
 
 #### Steps
@@ -33,17 +33,19 @@ Evaluating `def` statements in an environment diagram requires the simplest step
 ### `lambda` Expressions
 `lambda` expressions follow a different process than `def` statements. This is because `lambda` expressions are *expressions*, meaning it alone cannot change the state of our diagram; it's just an expression like `2 + 3`! On the other hand, a `def` statement can change the state of our diagram without having to be paired with anything else. To better understand this, consider this piece of code:
 
-    >>> lambda x : x * x 
-    >>> 5 + 5
-    >>> def foo(y):
-    ...     x + x
+{% highlight python %}
+>>> lambda x : x * x 
+>>> 5 + 5
+>>> def foo(y):
+...     x + x
+{% endhighlight %}
 
 Which line changes our environment? Only the last one! Only the `def` statement creates a new value *and* binds it to a name in the environment.
 
 For a `lambda` expression to change the state of our environment, it must be bound to a name. This can happen in one of three ways:
 
 1. Explicitly assign the expression to a name. `bar = lambda x : x * x`
-2. Pass the expression to a higher order function. `hof(lambda x : x * x)`
+2. Pass the expression to a higher order function. `foo(lambda x : x * x)`
 3. Return a lambda expression during a function call. `return lambda x : x * x`
 
 As you can see, you actually have to evaluate some of the other steps along with or before the `lambda`! In any of these cases, the process is simple:
@@ -62,8 +64,8 @@ As you can see, you actually have to evaluate some of the other steps along with
 An assignment statement is any statement with a single equals sign: `=`, such as `x = 3`. This is not to be confused with the equality operator `==`. Although assignment statements look fairly simple and even trivial, it still involves a series of steps:
 
 #### Steps
-1. Evaluate the **expression** on the right hand side. 
-2. Look for the name on the left hand side of the `=` in the current frame of your environment. If it does not exist, write it in.
+1. Evaluate the **expression** on the right hand side of the `=`. 
+2. Look for the **name** on the left hand side of the `=` in the current frame of your environment. If it does not exist, write it in.
 3. Bind the value you found in step one to the name you found/wrote in step 2.
     - if the value is primitive (numbers, strings, booleans, `None`) write it directly next to the name inside the frame
     - if the value is non-primitive (function objects, lists, tuples, etc.), draw it to the side of the frames and connect it to the name with an arrow

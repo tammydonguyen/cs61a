@@ -4,10 +4,9 @@
 
 .solution-p, .solution-2-p, .solution-3-p, .solution-4-p, .solution-5-p, .solution-6-p {
     display: none;
-    margin-top: -18px;
 }
 
-.cat1, .cat2, .cat3 {
+.cat1, .cat2, .cat3, .cat4 {
   display: none;
 }
 

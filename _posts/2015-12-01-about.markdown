@@ -4,9 +4,12 @@ title:  "About"
 date:   2015-12-1 12:24:50
 ---
 
-I am a teaching assistant for CS 61A. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com).  
-  
+My name is Tammy Nguyen, and I am a teaching assistant for CS 61A. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com). 
 
-#### Sections (Fall 2015):
-Thursday, 11am-12:30pm @ 242 Hearst Gym  
-Thursday, 5pm-6:30pm @ 70 Evans
+**Sections (Spring 2016):**  
+*015 Lab*: Tues 11am-12:30pm, 275 Soda  
+*115 Discussion*: Thurs 11am-12:30pm, 242 Dwinelle
+
+Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and have no impact on your 61A grade.
+
+You can contact me through email, tammynguyen @ berkeley, or through this [anonymous form](http://goo.gl/forms/RRPgZTk8qe). Feel free to leave feedback about my teaching, this website, or whatever else is on your mind!

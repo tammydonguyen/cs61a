@@ -8,6 +8,7 @@
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="/cs61a-resources/css/hc.css" rel="stylesheet">
 <link href="/cs61a-resources/css/slidin.css" rel="stylesheet">
+<link href="/cs61a-resources/css/pygments/tango.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -151,8 +152,16 @@
         </li>
       
     </div>
-    <li class="cat3-toggle"><h4 class="toggle">Other</h4></li>
+    <li class="cat3-toggle"><h4 class="toggle">Quizzes</h4></li>
     <div class="cat3">
+      
+        <li> 
+          <a href="/cs61a-resources/quizzes/quiz1.html"> Week 1 Quiz </a>
+        </li>
+      
+    </div>
+    <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
+    <div class="cat4">
       
         <li> 
           <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
@@ -175,16 +184,16 @@
   <div class="post">
     <p><strong>This page is under construction.</strong></p>
 
-<hr>
+<hr />
 
 <p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
 
-<hr>
+<hr />
 
-<p><a name="wwpp" class="anchor"></a></p>
+<p><a name="wwpp" class="anchor"></a>
+## What would Python print?</p>
 
-<h2>What would Python print?</h2>
-<div class="highlight"><pre><code class="language-text" data-lang="text">from operator import sub
+<pre><code>from operator import sub
 
 this = lambda a, b : lambda c: a(b, c)
 d = 30
@@ -198,54 +207,32 @@ def that(e, f):
     def this(g):
        return lambda : print(g(d, e))
     return this
-</code></pre></div>
-<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it. </p>
+</code></pre>
 
-<pre><code>>>> this(sub, d)()
+<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it.</p>
+
+<pre><code>&gt;&gt;&gt; this(sub, d)()
 <span class="solution">Error, second function call missing an argument</span>
->>> this(print, 40)(d)
+&gt;&gt;&gt; this(print, 40)(d)
 <span class="solution">40 30</span>
->>> this(lambda x, y : y, d)(20)
+&gt;&gt;&gt; this(lambda x, y : y, d)(20)
 <span class="solution">20</span>
->>> that(d, 0)(sub)
-<span class="solution">30<br><\function ...></span>
->>> other = that(10, this)(print)
+&gt;&gt;&gt; that(d, 0)(sub)
+<span class="solution">30<br />&lt;\function ...&gt;</span>
+&gt;&gt;&gt; other = that(10, this)(print)
 <span class="solution"></span>
->>> other() 
-<span class="solution">10 5<br>None</span></code></pre>
+&gt;&gt;&gt; other() 
+<span class="solution">10 5<br />None</span></code></pre>
 
 <p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
   </div>
 </div>
-<div id="disqus_thread">
-
-  <script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
-
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>
-    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  </noscript>
-
-  <a href="http://disqus.com" class="dsq-brlink">
-    comments powered by <span class="logo-disqus">Disqus</span>
-  </a>
-
-</div>
-
 
       <div class="container">
   <footer>
     <p class="text-muted credit">
-      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      &copy; 2016 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
       <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
     </p>
   </footer>

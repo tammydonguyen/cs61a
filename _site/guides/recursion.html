@@ -8,6 +8,7 @@
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="/cs61a-resources/css/hc.css" rel="stylesheet">
 <link href="/cs61a-resources/css/slidin.css" rel="stylesheet">
+<link href="/cs61a-resources/css/pygments/tango.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
@@ -151,8 +152,16 @@
         </li>
       
     </div>
-    <li class="cat3-toggle"><h4 class="toggle">Other</h4></li>
+    <li class="cat3-toggle"><h4 class="toggle">Quizzes</h4></li>
     <div class="cat3">
+      
+        <li> 
+          <a href="/cs61a-resources/quizzes/quiz1.html"> Week 1 Quiz </a>
+        </li>
+      
+    </div>
+    <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
+    <div class="cat4">
       
         <li> 
           <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
@@ -175,65 +184,44 @@
   <div class="post">
     <p><strong>This page is under construction!</strong></p>
 
-<hr>
+<hr />
 
-<p>Recursion allows you to solve problems by breaking it into smaller pieces until you get a piece small enough that you know the answer to. Think of it like this: you&#39;re in line to get ice cream and you want to know how many people are in front of you. Instead of manually counting every person in line, you figure you can just ask the person in front of you how many people are in front of him/her, and then add 1 to that number! You don&#39;t care how this person gets this number, but you&#39;re just going to assume it&#39;s correct and then use that to solve your problem. This is what many refer to as the recursive <em>leap of faith</em>. You are assuming that random stranger tells you the correct number. You want to be thinking in this mindset when you write recursive solutions; even if you don&#39;t think your function is written correctly, just assume it will <em>return the correct value</em>. Now, all you have to do is figure out what to do with this value to solve your problem. In this case, all you do is add 1 to account for the person that you asked.</p>
+<p>Recursion allows you to solve problems by breaking it into smaller pieces until you get a piece small enough that you know the answer to. Think of it like this: you’re in line to get ice cream and you want to know how many people are in front of you. Instead of manually counting every person in line, you figure you can just ask the person in front of you how many people are in front of him/her, and then add 1 to that number! You don’t care how this person gets this number, but you’re just going to assume it’s correct and then use that to solve your problem. This is what many refer to as the recursive <em>leap of faith</em>. You are assuming that random stranger tells you the correct number. You want to be thinking in this mindset when you write recursive solutions; even if you don’t think your function is written correctly, just assume it will <em>return the correct value</em>. Now, all you have to do is figure out what to do with this value to solve your problem. In this case, all you do is add 1 to account for the person that you asked.</p>
 
-<hr>
+<hr />
 
-<h3>Factorials</h3>
+<h3 id="factorials">Factorials</h3>
+<p>Let’s first take a look at a very simple mathematical example: factorials. A factorial of a number <code>n</code> (written <code>n!</code>) is defined as the product of all the whole numbers from <code>1</code> to <code>n</code> inclusive. For example, <code>factorial(4)</code> is <code>4 * 3 * 2 * 1 = 24</code>. It would be easy to write this iteratively:</p>
 
-<p>Let&#39;s first take a look at a very simple mathematical example: factorials. A factorial of a number <code>n</code> (written <code>n!</code>) is defined as the product of all the whole numbers from <code>1</code> to <code>n</code> inclusive. For example, <code>factorial(4)</code> is <code>4 * 3 * 2 * 1 = 24</code>. It would be easy to write this iteratively:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">def factorial(n):
-    total = 1      # start at 1
-    while n &gt; 1:   # until n is 1, multiple total by n and decrement n
-      total = total * n      
-      n = n - 1
-    return total   # total is now 1 * 2 * ... * (n - 1) * n
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c"># start at 1</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>   <span class="c"># until n is 1, multiple total by n and decrement n</span>
+      <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">*</span> <span class="n">n</span>      
+      <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">total</span>   <span class="c"># total is now 1 * 2 * ... * (n - 1) * n</span></code></pre></figure>
+
 <p>However, a recursive solution is much more readable and concise, because it does <em>exactly</em> what the definition of a factorial describes. Looking at <code>4!</code>, we notice that the expression <code>4 * 3 * 2 * 1</code> contains <code>3 * 2 * 1</code>, which is actually just <code>3!</code>. So really, <code>4! = 4 * 3!</code>, or more generally, <code>n! = n * (n - 1)!</code>. From this, we can attempt to write <code>factorial</code> recursively:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">def factorial(n):
-  return n * factorial(n - 1)
-</code></pre></div>
-<p><code>factorial(n - 1)</code> is known as the <strong>recursive call</strong>. Notice that we call it on a smaller argument; we are using the solution of a smaller problem to solve a bigger one! However, this solution isn&#39;t completely correct yet. Since a call to <code>factorial</code> returns a call to <code>factorial</code>, albeit with a smaller arugment, this will cause an infinite loop. How do we fix this? Well, we know that at some point, our problem gets small enough that we no longer have to ask the previous number for its factorial, because we already know the answer! This happens when <code>n = 0</code> or <code>n = 1</code>. When a user passes through <code>0</code> or <code>1</code>, there&#39;s no need to find <code>(n - 1)!</code> because their factorials are defined as <code>1</code>. This is called a <strong>base case</strong>. Thus, our solution becomes</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">def factorial(n):
-  if n &lt; 1:
-    return 1
-  return n * factorial(n - 1)
-</code></pre></div>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
+<p><code>factorial(n - 1)</code> is known as the <strong>recursive call</strong>. Notice that we call it on a smaller argument; we are using the solution of a smaller problem to solve a bigger one! However, this solution isn’t completely correct yet. Since a call to <code>factorial</code> returns a call to <code>factorial</code>, albeit with a smaller arugment, this will cause an infinite loop. How do we fix this? Well, we know that at some point, our problem gets small enough that we no longer have to ask the previous number for its factorial, because we already know the answer! This happens when <code>n = 0</code> or <code>n = 1</code>. When a user passes through <code>0</code> or <code>1</code>, there’s no need to find <code>(n - 1)!</code> because their factorials are defined as <code>1</code>. This is called a <strong>base case</strong>. Thus, our solution becomes</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
+
 <!-- ### How to Approach Problems
 The way that we approached the factorial problem is definitely not the only way you should go about finding recursive solutions. That specific approach worked because we noticed that the definition of factorial involves solving for a smaller factorial. Sometimes, you may find it easy to start with the base case(s). -->
 
   </div>
 </div>
-<div id="disqus_thread">
-
-  <script type="text/javascript">
-  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'tmmydngyn'; // required: replace example with your forum shortname
-
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-  </script>
-  <noscript>
-    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-  </noscript>
-
-  <a href="http://disqus.com" class="dsq-brlink">
-    comments powered by <span class="logo-disqus">Disqus</span>
-  </a>
-
-</div>
-
 
       <div class="container">
   <footer>
     <p class="text-muted credit">
-      &copy; 2015 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      &copy; 2016 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
       <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
     </p>
   </footer>

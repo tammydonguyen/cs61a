@@ -16,24 +16,30 @@ Recursion allows you to solve problems by breaking it into smaller pieces until 
 ### Factorials
 Let's first take a look at a very simple mathematical example: factorials. A factorial of a number `n` (written `n!`) is defined as the product of all the whole numbers from `1` to `n` inclusive. For example, `factorial(4)` is `4 * 3 * 2 * 1 = 24`. It would be easy to write this iteratively:
 
-    def factorial(n):
-        total = 1      # start at 1
-        while n > 1:   # until n is 1, multiple total by n and decrement n
-          total = total * n      
-          n = n - 1
-        return total   # total is now 1 * 2 * ... * (n - 1) * n
+{% highlight python %}
+def factorial(n):
+    total = 1      # start at 1
+    while n > 1:   # until n is 1, multiple total by n and decrement n
+      total = total * n      
+      n = n - 1
+    return total   # total is now 1 * 2 * ... * (n - 1) * n
+{% endhighlight %}
 
 However, a recursive solution is much more readable and concise, because it does *exactly* what the definition of a factorial describes. Looking at `4!`, we notice that the expression `4 * 3 * 2 * 1` contains `3 * 2 * 1`, which is actually just `3!`. So really, `4! = 4 * 3!`, or more generally, `n! = n * (n - 1)!`. From this, we can attempt to write `factorial` recursively:
 
-    def factorial(n):
-      return n * factorial(n - 1)
+{% highlight python %}
+def factorial(n):
+  return n * factorial(n - 1)
+{% endhighlight %}
 
 `factorial(n - 1)` is known as the **recursive call**. Notice that we call it on a smaller argument; we are using the solution of a smaller problem to solve a bigger one! However, this solution isn't completely correct yet. Since a call to `factorial` returns a call to `factorial`, albeit with a smaller arugment, this will cause an infinite loop. How do we fix this? Well, we know that at some point, our problem gets small enough that we no longer have to ask the previous number for its factorial, because we already know the answer! This happens when `n = 0` or `n = 1`. When a user passes through `0` or `1`, there's no need to find `(n - 1)!` because their factorials are defined as `1`. This is called a **base case**. Thus, our solution becomes
 
-    def factorial(n):
-      if n < 1:
-        return 1
-      return n * factorial(n - 1)
+{% highlight python %}
+def factorial(n):
+  if n < 1:
+    return 1
+  return n * factorial(n - 1)
+{% endhighlight %}
 
 <!-- ### How to Approach Problems
 The way that we approached the factorial problem is definitely not the only way you should go about finding recursive solutions. That specific approach worked because we noticed that the definition of factorial involves solving for a smaller factorial. Sometimes, you may find it easy to start with the base case(s). -->

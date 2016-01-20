@@ -34,49 +34,49 @@ Now let's implement it!
 Below is the implementation of our `Puppy` class. Read through it and try to figure out what each line does.
 
 {% highlight python %}
-    class Puppy:
-        """Class representation of the best creatures to have walked our planet."""
-        num_puppies = 0
+class Puppy:
+    """Class representation of the best creatures to have walked our planet."""
+    num_puppies = 0
 
-        def __init__(self, name, fav_toys):
-            """Sets the instance attributes. Instance attributes that start 
-            off differently for each instance are passed through as arguments. 
-            Otherwise, they are set to their default values in here. Every 
-            time a Puppy is created, the class attribute num_puppies gets 
-            incremented."""
-            self.name = name
-            self.fav_toys = fav_toys  # list of favorite toys
-            self.hungriness = 0
-            self.happiness = 5
-            Puppy.num_puppies += 1
+    def __init__(self, name, fav_toys):
+        """Sets the instance attributes. Instance attributes that start 
+        off differently for each instance are passed through as arguments. 
+        Otherwise, they are set to their default values in here. Every 
+        time a Puppy is created, the class attribute num_puppies gets 
+        incremented."""
+        self.name = name
+        self.fav_toys = fav_toys  # list of favorite toys
+        self.hungriness = 0
+        self.happiness = 5
+        Puppy.num_puppies += 1
 
-        def bark(self):
-            """Prints puppy's greeting. He just met you but he already loves 
-            you!"""
-            print("Woof! I am {0} and I love you!".format(self.name))
+    def bark(self):
+        """Prints puppy's greeting. He just met you but he already loves 
+        you!"""
+        print("Woof! My name is {0} and I love you!".format(self.name))
 
-        def play(self, toy):
-            """Puppies can eat if they're not too hungry. Playing will 
-            increase a puppy's happiness (and hungriness)!"""
-            if self.hungriness < 5: 
-                if toy in self.fav_toys:
-                    print(toy + " is my favorite toy EVER.")
-                    self.happiness += 2
-                else:
-                    self.happiness += 1
-                self.hungriness += 1
+    def play(self, toy):
+        """Puppies can eat if they're not too hungry. Playing will 
+        increase a puppy's happiness (and hungriness)!"""
+        if self.hungriness < 5: 
+            if toy in self.fav_toys:
+                print(toy + " is my favorite toy EVER.")
+                self.happiness += 2
             else:
-                print("I am too hungry to play :(")
-
-        def eat(self, food):
-            """Puppies will eat if they're hungry. Eating will decrease a 
-            puppy's hungriness and increase its happiness."""
-            if self.hungriness:
-                print(food + " is my favorite thing to eat EVER.")
-                self.hungriness -= 1
                 self.happiness += 1
-            else:
-                print("No thanks! Let's play!")
+            self.hungriness += 1
+        else:
+            print("I am too hungry to play :(")
+
+    def eat(self, food):
+        """Puppies will eat if they're hungry. Eating will decrease a 
+        puppy's hungriness and increase its happiness."""
+        if self.hungriness:
+            print(food + " is my favorite thing to eat EVER.")
+            self.hungriness -= 1
+            self.happiness += 1
+        else:
+            print("No thanks! Let's play!")
 {% endhighlight %}
 
 #### Test your understanding
@@ -113,7 +113,9 @@ Now that we have an outline of what `Puppy` object keeps track of and does, let'
 #### Instantiating
 To create a new puppy object, use the `__init__` method. The `__init__` method is a magic method, which you'll learn more about later. For now, just know that you don't necessarily have to call it using `__init__`. Instead, just use the class name, like so:
 
-    >>> my_puppy = Puppy('Spot', ['rope', 'stick'])
+{% highlight python %}
+>>> my_puppy = Puppy('Spot', ['rope', 'stick'])
+{% endhighlight %}
 
 This puppy's name is `'Spot'` and his favorite toys are a `'rope'` and a `'stick'`. Notice that we do not have to pass anything through for the `self` parameter. This implicitly gets "passed through"; the new instance that we are creating gets assigned to `self`!  
   
@@ -123,74 +125,91 @@ When `__init__` is called, all our instance variables get initialized. Now we ca
 Attributes must always be accessed using **dot notation**.  
 Instance attributes can only be accessed on an instance. This means that the instance comes before the dot, and the attribute comes after.
 
-    >>> my_puppy.name
-    'Spot'
+{% highlight python %}
+>>> my_puppy.name
+'Spot'
+{% endhighlight %}
 
 Here, we are using an instance that we've already created. We can also create a new instance and retrieve one of its attribute in one line.
 
-    >>> Puppy('Bear', ['shoe', 'bone']).fav_toys
-    ['shoe', 'bone']
+
+{% highlight python %}
+>>> Puppy('Bear', ['shoe', 'bone']).fav_toys
+['shoe', 'bone']
+{% endhighlight %}
 
 Class attributes work the same, except they can also be accessed using the class name. Recall that all instances have access to the class attributes, which have the same values for all instances.
 
-    >>> Puppy.num_puppies
-    2
-    >>> puppy2 = Puppy('Titan')
-    >>> puppy2.num_puppies
-    3
-    >>> my_puppy.num_puppies
-    3
+{% highlight python %}
+>>> Puppy.num_puppies
+2
+>>> puppy2 = Puppy('Titan')
+>>> puppy2.num_puppies
+3
+>>> my_puppy.num_puppies
+3
+{% endhighlight %}
 
 #### Changing Attributes
 You can change instance or class attributes by using an assignment statement. Changing instance attributes of one instance does not change attributes of other instances.
 
-    >>> my_puppy.name = 'Boba'
-    >>> my_puppy.name
-    'Boba'
-    >>> puppy2.name 
-    'Titan'
+{% highlight python %}
+>>> my_puppy.name = 'Boba'
+>>> my_puppy.name
+'Boba'
+>>> puppy2.name 
+'Titan'
+{% endhighlight %}
 
 However, changing class attributes does change the value for all instances.    
 
-    >>> Puppy.num_puppies = 10
-    >>> my_puppy.num_puppies
-    10
-    >>> puppy2.num_puppies
-    10
+{% highlight python %}
+>>> Puppy.num_puppies = 10
+>>> my_puppy.num_puppies
+10
+>>> puppy2.num_puppies
+10
+{% endhighlight %}
 
 Here's the tricky part: attempting to change a class attribute while accessing it from an instance will create a *new instance attribute*, thereby not affecting the class attribute.
 
-    >>> my_puppy.num_puppies += 5
-    >>> my_puppy.num_puppies
-    15
-    >>> Puppy.num_puppies
-    10
-    >>> puppy2.num_puppies
-    10
+{% highlight python %}
+>>> my_puppy.num_puppies += 5
+>>> my_puppy.num_puppies
+15
+>>> Puppy.num_puppies
+10
+>>> puppy2.num_puppies
+10
+{% endhighlight %}
 
 Now, `my_puppy` no longer has access to the class attribute `num_puppies`, because it overwrote it with an instance attribute.
 
 #### Calling Methods
 To call a method, you must use dot notation just like with attributes. Otherwise, methods work just like functions; you call them using parentheses and pass through the appropriate arguments. 
 
-
-    >>> my_puppy.bark()
-    Woof! I am Spot and I love you!
+{% highlight python %}
+>>> my_puppy.bark()
+Woof! My name is Spot and I love you.
+{% endhighlight %}
 
 Notice that we did not pass through any arguments even though `bark` takes in one parameter `self`. Dot notation implicitly passes through the instance and assigns it to `self`. Thus, in the body, `self.name` is the same as `my_puppy.name`.  
 
 It is possible to call a method without using dot notation: you can access the method from the class and then pass through the instance as `self`.
 
-    >>> Puppy.play(my_puppy, 'stick')
-    stick is my favorite toy EVER.
-
+{% highlight python %}
+>>> Puppy.play(my_puppy, 'stick')
+stick is my favorite toy EVER.
+{% endhighlight %}
 
 Remember, without the parentheses, you are only accessing the function object!
 
-    >>> my_puppy.play
-    <function Puppy.play ... >
-    >>> my_puppy.play('rope')
-    rope is my favorite toy EVER.
+{% highlight python %}
+>>> my_puppy.play
+<function Puppy.play ... >
+>>> my_puppy.play('rope')
+rope is my favorite toy EVER.
+{% endhighlight %}
 
 #### Test your understanding
 What would Python print after each of the following lines are inputted? Assume we have restarted the interpreter (i.e., ignore all of the above lines).
@@ -232,6 +251,6 @@ What would Python print after each of the following lines are inputted? Assume w
 >>> Puppy.num_puppies
 <span class="solution-2">18</span>
 >>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
-<span class="solution-2">Woof! I am Chewie and I love you!</span></code></pre>
+<span class="solution-2">Woof! My name is Chewie and I love you!</span></code></pre>
 
 <a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>

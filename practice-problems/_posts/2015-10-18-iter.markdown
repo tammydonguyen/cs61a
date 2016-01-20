@@ -7,24 +7,24 @@ category: practice-problems
 
 ## Concepts
 <ol style="width: 75%">
-<li> What method(s) must **iterables** have?   </li>
-<blockquote class="solution-4">`__iter__`</blockquote>
-<li>What method(s) must **iterators** have?  </li>
-<blockquote class="solution-4">`__iter__` AND `__next__`</blockquote>
-<li>What data type does `__iter__` return? </li>
+<li> What method(s) must <b>iterables</b> have?   </li>
+<blockquote class="solution-4"><code>__iter__</code></blockquote>
+<li>What method(s) must <b>iterators</b> have?  </li>
+<blockquote class="solution-4"><code>__iter__</code> AND <code>__next__</code></blockquote>
+<li>What data type does <code>__iter__</code> return? </li>
 <blockquote class="solution-4">iterator</blockquote>
-<li>What data type does `__next__` return?</li>
+<li>What data type does <code>__next__</code> return?</li>
 <blockquote class="solution-4">whatever type each element of the sequence is</blockquote>
-<li>Is a **generator** an iterable or an iterator?  </li>
+<li>Is a <b>generator</b> an iterable or an iterator?  </li>
 <blockquote class="solution-4">iterator</blockquote>
 <li>What keyword in the body of a function makes that function return a generator object?  </li>
-<blockquote class="solution-4">`yield`</blockquote>
-<li>How is `yield` different from `return`?    </li>
-<blockquote class="solution-4">`yield` does not close the frame. `yield` outputs a value, and keeps the frame open until `StopIteration` is raised.</blockquote>
-<li>When you call `next` on a generator, the body starts executing at what line? At what line will it stop? At what line will it start the next time you call `next`?  </li>
-<blockquote class="solution-4">execution starts at the first line of the body and stops after the line with `yield` is executed. when `next` is called again, execution picks up at the line right after the `yield` statement (where it last left off) and stops after another `yield` execution *or* if there are no more lines in the body.</blockquote>
-<li>What happens when you call `list` on an iterable or an iterator? What happens if you call it a second time on the same objects?  </li>
-<blockquote class="solution-4">when you call `list` on an iterable or an iterator, Python calls `iter` on it and then attempts to construct a list with the `next` element until `StopIteration` is reached, then returns the constructed list.</blockquote>
+<blockquote class="solution-4"><code>yield</code></blockquote>
+<li>How is <code>yield</code> different from <code>return</code>?    </li>
+<blockquote class="solution-4"><code>yield</code> does not close the frame. <code>yield</code> outputs a value, and keeps the frame open until <code>StopIteration</code> is raised.</blockquote>
+<li>When you call <code>next</code> on a generator, the body starts executing at what line? At what line will it stop? At what line will it start the next time you call <code>next</code>?  </li>
+<blockquote class="solution-4">execution starts at the first line of the body and stops after the line with <code>yield</code> is executed. when <code>next</code> is called again, execution picks up at the line right after the <code>yield</code> statement (where it last left off) and stops after another <code>yield</code> execution <i>or</i> if there are no more lines in the body.</blockquote>
+<li>What happens when you call <code>list</code> on an iterable or an iterator? What happens if you call it a second time on the same objects?  </li>
+<blockquote class="solution-4">when you call <code>list</code> on an iterable or an iterator, Python calls <code>iter</code> on it and then attempts to construct a list with the <code>next</code> element until <code>StopIteration</code> is reached, then returns the constructed list.</blockquote>
 <li>Can you iterate through an iterable in a for loop? Can you iterate through an iterator in a for loop?  </li>
 <blockquote class="solution-4">you can use both iterables and iterators in a for loop.</blockquote> 
 </ol>
@@ -32,31 +32,35 @@ category: practice-problems
 <a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a>
 
 <a class="anchor" name="wwpp"></a>  
+
 ## What would Python print?
+
 The following classes define an iterable representing the sequence of multiples for any given number and the iterator that returns the next value in the sequence. The sequence goes up to 1000.
 
-    class Multiples:
-        def __init__(self, num):
-            self.num = num
-        
-        def __iter__(self):
-            return MultiplesIterator(self.num)
+{% highlight py3 %}
+class Multiples:
+    def __init__(self, num):
+        self.num = num
     
-    class MultiplesIterator:
-        def __init__(self, num):
-            self.num = num
-            self.curr = num
-        
-        def __iter__(self):
-            return self
-        
-        def __next__(self):
-            if self.curr >= 1000:
-                raise StopIteration
-            val = self.curr
-            self.curr = self.curr + self.num
-            return val
-            
+    def __iter__(self):
+        return MultiplesIterator(self.num)
+
+class MultiplesIterator:
+    def __init__(self, num):
+        self.num = num
+        self.curr = num
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        if self.curr >= 1000:
+            raise StopIteration
+        val = self.curr
+        self.curr = self.curr + self.num
+        return val
+{% endhighlight %}
+
 What will the following lines output?
 
 <pre><code>>>> hundreds = Multiples(100)<br>>>> next(hundreds)
@@ -88,16 +92,18 @@ What will the following lines output?
 >>> for x in i:
 ...     print(x)</code></pre>
 
-<p class="solution-6">**Explanation**: `Multiples`'s `__iter__` method always returns a *new instance* of `MultiplesIterator`, whereas `MultiplesIterator`'s `__iter__` simply returns itself. For iterables, calling `iter` will reset the iterator, but since iterators just return themselves, they do not reset.</p>
+<p class="solution-6"><b>Explanation</b>: <code>Multiples</code>'s <code>__iter__</code> method always returns a *new instance* of <code>MultiplesIterator</code>, whereas <code>MultiplesIterator</code>'s <code>__iter__</code> simply returns itself. For iterables, calling <code>iter</code> will reset the iterator, but since iterators just return themselves, they do not reset.</p>
 
 <a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a> &nbsp;
 <a class="solution-toggle-6 btn btn-default">TOGGLE EXPLANATION</a>
 
 <a class="anchor" name="code"></a>  
+
 ## Writing code
 Fill in the following definition of a generator function which yields every number from `1` to `n` and prints `'m was a factor'` if the previous number, `m`, was a factor of `n`. See the doctests for an example.
   
-<pre><code>def print_factor(n):
+{% highlight py3 %}
+def print_factor(n):
     """
     >>> gen = print_factor(8)
     >>> next(gen)
@@ -113,13 +119,17 @@ Fill in the following definition of a generator function which yields every numb
     >>> next(gen)
     4 was a factor
     5
-    """
-    <span class="solution-2-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-2-p">curr = 1
-while curr <= n:
-    yield curr
-    if n % curr == 0:
-        print(str(curr) + " was a factor")
-    curr += 1</span></code></pre>
+    """  
+    "*** YOUR CODE HERE ***"{% endhighlight %}
 
 <a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a>
+
+<div class="solution-2-p">
+{% highlight py3 %}def print_factor(n):
+    curr = 1
+    while curr <= n:
+        yield curr
+        if n % curr == 0:
+            print(str(curr) + " was a factor")
+        curr += 1
+{% endhighlight %}</div>

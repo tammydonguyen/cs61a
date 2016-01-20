@@ -3,7 +3,7 @@ $(document).ready(function(){
 		$(".cat1").slideToggle("slow");
         $(".cat2").slideUp();
         $(".cat3").slideUp();
-        
+        $(".cat4").slideUp();
 	});
 });
 
@@ -12,16 +12,25 @@ $(document).ready(function(){
         $(".cat2").slideToggle("slow");
         $(".cat1").slideUp();
         $(".cat3").slideUp();
-        
+        $(".cat4").slideUp();
     });
 });
 
 $(document).ready(function(){
     $(".cat3-toggle").click(function(){
         $(".cat3").slideToggle("slow");
-        $(".cat2").slideUp();
         $(".cat1").slideUp();
-        
+        $(".cat2").slideUp();
+        $(".cat4").slideUp();
+    });
+});
+
+$(document).ready(function(){
+    $(".cat4-toggle").click(function(){
+        $(".cat4").slideToggle("slow");
+        $(".cat1").slideUp();
+        $(".cat2").slideUp();
+        $(".cat3").slideUp();
     });
 });
 

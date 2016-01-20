@@ -8,6 +8,7 @@ categories: guides
 **This page is under construction!**
 
 ----
+
 ## Intro  
 Scheme, a dialect of another language called Lisp, is a very powerful functional programming language. In this class, we are only concerned with a very basic subset of the Scheme language which includes writing basic procedures, manipulating pairs and lists, writing tail recursive procedures, and working with streams. 
 
@@ -43,76 +44,92 @@ Lists in Scheme are a lot like Linked Lists in Python. Whereas a Linked List in 
 #### Pairs
 A pair is the fundamental sequential unit in Scheme. To create one, use `cons`. `cons` takes in two arguments and creates a pair out of them.
 
-    scm> (cons 3 5)
-    (3 . 5)
+{% highlight scheme %}
+scm> (cons 3 5)
+(3 . 5)
+{% endhighlight %}
 
 The elements in a pair are separated by a dot. To retrieve the first element, use `car`. To retrieve the second element, use `cdr`.
 
-  scm> (define lst (cons 2 3))
-  lst
-  scm> (car lst)
-  2
-  scm> (cdr (cons 4 5))
-  5
+{% highlight scheme %}
+scm> (define lst (cons 2 3))
+lst
+scm> (car lst)
+2
+scm> (cdr (cons 4 5))
+5
+{% endhighlight %}
 
 The entries in a pair can be other pairs. 
 
-  scm> (define lst (cons 3 (cons 4 5)))
-  lst
-  scm> lst
-  (3 4 . 5)
-  scm> (car lst)
-  3
-  scm> (cdr lst)
-  (4 . 5)
-  scm> (cdr (cdr lst))
-  5
-    scm> (cons (cons 4 5) (cons 6 7))
-    ((4 . 5) 6 . 7)
+{% highlight scheme %}
+scm> (define lst (cons 3 (cons 4 5)))
+lst
+scm> lst
+(3 4 . 5)
+scm> (car lst)
+3
+scm> (cdr lst)
+(4 . 5)
+scm> (cdr (cdr lst))
+5
+scm> (cons (cons 4 5) (cons 6 7))
+((4 . 5) 6 . 7)
+{% endhighlight %}
 
 When Scheme sees a `.` immediately followed by an open parenthesis, it removes the dot, the open parenthesis, *and* the corresponding close parenthesis. This way, we can construct what's known as a **well-formed list** from a bunch of pairs!  
 
 #### Well-formed lists
 A well-formed list is actually just a pair whose first argument is the first element of the list and the second argument is another well-formed list. The last list argument is an empty list, or `nil`, to signify the end of the sequence.
 
-  scm> (cons 5 nil) ; one-element list
-  (5)
-  scm> (cons 1 (cons 2 (cons 3 nil))) ; three-element list
-  (1 2 3)
-  scm> (cons 1 (cons 2 (cons 3 '()))) ; same as previous
-  (1 2 3)
+{% highlight scheme %}
+scm> (cons 5 nil) ; one-element list
+(5)
+scm> (cons 1 (cons 2 (cons 3 nil))) ; three-element list
+(1 2 3)
+scm> (cons 1 (cons 2 (cons 3 '()))) ; same as previous
+(1 2 3)
+{% endhighlight %}
 
 The take-away is this: `cons` can be used to create a list if and only if the first arugument is the first element of the list and the second argument is another list, which can be `nil`.
 
-  scm> (define first 1)
-  first
-  scm> (define rest '(2 3 4 5)) 
-  rest
-  scm> (cons first rest)
-  (1 2 3 4 5)
+{% highlight scheme %}
+scm> (define first 1)
+first
+scm> (define rest '(2 3 4 5)) 
+rest
+scm> (cons first rest)
+(1 2 3 4 5)
+{% endhighlight %}
 
 Notice above that it is possible to also create lists with `'`. Keep in mind that this will create the exact list that comes after it, which means we can't do something like `'(1 (cons 2 nil))`.   
 
 Scheme provides us with an alternate to `cons` that is much more succinct and readable: `list`. `list` takes in an arbitrary number of arguments and will simply create a well formed list of them.
 
-  scm> (list 1 2 3 4)
-  (1 2 3 4)
+{% highlight scheme %}
+scm> (list 1 2 3 4)
+(1 2 3 4)
+{% endhighlight %}
 
 Be careful, though; whereas with `cons` you can pass through the rest of the list as the second argument, passing lists through to `list` will create nested lists!
 
-  scm> (list 1 2 (list 3 4) 5)
-  (1 2 (3 4) 5)
-  scm> (list 1 2 (cons 3 (cons 4 nil)) 5)
-  (1 2 (3 4) 5)
+{% highlight scheme %}
+scm> (list 1 2 (list 3 4) 5)
+(1 2 (3 4) 5)
+scm> (list 1 2 (cons 3 (cons 4 nil)) 5)
+(1 2 (3 4) 5)
+{% endhighlight %}
 
 You can check whether a list is empty using `(null? lst)`. This is like asking whether `(= lst nil)`.
 
-    scm> (null? nil)
-    True
-    scm> (null? (list 1 2 3))
-    False
-    scm> (null? '())
-    True
+{% highlight scheme %}
+scm> (null? nil)
+True
+scm> (null? (list 1 2 3))
+False
+scm> (null? '())
+True
+{% endhighlight %}
 
 >**Summary**  
 1. A list is a pair whose second entry is another list.  
@@ -122,5 +139,5 @@ You can check whether a list is empty using `(null? lst)`. This is like asking w
 5. To retrieve the first element of a pair or list, call `car`.   
 6. To retrieve the second element of a pair or the rest of a list, call `cdr`.  7. Check whether a list is empty using the predicate `null?`.
 
-<a class="btn btn-default" href="/cs61a/practice-problems/scheme.html#lists">basic problems</a>&nbsp;&nbsp;
-<a class="btn btn-default" href="/cs61a/practice-problems/final.html#scheme-lists">exam-level problems</a>
+<a class="btn btn-default" href="/cs61a-resources/practice-problems/scheme.html#lists">BASIC PROBLEMS</a>&nbsp;&nbsp;
+<a class="btn btn-default" href="/cs61a-resources/practice-problems/final.html#scheme-lists">EXAM-LEVEL PROBLEMS</a>

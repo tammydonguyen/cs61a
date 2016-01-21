@@ -8,7 +8,7 @@ categories: quizzes
 **Coming soon!**
 
 <!-- This quiz reviews topics covered in these lectures:  
-[Functions]()   
+[Basics](http://cs61a.org/assets/slides/01-Functions_6pp.pdf)   
 [Names]()  
 [Control]()  
 

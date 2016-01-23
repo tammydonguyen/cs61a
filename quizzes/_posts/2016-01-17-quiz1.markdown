@@ -7,7 +7,7 @@ categories: quizzes
 
 **Coming soon!**
 
-This quiz reviews topics covered in these lectures:  
+<!-- This quiz reviews topics covered in these lectures:  
 [Basics](http://cs61a.org/assets/slides/01_6pp.pdf)   
 [Names and Functions](http://cs61a.org/assets/slides/02_6pp.pdf)  
 [Control]()  
@@ -88,3 +88,4 @@ def cs61a(n):
         i += 1
 {% endhighlight %}    
 </blockquote>
+ -->

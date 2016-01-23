@@ -88,7 +88,7 @@
         </li>
       
         <li> 
-          <a href="/other/exams.html"> Taking Exams </a>
+          <a href="/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -168,7 +168,7 @@
         </li>
       
         <li> 
-          <a href="/cs61a-resources/other/exams.html"> Taking Exams </a>
+          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -190,76 +190,98 @@
 
 <hr />
 
-<p><a name="scheme-lists" class="anchor"></a>
-## Scheme Lists
-Write a function <code>non-contiguous</code> that checks whether <code>subseq</code> is a non-contiguous subsequence of <code>lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
+<p><a name="scheme-lists" class="anchor"></a></p>
 
-<pre><code>scm&gt; (non-contiguous '() lst)
-True
-scm&gt; (non-contiguous '(1 3 6) '(1 2 3 4 5 6))
-True
-scm&gt; (non-contiguous '(1 5 2) '(1 2 3 4 5 6))
-False
-</code></pre>
+<h2 id="scheme-lists">Scheme Lists</h2>
+<p>Write a function <code>non-contiguous</code> that checks whether <code>subseq</code> is a non-contiguous subsequence of <code>lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
 
-<pre><code>(define (non-contiguous subseq lst)
-<span class="solution-2-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-2-p">  (cond ((null? subseq) #t)
-        ((null? lst) #f)
-        ((= (car subseq) (car lst)) (non-contiguous (cdr subseq) (cdr lst)))
-        (else (non-contiguous subseq (cdr lst))))
-)</span></code></pre>
-<p><a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a></p>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">()</span> <span class="nv">lst</span><span class="p">)</span>
+<span class="nv">True</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nv">True</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nv">False</span>
 
-<p><a name="tail" class="anchor"></a>
-## Tail Recursion
-Write <code>keep-first-n</code> which takes a list and a number <code>n</code> and returns a list that consists of the first <code>n</code> numbers of <code>n</code>, assuming <code>lst</code> is at least length <code>n</code>.</p>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">)</span></code></pre></figure>
 
-<pre><code>scm&gt; (keep-first-n (list 1 2 3 4 5) 3)
-(1 2 3)
-scm&gt; (keep-first-n (list 'a 'b 'c) 1)
-(a)
-</code></pre>
+<p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
-<pre><code>(define (keep-first-n lst n)
-<span class="solution-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-p">  (define (helper i result lst)
-    (if (= i n) result
-        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
-    )
-  (helper 0 '() lst))
-)</span></code></pre>
-<p><a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a>   <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep">EXPLANATION</a></p>
+<div class="solution">
 
-<p><a name="stream" class="anchor"></a>
-## Streams
-Write a function that creates a cyclic stream out of the first <code>n</code> elements of <code>lst</code>, or the entire <code>lst</code> if the length of <code>lst</code> is less than <code>n</code>.</p>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">cond </span><span class="p">((</span><span class="nb">null? </span><span class="nv">subseq</span><span class="p">)</span> <span class="no">#t</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">= </span><span class="p">(</span><span class="nb">car </span><span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">))</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
+          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">))))</span>
+    <span class="p">)</span></code></pre></figure>
 
-<pre><code>scm&gt; (cycle-first-n 3 (list 1 2 3 4))
-(1 . #[promise (not forced)])
-scm&gt; (stream-to-list (cycle-first-n 3 (list 1 2 3 4)) 10)  ; prints stream as list
-(1 2 3 1 2 3 1 2 3 1)
-scm&gt; (stream-to-list (cycle-first-n 7 (list 1 2 3 4)) 10)
-(1 2 3 4 1 2 3 4 1 2)
-</code></pre>
+</div>
 
-<pre><code>(define (cycle-first-n n lst)
-<span class="solution-3-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-3-p">  (define (stream-helper i curr-lst)
-    (if (or (zero? i) (null? curr-lst))
-        (cycle-first-n n lst)
-        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
-    ))
-  (stream-helper n lst))
-)</span></code></pre>
-<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
+<p><a name="tail" class="anchor"></a></p>
 
-<p><a name="sql" class="anchor"></a>
-## SQL
-Check back later!</p>
+<h2 id="tail-recursion">Tail Recursion</h2>
+<p>Write <code>keep-first-n</code> which takes a list and a number <code>n</code> and returns a list that consists of the first <code>n</code> numbers of <code>n</code>, assuming <code>lst</code> is at least length <code>n</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="ss">&#39;b</span> <span class="ss">&#39;c</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">a</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">)</span></code></pre></figure>
+
+<p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>   <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep" target="_blank">OPEN EXPLANATION</a></p>
+
+<div class="solution-2">
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
+            <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append </span><span class="nv">result</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
+        <span class="p">)</span>
+      <span class="p">(</span><span class="nf">helper</span> <span class="mi">0</span> <span class="o">&#39;</span><span class="p">()</span> <span class="nv">lst</span><span class="p">))</span>
+    <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><a name="stream" class="anchor"></a></p>
+
+<h2 id="streams">Streams</h2>
+<p>Write a function that creates a cyclic stream out of the first <code>n</code> elements of <code>lst</code>, or the entire <code>lst</code> if the length of <code>lst</code> is less than <code>n</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="o">#</span><span class="p">[</span><span class="nv">promise</span> <span class="p">(</span><span class="nb">not </span><span class="nv">forced</span><span class="p">)])</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">; prints stream as list</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">7</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">)</span></code></pre></figure>
+
+<p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-3">
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">stream-helper</span> <span class="nv">i</span> <span class="nv">curr-lst</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nb">zero? </span><span class="nv">i</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">curr-lst</span><span class="p">))</span>
+            <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
+            <span class="p">(</span><span class="nf">cons-stream</span> <span class="p">(</span><span class="nb">car </span><span class="nv">curr-lst</span><span class="p">)</span> <span class="p">(</span><span class="nf">stream-helper</span> <span class="p">(</span><span class="nb">- </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">curr-lst</span><span class="p">)))</span>
+        <span class="p">))</span>
+      <span class="p">(</span><span class="nf">stream-helper</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">))</span>
+    <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><a name="sql" class="anchor"></a></p>
+
+<h2 id="sql">SQL</h2>
+<p>Check back later!</p>
 
 <!-- <pre><code>(define (cycle-first-n n lst)
 <span class="solution-4-prompt">  "YOUR CODE HERE"
@@ -273,24 +295,32 @@ Check back later!</p>
 )</span></code></pre>
 <a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a> -->
 
-<p><a name="logic" class="anchor"></a>
-## Logic
-Write a fact that states that one list is a suffix of another list.</p>
+<p><a name="logic" class="anchor"></a></p>
 
-<pre><code>(query (suffix (a b c) (a b c)))
-; expect Success!
-(query (suffix (4 5) (1 2 3 4 5)))
-; expect Success!
-(query (suffix (1 2) (1 2 3 4 5)))
-; expect Failed.
-</code></pre>
+<h2 id="logic">Logic</h2>
+<p>Write a fact that states that one list is a suffix of another list.</p>
 
-<pre class="solution-5"><code>(fact (suffix ?suf ?suf))
-(fact (suffix ?suf (?first . ?rest))
-      (suffix ?suf ?rest))</code></pre>
-<p class="solution-6">**Explanation:** Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When `?rest` is assigned to a list that is the same as `?suf`, the fact becomes a `Success!`.</p>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
+<span class="c1">; expect Success!</span>
+<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="c1">; expect Success!</span>
+<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="c1">; expect Failed.</span></code></pre></figure>
+
 <p><a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a>  
 <a class="solution-toggle-6 btn btn-default">TOGGLE EXPLANATION</a></p>
+
+<div class="solution-5">
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="nf">fact</span> <span class="p">(</span><span class="nf">suffix</span> <span class="nv">?suf</span> <span class="nv">?suf</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">fact</span> <span class="p">(</span><span class="nf">suffix</span> <span class="nv">?suf</span> <span class="p">(</span><span class="nf">?first</span> <span class="o">.</span> <span class="nv">?rest</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">suffix</span> <span class="nv">?suf</span> <span class="nv">?rest</span><span class="p">))</span></code></pre></figure>
+
+</div>
+
+<p class="solution-6">
+    <b>Explanation:</b> Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When <code>?rest</code> is assigned to a list that is the same as <code>?suf</code>, the fact becomes a <code>Success!</code>.
+</p>
 
   </div>
 </div>

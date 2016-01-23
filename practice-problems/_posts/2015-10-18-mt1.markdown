@@ -14,22 +14,25 @@ These problems are designed to be around exam difficulty. For more basic problem
 ---
 
 <a name="wwpp" class="anchor"></a>
-## What would Python print?
 
-    from operator import sub
+## What would Python print?  
 
-    this = lambda a, b : lambda c: a(b, c)
-    d = 30
+{% highlight python %}
+from operator import sub
 
-    def that(e, f):
-        if e and f:
-            e, d = f(sub, e)(5), e
-        else:
-            print(e)
-            d = 20
-        def this(g):
-           return lambda : print(g(d, e))
-        return this
+this = lambda a, b : lambda c: a(b, c)
+d = 30
+
+def that(e, f):
+    if e and f:
+        e, d = f(sub, e)(5), e
+    else:
+        print(e)
+        d = 20
+    def this(g):
+       return lambda : print(g(d, e))
+    return this
+{% endhighlight %}
 
 The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it. 
    

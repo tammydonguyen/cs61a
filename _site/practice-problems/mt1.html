@@ -88,7 +88,7 @@
         </li>
       
         <li> 
-          <a href="/other/exams.html"> Taking Exams </a>
+          <a href="/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -168,7 +168,7 @@
         </li>
       
         <li> 
-          <a href="/cs61a-resources/other/exams.html"> Taking Exams </a>
+          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -190,24 +190,24 @@
 
 <hr />
 
-<p><a name="wwpp" class="anchor"></a>
-## What would Python print?</p>
+<p><a name="wwpp" class="anchor"></a></p>
 
-<pre><code>from operator import sub
+<h2 id="what-would-python-print">What would Python print?</h2>
 
-this = lambda a, b : lambda c: a(b, c)
-d = 30
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">sub</span>
 
-def that(e, f):
-    if e and f:
-        e, d = f(sub, e)(5), e
-    else:
-        print(e)
-        d = 20
-    def this(g):
-       return lambda : print(g(d, e))
-    return this
-</code></pre>
+<span class="n">this</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">a</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">def</span> <span class="nf">that</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">e</span> <span class="ow">and</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">e</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">e</span><span class="p">)(</span><span class="mi">5</span><span class="p">),</span> <span class="n">e</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="k">def</span> <span class="nf">this</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+       <span class="k">return</span> <span class="k">lambda</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">this</span></code></pre></figure>
 
 <p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it.</p>
 

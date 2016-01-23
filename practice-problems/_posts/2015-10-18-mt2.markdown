@@ -10,102 +10,84 @@ categories: practice-problems
 ---
 
 <a name="nonlocal" class="anchor"></a>
-## Nonlocal and Higher Order Functions
+
+## Nonlocal and Higher Order Functions  
 Draw the environment diagram for the following code:
 
-    def what(a, b):
-        x = a
-        def ha(ha):
-            nonlocal x
-            x = ha * 2
-            return x
-        return b(ha(x), x)
+{% highlight python %}
+def what(a, b):
+    x = a
+    def ha(ha):
+        nonlocal x
+        x = ha * 2
+        return x
+    return b(ha(x), x)
 
-    what(4, lambda x, y : x + y)
+what(4, lambda x, y : x + y)
+{% endhighlight %}
 
-<a class="btn btn-default" target="_blank" href="http://pythontutor.com/visualize.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&mode=display&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0">OPEN SOLUTION</a>  
-
-What makes `what` a higher order function?
-a. it returns a function (what function?)
-b. it takes in a function as an argument
-
-<blockquote class="solution-4">`what` is not actually returning a function, but rather a function *call* to `b`. What makes it a higher order function is that it takes in a function as its second argument.</blockquote>
-
-<a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a>
-
-Write the simplest function possible (1-2 lines) that does the exact same thing as `what` for any input `a`, `b`. 
-
-<pre class="solution-3"><code>def foo(a, b):
-    a *= 2
-    return b(a, a)</code></pre>
-
-<a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a>
-
-
-<a name="scope" class="anchor"></a>
-## Variable Scope
-    
-    from operator import sub
-
-    this = lambda a, b : lambda c: a(b, c)
-    d = 30
-
-    def that(e, f):
-        if e and f:
-            e, d = f(sub, e)(5), e
-        else:
-            print(e)
-            d = 20
-        def this(g):
-           return lambda : print(g(d, e))
-        return this
-
-The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it. 
-   
-<pre><code>>>> this(sub, d)()
-<span class="solution">Error, second function call missing an argument</span>
->>> this(print, 40)(d)
-<span class="solution">40 30</span>
->>> this(lambda x, y : y, d)(20)
-<span class="solution">20</span>
->>> that(d, 0)(sub)
-<span class="solution">30<br><\function ...></span>
->>> other = that(10, this)(print)
-<span class="solution"></span>
->>> other() 
-<span class="solution">10 5<br>None</span></code></pre>
+<iframe class="solution" width="800" height="430" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>
 
 <a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a>
 
+What makes `what` a higher order function?  
+
+- **a.** it returns a function (what function?)   
+- **b.** it takes in a function as an argument   
+- **c.** both **a** and **b**   
+
+<blockquote class="solution-2"><b>b</b>, <code>what</code> takes in a function as its second argument. It is not actually returning a function, but rather a function <i>call</i> to <code>b</code>, so <b>a</b> is not correct.</blockquote>
+
+<a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>
+
+Write the simplest function possible (1-2 lines) that does the exact same thing as `what` for any input `a`, `b`. 
+
+<div class="solution-3">
+{% highlight python %}
+def foo(a, b):
+    a *= 2
+    return b(a, a)
+{% endhighlight %}
+</div>
+
+<a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a>
+
 <a name="list-mut" class="anchor"></a> 
-## List Mutability
+
+## List Mutability  
 Draw the environment diagram for the following code.  
     
-    wow = [0, 'c', 's']
+{% highlight python %}
+wow = [0, 'c', 's']
 
-    def f(x):
-        omg = []
-        y = lambda : x - 5
-        def g():
-            nonlocal x
-            while x > len(omg):
-                x = y()
-                omg.append(x)
-            return omg[0:2]
-        return g()
+def f(x):
+    omg = []
+    y = lambda : x - 5
+    def g():
+        nonlocal x
+        while x > len(omg):
+            x = y()
+            omg.append(x)
+        return omg[0:2]
+    return g()
 
-    lol = f(11)
-    wow.extend(lol)
-    lol = wow + ['a']
-    wow = lol[1:]
+lol = f(11)
+wow.extend(lol)
+lol = wow + ['a']
+wow = lol[1:]
+{% endhighlight %}
 
-<a class="btn btn-default" target="_blank" href="http://www.pythontutor.com/visualize.html#code=wow+%3D+%5B0,+'c',+'s'%5D%0A%0Adef+f(x%29%3A%0A++++omg+%3D+%5B%5D%0A++++y+%3D+lambda+%3A+x+-+5%0A++++def+g(%29%3A%0A++++++++nonlocal+x%0A++++++++while+x+%3E+len(omg%29%3A%0A++++++++++++x+%3D+y(%29%0A++++++++++++omg.append(x%29%0A++++++++return+omg%5B0%3A2%5D%0A++++return+g(%29%0A%0Alol+%3D+f(11%29%0Awow.extend(lol%29%0Alol+%3D+wow+%2B+%5B'a'%5D%0Awow+%3D+lol%5B1%3A%5D&mode=display&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=28">OPEN SOLUTION</a>
+<iframe class="solution-4" width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=wow+%3D+%5B0,+'c',+'s'%5D%0A%0Adef+f(x%29%3A%0A++++omg+%3D+%5B%5D%0A++++y+%3D+lambda+%3A+x+-+5%0A++++def+g(%29%3A%0A++++++++nonlocal+x%0A++++++++while+x+%3E+len(omg%29%3A%0A++++++++++++x+%3D+y(%29%0A++++++++++++omg.append(x%29%0A++++++++return+omg%5B0%3A2%5D%0A++++return+g(%29%0A%0Alol+%3D+f(11%29%0Awow.extend(lol%29%0Alol+%3D+wow+%2B+%5B'a'%5D%0Awow+%3D+lol%5B1%3A%5D&origin=opt-frontend.js&cumulative=true&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=28&codeDivWidth=350&codeDivHeight=400"> </iframe>
+
+<a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a>
 
 <a name="link" class="anchor"></a> 
-## Mutable Linked Lists 
+
+## Mutable Linked Lists   
 Implement `multiply`, which takes in a Linked List and mutates it so that each link is duplicated by the amount of its entry. See the doctests for examples.
 
-<pre><code>def multiply(link):
+{% highlight python %}
+def multiply(link):
     """ 
     >>> link = Link(2, Link(3))
     >>> multiply(link)
@@ -116,41 +98,72 @@ Implement `multiply`, which takes in a Linked List and mutates it so that each l
     >>> link
     Link(4, Link(4, Link(4, Link(4, Link(1, Link(2, Link(2)))))))
     """ 
-    <span class="solution-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-p">def helper(link, count):
+    "*** YOUR CODE HERE ***"
+{% endhighlight %}
+
+<a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a>
+
+<div class="solution-5">
+{% highlight python %}
+def multiply(link):
+    def helper(link, count):
         if count == 1 and link.rest != Link.empty:
             multiply(link.rest)
         elif count != 1 and link != Link.empty:
             link.rest = Link(link.first, link.rest)
             helper(link.rest, count - 1)
-    helper(link, link.first)</span></code></pre>
+    helper(link, link.first)
+{% endhighlight %}
+</div>
 
-<a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a>
       
-<a name="iter" class="anchor"></a>  
+<a name="iter" class="anchor"></a>   
+
 ## Iterables and Iterators
-1. Implement `mimic_list` so that it behaves like Python's built-in `list` constructor. See WWPP answers for examples of the behavior.
+1. Implement `mimic_list` so that it behaves like Python's built-in `list` constructor. 
 
-<pre><code>def mimic_list(iterable):
-    """ mimics the behavior of the built-in list constructor """
-    <span class="solution-3-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-3-p">i = iter(iterable) # get iterable's iterator object
-lst = []  # create an empty list
-try:
-    while True:   # add every elem in sequence to lst
-        curr = next(i)
-        lst.append(curr)
-except StopIteration as e: # return lst when the sequence is done
-    return lst  </span></code></pre>
+{% highlight python %}
+def mimic_list(iterable):
+    """ 
+    >>> mimic_list((1, 2, 3, 4))
+    [1, 2, 3, 4]
+    >>> def perf_squares(n): # generates perfect squares
+    ...     i = 1
+    ...     while i <= n:
+    ...         yield i * i
+    ...         i += 1
+    >>> mimic_list(perf_squares(10))
+    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    >>> mimic_list("cs61a")
+    ['c', 's', '6', '1', 'a']
+    """
+    "*** YOUR CODE HERE ***"
+{% endhighlight %}
 
-<a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a>
+
+<a class="solution-toggle-6 btn btn-default">TOGGLE SOLUTION</a>
+    
+<div class="solution-6">  
+{% highlight python %}
+def mimic_list(iterable):  
+    i = iter(iterable) # get iterable's iterator object
+    lst = []  # create an empty list
+    try:
+        while True:   # add every elem in sequence to lst
+            lst.append(next(i))
+    except StopIteration: # return lst when the sequence is done
+        return lst  
+{% endhighlight %}
+</div>
+
 
 <span>2</span>. Recall that all `__iter__` methods must return an iterator type. Well, a generator *is* an iterator, so you can write `__iter__` to be a generator function! Write the `__iter__` method for BinaryTree such that it returns a generator. Calling `next` on this generator will return the elements of the BinaryTree in ascending order. Assume that all instances of BinaryTree fall under the constraints of a binary *search* tree: 
 
 * the root entry is greater than or equal to all entries in the left side of the BinaryTree
 * the root entry is lses than or equal to all entries in the right side of the BinaryTree  
 
-<pre><code>class BinarySearchTree:
+{% highlight python %}
+class BinarySearchTree:
     empty = ()
 
     def __init__(self, entry, left=empty, right=empty):
@@ -170,13 +183,20 @@ except StopIteration as e: # return lst when the sequence is done
         5
         7
         """
-        <span class="solution-4-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-4-p">    for value in self.left:
+        "*** YOUR CODE HERE ***"
+{% endhighlight %}
+
+<a class="solution-toggle-7 btn btn-default">TOGGLE SOLUTION</a>
+
+<div class="solution-7">
+{% highlight python %}
+def __iter__(self):
+    for value in self.left:
         yield value
 
     yield self.entry
 
     for value in self.right:
-        yield value</span></code></pre>
-
-<a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a>
+        yield value
+{% endhighlight %}
+</div>

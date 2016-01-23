@@ -88,7 +88,7 @@
         </li>
       
         <li> 
-          <a href="/other/exams.html"> Taking Exams </a>
+          <a href="/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -168,7 +168,7 @@
         </li>
       
         <li> 
-          <a href="/cs61a-resources/other/exams.html"> Taking Exams </a>
+          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -186,112 +186,161 @@
 
 <hr />
 
-<p><a name="lists" class="anchor"></a>
-## Lists
-1. Write a function <code>attach</code> which returns a new list with <code>elem</code> added to the end of a list. Do not use the built-in function <code>append</code>.
-        scm&gt; (attach 1000 ‘())
-        (1000)
-        scm&gt; (attach 4 ‘(1 2 3))
-        (1 2 3 4)
-        scm&gt; (attach 2 (list 4 3 5))
-        (4 3 5 2)</p>
+<p><a name="lists" class="anchor"></a></p>
 
-<pre><code>&lt;pre&gt;&lt;code&gt;(define (attach elem lst)
-&lt;span class="solution-prompt"&gt;  "YOUR CODE HERE"
-)&lt;/span&gt;
-&lt;span class="solution-p"&gt; (if (null? lst) (list elem)
-  (cons (car lst) (attach elem (cdr lst))))
-)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;a class="solution-toggle-p btn btn-default"&gt;toggle solution&lt;/a&gt;
-    
-What will the following call return?
-&lt;pre&gt;&lt;code&gt;scm&gt; (attach '(d e) '(a b c))&lt;br&gt;&lt;span class="solution"&gt;(a b c (d e))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;a class="solution-toggle btn btn-default"&gt;TOGGLE SOLUTION&lt;/a&gt;
-</code></pre>
+<h2 id="lists">Lists</h2>
+<p><strong>Q1:</strong> Write a function <code>attach</code> which returns a new list with <code>elem</code> added to the end of a list. Do not use the built-in function <code>append</code>.</p>
 
-<ol>
-  <li>
-    <p>Implement <code>append</code>, which takes two lists and combines them into one.</p>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">attach</span> <span class="mi">1000</span> <span class="o">&#39;</span><span class="p">())</span>
+<span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">attach</span> <span class="mi">4</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">attach</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">list </span><span class="mi">4</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">4</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">)</span>
 
-    <pre><code>scm&gt; (append '() '(1 2 3))
-(1 2 3)
-scm&gt; (append '(a b c) '())
-(a b c)
-scm&gt; (append '(c s) '(6 1 a))
-(c s 6 1 a)</code></pre>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">attach</span> <span class="nv">elem</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+  <span class="p">)</span></code></pre></figure>
 
-    <pre><code>(define (append lst1 lst2)
- <span class="solution-3-prompt">  "YOUR CODE HERE"
- )</span>
- <span class="solution-3-p">  (if (null? lst1) lst2
-   &nbsp;(cons (car lst1) (append (cdr lst1) lst2)))
- )</span></code></pre>
-    <p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
-  </li>
-</ol>
+<p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
-<p><a name="tail" class="anchor"></a>
-## Tail Recursion
-1. Look at the solutions I’ve provided for <code>attach</code> and <code>append</code>. What are the tail calls? Are the functions tail recursive?</p>
-<blockquote class="solution-4">`attach` is not tail recursive. The tail calls are a call to `list` and a call to `cons`. The tail call for `append` is to `cons`. This is also not tail recursive, since the recursive call is passed as an argument to `cons`.  </blockquote>
+<div class="solution"> 
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">attach</span> <span class="nv">elem</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span> 
+        <span class="p">(</span><span class="nb">list </span><span class="nv">elem</span><span class="p">)</span>
+        <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)</span> <span class="p">(</span><span class="nf">attach</span> <span class="nv">elem</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p>What will the following call return?</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">attach</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">d</span> <span class="nv">e</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">))</span></code></pre></figure>
+
+<blockquote class="solution-2"><code>(a b c (d e))</code></blockquote>
+
+<p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><strong>Q2:</strong> Implement <code>append</code>, which takes two lists and combines them into one.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">append </span><span class="o">&#39;</span><span class="p">()</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">append </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">())</span>
+<span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">append </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">c</span> <span class="nv">s</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">6</span> <span class="mi">1</span> <span class="nv">a</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">c</span> <span class="nv">s</span> <span class="mi">6</span> <span class="mi">1</span> <span class="nv">a</span><span class="p">)</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">append </span><span class="nv">lst1</span> <span class="nv">lst2</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+  <span class="p">)</span></code></pre></figure>
+
+<p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-3">  
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nb">append </span><span class="nv">lst1</span> <span class="nv">lst2</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">lst1</span><span class="p">)</span> <span class="nv">lst2</span>
+        <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">lst1</span><span class="p">)</span> <span class="nv">lst2</span><span class="p">))</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><a name="tail" class="anchor"></a></p>
+
+<h2 id="tail-recursion">Tail Recursion</h2>
+<p><strong>Q1:</strong> Look at the solutions I’ve provided for <code>attach</code> and <code>append</code>. What are the tail calls? Are the functions tail recursive?</p>
+
+<blockquote class="solution-4"><code>attach</code> is not tail recursive. The tail calls are a call to <code>list</code> and a call to <code>cons</code>. The tail call for <code>append</code> is to <code>cons</code>. This is also not tail recursive, since the recursive call is passed as an argument to <code>cons</code>.  </blockquote>
+
 <p><a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a></p>
 
-<ol>
-  <li>Implement <code>len-tail</code>, which is a tail recursive procedure that returns the length of the input list.</li>
-</ol>
-<blockquote class="solution-3">**Hint:** Use a helper function to keep track of and increment the length.</blockquote>
-<pre><code>scm&gt; (len-tail '())
-0
-scm&gt; (len-tail '(1 2 3))
-3</code></pre>
-<pre><code>&lt;pre&gt;&lt;code&gt;(define (len-tail lst)
-&lt;span class="solution-5-prompt"&gt;  "YOUR CODE HERE"
-)&lt;/span&gt;
-&lt;span class="solution-5-p"&gt;  (define (helper lst result) 
-  &amp;nbsp; (if (null? lst) result
-  &amp;nbsp; (helper (cdr lst) (+ 1 result))))
- (helper lst 0)
-)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;a class="solution-toggle-5-p btn btn-default"&gt;TOGGLE SOLUTION&lt;/a&gt; &amp;nbsp; &lt;a class="solution-toggle-3 btn btn-default"&gt;TOGGLE HINT&lt;/a&gt;
-</code></pre>
+<p><strong>Q2:</strong> Implement <code>len-tail</code>, which is a tail recursive procedure that returns the length of the input list.</p>
 
-<ol>
-  <li>Without using <code>len-tail</code>, implement <code>compare-len</code>, which takes in two lists and outputs 0 if they’re the same length, 1 if <code>lst1</code> is longer, or <code>2</code> if <code>lst2</code> is longer.</li>
-</ol>
-<pre><code>scm&gt; (compare-len (list 1 2 3) (list 4 5 6)
-0
-scm&gt;  (compare-len '(3 3 3 3) '(5 5 5))
-1
-scm&gt;  (compare-len '(h i) '(b y e))
-2</code></pre>
-<pre><code>&lt;pre&gt;&lt;code&gt;(define (compare-len lst1 lst2)
-&lt;span class="solution-6-prompt"&gt;  "YOUR CODE HERE"
-)&lt;/span&gt;
-&lt;span class="solution-6-p"&gt;  (cond ((and (null? lst1) (null? lst2)) 0)
- &amp;nbsp; &amp;nbsp; &amp;nbsp; ((null? lst1) 1)
- &amp;nbsp; &amp;nbsp; &amp;nbsp; ((null? lst2) 2)
- &amp;nbsp; &amp;nbsp; &amp;nbsp; (else (compare-len (cdr lst1) (cdr lst2))))
-)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;a class="solution-toggle-6-p btn btn-default"&gt;TOGGLE SOLUTION&lt;/a&gt;
-</code></pre>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">len-tail</span> <span class="o">&#39;</span><span class="p">())</span>
+<span class="mi">0</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">len-tail</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="mi">3</span>
 
-<p><a name="streams" class="anchor"></a>
-## Streams
-1. Write a function <code>powers</code> that returns a stream of all the powers of <code>n</code>.</p>
-<pre><code>scm&gt; (powers 3)
-(3 . #[promise (not forced)])
-scm&gt; (stream-to-list (powers 3) 10)
-(3 9 27 81 243 729 2187 6561 19683 59049)
-scm&gt; (stream-to-list (powers 2) 10)
-(2 4 8 16 32 64 128 256 512 1024)</code></pre>
-<pre><code>&lt;pre&gt;&lt;code&gt;(define (powers n)
-&lt;span class="solution-4-prompt"&gt;  "YOUR CODE HERE"
-)&lt;/span&gt;
-&lt;span class="solution-4-p"&gt;  (define (helper curr)
- &amp;nbsp; &amp;nbsp;(cons-stream curr (helper (* n curr))))
- &amp;nbsp; &amp;nbsp;(helper n)
-)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;a class="solution-toggle-4-p btn btn-default"&gt;TOGGLE SOLUTION&lt;/a&gt;
-</code></pre>
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">len-tail</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+  <span class="p">)</span></code></pre></figure>
+
+<blockquote class="solution-5">
+    <b>Hint:</b> Use a helper function to keep track of and increment the length.
+</blockquote>
+
+<p><a class="solution-toggle-6 btn btn-default">TOGGLE SOLUTION</a>   <a class="solution-toggle-5 btn btn-default">TOGGLE HINT</a></p>
+
+<div class="solution-6">  
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">len-tail</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">helper</span> <span class="nv">lst</span> <span class="nv">result</span><span class="p">)</span> 
+        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span> <span class="nv">result</span>
+            <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="nv">result</span><span class="p">)))</span>
+      <span class="p">)</span>
+    <span class="p">(</span><span class="nf">helper</span> <span class="nv">lst</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><strong>Q3:</strong> Without using <code>len-tail</code>, implement <code>compare-len</code>, which takes in two lists and outputs 0 if they’re the same length, 1 if <code>lst1</code> is longer, or <code>2</code> if <code>lst2</code> is longer.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">compare-len</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">list </span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="nv">scm&gt;</span>  <span class="p">(</span><span class="nf">compare-len</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">5</span> <span class="mi">5</span> <span class="mi">5</span><span class="p">))</span>
+<span class="mi">1</span>
+<span class="nv">scm&gt;</span>  <span class="p">(</span><span class="nf">compare-len</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">h</span> <span class="nv">i</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">b</span> <span class="nv">y</span> <span class="nv">e</span><span class="p">))</span>
+<span class="mi">2</span>
+
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">compare-len</span> <span class="nv">lst1</span> <span class="nv">lst2</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">)</span></code></pre></figure>
+
+<p><a class="solution-toggle-7 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-7">  
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">compare-len</span> <span class="nv">lst1</span> <span class="nv">lst2</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">cond </span><span class="p">((</span><span class="k">and </span><span class="p">(</span><span class="nb">null? </span><span class="nv">lst1</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">lst2</span><span class="p">))</span> <span class="mi">0</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">null? </span><span class="nv">lst1</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">null? </span><span class="nv">lst2</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span>
+          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">compare-len</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst2</span><span class="p">)))</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><a name="streams" class="anchor"></a></p>
+
+<h2 id="streams">Streams</h2>
+<p>Write a function <code>powers</code> that returns a stream of all the powers of <code>n</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">powers</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span> <span class="o">.</span> <span class="o">#</span><span class="p">[</span><span class="nv">promise</span> <span class="p">(</span><span class="nb">not </span><span class="nv">forced</span><span class="p">)])</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">powers</span> <span class="mi">3</span><span class="p">)</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span> <span class="mi">9</span> <span class="mi">27</span> <span class="mi">81</span> <span class="mi">243</span> <span class="mi">729</span> <span class="mi">2187</span> <span class="mi">6561</span> <span class="mi">19683</span> <span class="mi">59049</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">powers</span> <span class="mi">2</span><span class="p">)</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">2</span> <span class="mi">4</span> <span class="mi">8</span> <span class="mi">16</span> <span class="mi">32</span> <span class="mi">64</span> <span class="mi">128</span> <span class="mi">256</span> <span class="mi">512</span> <span class="mi">1024</span><span class="p">)</span>
+    
+<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">powers</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+  <span class="p">)</span></code></pre></figure>
+
+<p><a class="solution-toggle-8 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-8">
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">powers</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">helper</span> <span class="nv">curr</span><span class="p">)</span>
+        <span class="p">(</span><span class="nf">cons-stream</span> <span class="nv">curr</span> <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">* </span><span class="nv">n</span> <span class="nv">curr</span><span class="p">)))</span>
+      <span class="p">)</span>
+    <span class="p">(</span><span class="nf">helper</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</div>
 
   </div>
 </div>

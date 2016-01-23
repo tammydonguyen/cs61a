@@ -1,28 +1,30 @@
 ---
 layout: post
-title:  "Taking Exams"
+title:  "Course Advice"
 date:   2015-10-18 11:14:11
 category: other
 ---
 
-## Minimize studying by staying caught up
-First of all, here are some tips to ensure that you're on top of course material so you're not cramming the week of the midterm.  
+## Stay caught up
+Here are some tips to ensure that you're on top of course material so you're not cramming when exam time comes. These guidelines are a lot easier said than done, but still worth being outlined.
 
-1. Watch the lecture videos as soon as they come out. Try your best to watch it the day of the actual lecture.
-2. Go to actual labs to do the labs. This way if you get stuck, just ask for help. I guarantee you that you get more out of asking for help than trying to figure it out yourself. If the lab assistants are doing what they're supposed to, they will guide you to the answer and not just give it to you.
-3. Stay in the lab after you're done with lab and complete the homework there too. This pretty much goes along the same lines of point 2. Get help as soon as possible, and don't take more time than you need to on any one problem. 
-4. Start the projects as soon as they come out. You learn better when you're able to take your time, experiment, and learn from your errors. Also, have fun while doing it! You're building real programs here.
+1. Watch the lecture videos the day of the actual lecture. This way, you get the most out of lab and discussion sections and you're not wasting time figuring out what the lab or what your TA is talking about.
+2. Go to a lab to do the lab assignments. This provides two benefits: the lab environment keeps you on task and you're able to ask for help immediately if you get stuck. If the lab assistants are doing what they're supposed to, they will guide you to the answer and not just give it to you.
+3. Stay in the lab after you're done with lab and complete homeworks and/or work on projects there too. This pretty much goes along the same lines of point 2. Get help as soon as possible, and don't take more time than you need to on any one problem. 
+4. Start the projects as soon as they come out. You learn more effectively when you're able to take your time, experiment, and learn from your errors. Also, have fun while doing it! You're building real programs here.
 
 If you do all of this, it's very hard to fall behind in class. Then come exam week, it's likely that you won't have to study or review old material, because everything taught in 61A builds on top of previous topics and ideas and there are so many assignments to apply these topics. Appreciate the assignments. These are the best learning tools.
 
-## Studying for the exam
+## Exams
+
+### Exam Prep 
 Grab a list of all the topics that will be on the exam. Go back to the discussion sheets and labs, read them over a bit just as a refresher, and then jump right into problems. **There's no need to do any heavy reading or watch the lectures again if you're caught up in class.**
 
 Order the exam topics from easiest to hardest from your point of view. Starting at the top of the list, begin by reviewing problems that you struggled with in the assignments. Doing them again will really solidify what you learned from it. This is so much better than doing new, harder problems and simply looking at the solutions. After you feel like you have a good grasp on a certain topic, find about 3 problems of that topic in [past exams](https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Past_exams). Do them all, moving on if you get stuck. The thought process for one can help you figure out the others. Take note of patterns that you find while doing these problems. 
 
 Repeat this process for every topic, ending with topics that are harder for you. Yes, this is a very long process. I recommend starting your exam studies (not including catching up) at least a week prior to the exam to give you adequate time to do problems for each topic.
 
-## Taking the exam  
+### Taking the exam  
 
 #### What Would Python Print?
 Draw an environment diagram. It's not an environment diagram question, I know. Just draw one, especially if lists and/or OOP are involved. Rather than writing values all over the code and keeping track of the state of the program in your head, just draw it out. That is what environment diagrams are there for. It may take a little bit more time, but the time saved from not forgetting values and having to restart is worth it. Also, it makes it way easier to double check your work; just review your environment diagram rather than redoing the problem.
@@ -37,7 +39,7 @@ Recall patterns that you found while going through past exams and try to apply t
 
 If there is already some code provided, try to figure out what the solution might be trying to do rather than come up with your own. This way, you don't mix up ideas and/or get confused.
 
-## After the exam
+### After the exam
 Breathe. Relax. Smile.
 
 It's over! Whether you did well or not, there's no going back in time to change things. Regardless, you shouldn't be stressing out immediately after an exam.

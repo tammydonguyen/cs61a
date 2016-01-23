@@ -13,71 +13,103 @@ category: practice-problems
 
 ---
 
-<a name="scheme-lists" class="anchor"></a>
-## Scheme Lists
+<a name="scheme-lists" class="anchor"></a>  
+  
+## Scheme Lists  
 Write a function `non-contiguous` that checks whether `subseq` is a non-contiguous subsequence of `lst`. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.
 
-    scm> (non-contiguous '() lst)
-    True
-    scm> (non-contiguous '(1 3 6) '(1 2 3 4 5 6))
-    True
-    scm> (non-contiguous '(1 5 2) '(1 2 3 4 5 6))
-    False
+{% highlight scheme %}
+scm> (non-contiguous '() lst)
+True
+scm> (non-contiguous '(1 3 6) '(1 2 3 4 5 6))
+True
+scm> (non-contiguous '(1 5 2) '(1 2 3 4 5 6))
+False
 
-<pre><code>(define (non-contiguous subseq lst)
-<span class="solution-2-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-2-p">  (cond ((null? subseq) #t)
-        ((null? lst) #f)
-        ((= (car subseq) (car lst)) (non-contiguous (cdr subseq) (cdr lst)))
-        (else (non-contiguous subseq (cdr lst))))
-)</span></code></pre>
-<a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a>
+(define (non-contiguous subseq lst)
+    "YOUR CODE HERE"
+)
+{% endhighlight %}
+
+<a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a>
+
+<div class="solution">
+{% highlight scheme %}
+(define (non-contiguous subseq lst)
+    (cond ((null? subseq) #t)
+          ((null? lst) #f)
+          ((= (car subseq) (car lst)) (non-contiguous (cdr subseq) (cdr lst)))
+          (else (non-contiguous subseq (cdr lst))))
+    )
+{% endhighlight %}
+</div>
 
 <a name="tail" class="anchor"></a>
-## Tail Recursion
+
+## Tail Recursion  
 Write `keep-first-n` which takes a list and a number `n` and returns a list that consists of the first `n` numbers of `n`, assuming `lst` is at least length `n`.
 
-    scm> (keep-first-n (list 1 2 3 4 5) 3)
-    (1 2 3)
-    scm> (keep-first-n (list 'a 'b 'c) 1)
-    (a)
 
-<pre><code>(define (keep-first-n lst n)
-<span class="solution-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-p">  (define (helper i result lst)
-    (if (= i n) result
-        (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
+{% highlight scheme %}
+scm> (keep-first-n (list 1 2 3 4 5) 3)
+(1 2 3)
+scm> (keep-first-n (list 'a 'b 'c) 1)
+(a)
+
+(define (keep-first-n lst n)
+    "YOUR CODE HERE"
+)
+{% endhighlight %}
+
+<a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>&nbsp;&nbsp; <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep" target="_blank">OPEN EXPLANATION</a>
+
+<div class="solution-2">
+{% highlight scheme %}
+(define (keep-first-n lst n)
+    (define (helper i result lst)
+        (if (= i n) result
+            (helper (+ i 1) (append result (list (car lst))) (cdr lst)))
+        )
+      (helper 0 '() lst))
     )
-  (helper 0 '() lst))
-)</span></code></pre>
-<a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a>&nbsp;&nbsp; <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep">EXPLANATION</a>
+{% endhighlight %}
+</div>
 
 <a name="stream" class="anchor"></a>
+
 ## Streams
 Write a function that creates a cyclic stream out of the first `n` elements of `lst`, or the entire `lst` if the length of `lst` is less than `n`. 
   
-    scm> (cycle-first-n 3 (list 1 2 3 4))
-    (1 . #[promise (not forced)])
-    scm> (stream-to-list (cycle-first-n 3 (list 1 2 3 4)) 10)  ; prints stream as list
-    (1 2 3 1 2 3 1 2 3 1)
-    scm> (stream-to-list (cycle-first-n 7 (list 1 2 3 4)) 10)
-    (1 2 3 4 1 2 3 4 1 2)
+{% highlight scheme %}
+scm> (cycle-first-n 3 (list 1 2 3 4))
+(1 . #[promise (not forced)])
+scm> (stream-to-list (cycle-first-n 3 (list 1 2 3 4)) 10)  ; prints stream as list
+(1 2 3 1 2 3 1 2 3 1)
+scm> (stream-to-list (cycle-first-n 7 (list 1 2 3 4)) 10)
+(1 2 3 4 1 2 3 4 1 2)
 
-<pre><code>(define (cycle-first-n n lst)
-<span class="solution-3-prompt">  "YOUR CODE HERE"
-)</span>
-<span class="solution-3-p">  (define (stream-helper i curr-lst)
-    (if (or (zero? i) (null? curr-lst))
-        (cycle-first-n n lst)
-        (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
-    ))
-  (stream-helper n lst))
-)</span></code></pre>
-<a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a>
+(define (cycle-first-n n lst)
+    "YOUR CODE HERE"
+)
+{% endhighlight %}
+
+<a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a>
+
+<div class="solution-3">
+{% highlight scheme %}
+(define (cycle-first-n n lst)
+    (define (stream-helper i curr-lst)
+        (if (or (zero? i) (null? curr-lst))
+            (cycle-first-n n lst)
+            (cons-stream (car curr-lst) (stream-helper (- i 1) (cdr curr-lst)))
+        ))
+      (stream-helper n lst))
+    )
+{% endhighlight %}
+</div>
 
 <a name="sql" class="anchor"></a>
+
 ## SQL
 Check back later!
 
@@ -94,19 +126,30 @@ Check back later!
 <a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a> -->
 
 <a name="logic" class="anchor"></a>
+
 ## Logic
 Write a fact that states that one list is a suffix of another list.
-    
-    (query (suffix (a b c) (a b c)))
-    ; expect Success!
-    (query (suffix (4 5) (1 2 3 4 5)))
-    ; expect Success!
-    (query (suffix (1 2) (1 2 3 4 5)))
-    ; expect Failed.
 
-<pre class="solution-5"><code>(fact (suffix ?suf ?suf))
-(fact (suffix ?suf (?first . ?rest))
-      (suffix ?suf ?rest))</code></pre>
-<p class="solution-6">**Explanation:** Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When `?rest` is assigned to a list that is the same as `?suf`, the fact becomes a `Success!`.</p>
+{% highlight scheme %}
+(query (suffix (a b c) (a b c)))
+; expect Success!
+(query (suffix (4 5) (1 2 3 4 5)))
+; expect Success!
+(query (suffix (1 2) (1 2 3 4 5)))
+; expect Failed.
+{% endhighlight %}
+
 <a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a> &nbsp;
 <a class="solution-toggle-6 btn btn-default">TOGGLE EXPLANATION</a>
+
+<div class="solution-5">
+{% highlight scheme %}
+(fact (suffix ?suf ?suf))
+(fact (suffix ?suf (?first . ?rest))
+      (suffix ?suf ?rest))
+{% endhighlight %}
+</div>
+
+<p class="solution-6">
+    <b>Explanation:</b> Our base case takes care of the case where the two lists are the same. Our recursive case then states that for the first list to be a suffix of the second, it must be a suffix of the rest of the list. When <code>?rest</code> is assigned to a list that is the same as <code>?suf</code>, the fact becomes a <code>Success!</code>.
+</p>

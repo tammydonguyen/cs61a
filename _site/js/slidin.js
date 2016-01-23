@@ -66,42 +66,13 @@ $(document).ready(function(){
         $(".solution-6").slideToggle("slow");
     });
 });
-
-// solutions with prompt
 $(document).ready(function(){
-    $(".solution-toggle-p").click(function(){
-        $(".solution-p").slideToggle("slow");
-        $(".solution-prompt").slideToggle("slow");
+    $(".solution-toggle-7").click(function(){
+        $(".solution-7").slideToggle("slow");
     });
 });
 $(document).ready(function(){
-    $(".solution-toggle-2-p").click(function(){
-        $(".solution-2-p").slideToggle("slow");
-        $(".solution-2-prompt").slideToggle("slow");
-    });
-});
-$(document).ready(function(){
-    $(".solution-toggle-3-p").click(function(){
-        $(".solution-3-p").slideToggle("slow");
-        $(".solution-3-prompt").slideToggle("slow");
-    });
-});
-$(document).ready(function(){
-    $(".solution-toggle-4-p").click(function(){
-        $(".solution-4-p").slideToggle("slow");
-        $(".solution-4-prompt").slideToggle("slow");
-    });
-});
-$(document).ready(function(){
-    $(".solution-toggle-5-p").click(function(){
-        $(".solution-5-p").slideToggle("slow");
-        $(".solution-5-prompt").slideToggle("slow");
-    });
-});
-
-$(document).ready(function(){
-    $(".solution-toggle-6-p").click(function(){
-        $(".solution-6-p").slideToggle("slow");
-        $(".solution-6-prompt").slideToggle("slow");
+    $(".solution-toggle-8").click(function(){
+        $(".solution-8").slideToggle("slow");
     });
 });

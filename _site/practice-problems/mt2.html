@@ -88,7 +88,7 @@
         </li>
       
         <li> 
-          <a href="/other/exams.html"> Taking Exams </a>
+          <a href="/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -168,7 +168,7 @@
         </li>
       
         <li> 
-          <a href="/cs61a-resources/other/exams.html"> Taking Exams </a>
+          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
         </li>
       
     </div>
@@ -186,143 +186,146 @@
 
 <hr />
 
-<p><a name="nonlocal" class="anchor"></a>
-## Nonlocal and Higher Order Functions
-Draw the environment diagram for the following code:</p>
+<p><a name="nonlocal" class="anchor"></a></p>
 
-<pre><code>def what(a, b):
-    x = a
-    def ha(ha):
-        nonlocal x
-        x = ha * 2
-        return x
-    return b(ha(x), x)
+<h2 id="nonlocal-and-higher-order-functions">Nonlocal and Higher Order Functions</h2>
+<p>Draw the environment diagram for the following code:</p>
 
-what(4, lambda x, y : x + y)
-</code></pre>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">what</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">a</span>
+    <span class="k">def</span> <span class="nf">ha</span><span class="p">(</span><span class="n">ha</span><span class="p">):</span>
+        <span class="n">nonlocal</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">ha</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">(</span><span class="n">ha</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
 
-<p><a class="btn btn-default" target="_blank" href="http://pythontutor.com/visualize.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&amp;mode=display&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0">OPEN SOLUTION</a></p>
+<span class="n">what</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span></code></pre></figure>
 
-<p>What makes <code>what</code> a higher order function?
-a. it returns a function (what function?)
-b. it takes in a function as an argument</p>
-
-<blockquote class="solution-4">`what` is not actually returning a function, but rather a function *call* to `b`. What makes it a higher order function is that it takes in a function as its second argument.</blockquote>
-
-<p><a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a></p>
-
-<p>Write the simplest function possible (1-2 lines) that does the exact same thing as <code>what</code> for any input <code>a</code>, <code>b</code>.</p>
-
-<pre class="solution-3"><code>def foo(a, b):
-    a *= 2
-    return b(a, a)</code></pre>
-
-<p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
-
-<p><a name="scope" class="anchor"></a>
-## Variable Scope</p>
-
-<pre><code>from operator import sub
-
-this = lambda a, b : lambda c: a(b, c)
-d = 30
-
-def that(e, f):
-    if e and f:
-        e, d = f(sub, e)(5), e
-    else:
-        print(e)
-        d = 20
-    def this(g):
-       return lambda : print(g(d, e))
-    return this
-</code></pre>
-
-<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it.</p>
-
-<pre><code>&gt;&gt;&gt; this(sub, d)()
-<span class="solution">Error, second function call missing an argument</span>
-&gt;&gt;&gt; this(print, 40)(d)
-<span class="solution">40 30</span>
-&gt;&gt;&gt; this(lambda x, y : y, d)(20)
-<span class="solution">20</span>
-&gt;&gt;&gt; that(d, 0)(sub)
-<span class="solution">30<br />&lt;\function ...&gt;</span>
-&gt;&gt;&gt; other = that(10, this)(print)
-<span class="solution"></span>
-&gt;&gt;&gt; other() 
-<span class="solution">10 5<br />None</span></code></pre>
+<iframe class="solution" width="800" height="430" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&amp;origin=opt-frontend.js&amp;cumulative=false&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=0&amp;codeDivWidth=350&amp;codeDivHeight=400"> </iframe>
 
 <p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
-<p><a name="list-mut" class="anchor"></a> 
-## List Mutability
-Draw the environment diagram for the following code.</p>
+<p>What makes <code>what</code> a higher order function?</p>
 
-<pre><code>wow = [0, 'c', 's']
+<ul>
+  <li><strong>a.</strong> it returns a function (what function?)</li>
+  <li><strong>b.</strong> it takes in a function as an argument</li>
+  <li><strong>c.</strong> both <strong>a</strong> and <strong>b</strong></li>
+</ul>
 
-def f(x):
-    omg = []
-    y = lambda : x - 5
-    def g():
-        nonlocal x
-        while x &gt; len(omg):
-            x = y()
-            omg.append(x)
-        return omg[0:2]
-    return g()
+<blockquote class="solution-2"><b>b</b>, <code>what</code> takes in a function as its second argument. It is not actually returning a function, but rather a function <i>call</i> to <code>b</code>, so <b>a</b> is not correct.</blockquote>
 
-lol = f(11)
-wow.extend(lol)
-lol = wow + ['a']
-wow = lol[1:]
-</code></pre>
+<p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a></p>
 
-<p><a class="btn btn-default" target="_blank" href="http://www.pythontutor.com/visualize.html#code=wow+%3D+%5B0,+'c',+'s'%5D%0A%0Adef+f(x%29%3A%0A++++omg+%3D+%5B%5D%0A++++y+%3D+lambda+%3A+x+-+5%0A++++def+g(%29%3A%0A++++++++nonlocal+x%0A++++++++while+x+%3E+len(omg%29%3A%0A++++++++++++x+%3D+y(%29%0A++++++++++++omg.append(x%29%0A++++++++return+omg%5B0%3A2%5D%0A++++return+g(%29%0A%0Alol+%3D+f(11%29%0Awow.extend(lol%29%0Alol+%3D+wow+%2B+%5B'a'%5D%0Awow+%3D+lol%5B1%3A%5D&amp;mode=display&amp;origin=opt-frontend.js&amp;cumulative=true&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=28">OPEN SOLUTION</a></p>
+<p>Write the simplest function possible (1-2 lines) that does the exact same thing as <code>what</code> for any input <code>a</code>, <code>b</code>.</p>
 
-<p><a name="link" class="anchor"></a> 
-## Mutable Linked Lists 
-Implement <code>multiply</code>, which takes in a Linked List and mutates it so that each link is duplicated by the amount of its entry. See the doctests for examples.</p>
+<div class="solution-3">
 
-<pre><code>def multiply(link):
-    """ 
-    &gt;&gt;&gt; link = Link(2, Link(3))
-    &gt;&gt;&gt; multiply(link)
-    &gt;&gt;&gt; link
-    Link(2, Link(2, Link(3, Link(3, Link(3)))))
-    &gt;&gt;&gt; link = Link(4, Link(1, Link(2)))
-    &gt;&gt;&gt; multiply(link)
-    &gt;&gt;&gt; link
-    Link(4, Link(4, Link(4, Link(4, Link(1, Link(2, Link(2)))))))
-    """ 
-    <span class="solution-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-p">def helper(link, count):
-        if count == 1 and link.rest != Link.empty:
-            multiply(link.rest)
-        elif count != 1 and link != Link.empty:
-            link.rest = Link(link.first, link.rest)
-            helper(link.rest, count - 1)
-    helper(link, link.first)</span></code></pre>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">*=</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">b</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></code></pre></figure>
 
-<p><a class="solution-toggle-p btn btn-default">TOGGLE SOLUTION</a></p>
+</div>
 
-<p><a name="iter" class="anchor"></a><br />
-## Iterables and Iterators
-1. Implement <code>mimic_list</code> so that it behaves like Python’s built-in <code>list</code> constructor. See WWPP answers for examples of the behavior.</p>
+<p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
 
-<pre><code>def mimic_list(iterable):
-    """ mimics the behavior of the built-in list constructor """
-    <span class="solution-3-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-3-p">i = iter(iterable) # get iterable's iterator object
-lst = []  # create an empty list
-try:
-    while True:   # add every elem in sequence to lst
-        curr = next(i)
-        lst.append(curr)
-except StopIteration as e: # return lst when the sequence is done
-    return lst  </span></code></pre>
+<p><a name="list-mut" class="anchor"></a></p>
 
-<p><a class="solution-toggle-3-p btn btn-default">TOGGLE SOLUTION</a></p>
+<h2 id="list-mutability">List Mutability</h2>
+<p>Draw the environment diagram for the following code.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">wow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;c&#39;</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">omg</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">5</span>
+    <span class="k">def</span> <span class="nf">g</span><span class="p">():</span>
+        <span class="n">nonlocal</span> <span class="n">x</span>
+        <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">omg</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">()</span>
+            <span class="n">omg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">omg</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">g</span><span class="p">()</span>
+
+<span class="n">lol</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">wow</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">lol</span><span class="p">)</span>
+<span class="n">lol</span> <span class="o">=</span> <span class="n">wow</span> <span class="o">+</span> <span class="p">[</span><span class="s">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">wow</span> <span class="o">=</span> <span class="n">lol</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span></code></pre></figure>
+
+<iframe class="solution-4" width="800" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=wow+%3D+%5B0,+'c',+'s'%5D%0A%0Adef+f(x%29%3A%0A++++omg+%3D+%5B%5D%0A++++y+%3D+lambda+%3A+x+-+5%0A++++def+g(%29%3A%0A++++++++nonlocal+x%0A++++++++while+x+%3E+len(omg%29%3A%0A++++++++++++x+%3D+y(%29%0A++++++++++++omg.append(x%29%0A++++++++return+omg%5B0%3A2%5D%0A++++return+g(%29%0A%0Alol+%3D+f(11%29%0Awow.extend(lol%29%0Alol+%3D+wow+%2B+%5B'a'%5D%0Awow+%3D+lol%5B1%3A%5D&amp;origin=opt-frontend.js&amp;cumulative=true&amp;heapPrimitives=false&amp;textReferences=false&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=28&amp;codeDivWidth=350&amp;codeDivHeight=400"> </iframe>
+
+<p><a class="solution-toggle-4 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<p><a name="link" class="anchor"></a></p>
+
+<h2 id="mutable-linked-lists">Mutable Linked Lists</h2>
+<p>Implement <code>multiply</code>, which takes in a Linked List and mutates it so that each link is duplicated by the amount of its entry. See the doctests for examples.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    &gt;&gt;&gt; link = Link(2, Link(3))</span>
+<span class="sd">    &gt;&gt;&gt; multiply(link)</span>
+<span class="sd">    &gt;&gt;&gt; link</span>
+<span class="sd">    Link(2, Link(2, Link(3, Link(3, Link(3)))))</span>
+<span class="sd">    &gt;&gt;&gt; link = Link(4, Link(1, Link(2)))</span>
+<span class="sd">    &gt;&gt;&gt; multiply(link)</span>
+<span class="sd">    &gt;&gt;&gt; link</span>
+<span class="sd">    Link(4, Link(4, Link(4, Link(4, Link(1, Link(2, Link(2)))))))</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="s">&quot;*** YOUR CODE HERE ***&quot;</span></code></pre></figure>
+
+<p><a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-5">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">link</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">helper</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">link</span><span class="o">.</span><span class="n">rest</span> <span class="o">!=</span> <span class="n">Link</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="n">multiply</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">rest</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">count</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">link</span> <span class="o">!=</span> <span class="n">Link</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="n">link</span><span class="o">.</span><span class="n">rest</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">first</span><span class="p">,</span> <span class="n">link</span><span class="o">.</span><span class="n">rest</span><span class="p">)</span>
+            <span class="n">helper</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">rest</span><span class="p">,</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">helper</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">link</span><span class="o">.</span><span class="n">first</span><span class="p">)</span></code></pre></figure>
+
+</div>
+
+<p><a name="iter" class="anchor"></a></p>
+
+<h2 id="iterables-and-iterators">Iterables and Iterators</h2>
+<ol>
+  <li>Implement <code>mimic_list</code> so that it behaves like Python’s built-in <code>list</code> constructor.</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mimic_list</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    &gt;&gt;&gt; mimic_list((1, 2, 3, 4))</span>
+<span class="sd">    [1, 2, 3, 4]</span>
+<span class="sd">    &gt;&gt;&gt; def perf_squares(n): # generates perfect squares</span>
+<span class="sd">    ...     i = 1</span>
+<span class="sd">    ...     while i &lt;= n:</span>
+<span class="sd">    ...         yield i * i</span>
+<span class="sd">    ...         i += 1</span>
+<span class="sd">    &gt;&gt;&gt; mimic_list(perf_squares(10))</span>
+<span class="sd">    [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+<span class="sd">    &gt;&gt;&gt; mimic_list(&quot;cs61a&quot;)</span>
+<span class="sd">    [&#39;c&#39;, &#39;s&#39;, &#39;6&#39;, &#39;1&#39;, &#39;a&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="s">&quot;*** YOUR CODE HERE ***&quot;</span></code></pre></figure>
+
+<p><a class="solution-toggle-6 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<div class="solution-6">  
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mimic_list</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>  
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span> <span class="c"># get iterable&#39;s iterator object</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c"># create an empty list</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>   <span class="c"># add every elem in sequence to lst</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span> <span class="c"># return lst when the sequence is done</span>
+        <span class="k">return</span> <span class="n">lst</span>  </code></pre></figure>
+
+</div>
 
 <p><span>2</span>. Recall that all <code>__iter__</code> methods must return an iterator type. Well, a generator <em>is</em> an iterator, so you can write <code>__iter__</code> to be a generator function! Write the <code>__iter__</code> method for BinaryTree such that it returns a generator. Calling <code>next</code> on this generator will return the elements of the BinaryTree in ascending order. Assume that all instances of BinaryTree fall under the constraints of a binary <em>search</em> tree:</p>
 
@@ -331,36 +334,42 @@ except StopIteration as e: # return lst when the sequence is done
   <li>the root entry is lses than or equal to all entries in the right side of the BinaryTree</li>
 </ul>
 
-<pre><code>class BinarySearchTree:
-    empty = ()
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">BinarySearchTree</span><span class="p">:</span>
+    <span class="n">empty</span> <span class="o">=</span> <span class="p">()</span>
 
-    def __init__(self, entry, left=empty, right=empty):
-        self.entry = entry
-        if left: assert isinstance(left, BinaryTree) 
-        if right: assert isinstance(right, BinaryTree)
-        self.left = left
-        self.right = right
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="n">empty</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">empty</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry</span> <span class="o">=</span> <span class="n">entry</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">:</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">BinaryTree</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="n">right</span><span class="p">:</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">BinaryTree</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">right</span>
 
-    def __iter__(self):
-        """
-        &gt;&gt;&gt; tree = BinaryTree(4, BinaryTree(2), BinaryTree(7, BinaryTree(5)))
-        &gt;&gt;&gt; for entry in tree:
-        ...     print(entry)
-        2
-        4
-        5
-        7
-        """
-        <span class="solution-4-prompt">"*** YOUR CODE HERE ***"</span>
-    <span class="solution-4-p">    for value in self.left:
-        yield value
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &gt;&gt;&gt; tree = BinaryTree(4, BinaryTree(2), BinaryTree(7, BinaryTree(5)))</span>
+<span class="sd">        &gt;&gt;&gt; for entry in tree:</span>
+<span class="sd">        ...     print(entry)</span>
+<span class="sd">        2</span>
+<span class="sd">        4</span>
+<span class="sd">        5</span>
+<span class="sd">        7</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="s">&quot;*** YOUR CODE HERE ***&quot;</span></code></pre></figure>
 
-    yield self.entry
+<p><a class="solution-toggle-7 btn btn-default">TOGGLE SOLUTION</a></p>
 
-    for value in self.right:
-        yield value</span></code></pre>
+<div class="solution-7">
 
-<p><a class="solution-toggle-4-p btn btn-default">TOGGLE SOLUTION</a></p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">value</span>
+
+    <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry</span>
+
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">value</span></code></pre></figure>
+
+</div>
 
   </div>
 </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>CS 61A Resources</title>
+<title>Week 2 Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="This is a work in progress collection of resources for students to review or better understand 61A material.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -120,8 +120,6 @@
     <li class="sidebar-brand"><a href="/cs61a-resources/"><h1 class="brand">CS 61A</h1></a></li>
     <!-- todo: find a better way to hide on posts -->
     
-    <div style="margin: 10px 40px">This is a work in progress collection of resources for students to review or better understand 61A material.</div>
-    
     <hr />
     <li class="cat1-toggle"><h4 class="toggle">Guides</h4></li>
     <div class="cat1">
@@ -205,89 +203,84 @@
 </div>
 
       <div class="container">
-        <div id="welcome-greeting">
-  <h1>CS 61A Resources</h1>
+        <div id="article">
+  <div class="article-title">Week 2 Quiz</div>
+  <hr/>
+  <div class="post">
+    <p>This quiz reviews topics covered in these lectures:<br />
+<a href="http://cs61a.org/assets/slides/04_6pp.pdf">Higher Order Functions</a> <br />
+<a href="http://cs61a.org/assets/slides/05_6pp.pdf">Environments</a><br />
+<a href="http://cs61a.org/assets/slides/06_6pp.pdf">Recursion</a></p>
+
+<hr />
+
+<!-- ### Question 1 
+
+Name the higher order function(s) in the code below and tell why they are higher order
+
+
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">baz</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">baz</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">baz</span></code></pre></figure>
+
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">
+<code>foo</code> is higher order because it takes in a function as its first argument (parameter <code>g</code>) as well as returns the function object <code>baz</code> referenced to by <code>z</code>. <br/>
+<code>baz</code> is not higher order because it neither takes in a function as an argument nor returns a function. Rather, it returns a <i>function call</i> to <code>g</code> on the arguments <code>x</code> and <code>y</code>. <br/>
+<code>bar</code> is also not higher order because it neither takes in a function as an argument nor returns a function. In fact, when called, a <code>NameError</code> will be raised because there is no name <code>bar</code> defined in its environment.
+</blockquote>
+
+ --- 
+  
+### Question 2
+   
+
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">decrement</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">half</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">decrease_to_one</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">i</span></code></pre></figure>
+    
+
+How many call frames are opened if you call `decrease_to_one(decrement, 5)`? What about `decrease_to_one(half, 8)`?
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">
+The initial call to <code>decrease_to_one</code> will open a frame. In the body of <code>decrease_to_one</code>, <code>f</code> is called until <code>n</code> reaches <code>1</code>. So the question is, how many times does it take to reach <code>1</code> from <code>n</code> by calling <code>f</code> on it? For <code>decrease_to_one(decrement, 5)</code>, it'll take 4 calls to <code>f</code> (<code>f(5)</code>, <code>f(4)</code>, <code>f(3)</code>, <code>f(2)</code>), and for <code>decrease_to_one(half, 8)</code>, it'll take 3 calls to <code>f</code> (<code>f(8)</code>, <code>f(4)</code>, <code>f(2)</code>). Each of these calls requires a new frame, so the answers are <b>5</b> and <b>4</b>.
+</blockquote>
+
+ --- 
+  
+### Question 3
+
+What is the first step to evaluate an **assignment statement**? What about a **call expression**?
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-3">
+For assignment statements, always evaluate the right hand side of the <code>=</code> first. See <a href="/cs61a-resources/guides/env-diag.html#assignment">here</a> for more details. <br/>
+For call expressions, always evaluate the outermost operator (i.e., <code>foo</code> in <code>foo(bar(x), y)()</code>) first. See <a href="/cs61a-resources/guides/env-diag.html#call">here</a> for more details. <br/>
+</blockquote>
+ -->
+
+  </div>
 </div>
 
-<div class="recent-posts">
-  <h1>Guides</h1>
-  
-        <h4>
-          <a href="/cs61a-resources/guides/tail-recursion.html"> Tail Recursion </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/guides/scheme.html"> Scheme </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/guides/recursion.html"> Recursion </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/guides/oop.html"> Object Oriented Programming </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/guides/env-diag.html"> Environment Diagrams </a>
-        </h4>
-  
-</div>
-
-<div class="recent-posts">
-  <h1>Practice Problems</h1>
-  
-        <h4>
-          <a href="/cs61a-resources/practice-problems/scheme.html"> Scheme </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/practice-problems/mt2.html"> Midterm 2 </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/practice-problems/mt1.html"> Midterm 1 </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/practice-problems/iter.html"> Iterables </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/practice-problems/final.html"> Final </a>
-        </h4>
-  
-</div>
-
-<div class="recent-posts">
-  <h1>Quizzes</h1>
-  
-        <h4>
-          <a href="/cs61a-resources/quizzes/quiz1.html"> Week 1 Quiz </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/quizzes/quiz2.html"> Week 2 Quiz </a>
-        </h4>
-  
-</div>
-
-<div class="recent-posts">
-  <h1>Other</h1>
-  
-        <h4>
-          <a href="/cs61a-resources/other/discussion.html"> Discussion Slides </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
-        </h4>
-  
-        <h4>
-          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
-        </h4>
-  
-</div>
       <div class="container">
   <footer>
     <p class="text-muted credit">

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 2 Quiz"
-date:   2016-02-04 11:00:00
+date:   2015-11-04 11:00:00
 categories: quizzes
 ---
 
@@ -12,7 +12,7 @@ This quiz reviews topics covered in these lectures:
 
 ---
 
-### Question 1 
+<!-- ### Question 1 
 
 Name the higher order function(s) in the code below and tell why they are higher order
 
@@ -74,4 +74,4 @@ What is the first step to evaluate an **assignment statement**? What about a **c
 For assignment statements, always evaluate the right hand side of the <code>=</code> first. See <a href="/cs61a-resources/guides/env-diag.html#assignment">here</a> for more details. <br/>
 For call expressions, always evaluate the outermost operator (i.e., <code>foo</code> in <code>foo(bar(x), y)()</code>) first. See <a href="/cs61a-resources/guides/env-diag.html#call">here</a> for more details. <br/>
 </blockquote>
-
+ -->

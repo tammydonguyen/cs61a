@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 1 Quiz"
-date:   2016-01-27 11:00:00
+date:   2015-12-27 11:00:00
 categories: quizzes
 ---
 

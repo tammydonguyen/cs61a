@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Week 1 Quiz"
-date:   2016-01-17 3:53:00
+date:   2016-01-27 11:00:00
 categories: quizzes
 ---
 
@@ -11,7 +11,8 @@ This quiz reviews topics covered in these lectures:
 [Control](http://cs61a.org/assets/slides/03_6pp.pdf)  
 
 ---
-**Question 1**  
+
+### Question 1 
 
 {% highlight py3 %}
 >>> a = 3
@@ -29,7 +30,8 @@ What is `a + b`? What is data type of the value stored in `c`?
 
  --- 
   
-**Question 2**  
+### Question 2
+
 The following code is entered into the Python interpreter.
    
 {% highlight py3 %}
@@ -49,7 +51,8 @@ The value <code>30</code> is passed in as an argument and is bound to <code>x</c
 
  --- 
   
-**Question 3**  
+### Question 3  
+
 Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
 
 {% highlight py3 %}

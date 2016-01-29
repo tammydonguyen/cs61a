@@ -60,6 +60,7 @@ As you can see, you actually have to evaluate some of the other steps along with
 1. If you didn't read my long winded explanation of how `lambda` expressions on their own don't affect the environment, it might seem intuitive to bind these guys to the name <code>&lambda;</code> in your diagram. Make sure you don't change your diagram unless the `lambda` occurs in one of the three situations listed above!
 
 <a name="assignment"></a>
+
 ## Assignment Statements
 An assignment statement is any statement with a single equals sign: `=`, such as `x = 3`. This is not to be confused with the equality operator `==`. Although assignment statements look fairly simple and even trivial, it still involves a series of steps:
 
@@ -79,6 +80,7 @@ An assignment statement is any statement with a single equals sign: `=`, such as
 If you run into one of the above, you did not complete step 1 for assignment statements. That's why this is the most important step. Executing this step might mean evaluating a function call, which breaks down to even more steps! Let's get into it.
 
 <a name="call"></a>
+
 ## Call Expressions
 This is the most tricky out of the three, but if you follow these steps *exactly* (actually go through each of the steps!), you will never get confused. 
 

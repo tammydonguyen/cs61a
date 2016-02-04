@@ -218,28 +218,28 @@
 <p><a name="scheme-lists" class="anchor"></a></p>
 
 <h2 id="scheme-lists">Scheme Lists</h2>
-<p>Write a function <code>non-contiguous</code> that checks whether <code>subseq</code> is a non-contiguous subsequence of <code>lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
+<p>Write a function <code class="highlighter-rouge">non-contiguous</code> that checks whether <code class="highlighter-rouge">subseq</code> is a non-contiguous subsequence of <code class="highlighter-rouge">lst</code>. A sequence is a non-contiguous subsequence if its elements appear in the list in order but not necessarily immediately next to each other.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">()</span> <span class="nv">lst</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">'</span><span class="p">()</span> <span class="nv">lst</span><span class="p">)</span>
 <span class="nv">True</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
 <span class="nv">True</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">)</span> <span class="o">'</span><span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">))</span>
 <span class="nv">False</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
-    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">"YOUR CODE HERE"</span>
 <span class="p">)</span></code></pre></figure>
 
 <p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
 <div class="solution">
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">cond </span><span class="p">((</span><span class="nb">null? </span><span class="nv">subseq</span><span class="p">)</span> <span class="no">#t</span><span class="p">)</span>
-          <span class="p">((</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
-          <span class="p">((</span><span class="nb">= </span><span class="p">(</span><span class="nb">car </span><span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">))</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
-          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">))))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">cond</span> <span class="p">((</span><span class="nb">null?</span> <span class="nv">subseq</span><span class="p">)</span> <span class="no">#t</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">null?</span> <span class="nv">lst</span><span class="p">)</span> <span class="no">#f</span><span class="p">)</span>
+          <span class="p">((</span><span class="nb">=</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">))</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">subseq</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)))</span>
+          <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="nf">non-contiguous</span> <span class="nv">subseq</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">))))</span>
     <span class="p">)</span></code></pre></figure>
 
 </div>
@@ -247,27 +247,27 @@
 <p><a name="tail" class="anchor"></a></p>
 
 <h2 id="tail-recursion">Tail Recursion</h2>
-<p>Write <code>keep-first-n</code> which takes a list and a number <code>n</code> and returns a list that consists of the first <code>n</code> numbers of <code>n</code>, assuming <code>lst</code> is at least length <code>n</code>.</p>
+<p>Write <code class="highlighter-rouge">keep-first-n</code> which takes a list and a number <code class="highlighter-rouge">n</code> and returns a list that consists of the first <code class="highlighter-rouge">n</code> numbers of <code class="highlighter-rouge">n</code>, assuming <code class="highlighter-rouge">lst</code> is at least length <code class="highlighter-rouge">n</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">3</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="ss">&#39;b</span> <span class="ss">&#39;c</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="p">(</span><span class="nb">list</span> <span class="ss">'a</span> <span class="ss">'b</span> <span class="ss">'c</span><span class="p">)</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">(</span><span class="nf">a</span><span class="p">)</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="s">"YOUR CODE HERE"</span>
 <span class="p">)</span></code></pre></figure>
 
 <p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>   <a class="btn btn-default" href="/cs61a/guides/tail-recursion.html#keep" target="_blank">OPEN EXPLANATION</a></p>
 
 <div class="solution-2">
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
-        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
-            <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append </span><span class="nv">result</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
+            <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append</span> <span class="nv">result</span> <span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)))</span>
         <span class="p">)</span>
-      <span class="p">(</span><span class="nf">helper</span> <span class="mi">0</span> <span class="o">&#39;</span><span class="p">()</span> <span class="nv">lst</span><span class="p">))</span>
+      <span class="p">(</span><span class="nf">helper</span> <span class="mi">0</span> <span class="o">'</span><span class="p">()</span> <span class="nv">lst</span><span class="p">))</span>
     <span class="p">)</span></code></pre></figure>
 
 </div>
@@ -275,28 +275,28 @@
 <p><a name="stream" class="anchor"></a></p>
 
 <h2 id="streams">Streams</h2>
-<p>Write a function that creates a cyclic stream out of the first <code>n</code> elements of <code>lst</code>, or the entire <code>lst</code> if the length of <code>lst</code> is less than <code>n</code>.</p>
+<p>Write a function that creates a cyclic stream out of the first <code class="highlighter-rouge">n</code> elements of <code class="highlighter-rouge">lst</code>, or the entire <code class="highlighter-rouge">lst</code> if the length of <code class="highlighter-rouge">lst</code> is less than <code class="highlighter-rouge">n</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
-<span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="o">#</span><span class="p">[</span><span class="nv">promise</span> <span class="p">(</span><span class="nb">not </span><span class="nv">forced</span><span class="p">)])</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">; prints stream as list</span>
-<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">7</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">1</span> <span class="o">.</span> <span class="o">#</span><span class="err">[</span><span class="nv">promise</span> <span class="p">(</span><span class="nb">not</span> <span class="nv">forced</span><span class="p">)</span><span class="err">]</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1">; prints stream as list</span>
+<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="mi">7</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">))</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
 
-<span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
-    <span class="s">&quot;YOUR CODE HERE&quot;</span>
+<span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="s">"YOUR CODE HERE"</span>
 <span class="p">)</span></code></pre></figure>
 
 <p><a class="solution-toggle-3 btn btn-default">TOGGLE SOLUTION</a></p>
 
 <div class="solution-3">
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">stream-helper</span> <span class="nv">i</span> <span class="nv">curr-lst</span><span class="p">)</span>
-        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nb">zero? </span><span class="nv">i</span><span class="p">)</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">curr-lst</span><span class="p">))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">stream-helper</span> <span class="nv">i</span> <span class="nv">curr-lst</span><span class="p">)</span>
+        <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="k">or</span> <span class="p">(</span><span class="nb">zero?</span> <span class="nv">i</span><span class="p">)</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">curr-lst</span><span class="p">))</span>
             <span class="p">(</span><span class="nf">cycle-first-n</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">)</span>
-            <span class="p">(</span><span class="nf">cons-stream</span> <span class="p">(</span><span class="nb">car </span><span class="nv">curr-lst</span><span class="p">)</span> <span class="p">(</span><span class="nf">stream-helper</span> <span class="p">(</span><span class="nb">- </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">curr-lst</span><span class="p">)))</span>
+            <span class="p">(</span><span class="nf">cons-stream</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">curr-lst</span><span class="p">)</span> <span class="p">(</span><span class="nf">stream-helper</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">curr-lst</span><span class="p">)))</span>
         <span class="p">))</span>
       <span class="p">(</span><span class="nf">stream-helper</span> <span class="nv">n</span> <span class="nv">lst</span><span class="p">))</span>
     <span class="p">)</span></code></pre></figure>
@@ -327,9 +327,9 @@
 
 <figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span> <span class="p">(</span><span class="nf">a</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)))</span>
 <span class="c1">; expect Success!</span>
-<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="nf">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
 <span class="c1">; expect Success!</span>
-<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="p">(</span><span class="nf">query</span> <span class="p">(</span><span class="nf">suffix</span> <span class="p">(</span><span class="nf">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
 <span class="c1">; expect Failed.</span></code></pre></figure>
 
 <p><a class="solution-toggle-5 btn btn-default">TOGGLE SOLUTION</a>  

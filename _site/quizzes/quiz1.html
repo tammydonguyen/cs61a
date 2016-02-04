@@ -216,11 +216,11 @@
 
 <h3 id="question-1">Question 1</h3>
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3">&gt;&gt;&gt; a = 3
+&gt;&gt;&gt; b = a
+&gt;&gt;&gt; c = "a"</code></pre></figure>
 
-<p>What is <code>a + b</code>? What is data type of the value stored in <code>c</code>?</p>
+<p>What is <code class="highlighter-rouge">a + b</code>? What is data type of the value stored in <code class="highlighter-rouge">c</code>?</p>
 
 <p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
@@ -234,12 +234,12 @@
 
 <p>The following code is entered into the Python interpreter.</p>
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">50</span> </code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3">&gt;&gt;&gt; x = 30
+&gt;&gt;&gt; def foo(x):
+        x = 50
+        return x + 50 </code></pre></figure>
 
-<p>If I call the function <code>foo</code> with argument <code>x</code>, what would the return value be?</p>
+<p>If I call the function <code class="highlighter-rouge">foo</code> with argument <code class="highlighter-rouge">x</code>, what would the return value be?</p>
 
 <p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
 
@@ -253,36 +253,36 @@ The value <code>30</code> is passed in as an argument and is bound to <code>x</c
 
 <p>Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.</p>
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(3)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    cs</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(2)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">__________</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">_________</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">____________</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3">def cs61a(n):
+    """
+    &gt;&gt;&gt; cs61a(3)
+    cs
+    61a
+    cs
+    &gt;&gt;&gt; cs61a(2)
+    cs
+    61a
+    """
+    i = 0
+    while __________:
+        if _________:
+            print("cs")
+        else:
+            print("61a")
+        ____________</code></pre></figure>
 
 <p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
 
 <div class="solution-3">
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3">def cs61a(n):
+    i = 0
+    while i &lt; n:
+        if i % 2 == 0:
+            print("cs")
+        else:
+            print("61a")
+        i += 1</code></pre></figure>
     
 
 </div>

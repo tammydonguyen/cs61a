@@ -5,6 +5,10 @@ date:   2015-11-04 11:00:00
 categories: quizzes
 ---
 
+[Link to attendance and pizza.](http://tiny.cc/tammydisc2)
+
+---
+
 This quiz reviews topics covered in these lectures:  
 [Higher Order Functions](http://cs61a.org/assets/slides/04_6pp.pdf)   
 [Environments](http://cs61a.org/assets/slides/05_6pp.pdf)  
@@ -26,13 +30,6 @@ def foo(g, x):
 def bar():
     return baz
 {% endhighlight %}
-
-<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
-
-<blockquote class="solution"><code>foo</code> is higher order because it takes in a function as its first argument (parameter <code>g</code>) as well as returns the function object <code>baz</code> referenced to by <code>z</code>. <br/>
-<code>baz</code> is not higher order because it neither takes in a function as an argument nor returns a function. Rather, it returns a <i>function call</i> to <code>g</code> on the arguments <code>x</code> and <code>y</code>. <br/>
-<code>bar</code> is also not higher order because it neither takes in a function as an argument nor returns a function. In fact, when called, a <code>NameError</code> will be raised because there is no name <code>bar</code> defined in its environment.
-</blockquote>
 
  --- 
   
@@ -56,20 +53,9 @@ def decrease_to_one(f, n):
 
 How many call frames are opened if you call `decrease_to_one(decrement, 5)`? What about `decrease_to_one(half, 8)`?
 
-<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
-
-<blockquote class="solution-2">The initial call to <code>decrease_to_one</code> will open a frame. In the body of <code>decrease_to_one</code>, <code>f</code> is called until <code>n</code> reaches <code>1</code>. So the question is, how many times does it take to reach <code>1</code> from <code>n</code> by calling <code>f</code> on it? For <code>decrease_to_one(decrement, 5)</code>, it'll take 4 calls to <code>f</code> (<code>f(5)</code>, <code>f(4)</code>, <code>f(3)</code>, <code>f(2)</code>), and for <code>decrease_to_one(half, 8)</code>, it'll take 3 calls to <code>f</code> (<code>f(8)</code>, <code>f(4)</code>, <code>f(2)</code>). Each of these calls requires a new frame, so the answers are <b>5</b> and <b>4</b>.
-</blockquote>
-
  --- 
   
 ### Question 3
 
 What is the first step to evaluate an **assignment statement**? What about a **call expression**?
-
-<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
-
-<blockquote class="solution-3">For assignment statements, always evaluate the right hand side of the <code>=</code> first. See <a href="/cs61a-resources/guides/env-diag.html#assignment">here</a> for more details. <br/>
-For call expressions, always evaluate the outermost operator (i.e., <code>foo</code> in <code>foo(bar(x), y)()</code>) first. See <a href="/cs61a-resources/guides/env-diag.html#call">here</a> for more details. <br/>
-</blockquote>
 

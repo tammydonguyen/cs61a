@@ -16,7 +16,7 @@ This quiz reviews topics covered in these lectures:
 
 Name the higher order function(s) in the code below and tell why they are higher order
 
-{% highlight py3 %}
+{% highlight python %}
 def foo(g, x):
     def baz(y):
         return g(x, y)
@@ -37,8 +37,8 @@ def bar():
  --- 
   
 ### Question 2
-   
-{% highlight py3 %}
+
+{% highlight python %}
 def decrement(x):
     return x - 1
 
@@ -51,7 +51,8 @@ def decrease_to_one(f, n):
         n = f(n)
         i += 1
     return i
-{% endhighlight %}    
+{% endhighlight %}
+
 
 How many call frames are opened if you call `decrease_to_one(decrement, 5)`? What about `decrease_to_one(half, 8)`?
 

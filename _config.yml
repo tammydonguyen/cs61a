@@ -7,10 +7,8 @@ disqus: tmmydngyn
 permalink: none
 description: Tammy's 61A resources.
 
-##Make sure to edit the above fields, especially for disqus.
-
-
-highlighter: pygments
 markdown: kramdown
+highlighter: pygments
+
 redcarpet:
   extensions: ["tables"]

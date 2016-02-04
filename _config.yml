@@ -8,6 +8,5 @@ permalink: none
 description: Tammy's 61A resources.
 
 markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+
+highlighter: pygments

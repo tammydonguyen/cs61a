@@ -11,8 +11,7 @@ categories: quizzes
 
 This quiz reviews topics covered in these lectures:  
 [Higher Order Functions](http://cs61a.org/assets/slides/04_6pp.pdf)   
-[Environments](http://cs61a.org/assets/slides/05_6pp.pdf)  
-[Recursion](http://cs61a.org/assets/slides/06_6pp.pdf)  
+[Environments](http://cs61a.org/assets/slides/05_6pp.pdf)
 
 ---
 

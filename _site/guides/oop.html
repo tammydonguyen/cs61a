@@ -211,7 +211,7 @@
 
 <hr />
 <p>## Basics<br />
-So far in this course we’ve been writing programs using functions and built-in data types. We’ve also created our own abstract data types (such as the <code class="highlighter-rouge">link</code> and <code class="highlighter-rouge">tree</code> ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable.</p>
+So far in this course we’ve been writing programs using functions and built-in data types. We’ve also created our own abstract data types (such as the <code>link</code> and <code>tree</code> ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable.</p>
 
 <p>Object oriented programming introduces another paradigm for us to represent and organize our data types. Using OOP, we create <strong>classes</strong>, which provides an outline for an object. Classes consist of <strong>attributes</strong> and <strong>methods</strong>. Attributes allow us to keep track of and, more importantly, <em>modify</em> the state of our objects, something we couldn’t do with ADTs. Methods, as opposed to functions, <em>must</em> be called on an <strong>instance</strong>. Before we go any further, let’s sort out what all this new vocabulary means!</p>
 
@@ -228,25 +228,25 @@ So far in this course we’ve been writing programs using functions and built-in
 </ul>
 
 <h3 id="example">Example</h3>
-<p>Let’s say we wanted to represent puppies as <strong>objects</strong>. Our <strong>class</strong> would be called <code class="highlighter-rouge">Puppy</code>. If we want two puppies we would create two <strong>instances</strong> of the <code class="highlighter-rouge">Puppy</code> class. Some attributes that are specific to each <code class="highlighter-rouge">Puppy</code> are its <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">favorite toys</code>. These will be <strong>instance attributes</strong>. It’ll also be useful to keep track of the state of each puppy using <strong>instance attributes</strong>, such as a puppy’s <code class="highlighter-rouge">hungriness</code> and <code class="highlighter-rouge">happiness</code> level. Let’s say we want to keep the total number of puppies that exist. This would be stored as a <strong>class attribute</strong>, <code class="highlighter-rouge">num_puppies</code>, since it is the same for all puppies. Finally, what are our puppies able to do? They should be able to <code class="highlighter-rouge">bark</code>, <code class="highlighter-rouge">eat</code>, and <code class="highlighter-rouge">play</code>. These will be the <strong>methods</strong>.</p>
+<p>Let’s say we wanted to represent puppies as <strong>objects</strong>. Our <strong>class</strong> would be called <code>Puppy</code>. If we want two puppies we would create two <strong>instances</strong> of the <code>Puppy</code> class. Some attributes that are specific to each <code>Puppy</code> are its <code>name</code> and <code>favorite toys</code>. These will be <strong>instance attributes</strong>. It’ll also be useful to keep track of the state of each puppy using <strong>instance attributes</strong>, such as a puppy’s <code>hungriness</code> and <code>happiness</code> level. Let’s say we want to keep the total number of puppies that exist. This would be stored as a <strong>class attribute</strong>, <code>num_puppies</code>, since it is the same for all puppies. Finally, what are our puppies able to do? They should be able to <code>bark</code>, <code>eat</code>, and <code>play</code>. These will be the <strong>methods</strong>.</p>
 
-<p>If you’re still having trouble differentiating between instance and class attributes, ask yourself this question: if I change this value for one object, must it change for all other objects? In this case, if one puppy <code class="highlighter-rouge">eat</code>s and decreases her <code class="highlighter-rouge">hungriness</code>, that will not directly affect any other <code class="highlighter-rouge">Puppy</code>’s <code class="highlighter-rouge">hungriness</code> attribute. However, if more puppies are created and <code class="highlighter-rouge">num_puppies</code> gets incremented, this value increases for every <code class="highlighter-rouge">Puppy</code> in our puppy world.</p>
+<p>If you’re still having trouble differentiating between instance and class attributes, ask yourself this question: if I change this value for one object, must it change for all other objects? In this case, if one puppy <code>eat</code>s and decreases her <code>hungriness</code>, that will not directly affect any other <code>Puppy</code>’s <code>hungriness</code> attribute. However, if more puppies are created and <code>num_puppies</code> gets incremented, this value increases for every <code>Puppy</code> in our puppy world.</p>
 
 <p>Now let’s implement it!</p>
 
 <h2 id="implementation">Implementation</h2>
-<p>Below is the implementation of our <code class="highlighter-rouge">Puppy</code> class. Read through it and try to figure out what each line does.</p>
+<p>Below is the implementation of our <code>Puppy</code> class. Read through it and try to figure out what each line does.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Puppy</span><span class="p">:</span>
-    <span class="s">"""Class representation of the best creatures to have walked our planet."""</span>
+    <span class="sd">&quot;&quot;&quot;Class representation of the best creatures to have walked our planet.&quot;&quot;&quot;</span>
     <span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">fav_toys</span><span class="p">):</span>
-        <span class="s">"""Sets the instance attributes. Instance attributes that start 
-        off differently for each instance are passed through as arguments. 
-        Otherwise, they are set to their default values in here. Every 
-        time a Puppy is created, the class attribute num_puppies gets 
-        incremented."""</span>
+        <span class="sd">&quot;&quot;&quot;Sets the instance attributes. Instance attributes that start </span>
+<span class="sd">        off differently for each instance are passed through as arguments. </span>
+<span class="sd">        Otherwise, they are set to their default values in here. Every </span>
+<span class="sd">        time a Puppy is created, the class attribute num_puppies gets </span>
+<span class="sd">        incremented.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fav_toys</span> <span class="o">=</span> <span class="n">fav_toys</span>  <span class="c"># list of favorite toys</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">=</span> <span class="mi">0</span>
@@ -254,36 +254,36 @@ So far in this course we’ve been writing programs using functions and built-in
         <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s">"""Prints puppy's greeting. He just met you but he already loves 
-        you!"""</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Woof! My name is {0} and I love you!"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="sd">&quot;&quot;&quot;Prints puppy&#39;s greeting. He just met you but he already loves </span>
+<span class="sd">        you!&quot;&quot;&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Woof! My name is {0} and I love you!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toy</span><span class="p">):</span>
-        <span class="s">"""Puppies can eat if they're not too hungry. Playing will 
-        increase a puppy's happiness (and hungriness)!"""</span>
+        <span class="sd">&quot;&quot;&quot;Puppies can eat if they&#39;re not too hungry. Playing will </span>
+<span class="sd">        increase a puppy&#39;s happiness (and hungriness)!&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> 
             <span class="k">if</span> <span class="n">toy</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fav_toys</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">toy</span> <span class="o">+</span> <span class="s">" is my favorite toy EVER."</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">toy</span> <span class="o">+</span> <span class="s">&quot; is my favorite toy EVER.&quot;</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">2</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">"I am too hungry to play :("</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;I am too hungry to play :(&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">eat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">food</span><span class="p">):</span>
-        <span class="s">"""Puppies will eat if they're hungry. Eating will decrease a 
-        puppy's hungriness and increase its happiness."""</span>
+        <span class="sd">&quot;&quot;&quot;Puppies will eat if they&#39;re hungry. Eating will decrease a </span>
+<span class="sd">        puppy&#39;s hungriness and increase its happiness.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">food</span> <span class="o">+</span> <span class="s">" is my favorite thing to eat EVER."</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">food</span> <span class="o">+</span> <span class="s">&quot; is my favorite thing to eat EVER.&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">hungriness</span> <span class="o">-=</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">happiness</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">"No thanks! Let's play!"</span><span class="p">)</span></code></pre></figure>
+            <span class="k">print</span><span class="p">(</span><span class="s">&quot;No thanks! Let&#39;s play!&quot;</span><span class="p">)</span></code></pre></figure>
 
 <h4 id="test-your-understanding">Test your understanding</h4>
 <ol>
-  <li>What are all the instance attributes of a <code class="highlighter-rouge">Puppy</code>?</li>
+  <li>What are all the instance attributes of a <code>Puppy</code>?</li>
 </ol>
 <blockquote class="solution">`name`, `fav_toys`, `hungriness`, `happyiness`</blockquote>
 <ol>
@@ -299,31 +299,31 @@ So far in this course we’ve been writing programs using functions and built-in
 </ol>
 <blockquote class="solution">`self`</blockquote>
 <ol>
-  <li>Does the <code class="highlighter-rouge">bark</code> method change the state of the <code class="highlighter-rouge">Puppy</code>?</li>
+  <li>Does the <code>bark</code> method change the state of the <code>Puppy</code>?</li>
 </ol>
 <blockquote class="solution">no, it does not change any attributes.</blockquote>
 <ol>
-  <li>What must be passed through to the <code class="highlighter-rouge">play</code> method?</li>
+  <li>What must be passed through to the <code>play</code> method?</li>
 </ol>
 <blockquote class="solution">a toy argument of type string.</blockquote>
 <ol>
-  <li>Under what condition will a <code class="highlighter-rouge">Puppy</code> <code class="highlighter-rouge">play</code>?</li>
+  <li>Under what condition will a <code>Puppy</code> <code>play</code>?</li>
 </ol>
 <blockquote class="solution">if `hungriness` is less than `5`.</blockquote>
 <ol>
-  <li>How much does playing increase the puppy’s <code class="highlighter-rouge">happiness</code>?</li>
+  <li>How much does playing increase the puppy’s <code>happiness</code>?</li>
 </ol>
 <blockquote class="solution">if `toy` is one of the puppies `fav_toys`, then `happiness` will increase by `2`. otherwise it increases by `1`.</blockquote>
 <ol>
-  <li>How much does a puppy’s <code class="highlighter-rouge">hungriness</code> increase by after playing?</li>
+  <li>How much does a puppy’s <code>hungriness</code> increase by after playing?</li>
 </ol>
 <blockquote class="solution">`hungriness` increases by `1` after playing</blockquote>
 <ol>
-  <li>What must be passed through to the <code class="highlighter-rouge">eat</code> method?</li>
+  <li>What must be passed through to the <code>eat</code> method?</li>
 </ol>
 <blockquote class="solution">a food argument of type string.</blockquote>
 <ol>
-  <li>Under what condition will a <code class="highlighter-rouge">Puppy</code> <code class="highlighter-rouge">eat</code>?</li>
+  <li>Under what condition will a <code>Puppy</code> <code>eat</code>?</li>
 </ol>
 <blockquote class="solution">if hungriness is not `0`.</blockquote>
 <ol>
@@ -334,34 +334,34 @@ So far in this course we’ve been writing programs using functions and built-in
 <p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
 <h2 id="usage">Usage</h2>
-<p>Now that we have an outline of what <code class="highlighter-rouge">Puppy</code> object keeps track of and does, let’s make some puppies!</p>
+<p>Now that we have an outline of what <code>Puppy</code> object keeps track of and does, let’s make some puppies!</p>
 
 <h4 id="instantiating">Instantiating</h4>
-<p>To create a new puppy object, use the <code class="highlighter-rouge">__init__</code> method. The <code class="highlighter-rouge">__init__</code> method is a magic method, which you’ll learn more about later. For now, just know that you don’t necessarily have to call it using <code class="highlighter-rouge">__init__</code>. Instead, just use the class name, like so:</p>
+<p>To create a new puppy object, use the <code>__init__</code> method. The <code>__init__</code> method is a magic method, which you’ll learn more about later. For now, just know that you don’t necessarily have to call it using <code>__init__</code>. Instead, just use the class name, like so:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">'Spot'</span><span class="p">,</span> <span class="p">[</span><span class="s">'rope'</span><span class="p">,</span> <span class="s">'stick'</span><span class="p">])</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Spot&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;rope&#39;</span><span class="p">,</span> <span class="s">&#39;stick&#39;</span><span class="p">])</span></code></pre></figure>
 
-<p>This puppy’s name is <code class="highlighter-rouge">'Spot'</code> and his favorite toys are a <code class="highlighter-rouge">'rope'</code> and a <code class="highlighter-rouge">'stick'</code>. Notice that we do not have to pass anything through for the <code class="highlighter-rouge">self</code> parameter. This implicitly gets “passed through”; the new instance that we are creating gets assigned to <code class="highlighter-rouge">self</code>!</p>
+<p>This puppy’s name is <code>'Spot'</code> and his favorite toys are a <code>'rope'</code> and a <code>'stick'</code>. Notice that we do not have to pass anything through for the <code>self</code> parameter. This implicitly gets “passed through”; the new instance that we are creating gets assigned to <code>self</code>!</p>
 
-<p>When <code class="highlighter-rouge">__init__</code> is called, all our instance variables get initialized. Now we can access them and even change them.</p>
+<p>When <code>__init__</code> is called, all our instance variables get initialized. Now we can access them and even change them.</p>
 
 <h4 id="accessing-attributes">Accessing Attributes</h4>
 <p>Attributes must always be accessed using <strong>dot notation</strong>.<br />
 Instance attributes can only be accessed on an instance. This means that the instance comes before the dot, and the attribute comes after.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">name</span>
-<span class="s">'Spot'</span></code></pre></figure>
+<span class="s">&#39;Spot&#39;</span></code></pre></figure>
 
 <p>Here, we are using an instance that we’ve already created. We can also create a new instance and retrieve one of its attribute in one line.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">'Bear'</span><span class="p">,</span> <span class="p">[</span><span class="s">'shoe'</span><span class="p">,</span> <span class="s">'bone'</span><span class="p">])</span><span class="o">.</span><span class="n">fav_toys</span>
-<span class="p">[</span><span class="s">'shoe'</span><span class="p">,</span> <span class="s">'bone'</span><span class="p">]</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Bear&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;shoe&#39;</span><span class="p">,</span> <span class="s">&#39;bone&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fav_toys</span>
+<span class="p">[</span><span class="s">&#39;shoe&#39;</span><span class="p">,</span> <span class="s">&#39;bone&#39;</span><span class="p">]</span></code></pre></figure>
 
 <p>Class attributes work the same, except they can also be accessed using the class name. Recall that all instances have access to the class attributes, which have the same values for all instances.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span>
 <span class="mi">2</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">'Titan'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Titan&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">num_puppies</span>
 <span class="mi">3</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">num_puppies</span>
@@ -370,11 +370,11 @@ Instance attributes can only be accessed on an instance. This means that the ins
 <h4 id="changing-attributes">Changing Attributes</h4>
 <p>You can change instance or class attributes by using an assignment statement. Changing instance attributes of one instance does not change attributes of other instances.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'Boba'</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#39;Boba&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">name</span>
-<span class="s">'Boba'</span>
+<span class="s">&#39;Boba&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">name</span> 
-<span class="s">'Titan'</span></code></pre></figure>
+<span class="s">&#39;Titan&#39;</span></code></pre></figure>
 
 <p>However, changing class attributes does change the value for all instances.</p>
 
@@ -394,7 +394,7 @@ Instance attributes can only be accessed on an instance. This means that the ins
 <span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">num_puppies</span>
 <span class="mi">10</span></code></pre></figure>
 
-<p>Now, <code class="highlighter-rouge">my_puppy</code> no longer has access to the class attribute <code class="highlighter-rouge">num_puppies</code>, because it overwrote it with an instance attribute.</p>
+<p>Now, <code>my_puppy</code> no longer has access to the class attribute <code>num_puppies</code>, because it overwrote it with an instance attribute.</p>
 
 <h4 id="calling-methods">Calling Methods</h4>
 <p>To call a method, you must use dot notation just like with attributes. Otherwise, methods work just like functions; you call them using parentheses and pass through the appropriate arguments.</p>
@@ -402,18 +402,18 @@ Instance attributes can only be accessed on an instance. This means that the ins
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
 <span class="n">Woof</span><span class="err">!</span> <span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">Spot</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">love</span> <span class="n">you</span><span class="o">.</span></code></pre></figure>
 
-<p>Notice that we did not pass through any arguments even though <code class="highlighter-rouge">bark</code> takes in one parameter <code class="highlighter-rouge">self</code>. Dot notation implicitly passes through the instance and assigns it to <code class="highlighter-rouge">self</code>. Thus, in the body, <code class="highlighter-rouge">self.name</code> is the same as <code class="highlighter-rouge">my_puppy.name</code>.</p>
+<p>Notice that we did not pass through any arguments even though <code>bark</code> takes in one parameter <code>self</code>. Dot notation implicitly passes through the instance and assigns it to <code>self</code>. Thus, in the body, <code>self.name</code> is the same as <code>my_puppy.name</code>.</p>
 
-<p>It is possible to call a method without using dot notation: you can access the method from the class and then pass through the instance as <code class="highlighter-rouge">self</code>.</p>
+<p>It is possible to call a method without using dot notation: you can access the method from the class and then pass through the instance as <code>self</code>.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">my_puppy</span><span class="p">,</span> <span class="s">'stick'</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">my_puppy</span><span class="p">,</span> <span class="s">&#39;stick&#39;</span><span class="p">)</span>
 <span class="n">stick</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">toy</span> <span class="n">EVER</span><span class="o">.</span></code></pre></figure>
 
 <p>Remember, without the parentheses, you are only accessing the function object!</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">play</span>
 <span class="o">&lt;</span><span class="n">function</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">play</span> <span class="o">...</span> <span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">'rope'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_puppy</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;rope&#39;</span><span class="p">)</span>
 <span class="n">rope</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">toy</span> <span class="n">EVER</span><span class="o">.</span></code></pre></figure>
 
 <h4 id="test-your-understanding-1">Test your understanding</h4>

@@ -239,27 +239,27 @@
 
 <p>The following classes define an iterable representing the sequence of multiples for any given number and the iterator that returns the next value in the sequence. The sequence goes up to 1000.</p>
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3">class Multiples:
-    def __init__(self, num):
-        self.num = num
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">class</span> <span class="nc">Multiples</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
     
-    def __iter__(self):
-        return MultiplesIterator(self.num)
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MultiplesIterator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
 
-class MultiplesIterator:
-    def __init__(self, num):
-        self.num = num
-        self.curr = num
+<span class="k">class</span> <span class="nc">MultiplesIterator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">=</span> <span class="n">num</span>
     
-    def __iter__(self):
-        return self
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
     
-    def __next__(self):
-        if self.curr &gt;= 1000:
-            raise StopIteration
-        val = self.curr
-        self.curr = self.curr + self.num
-        return val</code></pre></figure>
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span>
+        <span class="k">return</span> <span class="n">val</span></code></pre></figure>
 
 <p>What will the following lines output?</p>
 
@@ -300,38 +300,38 @@ class MultiplesIterator:
 <p><a class="anchor" name="code"></a></p>
 
 <h2 id="writing-code">Writing code</h2>
-<p>Fill in the following definition of a generator function which yields every number from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">n</code> and prints <code class="highlighter-rouge">'m was a factor'</code> if the previous number, <code class="highlighter-rouge">m</code>, was a factor of <code class="highlighter-rouge">n</code>. See the doctests for an example.</p>
+<p>Fill in the following definition of a generator function which yields every number from <code>1</code> to <code>n</code> and prints <code>'m was a factor'</code> if the previous number, <code>m</code>, was a factor of <code>n</code>. See the doctests for an example.</p>
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3">def print_factor(n):
-    """
-    &gt;&gt;&gt; gen = print_factor(8)
-    &gt;&gt;&gt; next(gen)
-    1
-    &gt;&gt;&gt; next(gen)
-    1 was a factor
-    2
-    &gt;&gt;&gt; next(gen)
-    2 was a factor
-    3
-    &gt;&gt;&gt; next(gen)
-    4
-    &gt;&gt;&gt; next(gen)
-    4 was a factor
-    5
-    """  
-    "*** YOUR CODE HERE ***"</code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">print_factor</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &gt;&gt;&gt; gen = print_factor(8)</span>
+<span class="sd">    &gt;&gt;&gt; next(gen)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; next(gen)</span>
+<span class="sd">    1 was a factor</span>
+<span class="sd">    2</span>
+<span class="sd">    &gt;&gt;&gt; next(gen)</span>
+<span class="sd">    2 was a factor</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; next(gen)</span>
+<span class="sd">    4</span>
+<span class="sd">    &gt;&gt;&gt; next(gen)</span>
+<span class="sd">    4 was a factor</span>
+<span class="sd">    5</span>
+<span class="sd">    &quot;&quot;&quot;</span>  
+    <span class="s">&quot;*** YOUR CODE HERE ***&quot;</span></code></pre></figure>
 
 <p><a class="solution-toggle-2-p btn btn-default">TOGGLE SOLUTION</a></p>
 
 <div class="solution-2-p">
 
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3">def print_factor(n):
-    curr = 1
-    while curr &lt;= n:
-        yield curr
-        if n % curr == 0:
-            print(str(curr) + " was a factor")
-        curr += 1</code></pre></figure>
+<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">print_factor</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">curr</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">curr</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">curr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">curr</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; was a factor&quot;</span><span class="p">)</span>
+        <span class="n">curr</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></figure>
 </div>
 
   </div>

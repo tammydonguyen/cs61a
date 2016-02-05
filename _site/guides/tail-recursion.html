@@ -211,7 +211,7 @@
 
 <hr />
 
-<p>Scheme supports optimized tail recursion, meaning that if a function is called in <strong>tail context</strong>, Scheme will close the frame that called it and simply return the value that the tail call returns. Scheme thus allows for an unbounded number of tail calls, unlike Python, which will raise a <code class="highlighter-rouge">RuntimeError: 'maximum recursion depth exceeded'</code> because all the frames stay open.</p>
+<p>Scheme supports optimized tail recursion, meaning that if a function is called in <strong>tail context</strong>, Scheme will close the frame that called it and simply return the value that the tail call returns. Scheme thus allows for an unbounded number of tail calls, unlike Python, which will raise a <code>RuntimeError: 'maximum recursion depth exceeded'</code> because all the frames stay open.</p>
 
 <p>To write a tail-call optimized function in Scheme, you must make all recursive calls in a tail context.</p>
 
@@ -221,11 +221,11 @@
 <p>An expression is in a <strong>tail context</strong> if it is the last expression to be evaluated in the frame. Thus, a call expression is a <strong>tail call</strong> if it is one of the following:</p>
 
 <ul>
-  <li>the last sub-expression in the body of a tail-context <code class="highlighter-rouge">lambda</code> expression</li>
-  <li>the second or third sub-expression in a tail-context <code class="highlighter-rouge">if</code> expression</li>
-  <li>a non-predicate sub-expression in a tail-context <code class="highlighter-rouge">cond</code> expression</li>
-  <li>the last sub-expression in a tail-context <code class="highlighter-rouge">and</code> or <code class="highlighter-rouge">or</code> expression</li>
-  <li>the last sub-expression in a tail-context <code class="highlighter-rouge">begin</code> expression</li>
+  <li>the last sub-expression in the body of a tail-context <code>lambda</code> expression</li>
+  <li>the second or third sub-expression in a tail-context <code>if</code> expression</li>
+  <li>a non-predicate sub-expression in a tail-context <code>cond</code> expression</li>
+  <li>the last sub-expression in a tail-context <code>and</code> or <code>or</code> expression</li>
+  <li>the last sub-expression in a tail-context <code>begin</code> expression</li>
 </ul>
 
 <p>A function is then <strong>tail recursive</strong> if the recursive call(s) is a/are tail call(s).</p>
@@ -240,10 +240,10 @@
   <li>Is the function tail recursive?</li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&gt;</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span> 
-        <span class="p">(</span><span class="nf">foo</span> <span class="p">(</span><span class="nb">-</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">))</span> 
-        <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)))</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="nv">y</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)</span> 
+        <span class="p">(</span><span class="nf">foo</span> <span class="p">(</span><span class="nb">- </span><span class="nv">x</span> <span class="nv">y</span><span class="p">))</span> 
+        <span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="nv">y</span><span class="p">)))</span></code></pre></figure>
 
 <blockquote class="solution">
 <ol>
@@ -255,9 +255,9 @@
 
 <p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">x</span>
-        <span class="p">(</span><span class="nb">-</span> <span class="p">(</span><span class="nf">bar</span> <span class="mi">9</span><span class="p">)</span> <span class="mi">1</span><span class="p">))</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span> <span class="nv">x</span>
+        <span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nf">bar</span> <span class="mi">9</span><span class="p">)</span> <span class="mi">1</span><span class="p">))</span></code></pre></figure>
 
 <blockquote class="solution-2">
 <ol>
@@ -269,10 +269,10 @@
 
 <p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">baz</span> <span class="nv">x</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">cond</span> <span class="p">((</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="k">begin</span> <span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nf">baz</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">))))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">baz</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">cond </span><span class="p">((</span><span class="nf">bar</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="k">begin </span><span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="nv">x</span><span class="p">)</span> <span class="p">(</span><span class="nf">baz</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">x</span> <span class="nv">x</span><span class="p">))))</span>
         <span class="p">((</span><span class="nf">baz</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nf">baz</span> <span class="mi">2</span><span class="p">))</span>
-        <span class="p">(</span><span class="k">else</span> <span class="p">(</span><span class="k">and</span> <span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="mi">1</span><span class="p">)</span> <span class="no">#t</span> <span class="p">(</span><span class="nf">bar</span> <span class="mi">4</span><span class="p">))))</span>
+        <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="k">and </span><span class="p">(</span><span class="nf">foo</span> <span class="nv">x</span> <span class="mi">1</span><span class="p">)</span> <span class="no">#t</span> <span class="p">(</span><span class="nf">bar</span> <span class="mi">4</span><span class="p">))))</span>
       <span class="p">)</span></code></pre></figure>
 
 <blockquote class="solution-3">
@@ -287,9 +287,9 @@
 <p><a name="keep" class="anchor"></a></p>
 
 <h2 id="writing-tail-recursive-functions">Writing tail recursive functions</h2>
-<p>Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let’s try to write a function that makes a list out of the first <code class="highlighter-rouge">n</code> elements of a given <code class="highlighter-rouge">lst</code> (assume <code class="highlighter-rouge">lst</code> is at least length <code class="highlighter-rouge">n</code>). If you want to try this out on your own first, click <a href="/cs61a-resources/practice-problems/final.html#tail">here</a>.</p>
+<p>Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let’s try to write a function that makes a list out of the first <code>n</code> elements of a given <code>lst</code> (assume <code>lst</code> is at least length <code>n</code>). If you want to try this out on your own first, click <a href="/cs61a-resources/practice-problems/final.html#tail">here</a>.</p>
 
-<p>To do this, we would start with an empty <code class="highlighter-rouge">result</code> list and keep a counter, adding elements to <code class="highlighter-rouge">result</code> from <code class="highlighter-rouge">lst</code> until our counter hits <code class="highlighter-rouge">n</code>. Here’s the iterative Python version for a linked list:</p>
+<p>To do this, we would start with an empty <code>result</code> list and keep a counter, adding elements to <code>result</code> from <code>lst</code> until our counter hits <code>n</code>. Here’s the iterative Python version for a linked list:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">keep_first_n</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Link</span><span class="o">.</span><span class="n">empty</span>
@@ -299,36 +299,36 @@
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">result</span></code></pre></figure>
 
-<p>Since there are no <code class="highlighter-rouge">while</code> loops in Scheme, we can imitate this using a helper function! A helper function will keep track of variables that change in its parameters! In this case, the counter <code class="highlighter-rouge">i</code>, our <code class="highlighter-rouge">result</code> list, and the link pointer change, so our helper function will take in three parameters <code class="highlighter-rouge">i</code>, <code class="highlighter-rouge">result</code>, and <code class="highlighter-rouge">lst</code>.</p>
+<p>Since there are no <code>while</code> loops in Scheme, we can imitate this using a helper function! A helper function will keep track of variables that change in its parameters! In this case, the counter <code>i</code>, our <code>result</code> list, and the link pointer change, so our helper function will take in three parameters <code>i</code>, <code>result</code>, and <code>lst</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
 
     <span class="p">))</span></code></pre></figure>
 
-<p>To simulate the <code class="highlighter-rouge">while</code> condition, we use a base case to return our result when we’re done. We want to stop adding to <code class="highlighter-rouge">result</code> and return it when <code class="highlighter-rouge">i</code> is equal to <code class="highlighter-rouge">n</code>. Whatever happens in the while loop will go in the “else” case.</p>
+<p>To simulate the <code>while</code> condition, we use a base case to return our result when we’re done. We want to stop adding to <code>result</code> and return it when <code>i</code> is equal to <code>n</code>. Whatever happens in the while loop will go in the “else” case.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span><span class="p">)</span>
-      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span><span class="p">)</span>
     <span class="p">))</span></code></pre></figure>
 
-<p>So far, so good. Now we need to take care of what goes on in the <code class="highlighter-rouge">while</code> loop, which is updating <code class="highlighter-rouge">result</code>, <code class="highlighter-rouge">lst</code>, and <code class="highlighter-rouge">i</code>. Using recursion, we simply update our “variables” by passing their new values as arguments to a recursive call.</p>
+<p>So far, so good. Now we need to take care of what goes on in the <code>while</code> loop, which is updating <code>result</code>, <code>lst</code>, and <code>i</code>. Using recursion, we simply update our “variables” by passing their new values as arguments to a recursive call.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span><span class="p">)</span>
-      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
-        <span class="p">(</span><span class="nf">keep-helper</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append</span> <span class="nv">result</span> <span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-helper</span> <span class="nv">i</span> <span class="nv">result</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
+        <span class="p">(</span><span class="nf">keep-helper</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append </span><span class="nv">result</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
     <span class="p">))</span></code></pre></figure>
 
 <p>Almost done! All that’s left to do now is initialize our “variables”. To do this, call our helper function in the body of the original function with the initial values as arguments.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
-  <span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
-      <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
-        <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">+</span> <span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append</span> <span class="nv">result</span> <span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">keep-first-n</span> <span class="nv">lst</span> <span class="nv">n</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">helper</span> <span class="nv">i</span> <span class="nv">result</span> <span class="nv">lst</span><span class="p">)</span>
+      <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">i</span> <span class="nv">n</span><span class="p">)</span> <span class="nv">result</span>
+        <span class="p">(</span><span class="nf">helper</span> <span class="p">(</span><span class="nb">+ </span><span class="nv">i</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="nb">append </span><span class="nv">result</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)))</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)))</span>
     <span class="p">)</span>
-  <span class="p">(</span><span class="nf">helper</span> <span class="mi">0</span> <span class="o">'</span><span class="p">()</span> <span class="nv">lst</span><span class="p">))</span></code></pre></figure>
+  <span class="p">(</span><span class="nf">helper</span> <span class="mi">0</span> <span class="o">&#39;</span><span class="p">()</span> <span class="nv">lst</span><span class="p">))</span></code></pre></figure>
 
 <p>This function is now a tail-recursive version of the iterative solution!</p>
 

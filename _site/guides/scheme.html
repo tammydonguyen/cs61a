@@ -241,90 +241,90 @@ scm&gt; '(a b c)
 <p>If you had any trouble with this, take time to review the <a href="http://cs61a.org/lab/lab11/">Scheme lab</a>.</p>
 
 <h2 id="lists">Lists</h2>
-<p>Lists in Scheme are a lot like Linked Lists in Python. Whereas a Linked List in Python is comprised of several <code class="highlighter-rouge">Link</code>s, a list in Scheme is made up of pairs.</p>
+<p>Lists in Scheme are a lot like Linked Lists in Python. Whereas a Linked List in Python is comprised of several <code>Link</code>s, a list in Scheme is made up of pairs.</p>
 
 <h4 id="pairs">Pairs</h4>
-<p>A pair is the fundamental sequential unit in Scheme. To create one, use <code class="highlighter-rouge">cons</code>. <code class="highlighter-rouge">cons</code> takes in two arguments and creates a pair out of them.</p>
+<p>A pair is the fundamental sequential unit in Scheme. To create one, use <code>cons</code>. <code>cons</code> takes in two arguments and creates a pair out of them.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">3</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
 
-<p>The elements in a pair are separated by a dot. To retrieve the first element, use <code class="highlighter-rouge">car</code>. To retrieve the second element, use <code class="highlighter-rouge">cdr</code>.</p>
+<p>The elements in a pair are separated by a dot. To retrieve the first element, use <code>car</code>. To retrieve the second element, use <code>cdr</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define</span> <span class="nv">lst</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">lst</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nv">lst</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)</span>
 <span class="mi">2</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">))</span>
 <span class="mi">5</span></code></pre></figure>
 
 <p>The entries in a pair can be other pairs.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define</span> <span class="nv">lst</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">lst</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
 <span class="nv">lst</span>
 <span class="nv">scm&gt;</span> <span class="nv">lst</span>
-<span class="p">(</span><span class="nf">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)</span>
 <span class="mi">3</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">))</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">))</span>
 <span class="mi">5</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">6</span> <span class="mi">7</span><span class="p">))</span>
-<span class="p">((</span><span class="nf">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">6</span> <span class="o">.</span> <span class="mi">7</span><span class="p">)</span></code></pre></figure>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">6</span> <span class="mi">7</span><span class="p">))</span>
+<span class="p">((</span><span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">6</span> <span class="o">.</span> <span class="mi">7</span><span class="p">)</span></code></pre></figure>
 
-<p>When Scheme sees a <code class="highlighter-rouge">.</code> immediately followed by an open parenthesis, it removes the dot, the open parenthesis, <em>and</em> the corresponding close parenthesis. This way, we can construct what’s known as a <strong>well-formed list</strong> from a bunch of pairs!</p>
+<p>When Scheme sees a <code>.</code> immediately followed by an open parenthesis, it removes the dot, the open parenthesis, <em>and</em> the corresponding close parenthesis. This way, we can construct what’s known as a <strong>well-formed list</strong> from a bunch of pairs!</p>
 
 <h4 id="well-formed-lists">Well-formed lists</h4>
-<p>A well-formed list is actually just a pair whose first argument is the first element of the list and the second argument is another well-formed list. The last list argument is an empty list, or <code class="highlighter-rouge">nil</code>, to signify the end of the sequence.</p>
+<p>A well-formed list is actually just a pair whose first argument is the first element of the list and the second argument is another well-formed list. The last list argument is an empty list, or <code>nil</code>, to signify the end of the sequence.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">5</span> <span class="nv">nil</span><span class="p">)</span> <span class="c1">; one-element list</span>
-<span class="p">(</span><span class="nf">5</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="nv">nil</span><span class="p">)))</span> <span class="c1">; three-element list</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="o">'</span><span class="p">())))</span> <span class="c1">; same as previous</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">5</span> <span class="nv">nil</span><span class="p">)</span> <span class="c1">; one-element list</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">)))</span> <span class="c1">; three-element list</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="o">&#39;</span><span class="p">())))</span> <span class="c1">; same as previous</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
 
-<p>The take-away is this: <code class="highlighter-rouge">cons</code> can be used to create a list if and only if the first arugument is the first element of the list and the second argument is another list, which can be <code class="highlighter-rouge">nil</code>.</p>
+<p>The take-away is this: <code>cons</code> can be used to create a list if and only if the first arugument is the first element of the list and the second argument is another list, which can be <code>nil</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define</span> <span class="nv">first</span> <span class="mi">1</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">first</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nv">first</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define</span> <span class="nv">rest</span> <span class="o">'</span><span class="p">(</span><span class="nf">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> 
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">rest</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> 
 <span class="nv">rest</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="nv">first</span> <span class="nv">rest</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">first</span> <span class="nv">rest</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
 
-<p>Notice above that it is possible to also create lists with <code class="highlighter-rouge">'</code>. Keep in mind that this will create the exact list that comes after it, which means we can’t do something like <code class="highlighter-rouge">'(1 (cons 2 nil))</code>.</p>
+<p>Notice above that it is possible to also create lists with <code>'</code>. Keep in mind that this will create the exact list that comes after it, which means we can’t do something like <code>'(1 (cons 2 nil))</code>.</p>
 
-<p>Scheme provides us with an alternate to <code class="highlighter-rouge">cons</code> that is much more succinct and readable: <code class="highlighter-rouge">list</code>. <code class="highlighter-rouge">list</code> takes in an arbitrary number of arguments and will simply create a well formed list of them.</p>
+<p>Scheme provides us with an alternate to <code>cons</code> that is much more succinct and readable: <code>list</code>. <code>list</code> takes in an arbitrary number of arguments and will simply create a well formed list of them.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code></pre></figure>
 
-<p>Be careful, though; whereas with <code class="highlighter-rouge">cons</code> you can pass through the rest of the list as the second argument, passing lists through to <code class="highlighter-rouge">list</code> will create nested lists!</p>
+<p>Be careful, though; whereas with <code>cons</code> you can pass through the rest of the list as the second argument, passing lists through to <code>list</code> will create nested lists!</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="nv">nil</span><span class="p">))</span> <span class="mi">5</span><span class="p">)</span>
-<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">list </span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="nv">nil</span><span class="p">))</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
 
-<p>You can check whether a list is empty using <code class="highlighter-rouge">(null? lst)</code>. This is like asking whether <code class="highlighter-rouge">(= lst nil)</code>.</p>
+<p>You can check whether a list is empty using <code>(null? lst)</code>. This is like asking whether <code>(= lst nil)</code>.</p>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">nil</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">nil</span><span class="p">)</span>
 <span class="nv">True</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null?</span> <span class="p">(</span><span class="nb">list</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nv">False</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null?</span> <span class="o">'</span><span class="p">())</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="o">&#39;</span><span class="p">())</span>
 <span class="nv">True</span></code></pre></figure>
 
 <blockquote>
   <p><strong>Summary</strong><br />
 1. A list is a pair whose second entry is another list.<br />
-2. To construct a pair, use <code class="highlighter-rouge">cons</code>.<br />
-3. To construct a list using <code class="highlighter-rouge">cons</code>, pass through its first element as the first argument and the rest of the list as the second argument.
-4. To construct a list using <code class="highlighter-rouge">list</code>, pass through every element in the list.<br />
-5. To retrieve the first element of a pair or list, call <code class="highlighter-rouge">car</code>. <br />
-6. To retrieve the second element of a pair or the rest of a list, call <code class="highlighter-rouge">cdr</code>.  7. Check whether a list is empty using the predicate <code class="highlighter-rouge">null?</code>.</p>
+2. To construct a pair, use <code>cons</code>.<br />
+3. To construct a list using <code>cons</code>, pass through its first element as the first argument and the rest of the list as the second argument.
+4. To construct a list using <code>list</code>, pass through every element in the list.<br />
+5. To retrieve the first element of a pair or list, call <code>car</code>. <br />
+6. To retrieve the second element of a pair or the rest of a list, call <code>cdr</code>.  7. Check whether a list is empty using the predicate <code>null?</code>.</p>
 </blockquote>
 
 <p><a class="btn btn-default" href="/cs61a-resources/practice-problems/scheme.html#lists">BASIC PROBLEMS</a>  

@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Week 3 Quiz"
+date:   2015-10-04 11:00:00
+categories: quizzes
+---
+
+[Link to attendance and pizza.](http://tiny.cc/tammydisc3)  
+[This week's slides.](https://docs.google.com/presentation/d/1cfwWzadsrDU5RFfsLNQLVahf3m3dhX7f-iI-NdkB0aY/edit?usp=sharing)
+
+---
+
+This quiz reviews topics covered in these lectures:  
+[Higher Order Functions](http://cs61a.org/assets/slides/04_6pp.pdf)   
+[Environments](http://cs61a.org/assets/slides/05_6pp.pdf)
+
+---
+
+### Question 1
+
+Fill in the blank below.
+
+{% highlight python %}
+>>> def bern(ie):
+...     def san(ders):
+...         return ie("It is unacceptable that " + ders)
+...     return san
+>>> def hill(ary):
+...     print(ary())
+>>> hill(bern(____________________)(____________________))
+It is unacceptable that women make less than men
+{% endhighlight %}
+
+<!-- <a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution"><code>stop cheating</code><br/>
+As a challenge, draw the environment diagram for this code.
+</blockquote> -->

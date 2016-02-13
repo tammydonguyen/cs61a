@@ -228,7 +228,7 @@
 
 <h3 id="question-1">Question 1</h3>
 
-<p>Fill in the blank below.</p>
+<p>Fill in the blanks below.</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">bern</span><span class="p">(</span><span class="n">ie</span><span class="p">):</span>
 <span class="o">...</span>     <span class="k">def</span> <span class="nf">san</span><span class="p">(</span><span class="n">ders</span><span class="p">):</span>
@@ -239,11 +239,38 @@
 <span class="o">&gt;&gt;&gt;</span> <span class="n">hill</span><span class="p">(</span><span class="n">bern</span><span class="p">(</span><span class="n">____________________</span><span class="p">)(</span><span class="n">____________________</span><span class="p">))</span>
 <span class="n">It</span> <span class="ow">is</span> <span class="n">unacceptable</span> <span class="n">that</span> <span class="n">women</span> <span class="n">make</span> <span class="n">less</span> <span class="n">than</span> <span class="n">men</span></code></pre></figure>
 
-<!-- <a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
-<blockquote class="solution"><code>hill(bern(lambda x: lambda: x)("women make less than men"))</code><br/>
-As a challenge, draw the environment diagram for this code.
-</blockquote> -->
+<blockquote class="solution">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">bern</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">x</span><span class="p">)(</span><span class="s">&quot;women make less than men&quot;</span><span class="p">)</span></code></pre></figure>
+
+<br /><b>Explanation:</b> <br />First, we see that the return value of <code>bern(____________)(____________)</code> is passed as an argument to <code>hill</code> and will be bound to the parameter <code>ary</code>. Notice that <code>ary</code> is being called with <b>no arguments</b> in the body of <code>hill</code>. That means that the entire expression <code>bern(____________)(____________)</code> must return a <b>zero-argument function</b>. <br /><br />
+
+Now let's analyze the call expression itself. First, we evaluate the operator: <code>bern(____________)</code>. This operator is itself a function call, and we know it must return a function. Well, that's already taken care of, because <code>bern</code>'s return value is always the function <code>san</code> regardless of the input. So what should we pass through to it? Next notice that <code>bern</code>'s parameter <code>ie</code> is called on the string <code>"It is unacceptable that " + ders</code>. That must mean that our argument is a function, more specifically, a <b>one-argument lambda function</b>. So then we have this: 
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">bern</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="err">???</span><span class="p">)(</span><span class="n">____________</span><span class="p">)</span></code></pre></figure>
+
+Since I'm calling the parameter <code>x</code>, the entire string <code>"It is unacceptable that " + ders</code> will be bound to <code>x</code> when we execute this lambda. Keep in mind now that <code>lambda x: ???</code> will be bound to the parameter <code>ie</code>. 
+<br /><br />
+Let's skip the lambda's body for now and move on what to put in the second set of parentheses. We've established that <code>bern(lambda x: ???)</code> will return <code>san</code>, so essentially <code>bern(lambda x: ???)(____________)</code> becomes <code>san(_________)</code>. Figuring out what to pass through to <code>san</code> is easy. We see that the parameter <code>ders</code> will be added to the string <code>"It is unacceptable that "</code>. This is the only place in our code where we can concatenate strings, so <code>ders</code> must be bound to <code>"women make less than men"</code>. So now all that's left is to write the body of the lambda: 
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">bern</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="err">???</span><span class="p">)(</span><span class="s">&quot;women make less than men&quot;</span><span class="p">)</span></code></pre></figure>
+
+<br />
+Earlier I said that then entire expression above must return a <b>zero-argument function</b> that will be bound to <code>ary</code> inside of <code>hill</code>. How can we make that happen? Well the return value of that whole expression is actually just the return value of <code>san</code> (remember that <code>bern(lambda x: ???)(____________)</code> is basically <code>san(_________)</code>). <code>san</code> returns the value of <code>ie</code> called on <code>"It is unacceptable that " + ders</code>! Recall that <code>ie</code> is bound to the lambda function we already wrote in. Thus, for <code>san</code> to return a zero-arg function, our lambda must return a zero-arg function:
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">bern</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="err">???</span><span class="p">)(</span><span class="s">&quot;women make less than men&quot;</span><span class="p">)</span></code></pre></figure>
+
+
+<br />Let's regroup and go over what our "bindings" are so far. <code>ie</code> is bound to <code>lambda x: lambda: ???</code>. <code>ary</code> is bound to that inner lambda, <code>lambda: ???</code>. The parameter <code>x</code> to our first lambda will be bound to the string we want to print. <br /><br />
+Now, to figure out what that inner lambda should return, we must turn back to <code>hill</code>. Our desired action is to print the string that is bound to <code>x</code> in the first lambda. <code>hill</code> takes care of the printing for us; it prints the return value of <code>ary()</code>. That means that our inner zero-argument lambda must return the string we want to print, which is bound to the parameter <code>x</code> of the outer lambda function. This completes the solution:
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">bern</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">x</span><span class="p">)(</span><span class="s">&quot;women make less than men&quot;</span><span class="p">)</span></code></pre></figure>
+ <br />
+
+<b>Important note #1:</b> Throughout the explanation I said that certain variables are bound to <code>lambda ... : ...</code>. I do not that the variables are literally bound to those lambda expressions; it was simply a clean way to refer to certain functions. Remember than lambda expressions are just unevaluated expressions just like <code>2+4</code>. What I mean is that the variable is bound to the function object that that lambda expression creates. <br /><br />
+<b>Important note #2:</b> I don't expect you to read through this lengthy explanation and totally understand everything that's going on. For that reason I highly recommend drawing out the environment diagram. You can find the solution to the environment diagram <a href="http://pythontutor.com/composingprograms.html#code=def+bern(ie%29%3A%0A++++def+san(ders%29%3A%0A++++++++return+ie(%22It+is+unacceptable+that+%22+%2B+ders%29%0A++++return+san%0Adef+hill(ary%29%3A%0A++++print(ary(%29%29%0Ahill(bern(lambda+x%3A+lambda%3A+x%29(%22women+make+less+than+men%22%29%29&amp;mode=display&amp;origin=composingprograms.js&amp;cumulative=true&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=19">here</a>.
+</blockquote>
 
   </div>
 </div>

@@ -5,15 +5,16 @@ date:   2015-10-18 11:14:11
 category: other
 ---
 
-## Stay caught up
+## Tips for Success
 Here are some tips to ensure that you're on top of course material so you're not cramming when exam time comes. These guidelines are a lot easier said than done, but still worth being outlined.
 
 1. Watch the lecture videos the day of the actual lecture. This way, you get the most out of lab and discussion sections and you're not wasting time figuring out what the lab or what your TA is talking about.
 2. Go to a lab to do the lab assignments. This provides two benefits: the lab environment keeps you on task and you're able to ask for help immediately if you get stuck. If the lab assistants are doing what they're supposed to, they will guide you to the answer and not just give it to you.
 3. Stay in the lab after you're done with lab and complete homeworks and/or work on projects there too. This pretty much goes along the same lines of point 2. Get help as soon as possible, and don't take more time than you need to on any one problem. 
-4. Start the projects as soon as they come out. You learn more effectively when you're able to take your time, experiment, and learn from your errors. Also, have fun while doing it! You're building real programs here.
+4. Read the project spec as soon as it comes out, and get started on at least the first problem. I know it's nearly impossible for students not to procrastinate on projects, so at the very least it's important that you know how long and how difficult the project is before you procrastinate.
+5. Follow up to number 4: The earlier you start the project, the more time you have to learn through trial and error and also the more likely you are to help at OH. 
 
-If you do all of this, it's very hard to fall behind in class. Then come exam week, it's likely that you won't have to study or review old material, because everything taught in 61A builds on top of previous topics and ideas and there are so many assignments to apply these topics. Appreciate the assignments. These are the best learning tools.
+If you do all of this, it's very hard to fall behind in class. Then come exam week, it's likely that you won't have to review old material, because everything taught in 61A builds on top of previous topics and ideas and there are so many assignments to apply these topics. Appreciate the assignments. These are the best learning tools.
 
 ## Exams
 

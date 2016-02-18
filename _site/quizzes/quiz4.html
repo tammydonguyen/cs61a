@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Course Advice</title>
+<title>Week 4 Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -220,54 +220,70 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Course Advice</div>
+  <div class="article-title">Week 4 Quiz</div>
   <hr/>
   <div class="post">
-    <h2 id="tips-for-success">Tips for Success</h2>
-<p>Here are some tips to ensure that you’re on top of course material so you’re not cramming when exam time comes. These guidelines are a lot easier said than done, but still worth being outlined.</p>
+    <p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1f3DNpIOGFJh2FTfPITPXfv61sDrPHEmKv2YRNdOCVcI/edit?usp=sharing">Midterm Review Slides</a></p>
 
-<ol>
-  <li>Watch the lecture videos the day of the actual lecture. This way, you get the most out of lab and discussion sections and you’re not wasting time figuring out what the lab or what your TA is talking about.</li>
-  <li>Go to a lab to do the lab assignments. This provides two benefits: the lab environment keeps you on task and you’re able to ask for help immediately if you get stuck. If the lab assistants are doing what they’re supposed to, they will guide you to the answer and not just give it to you.</li>
-  <li>Stay in the lab after you’re done with lab and complete homeworks and/or work on projects there too. This pretty much goes along the same lines of point 2. Get help as soon as possible, and don’t take more time than you need to on any one problem.</li>
-  <li>Read the project spec as soon as it comes out, and get started on at least the first problem. I know it’s nearly impossible for students not to procrastinate on projects, so at the very least it’s important that you know how long and how difficult the project is before you procrastinate.</li>
-  <li>Follow up to number 4: The earlier you start the project, the more time you have to learn through trial and error and also the more likely you are to help at OH.</li>
-</ol>
+<hr />
 
-<p>If you do all of this, it’s very hard to fall behind in class. Then come exam week, it’s likely that you won’t have to review old material, because everything taught in 61A builds on top of previous topics and ideas and there are so many assignments to apply these topics. Appreciate the assignments. These are the best learning tools.</p>
+<p>The following code is loaded into the Python interpreter.</p>
 
-<h2 id="exams">Exams</h2>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mid</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="n">night</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">night</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">term</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">night</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="nb">next</span><span class="p">:</span> <span class="n">to</span><span class="p">(</span><span class="n">night</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="nb">next</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">to</span></code></pre></figure>
 
-<h3 id="exam-prep">Exam Prep</h3>
-<p>Grab a list of all the topics that will be on the exam. Go back to the discussion sheets and labs, read them over a bit just as a refresher, and then jump right into problems. <strong>There’s no need to do any heavy reading or watch the lectures again if you’re caught up in class.</strong></p>
+<hr />
 
-<p>Order the exam topics from easiest to hardest from your point of view. Starting at the top of the list, begin by reviewing problems that you struggled with in the assignments. Doing them again will really solidify what you learned from it. This is so much better than doing new, harder problems and simply looking at the solutions. After you feel like you have a good grasp on a certain topic, find about 3 problems of that topic in <a href="https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Past_exams">past exams</a>. Do them all, moving on if you get stuck. The thought process for one can help you figure out the others. Take note of patterns that you find while doing these problems.</p>
+<h3 id="question-1">Question 1</h3>
+<p>What will the following lines output (executed in order in the same session)? Write <code>Error</code> if you think the code will error and <code>Function</code> if you think a function object representation will be output.</p>
 
-<p>Repeat this process for every topic, ending with topics that are harder for you. Yes, this is a very long process. I recommend starting your exam studies (not including catching up) at least a week prior to the exam to give you adequate time to do problems for each topic.</p>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
 
-<h3 id="taking-the-exam">Taking the exam</h3>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)(</span><span class="s">&quot;midterm&quot;</span><span class="p">)(</span><span class="s">&quot;is tonight&quot;</span><span class="p">)</span>
 
-<h4 id="what-would-python-print">What Would Python Print?</h4>
-<p>Draw an environment diagram. It’s not an environment diagram question, I know. Just draw one, especially if lists and/or OOP are involved. Rather than writing values all over the code and keeping track of the state of the program in your head, just draw it out. That is what environment diagrams are there for. It may take a little bit more time, but the time saved from not forgetting values and having to restart is worth it. Also, it makes it way easier to double check your work; just review your environment diagram rather than redoing the problem.</p>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
 
-<h4 id="environment-diagrams">Environment Diagrams</h4>
-<p>These are free points! There’s not really any intuition involved. Just <a href="/cs61a/guides/env-diag.html">follow the rules</a>.</p>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;Ugh!&quot;</span><span class="p">)(</span><span class="s">&quot;I’m gonna fail.&quot;</span><span class="p">)</span>
 
-<h4 id="code-writing">Code Writing</h4>
-<p>These questions might require a little more creativity than homework or lab problems, but they really are testing the same thing. Look through all the problems before starting and find the ones testing topics that you studied first (i.e. the ones that you find the easiest). Complete these before moving on to harder ones.</p>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;I’m&quot;</span><span class="p">)(</span><span class="s">&quot;gonna&quot;</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">&quot;the&quot;</span><span class="p">)(</span><span class="s">&quot;midterm!&quot;</span><span class="p">)</span>
 
-<p>Recall patterns that you found while going through past exams and try to apply them. For example, in recursive functions, the recursive call tends to be located in the return statement. Reading the guides on this site might also reveal some patterns.</p>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)</span></code></pre></figure>
 
-<p>If there is already some code provided, try to figure out what the solution might be trying to do rather than come up with your own. This way, you don’t mix up ideas and/or get confused.</p>
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
-<h3 id="after-the-exam">After the exam</h3>
-<p>Breathe. Relax. Smile.</p>
+<blockquote class="solution">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)(</span><span class="s">&quot;midterm&quot;</span><span class="p">)(</span><span class="s">&quot;is tonight&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+<span class="s">&#39;The midterm is tonight !&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;Ugh!&quot;</span><span class="p">)(</span><span class="s">&quot;I’m gonna fail.&quot;</span><span class="p">)</span> <span class="c"># TypeError: &#39;str&#39; object is not callable</span>
+<span class="n">Error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;How&quot;</span><span class="p">)(</span><span class="s">&quot;should I&quot;</span><span class="p">)(</span><span class="s">&quot;study?&quot;</span><span class="p">)</span>
+<span class="n">Function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;I’m&quot;</span><span class="p">)(</span><span class="s">&quot;gonna&quot;</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">&quot;the&quot;</span><span class="p">)(</span><span class="s">&quot;midterm!&quot;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)</span>
+<span class="s">&#39;I’m gonna ace the midterm!&#39;</span></code></pre></figure>
 
-<p>It’s over! Whether you did well or not, there’s no going back in time to change things. Regardless, you shouldn’t be stressing out immediately after an exam.</p>
+</blockquote>
 
-<p>If you really think things went badly, then that needs to be a motivator: stay caught up from now until the next exam. If you feel completely lost and hopeless, the staff is always here to talk. To schedule a meeting with me, even if you’re not in my section, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#097;&#109;&#109;&#121;&#110;&#103;&#117;&#121;&#101;&#110;&#064;&#098;&#101;&#114;&#107;&#101;&#108;&#101;&#121;&#046;&#101;&#100;&#117;">shoot me an email</a> and we can figure it out.</p>
+<hr />
 
-<p>If you think you did well, that is not an indicator to sit back and relax for the rest of the semester. This course increases in difficulty (but not necessarily workload), as the semester goes on, so it’s critical that you go right back to watching lectures and doing assignments following the exam.</p>
+<h3 id="question-2">Question 2</h3>
+<p>Fill in the blank to get the following output (you may have to add more parentheses).</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">mid</span><span class="p">(</span><span class="n">________________________________</span><span class="p">)</span>
+<span class="s">&quot;I love 61A! It&#39;s the cooliest class ever.&quot;</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mid</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)(</span><span class="s">&quot;I love 61A! It&#39;s the cooliest class ever.&quot;</span><span class="p">)</span></code></pre></figure>
+
+</blockquote>
 
   </div>
 </div>

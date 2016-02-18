@@ -1,0 +1,75 @@
+---
+layout: post
+title:  "Week 4 Quiz"
+date:   2015-09-04 11:00:00
+categories: quizzes
+---
+
+[Midterm Review Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1f3DNpIOGFJh2FTfPITPXfv61sDrPHEmKv2YRNdOCVcI/edit?usp=sharing)
+
+---
+
+The following code is loaded into the Python interpreter.
+
+{% highlight python %}
+def mid(term):
+    def to(night):
+        if night[-1] == term:
+            return night
+        return lambda next: to(night + " " + next)
+    return to
+{% endhighlight %}
+
+---
+
+### Question 1
+What will the following lines output (executed in order in the same session)? Write `Error` if you think the code will error and `Function` if you think a function object representation will be output.
+
+{% highlight python %}
+>>> exclamation = mid("!")
+
+>>> x = exclamation("The")("midterm")("is tonight")
+
+>>> x("!")
+
+>>> exclamation("Ugh!")("I’m gonna fail.")
+
+>>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
+
+>>> f("ace")
+
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">{% highlight python %}
+>>> exclamation = mid("!")
+>>> x = exclamation("The")("midterm")("is tonight")
+>>> x("!")
+'The midterm is tonight !'
+>>> exclamation("Ugh!")("I’m gonna fail.") # TypeError: 'str' object is not callable
+Error
+>>> exclamation("How")("should I")("study?")
+Function
+>>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
+>>> f("ace")
+'I’m gonna ace the midterm!'
+{% endhighlight %}
+</blockquote>
+
+---
+
+### Question 2  
+Fill in the blank to get the following output (you may have to add more parentheses).
+
+{% highlight python %}
+>>> mid(________________________________)
+"I love 61A! It's the cooliest class ever."
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight python %}
+mid(".")("I love 61A! It's the cooliest class ever.")
+{% endhighlight %}
+</blockquote>

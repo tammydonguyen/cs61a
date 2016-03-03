@@ -1,0 +1,91 @@
+---
+layout: post
+title:  "Week 6 Quiz"
+date:   2015-07-04 11:00:00
+categories: quizzes
+---
+
+[This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1LSpUv8RxbqxjT--zKk5jGLsVtSQGgmLVUGV6V2eEqCw/edit?usp=sharing)  
+[Link to form](https://docs.google.com/a/berkeley.edu/forms/d/1FGrZEh57H9BynxfMFkVdrqUq1RimyGxNAn36WnGNRgI/viewform)  
+[OOP Guide](http://tmmydngyn.com/cs61a-resources/guides/oop.html)
+
+---
+
+### Concepts
+1. What is the difference between an instance attribute and a class attribute?  
+2. What is `self` assigned to during a method call?  
+3. **(T/F)** A class that inherits another class is not allowed to create new attributes or methods of the same names as the superclass.  
+4. **(T/F)** The nonlocal statement allows you to access variables in parent frames.  
+5. **(T/F)** The nonlocal statement does not allow to change global variables.
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">
+1. An instance attribute is specific to a single instance of a class and does not affect other instances; these must be accessed using dot notation on an instance. A class attribute is shared among all instances; these can be accessed using dot notation on either a class or an instance (unless that instance has an instance attribute of the same name).<br/>
+2. <code>self</code> is assigned to the instance that is making the method call. For <code>__init__</code>, since we don't (usually) call it on an instance, <code>self</code> is assigned to the newly created instance. <br/>
+3. False. Subclasses may <b>override</b> methods (must redefine using the same signature) and attributes. <br/>
+4. False. By default we can already access variables in parent frames. <code>nonlocal</code> allows us to <i>modify</i> these variables. <br/>
+5. True. You can never modify glocal variables. 
+</blockquote>
+
+---
+
+### WWPP  
+Take a look at the two classes below and figure out what Python would output. Try drawing out a diagram to keep track of changing attributes!
+{% highlight python %}
+class Random:
+    x = 0
+
+    def __init__(self, x, y):
+        Random.x = x
+        self.x = y
+
+    def foo(self):
+        return Random.x + self.x
+
+class Randomer(Random):
+    x = 3
+
+    def bar(self, y):
+        self.x = y
+        return self.foo()
+{% endhighlight %}
+
+{% highlight python %}
+>>> lol = Random(2, 3)
+>>> wtf = Randomer(4, 5)
+>>> lol.x
+
+>>> lol.y
+
+>>> wtf.bar(10)
+
+>>> wtf.x
+
+>>> Random.foo(lol)
+
+>>> lol.bar(1000000)
+
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight python %}
+>>> lol = Random(2, 3)
+>>> wtf = Randomer(4, 5)
+>>> lol.x
+3
+>>> lol.y
+Error
+>>> Random.x
+4
+>>> wtf.bar(10)
+14
+>>> wtf.x
+10
+>>> Random.foo(lol)
+7
+>>> lol.bar(1000000)
+Error
+{% endhighlight %}
+</blockquote>

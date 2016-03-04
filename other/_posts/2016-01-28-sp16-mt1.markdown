@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Spring 2016 Midterm 1 Walkthrough"
+date:   2015-10-18 11:14:11
+category: other
+---
+
+These slides are from a CS Scholars seminar in which I walked through 4 problems from the Spring 2016 MT1.
+
+<iframe src="https://docs.google.com/a/berkeley.edu/presentation/d/1koa6vZ5e4jSEXOSmCk2mr87V2v3BZtCUrfezwC_GIU0/embed?start=false&loop=false&delayms=60000" frameborder="0" width="100%" height="500px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+Last updated: March 4, 2016

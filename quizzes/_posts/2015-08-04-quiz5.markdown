@@ -5,7 +5,7 @@ date:   2015-08-04 11:00:00
 categories: quizzes
 ---
 
-[This Week's Slides](https://docs.google.com/presentation/d/132hKvcz5OPqOiJfBFuOjTflGQzJS6_DGwCPsU0qUNo8/edit?usp=sharing)  
+[This week's slides](https://docs.google.com/presentation/d/132hKvcz5OPqOiJfBFuOjTflGQzJS6_DGwCPsU0qUNo8/edit?usp=sharing)  
 [Link to form](https://docs.google.com/a/berkeley.edu/forms/d/1Pj2oU_nOk7LV3oxGd32Qrk6ZaWlQDa_HZE_211K3Bd8/viewform)
 
 ---

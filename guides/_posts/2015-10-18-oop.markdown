@@ -5,9 +5,10 @@ date:   2015-10-18 11:14:11
 category: guides
 ---
 
-**This page is under construction!**
+**Information about inheritance will be added soon!**
 
 ----
+
 ## Basics  
 So far in this course we've been writing programs using functions and built-in data types. We've also created our own abstract data types (such as the `link` and `tree` ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable. 
 
@@ -80,32 +81,35 @@ class Puppy:
 {% endhighlight %}
 
 #### Test your understanding
-1. What are all the instance attributes of a `Puppy`?
-<blockquote class="solution">`name`, `fav_toys`, `hungriness`, `happyiness`</blockquote>
-2. What is a puppy's name initialized to? What are its hungriness and happiness levels initialized to?
-<blockquote class="solution">The `name` argument passed to the constructor, `0`, `5` respectively.</blockquote>
-3. What is the class attribute? Where does it change? What is it keeping track of?
-<blockquote class="solution">`num_puppies`, changes in constructor (when puppies are created), keeps track of total number puppies.</blockquote>
-4. What common parameter do all methods have?
-<blockquote class="solution">`self`</blockquote>
-5. Does the `bark` method change the state of the `Puppy`?
-<blockquote class="solution">no, it does not change any attributes.</blockquote>
-6. What must be passed through to the `play` method? 
-<blockquote class="solution">a toy argument of type string.</blockquote>
-7. Under what condition will a `Puppy` `play`?
-<blockquote class="solution">if `hungriness` is less than `5`.</blockquote>
-8. How much does playing increase the puppy's `happiness`?
-<blockquote class="solution">if `toy` is one of the puppies `fav_toys`, then `happiness` will increase by `2`. otherwise it increases by `1`.</blockquote>
-9. How much does a puppy's `hungriness` increase by after playing?
-<blockquote class="solution">`hungriness` increases by `1` after playing</blockquote>
-10. What must be passed through to the `eat` method?
-<blockquote class="solution">a food argument of type string.</blockquote>
+1. What are all the instance attributes of a `Puppy`?  
+2. What is a puppy's name initialized to? What are its hungriness and happiness levels initialized to?  
+3. What is the class attribute? Where does it change? What is it keeping track of?  
+4. What common parameter do all methods have?  
+5. Does the `bark` method change the state of the `Puppy`?  
+6. What must be passed through to the `play` method?  
+7. Under what condition will a `Puppy` `play`?  
+8. How much does playing increase the puppy's `happiness`?  
+9. How much does a puppy's `hungriness` increase by after playing?  
+10. What must be passed through to the `eat` method?  
 11. Under what condition will a `Puppy` `eat`?  
-<blockquote class="solution">if hungriness is not `0`.</blockquote>
-12. How does the state of the puppy change after eating?
-<blockquote class="solution">`hungriness` decreases by `1`, `happiness` increases by `1`.</blockquote>
+12. Is it possible to get a `Puppy` to `eat` if his/her `hungriness` is not greater than `0`?
+12. How does the state of the puppy change after eating?  
 
 <a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">1. All the instance attributes of a <code>Puppy</code> are <code>name</code>, <code>fav_toys</code>, <code>hungriness</code>, <code>happiness</code>. <br/> 
+2. The <code>name</code> argument passed to the constructor, <code>0</code>, <code>5</code> respectively. <br/> 
+3. <code>num_puppies</code>, changes in constructor (when puppies are created), keeps track of total number puppies. <br/> 
+4. All methods have a <code>self</code> parameter. <br/> 
+5. No, <code>bark</code> does not change any attributes. <br/> 
+6. You must pass in string to <code>play</code> which will be assigned to <code>toy</code>.  <br/>
+7. A puppy will only play if his/her <code>hungriness</code> is less than <code>5</code>. <br/> 
+8. If <code>toy</code> is one of the puppies <code>fav_toys</code>, then <code>happiness</code> will increase by <code>2</code>. <br/>Otherwise, it increases by <code>1</code>.  <br/>
+9. <code>hungriness</code> increases by <code>1</code> after playing regardless of whether the <code>toy</code> is one of the <code>Puppy</code>'s favorites. <br/>  
+10. You must pass in string to <code>eat</code> which will be assigned to <code>food</code>.  <br/>
+11. A puppy will only eat if hungriness is not <code>0</code>.  <br/>
+12. Yes, since <code>eat</code> only checks if <code>self.hungriness</code> is <b>not 0</b> (remember, 0 is the only integer with a False-y value). If someone sneaky manually sets a puppy's <code>hungriness</code> to a negative number, then the puppy will eat! <br/>
+13. After eating, a <code>Puppy</code>'s <code>hungriness</code> decreases by <code>1</code> and <code>happiness</code> increases by <code>1</code>.</blockquote>
 
 ## Usage
 Now that we have an outline of what `Puppy` object keeps track of and does, let's make some puppies!  
@@ -214,43 +218,82 @@ rope is my favorite toy EVER.
 #### Test your understanding
 What would Python print after each of the following lines are inputted? Assume we have restarted the interpreter (i.e., ignore all of the above lines).
 
-<pre><code>>>> puppy1 = Puppy('Hercules', ['squeaky duck'])
+{% highlight python %}>>> puppy1 = Puppy('Hercules', ['squeaky duck'])
 >>> puppy1.hungriness
-<span class="solution-2">0</span>
+
 >>> Puppy.num_puppies
-<span class="solution-2">1</span>
+
 >>> puppy1.play('stick')
 >>> puppy2 = Puppy('Bruno', ['stick', 'ball'])
 >>> puppy1.num_puppies
-<span class="solution-2">2</span>
+
 >>> puppy2.play('stick')
-<span class="solution-2">'stick is my favorite toy EVER.'</span>
+
 >>> puppy2.play('ball')
-<span class="solution-2">'ball is my favorite toy EVER.'</span>
+
 >>> puppy1.happiness
-<span class="solution-2">6</span>
+
 >>> puppy2.happiness
-<span class="solution-2">9</span>
+
 >>> for _ in range(4):
 ...     puppy1.play('ball')
-<span class="solution-2">I am too hungry to play :(</span>
+
 >>> puppy1.hungriness
-<span class="solution-2">5</span>
+
 >>> puppy1.eat('canned food')
-<span class="solution-2">canned food is my favorite thing to eat EVER.</span>
+
 >>> puppy1.hungriness
-<span class="solution-2">4</span>
+
 >>> puppy2.hungriness
-<span class="solution-2">2</span>
+
 >>> Puppy.num_puppies = 17
 >>> Puppy('Goob', ['stuffed rabbit']).num_puppies
-<span class="solution-2">18</span>
+
 >>> puppy1.num_puppies
-<span class="solution-2">18</span>
+
 >>> puppy2.num_puppies = 10
 >>> Puppy.num_puppies
-<span class="solution-2">18</span>
->>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
-<span class="solution-2">Woof! My name is Chewie and I love you!</span></code></pre>
+
+>>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark(){% endhighlight %}
 
 <a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight python %}>>> puppy1 = Puppy('Hercules', ['squeaky duck'])
+>>> puppy1.hungriness
+0
+>>> Puppy.num_puppies
+1
+>>> puppy1.play('stick')
+>>> puppy2 = Puppy('Bruno', ['stick', 'ball'])
+>>> puppy1.num_puppies
+2
+>>> puppy2.play('stick')
+'stick is my favorite toy EVER.'
+>>> puppy2.play('ball')
+'ball is my favorite toy EVER.'
+>>> puppy1.happiness
+6
+>>> puppy2.happiness
+9
+>>> for _ in range(4):
+...     puppy1.play('ball')
+I am too hungry to play :(
+>>> puppy1.hungriness
+5
+>>> puppy1.eat('canned food')
+canned food is my favorite thing to eat EVER.
+>>> puppy1.hungriness
+4
+>>> puppy2.hungriness
+2
+>>> Puppy.num_puppies = 17
+>>> Puppy('Goob', ['stuffed rabbit']).num_puppies
+18
+>>> puppy1.num_puppies
+18
+>>> puppy2.num_puppies = 10
+>>> Puppy.num_puppies
+18
+>>> Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
+Woof! My name is Chewie and I love you!{% endhighlight %}
+</blockquote>

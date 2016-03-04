@@ -103,12 +103,20 @@
               <a href="/cs61a-resources/quizzes/quiz5.html"> Week 5 Quiz </a>
             </li>
           
+            <li> 
+              <a href="/cs61a-resources/quizzes/quiz6.html"> Week 6 Quiz </a>
+            </li>
+          
         </div>
         <li class="cat4-toggle"><h5 class="toggle">Other</h5></li>
         <div class="cat4">
           
             <li> 
               <a href="/cs61a-resources/other/discussion.html"> Discussion Slides </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/other/sp16-mt1.html"> Spring 2016 Midterm 1 Walkthrough </a>
             </li>
           
             <li> 
@@ -204,12 +212,20 @@
           <a href="/cs61a-resources/quizzes/quiz5.html"> Week 5 Quiz </a>
         </li>
       
+        <li> 
+          <a href="/cs61a-resources/quizzes/quiz6.html"> Week 6 Quiz </a>
+        </li>
+      
     </div>
     <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
     <div class="cat4">
       
         <li> 
           <a href="/cs61a-resources/other/discussion.html"> Discussion Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/other/sp16-mt1.html"> Spring 2016 Midterm 1 Walkthrough </a>
         </li>
       
         <li> 
@@ -231,11 +247,12 @@
   <div class="article-title">Object Oriented Programming</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction!</strong></p>
+    <p><strong>Information about inheritance will be added soon!</strong></p>
 
 <hr />
-<p>## Basics<br />
-So far in this course we’ve been writing programs using functions and built-in data types. We’ve also created our own abstract data types (such as the <code>link</code> and <code>tree</code> ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable.</p>
+
+<h2 id="basics">Basics</h2>
+<p>So far in this course we’ve been writing programs using functions and built-in data types. We’ve also created our own abstract data types (such as the <code>link</code> and <code>tree</code> ADTs). Recall that ADTs use constructors and selectors that allow you to create a data type and retrieve information about a data type. This was really all you could do with ADTs; since they are represented purely with functions, they are immutable.</p>
 
 <p>Object oriented programming introduces another paradigm for us to represent and organize our data types. Using OOP, we create <strong>classes</strong>, which provides an outline for an object. Classes consist of <strong>attributes</strong> and <strong>methods</strong>. Attributes allow us to keep track of and, more importantly, <em>modify</em> the state of our objects, something we couldn’t do with ADTs. Methods, as opposed to functions, <em>must</em> be called on an <strong>instance</strong>. Before we go any further, let’s sort out what all this new vocabulary means!</p>
 
@@ -308,54 +325,35 @@ So far in this course we’ve been writing programs using functions and built-in
 <h4 id="test-your-understanding">Test your understanding</h4>
 <ol>
   <li>What are all the instance attributes of a <code>Puppy</code>?</li>
-</ol>
-<blockquote class="solution">`name`, `fav_toys`, `hungriness`, `happyiness`</blockquote>
-<ol>
   <li>What is a puppy’s name initialized to? What are its hungriness and happiness levels initialized to?</li>
-</ol>
-<blockquote class="solution">The `name` argument passed to the constructor, `0`, `5` respectively.</blockquote>
-<ol>
   <li>What is the class attribute? Where does it change? What is it keeping track of?</li>
-</ol>
-<blockquote class="solution">`num_puppies`, changes in constructor (when puppies are created), keeps track of total number puppies.</blockquote>
-<ol>
   <li>What common parameter do all methods have?</li>
-</ol>
-<blockquote class="solution">`self`</blockquote>
-<ol>
   <li>Does the <code>bark</code> method change the state of the <code>Puppy</code>?</li>
-</ol>
-<blockquote class="solution">no, it does not change any attributes.</blockquote>
-<ol>
   <li>What must be passed through to the <code>play</code> method?</li>
-</ol>
-<blockquote class="solution">a toy argument of type string.</blockquote>
-<ol>
   <li>Under what condition will a <code>Puppy</code> <code>play</code>?</li>
-</ol>
-<blockquote class="solution">if `hungriness` is less than `5`.</blockquote>
-<ol>
   <li>How much does playing increase the puppy’s <code>happiness</code>?</li>
-</ol>
-<blockquote class="solution">if `toy` is one of the puppies `fav_toys`, then `happiness` will increase by `2`. otherwise it increases by `1`.</blockquote>
-<ol>
   <li>How much does a puppy’s <code>hungriness</code> increase by after playing?</li>
-</ol>
-<blockquote class="solution">`hungriness` increases by `1` after playing</blockquote>
-<ol>
   <li>What must be passed through to the <code>eat</code> method?</li>
-</ol>
-<blockquote class="solution">a food argument of type string.</blockquote>
-<ol>
   <li>Under what condition will a <code>Puppy</code> <code>eat</code>?</li>
-</ol>
-<blockquote class="solution">if hungriness is not `0`.</blockquote>
-<ol>
+  <li>Is it possible to get a <code>Puppy</code> to <code>eat</code> if his/her <code>hungriness</code> is not greater than <code>0</code>?</li>
   <li>How does the state of the puppy change after eating?</li>
 </ol>
-<blockquote class="solution">`hungriness` decreases by `1`, `happiness` increases by `1`.</blockquote>
 
 <p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">1. All the instance attributes of a <code>Puppy</code> are <code>name</code>, <code>fav_toys</code>, <code>hungriness</code>, <code>happiness</code>. <br /> 
+2. The <code>name</code> argument passed to the constructor, <code>0</code>, <code>5</code> respectively. <br /> 
+3. <code>num_puppies</code>, changes in constructor (when puppies are created), keeps track of total number puppies. <br /> 
+4. All methods have a <code>self</code> parameter. <br /> 
+5. No, <code>bark</code> does not change any attributes. <br /> 
+6. You must pass in string to <code>play</code> which will be assigned to <code>toy</code>.  <br />
+7. A puppy will only play if his/her <code>hungriness</code> is less than <code>5</code>. <br /> 
+8. If <code>toy</code> is one of the puppies <code>fav_toys</code>, then <code>happiness</code> will increase by <code>2</code>. <br />Otherwise, it increases by <code>1</code>.  <br />
+9. <code>hungriness</code> increases by <code>1</code> after playing regardless of whether the <code>toy</code> is one of the <code>Puppy</code>'s favorites. <br />  
+10. You must pass in string to <code>eat</code> which will be assigned to <code>food</code>.  <br />
+11. A puppy will only eat if hungriness is not <code>0</code>.  <br />
+12. Yes, since <code>eat</code> only checks if <code>self.hungriness</code> is <b>not 0</b> (remember, 0 is the only integer with a False-y value). If someone sneaky manually sets a puppy's <code>hungriness</code> to a negative number, then the puppy will eat! <br />
+13. After eating, a <code>Puppy</code>'s <code>hungriness</code> decreases by <code>1</code> and <code>happiness</code> increases by <code>1</code>.</blockquote>
 
 <h2 id="usage">Usage</h2>
 <p>Now that we have an outline of what <code>Puppy</code> object keeps track of and does, let’s make some puppies!</p>
@@ -443,46 +441,87 @@ Instance attributes can only be accessed on an instance. This means that the ins
 <h4 id="test-your-understanding-1">Test your understanding</h4>
 <p>What would Python print after each of the following lines are inputted? Assume we have restarted the interpreter (i.e., ignore all of the above lines).</p>
 
-<pre><code>&gt;&gt;&gt; puppy1 = Puppy('Hercules', ['squeaky duck'])
-&gt;&gt;&gt; puppy1.hungriness
-<span class="solution-2">0</span>
-&gt;&gt;&gt; Puppy.num_puppies
-<span class="solution-2">1</span>
-&gt;&gt;&gt; puppy1.play('stick')
-&gt;&gt;&gt; puppy2 = Puppy('Bruno', ['stick', 'ball'])
-&gt;&gt;&gt; puppy1.num_puppies
-<span class="solution-2">2</span>
-&gt;&gt;&gt; puppy2.play('stick')
-<span class="solution-2">'stick is my favorite toy EVER.'</span>
-&gt;&gt;&gt; puppy2.play('ball')
-<span class="solution-2">'ball is my favorite toy EVER.'</span>
-&gt;&gt;&gt; puppy1.happiness
-<span class="solution-2">6</span>
-&gt;&gt;&gt; puppy2.happiness
-<span class="solution-2">9</span>
-&gt;&gt;&gt; for _ in range(4):
-...     puppy1.play('ball')
-<span class="solution-2">I am too hungry to play :(</span>
-&gt;&gt;&gt; puppy1.hungriness
-<span class="solution-2">5</span>
-&gt;&gt;&gt; puppy1.eat('canned food')
-<span class="solution-2">canned food is my favorite thing to eat EVER.</span>
-&gt;&gt;&gt; puppy1.hungriness
-<span class="solution-2">4</span>
-&gt;&gt;&gt; puppy2.hungriness
-<span class="solution-2">2</span>
-&gt;&gt;&gt; Puppy.num_puppies = 17
-&gt;&gt;&gt; Puppy('Goob', ['stuffed rabbit']).num_puppies
-<span class="solution-2">18</span>
-&gt;&gt;&gt; puppy1.num_puppies
-<span class="solution-2">18</span>
-&gt;&gt;&gt; puppy2.num_puppies = 10
-&gt;&gt;&gt; Puppy.num_puppies
-<span class="solution-2">18</span>
-&gt;&gt;&gt; Puppy.__init__(puppy2, 'Chewie', ['squeaky ball']).bark()
-<span class="solution-2">Woof! My name is Chewie and I love you!</span></code></pre>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Hercules&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;squeaky duck&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;stick&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Bruno&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;stick&#39;</span><span class="p">,</span> <span class="s">&#39;ball&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">num_puppies</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;stick&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">happiness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">happiness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">puppy1</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s">&#39;canned food&#39;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">hungriness</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Goob&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;stuffed rabbit&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">num_puppies</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">num_puppies</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">puppy2</span><span class="p">,</span> <span class="s">&#39;Chewie&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;squeaky ball&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span></code></pre></figure>
 
 <p><a class="solution-toggle-2 btn btn-default">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Hercules&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;squeaky duck&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span>
+<span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;stick&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span> <span class="o">=</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Bruno&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;stick&#39;</span><span class="p">,</span> <span class="s">&#39;ball&#39;</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">num_puppies</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;stick&#39;</span><span class="p">)</span>
+<span class="s">&#39;stick is my favorite toy EVER.&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">)</span>
+<span class="s">&#39;ball is my favorite toy EVER.&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">happiness</span>
+<span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">happiness</span>
+<span class="mi">9</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">puppy1</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s">&#39;ball&#39;</span><span class="p">)</span>
+<span class="n">I</span> <span class="n">am</span> <span class="n">too</span> <span class="n">hungry</span> <span class="n">to</span> <span class="n">play</span> <span class="p">:(</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">eat</span><span class="p">(</span><span class="s">&#39;canned food&#39;</span><span class="p">)</span>
+<span class="n">canned</span> <span class="n">food</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">favorite</span> <span class="n">thing</span> <span class="n">to</span> <span class="n">eat</span> <span class="n">EVER</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">hungriness</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">hungriness</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="p">(</span><span class="s">&#39;Goob&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;stuffed rabbit&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">num_puppies</span>
+<span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy1</span><span class="o">.</span><span class="n">num_puppies</span>
+<span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">puppy2</span><span class="o">.</span><span class="n">num_puppies</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">num_puppies</span>
+<span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Puppy</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">puppy2</span><span class="p">,</span> <span class="s">&#39;Chewie&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;squeaky ball&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+<span class="n">Woof</span><span class="err">!</span> <span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">Chewie</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">love</span> <span class="n">you</span><span class="err">!</span></code></pre></figure>
+
+</blockquote>
 
   </div>
 </div>

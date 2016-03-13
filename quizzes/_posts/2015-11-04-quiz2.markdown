@@ -74,5 +74,5 @@ What is the first step to evaluate an **assignment statement**? What about a **c
 <a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
 
 <blockquote class="solution-3">For assignment statements, always evaluate the right hand side of the <code>=</code> first. See <a href="/cs61a-resources/guides/env-diag.html#assignment">here</a> for more details. <br/>
-For call expressions, always evaluate the outermost operator (i.e., <code>foo</code> in <code>foo(bar(x), y)()</code>) first. See <a href="/cs61a-resources/guides/env-diag.html#call">here</a> for more details. <br/>
+For call expressions, always evaluate the operator corresponding to the outermost call expression first (i.e., <code>foo(bar(x), y)</code> in <code>foo(bar(x), y)()</code>) first. This will, of course technically mean that the first name you look up is <code>foo</code>. See <a href="/cs61a-resources/guides/env-diag.html#call">here</a> for more details. <br/>
 </blockquote>

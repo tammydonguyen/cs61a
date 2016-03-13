@@ -58,6 +58,8 @@ class Randomer(Random):
 
 >>> lol.y
 
+>>> Random.x
+
 >>> wtf.bar(10)
 
 >>> wtf.x

@@ -14,7 +14,7 @@ This quiz reviews topics covered in these lectures:
 
 ### Question 1 
 
-{% highlight py3 %}
+{% highlight python %}
 >>> a = 3
 >>> b = a
 >>> c = "a"
@@ -34,7 +34,7 @@ What is `a + b`? What is data type of the value stored in `c`?
 
 The following code is entered into the Python interpreter.
    
-{% highlight py3 %}
+{% highlight python %}
 >>> x = 30
 >>> def foo(x):
         x = 50
@@ -55,7 +55,7 @@ The value <code>30</code> is passed in as an argument and is bound to <code>x</c
 
 Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
 
-{% highlight py3 %}
+{% highlight python %}
 def cs61a(n):
     """
     >>> cs61a(3)

@@ -34,6 +34,8 @@ What will the following lines output (executed in order in the same session)? Wr
 
 >>> exclamation("Ugh!")("I’m gonna fail.")
 
+>>> exclamation("How")("should I")("study?")
+
 >>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
 
 >>> f("ace")

@@ -107,8 +107,7 @@ def foo(n):
 
 <a class="btn btn-default solution-toggle-4">TOGGLE SOLUTION</a>
 
-<blockquote class="solution-4">
-This looks scary, but it is pretty much just problem 5 of section 1.2 on the Discussion sheet. Even though we are looping through the range 1 through <code>n</code>, we don't actually do <code>n</code> iterations. In the very first iteration, we assign <code>x</code> to <code>bar(i)</code>. <code>bar(n)</code> finds the log base 2 of its input <code>n</code> and takes <code>O(log(n))</code> time to do so. In the very first iteration, <code>i = 1</code>. log (base 2) of 1 is 0 (2^0 = 1), so the value <code>0</code> is assigned to <code>x</code>. This makes the <code>if</code> condition true, so we immediately return, resulting in a total runtime of <code>O(log(n))</code>.
+<blockquote class="solution-4">This looks scary, but it is pretty much just problem 5 of section 1.2 on the Discussion sheet. First, let's examine what <code>bar</code> does. <code>bar(n)</code> finds the log base 2 of <code>n</code> by repeatedly dividing by 2 until <code>n == 1</code>. Therefore, it takes <code>O(log(n))</code> time. After we define <code>bar</code> in <code>foo</code> we loop through the range 1 through <code>n</code>. However, we don't actually iterate <code>n</code> times. In the very first iteration, we assign <code>x</code> to <code>bar(i)</code>, where <code>i = 1</code>. <code>log(1) = 0</code> (remember that 2^0 = 1), so the value <code>0</code> is assigned to <code>x</code>. This makes the <code>if</code> condition true, so we immediately return, resulting in a total runtime of <code>O(log(n))</code>.
 </blockquote>
 <br/>
 

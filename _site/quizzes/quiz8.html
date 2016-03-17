@@ -275,13 +275,13 @@
   <li>What is the difference between a well-formed list and a malformed list?</li>
 </ol>
 
-<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+<!-- <a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
 
 <blockquote class="solution">
-1. All expressions but special forms get evaluated using the 3-step rule, 1) eval operator, 2) eval operands, and 3) apply operator to operands. Special forms, however, don't necessarily evaluate all their operands before apply the operator. Take the <code>if</code> form, which only evaluates the operand that corresponds to the truth value of the predicate. <br />
-2. A pair always only consists of two elements. Don't confuse pairs with lists. Lists are constructed using pairs, whose first argument is an element in the list and whose second argument is another pair. <br />
+1. All expressions but special forms get evaluated using the 3-step rule, 1) eval operator, 2) eval operands, and 3) apply operator to operands. Special forms, however, don't necessarily evaluate all their operands before apply the operator. Take the <code>if</code> form, which only evaluates the operand that corresponds to the truth value of the predicate. <br/>
+2. A pair always only consists of two elements. Don't confuse pairs with lists. Lists are constructed using pairs, whose first argument is an element in the list and whose second argument is another pair. <br/>
 3. A well-formed list is recursively defined as a pair whose first argument is the first element in the list and the second argument is another well-formed list. The base case for this recursive definition is <code>nil</code>, the empty well-formed list. A malformed list has non-well-formed lists as its second arguments in one or more of its pairs.
-</blockquote>
+</blockquote> -->
 
 <hr />
 
@@ -298,7 +298,7 @@
 
 <span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="nv">nil</span><span class="p">))</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">)))</span></code></pre></figure>
 
-<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+<!-- <a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
 
 <blockquote class="solution-2">
 <figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
@@ -310,7 +310,7 @@
 <span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">))))</span>
 <span class="p">(</span><span class="mi">1</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
 
-</blockquote>
+</blockquote> -->
 
 <p><br /></p>
 
@@ -321,7 +321,7 @@
     <span class="c1">; your code here</span>
 <span class="p">)</span></code></pre></figure>
 
-<p>Remember, you can nest if statements to simulate an <code>elif</code>, as follows:</p>
+<p>Remember, you can nest <code>if</code> statements to simulate an <code>elif</code>, as follows:</p>
 
 <figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
     <span class="ss">&#39;positive</span>
@@ -333,7 +333,7 @@
 
 <p>Here we’re saying <code>if x &gt; 0</code> return <code>positive</code>, <code>elif x &lt; 0</code> return <code>negative</code>, <code>else</code> return <code>zero</code>.</p>
 
-<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
+<!-- <a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
 
 <blockquote class="solution-3">
 <figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
@@ -346,7 +346,7 @@
       <span class="p">)</span>
   <span class="p">)</span></code></pre></figure>
 
-</blockquote>
+</blockquote> -->
 
   </div>
 </div>

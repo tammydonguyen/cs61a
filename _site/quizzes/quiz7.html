@@ -111,6 +111,10 @@
               <a href="/cs61a-resources/quizzes/quiz7.html"> Week 7 Quiz </a>
             </li>
           
+            <li> 
+              <a href="/cs61a-resources/quizzes/quiz8.html"> Week 8 Quiz </a>
+            </li>
+          
         </div>
         <li class="cat4-toggle"><h5 class="toggle">Other</h5></li>
         <div class="cat4">
@@ -222,6 +226,10 @@
       
         <li> 
           <a href="/cs61a-resources/quizzes/quiz7.html"> Week 7 Quiz </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/quizzes/quiz8.html"> Week 8 Quiz </a>
         </li>
       
     </div>
@@ -357,7 +365,7 @@ Remember that we can drop the term <code>n</code> because it is lower order than
 
 <p><a class="btn btn-default solution-toggle-4">TOGGLE SOLUTION</a></p>
 
-<blockquote class="solution-4">This looks scary, but it is pretty much just problem 5 of section 1.2 on the Discussion sheet. First, let's examine what <code>bar</code> does. <code>bar(n)</code> finds the log base 2 of <code>n</code> by repeatedly dividing by 2 until <code>n == 1</code>. Therefore, it takes <code>O(log(n))</code> time. After we define <code>bar</code> in <code>foo</code> we loop through the range 1 through <code>n</code>. However, we don't actually iterate <code>n</code> times. In the very first iteration, we assign <code>x</code> to <code>bar(i)</code>, where <code>i = 1</code>. <code>log(1) = 0</code> (remember that 2^0 = 1), so the value <code>0</code> is assigned to <code>x</code>. This makes the <code>if</code> condition true, so we immediately return, resulting in a total runtime of <code>O(log(n))</code>.
+<blockquote class="solution-4">This looks scary, but it is pretty much just problem 5 of section 1.2 on the Discussion sheet with a little twist. First, let's examine what <code>bar</code> does. <code>bar(n)</code> finds the log base 2 of <code>n</code> by repeatedly dividing by 2 until <code>n == 1</code>. Therefore, it takes <code>O(log(n))</code> time. After we define <code>bar</code> in <code>foo</code> we loop through the range 1 through <code>n</code>. However, we don't actually iterate <code>n</code> times. In the very first iteration, we assign <code>x</code> to <code>bar(i)</code>, where <code>i = 1</code>. <code>log(1) = 0</code> (remember that 2^0 = 1), so the value <code>0</code> is assigned to <code>x</code>. This makes the <code>if</code> condition true in the first iteration, so we immediately return, resulting in a total runtime of <code>O(1)</code>.
 </blockquote>
 <p><br /></p>
 

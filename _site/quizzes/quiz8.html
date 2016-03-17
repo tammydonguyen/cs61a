@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Week 4 Quiz</title>
+<title>Week 8 Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -260,70 +260,91 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Week 4 Quiz</div>
+  <div class="article-title">Week 8 Quiz</div>
   <hr/>
   <div class="post">
-    <p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1f3DNpIOGFJh2FTfPITPXfv61sDrPHEmKv2YRNdOCVcI/edit?usp=sharing">Midterm Review Slides</a></p>
+    <p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1B3D5uCMBEuyZrgHbhKF5zOJK6LVJwvI5FXXD2QE_bGY/edit?usp=sharing">This week’s slides</a><br />
+<a href="http://goo.gl/forms/b3scpxFBvl">Link to form</a></p>
 
 <hr />
 
-<p>The following code is loaded into the Python interpreter.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mid</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="n">night</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">night</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">term</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">night</span>
-        <span class="k">return</span> <span class="k">lambda</span> <span class="nb">next</span><span class="p">:</span> <span class="n">to</span><span class="p">(</span><span class="n">night</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="nb">next</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">to</span></code></pre></figure>
-
-<hr />
-
-<h3 id="question-1">Question 1</h3>
-<p>What will the following lines output (executed in order in the same session)? Write <code>Error</code> if you think the code will error and <code>Function</code> if you think a function object representation will be output.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)(</span><span class="s">&quot;midterm&quot;</span><span class="p">)(</span><span class="s">&quot;is tonight&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;Ugh!&quot;</span><span class="p">)(</span><span class="s">&quot;I’m gonna fail.&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;How&quot;</span><span class="p">)(</span><span class="s">&quot;should I&quot;</span><span class="p">)(</span><span class="s">&quot;study?&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;I’m&quot;</span><span class="p">)(</span><span class="s">&quot;gonna&quot;</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">&quot;the&quot;</span><span class="p">)(</span><span class="s">&quot;midterm!&quot;</span><span class="p">)</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)</span></code></pre></figure>
+<h3 id="concepts">Concepts</h3>
+<ol>
+  <li>What is the difference between a special form expression and other expressions in Scheme?</li>
+  <li>How many elements does a pair consist of?</li>
+  <li>What is the difference between a well-formed list and a malformed list?</li>
+</ol>
 
 <p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
 
 <blockquote class="solution">
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)(</span><span class="s">&quot;midterm&quot;</span><span class="p">)(</span><span class="s">&quot;is tonight&quot;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
-<span class="s">&#39;The midterm is tonight !&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;Ugh!&quot;</span><span class="p">)(</span><span class="s">&quot;I’m gonna fail.&quot;</span><span class="p">)</span> <span class="c"># TypeError: &#39;str&#39; object is not callable</span>
-<span class="n">Error</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;How&quot;</span><span class="p">)(</span><span class="s">&quot;should I&quot;</span><span class="p">)(</span><span class="s">&quot;study?&quot;</span><span class="p">)</span>
-<span class="n">Function</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;I’m&quot;</span><span class="p">)(</span><span class="s">&quot;gonna&quot;</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">&quot;the&quot;</span><span class="p">)(</span><span class="s">&quot;midterm!&quot;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)</span>
-<span class="s">&#39;I’m gonna ace the midterm!&#39;</span></code></pre></figure>
-
+1. All expressions but special forms get evaluated using the 3-step rule, 1) eval operator, 2) eval operands, and 3) apply operator to operands. Special forms, however, don't necessarily evaluate all their operands before apply the operator. Take the <code>if</code> form, which only evaluates the operand that corresponds to the truth value of the predicate. <br />
+2. A pair always only consists of two elements. Don't confuse pairs with lists. Lists are constructed using pairs, whose first argument is an element in the list and whose second argument is another pair. <br />
+3. A well-formed list is recursively defined as a pair whose first argument is the first element in the list and the second argument is another well-formed list. The base case for this recursive definition is <code>nil</code>, the empty well-formed list. A malformed list has non-well-formed lists as its second arguments in one or more of its pairs.
 </blockquote>
 
 <hr />
 
-<h3 id="question-2">Question 2</h3>
-<p>Fill in the blank to get the following output (you may have to add more parentheses).</p>
+<h3 id="problems">Problems</h3>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">mid</span><span class="p">(</span><span class="n">________________________________</span><span class="p">)</span>
-<span class="s">&quot;I love 61A! It&#39;s the cooliest class ever.&quot;</span></code></pre></figure>
+<h4 id="question-1">Question 1</h4>
+<p>Draw the box and pointer diagrams for the following Scheme lists. How does each get output in the Scheme interpreter?</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="nv">nil</span><span class="p">))</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="nv">nil</span><span class="p">))</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">)))</span></code></pre></figure>
 
 <p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
 
 <blockquote class="solution-2">
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mid</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)(</span><span class="s">&quot;I love 61A! It&#39;s the cooliest class ever.&quot;</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="o">.</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="nv">nil</span><span class="p">))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">))))</span>
+<span class="p">(</span><span class="mi">1</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
+
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="question-2">Question 2</h4>
+<p>Define <code>count</code> so that it returns the number of times <code>x</code> appears in <code>lst</code>, a well-formed list.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="c1">; your code here</span>
+<span class="p">)</span></code></pre></figure>
+
+<p>Remember, you can nest if statements to simulate an <code>elif</code>, as follows:</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="ss">&#39;positive</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="ss">&#39;negative</span>
+        <span class="ss">&#39;zero</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+<p>Here we’re saying <code>if x &gt; 0</code> return <code>positive</code>, <code>elif x &lt; 0</code> return <code>negative</code>, <code>else</code> return <code>zero</code>.</p>
+
+<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-3">
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span>
+        <span class="mi">0</span>
+        <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">= </span><span class="nv">x</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">))</span>
+            <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span>
+            <span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span> <span class="nv">x</span><span class="p">))</span>
+          <span class="p">)</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
 
 </blockquote>
 

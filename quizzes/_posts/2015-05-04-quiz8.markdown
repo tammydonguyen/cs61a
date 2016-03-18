@@ -36,7 +36,7 @@ scm> (cons 1 (cons 2 3))
 
 scm> (cons 1 (cons 2 nil))
 
-scm> (cons 1 (cons (cons 3 (cons 4 nil)) 5) (cons 2 (cons 3 nil)))
+scm> (cons 1 (cons (cons 3 (cons 4 5)) (cons 2 (cons 3 nil))))
 {% endhighlight %}
 
 <!-- <a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>

@@ -1,3 +1,4 @@
+# parent of class method is parent of class
 global_var = 4
 
 class Tester:
@@ -6,7 +7,7 @@ class Tester:
 	def testing(self):
 		print(global_var)
 		try:
-			print(class_attr)
+			print(Tester.class_attr)
 		except NameError as e:
 			print(e)
 
@@ -14,6 +15,7 @@ t = Tester()
 t.testing() # should print 4!
 
 # classes can be defined within functions!
+# parent of bar is foo
 def foo():
 	local_var = 5
 	class Foo:

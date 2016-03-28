@@ -23,7 +23,7 @@ def what(a, b):
         return x
     return b(ha(x), x)
 
-what(4, lambda x, y : x + y)
+what(4, lambda x, y : x)
 {% endhighlight %}
 
 <iframe class="solution" width="800" height="430" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=def+what(a,+b%29%3A%0A++++x+%3D+a%0A++++def+ha(ha%29%3A%0A++++++++nonlocal+x%0A++++++++x+%3D+ha+*+2%0A++++++++return+x%0A++++return+b(ha(x%29,+x%29%0A%0Awhat(4,+lambda+x,+y+%3A+x%29&origin=opt-frontend.js&cumulative=false&heapPrimitives=false&textReferences=false&py=3&rawInputLstJSON=%5B%5D&curInstr=0&codeDivWidth=350&codeDivHeight=400"> </iframe>

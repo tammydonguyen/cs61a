@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Recursion</title>
+<title>Week 9 Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -276,41 +276,15 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Recursion</div>
+  <div class="article-title">Week 9 Quiz</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction!</strong></p>
+    <p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1J2i4duw7i0XhL1dqvYL4WV-h0rpk_vyKos5C31hq7Bs/edit?usp=sharing">This week’s slides</a><br />
+<a href="http://goo.gl/forms/a4Kn8Pz3VA">Link to form</a></p>
 
 <hr />
 
-<p>Recursion allows you to solve problems by breaking it into smaller pieces until you get a piece small enough that you know the answer to. Think of it like this: you’re in line to get ice cream and you want to know how many people are in front of you. Instead of manually counting every person in line, you figure you can just ask the person in front of you how many people are in front of him/her, and then add 1 to that number! You don’t care how this person gets this number, but you’re just going to assume it’s correct and then use that to solve your problem. This is what many refer to as the recursive <em>leap of faith</em>. You are assuming that random stranger tells you the correct number. You want to be thinking in this mindset when you write recursive solutions; even if you don’t think your function is written correctly, just assume it will <em>return the correct value</em>. Now, all you have to do is figure out what to do with this value to solve your problem. In this case, all you do is add 1 to account for the person that you asked.</p>
-
-<hr />
-
-<h3 id="factorials">Factorials</h3>
-<p>Let’s first take a look at a very simple mathematical example: factorials. A factorial of a number <code>n</code> (written <code>n!</code>) is defined as the product of all the whole numbers from <code>1</code> to <code>n</code> inclusive. For example, <code>factorial(4)</code> is <code>4 * 3 * 2 * 1 = 24</code>. It would be easy to write this iteratively:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c"># start at 1</span>
-    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>   <span class="c"># until n is 1, multiple total by n and decrement n</span>
-      <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">*</span> <span class="n">n</span>      
-      <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">total</span>   <span class="c"># total is now 1 * 2 * ... * (n - 1) * n</span></code></pre></figure>
-
-<p>However, a recursive solution is much more readable and concise, because it does <em>exactly</em> what the definition of a factorial describes. Looking at <code>4!</code>, we notice that the expression <code>4 * 3 * 2 * 1</code> contains <code>3 * 2 * 1</code>, which is actually just <code>3!</code>. So really, <code>4! = 4 * 3!</code>, or more generally, <code>n! = n * (n - 1)!</code>. From this, we can attempt to write <code>factorial</code> recursively:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
-
-<p><code>factorial(n - 1)</code> is known as the <strong>recursive call</strong>. Notice that we call it on a smaller argument; we are using the solution of a smaller problem to solve a bigger one! However, this solution isn’t completely correct yet. Since a call to <code>factorial</code> returns a call to <code>factorial</code>, albeit with a smaller arugment, this will cause an infinite loop. How do we fix this? Well, we know that at some point, our problem gets small enough that we no longer have to ask the previous number for its factorial, because we already know the answer! This happens when <code>n = 0</code> or <code>n = 1</code>. When a user passes through <code>0</code> or <code>1</code>, there’s no need to find <code>(n - 1)!</code> because their factorials are defined as <code>1</code>. This is called a <strong>base case</strong>. Thus, our solution becomes</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">return</span> <span class="mi">1</span>
-  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></code></pre></figure>
-
-<!-- ### How to Approach Problems
-The way that we approached the factorial problem is definitely not the only way you should go about finding recursive solutions. That specific approach worked because we noticed that the definition of factorial involves solving for a smaller factorial. Sometimes, you may find it easy to start with the base case(s). -->
+<p>No quiz this week. I will post problems for these topics sometime next week… maybe :)</p>
 
   </div>
 </div>

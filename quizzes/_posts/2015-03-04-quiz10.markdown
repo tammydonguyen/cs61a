@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "Week 10 Quiz"
+date:   2015-03-04 11:00:00
+categories: quizzes
+---
+
+[This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1ulpQih6seuyInFaARsR1yRk-nNR5_wixutbBqlIWME0/edit?usp=sharing)  
+[Link to form](https://docs.google.com/a/berkeley.edu/forms/d/1DUWSl6QW4KqJfPCWmNq-SAto6E6EQc7Bdq03jJEJ8B0/viewform)  
+
+---
+
+### Concepts
+1. An _________ keeps track of the current element in an ___________.  
+2. What are the properties of yield? What is it used for?  
+3. When constructing a Scheme stream with (cons-stream <first> <rest>), what is <rest>?  
+4. When constructing a Python stream with Stream(<first>, <rest>), what is <rest>?  
+5. You make a stream and you call cdr-stream on it (or, in Python, you access its .rest). What happens when you call cdr-stream again?  
+
+### Problems
+soon come

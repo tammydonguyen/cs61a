@@ -60,15 +60,13 @@ scm> (cdr-stream evens)
   
 
 #### Question 3: Repeated Naturals
-Implement an infinite stream similar to natural numbers except each element is repeated as many times as its value. In other words, create the stream version of this sequence: `(1 2 2 3 3 3 4 4 4 4 ...)`
+Implement the 0 argument procedure `repeated-naturals` that returns an infinite stream similar to natural numbers, except that each element is repeated as many times as its value. In other words, create the stream version of this sequence: `(1 2 2 3 3 3 4 4 4 4 ...)`
 
 You might want to create a helper function that takes in two parameters, one that keeps track of the current number you're on, and another that keeps track of how many times you've added the current number.
 
 {% highlight scheme %}
 (define (repeated-naturals)
-    (define (make-stream n i)
-        'YOUR-CODE-HERE
-    )
+    'YOUR-CODE-HERE
 )
 {% endhighlight %}
 

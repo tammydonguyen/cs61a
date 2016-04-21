@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Week 1 Quiz</title>
+<title>Week 11 Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -284,88 +284,22 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Week 1 Quiz</div>
+  <div class="article-title">Week 11 Quiz</div>
   <hr/>
   <div class="post">
-    <p>This quiz reviews topics covered in these lectures:<br />
-<a href="http://cs61a.org/assets/slides/01_6pp.pdf">Basics</a> <br />
-<a href="http://cs61a.org/assets/slides/02_6pp.pdf">Names and Functions</a><br />
-<a href="http://cs61a.org/assets/slides/03_6pp.pdf">Control</a></p>
+    <p><a href="https://docs.google.com/presentation/d/1r8AFFIQn27JRmofG55m8FE3XH4eBNFHgXvGd0Z87M2M/edit?usp=sharing">This week’s slides</a><br />
+<a href="https://docs.google.com/a/berkeley.edu/forms/d/1-oTy0s4FDtekID018k-i6aHRsniSMRGn1OFwYRaLjDY/viewform">Link to form</a></p>
 
 <hr />
 
-<h3 id="question-1">Question 1</h3>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span></code></pre></figure>
-
-<p>What is <code>a + b</code>? What is data type of the value stored in <code>c</code>?</p>
-
-<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
-
-<blockquote class="solution">
-<code>a + b</code> is <code>6</code>. The value <code>3</code> gets assigned to <code>b</code> in the second statement. The value stored in <code>c</code> is <code>"a"</code> which is a string.
-</blockquote>
-
-<hr />
-
-<h3 id="question-2">Question 2</h3>
-
-<p>The following code is entered into the Python interpreter.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">50</span> </code></pre></figure>
-
-<p>If I call the function <code>foo</code> with argument <code>x</code>, what would the return value be?</p>
-
-<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
-
-<blockquote class="solution-2">
-The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> is overwritten by <code>x = 50</code>. So the value that is returned is <code>100</code>.
-</blockquote>
-
-<hr />
-
-<h3 id="question-3">Question 3</h3>
-
-<p>Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(3)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    cs</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(2)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">__________</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">_________</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">____________</span></code></pre></figure>
-
-<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
-
-<div class="solution-3">
-
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></figure>
-    
-
-</div>
+<h3 id="concepts">Concepts</h3>
+<ol>
+  <li>How many columns are in the table created by the following query? How many tables are being joined?<br />
+<code>select x.a, y.a, b from x, y where x.a = y.a;</code></li>
+  <li>If you join a table with n rows with a table with m rows, how many rows are in the output table?</li>
+  <li>By default, aggregate functions perform some operation over all rows of the table. <code>GROUP BY</code> allows us to do what?</li>
+  <li>How do we filter rows before aggregation? How do we filter rows after aggregation?</li>
+</ol>
 
   </div>
 </div>

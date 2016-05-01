@@ -15,4 +15,5 @@ category: other
 [Discussion 8: Scheme](https://docs.google.com/a/berkeley.edu/presentation/d/1B3D5uCMBEuyZrgHbhKF5zOJK6LVJwvI5FXXD2QE_bGY/edit?usp=sharing)  
 [Discussion 9: Tail Calls and Interpreters](https://docs.google.com/a/berkeley.edu/presentation/d/1J2i4duw7i0XhL1dqvYL4WV-h0rpk_vyKos5C31hq7Bs/edit?usp=sharing)  
 [Discussion 10: Iterables and Streams](https://docs.google.com/a/berkeley.edu/presentation/d/1ulpQih6seuyInFaARsR1yRk-nNR5_wixutbBqlIWME0/edit?usp=sharing)  
-[Discussion 11: SQL](https://docs.google.com/presentation/d/1r8AFFIQn27JRmofG55m8FE3XH4eBNFHgXvGd0Z87M2M/edit?usp=sharing)
+[Discussion 11: SQL](https://docs.google.com/presentation/d/1r8AFFIQn27JRmofG55m8FE3XH4eBNFHgXvGd0Z87M2M/edit?usp=sharing)  
+[Discussion 12: Wrapping Up](https://docs.google.com/presentation/d/1CgSiWby7K42Cs8eOO9DpGcXWtY3K8mHny726giwrYjo/edit?usp=sharing)

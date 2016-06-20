@@ -1,15 +1,8 @@
 ---
 layout: post
-title:  "Week 1 Quiz"
-date:   2015-12-27 11:00:00
+title:  "Discussion 1 Quiz"
+date:   2016-06-21 13:00:00
 categories: quizzes
----
-
-This quiz reviews topics covered in these lectures:  
-[Basics](http://cs61a.org/assets/slides/01_6pp.pdf)   
-[Names and Functions](http://cs61a.org/assets/slides/02_6pp.pdf)  
-[Control](http://cs61a.org/assets/slides/03_6pp.pdf)  
-
 ---
 
 ### Question 1 
@@ -46,7 +39,7 @@ If I call the function `foo` with argument `x`, what would the return value be?
 <a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
 
 <blockquote class="solution-2">
-The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> is overwritten by <code>x = 50</code>. So the value that is returned is <code>100</code>.
+The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> assigned to the number 50 in the local frame. Variables in the local frame have priority over variables in the global frame, so the value that is returned is <code>100</code>.
 </blockquote>
 
  --- 

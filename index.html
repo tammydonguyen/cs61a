@@ -8,6 +8,18 @@ layout: default
 </div>
 
 <div class="recent-posts">
+  <h1>Discussion Resources</h1>
+  {% if site.categories['discussion'] == [] %}
+    <p>Check back after the first discussion!</p>
+  {% endif %}
+  {% for post in site.categories['discussion'] %}
+        <h4>
+          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
+        </h4>
+  {% endfor %}
+</div>
+
+<div class="recent-posts">
   <h1>Guides</h1>
   {% for post in site.categories['guides'] %}
         <h4>
@@ -19,15 +31,6 @@ layout: default
 <div class="recent-posts">
   <h1>Practice Problems</h1>
   {% for post in site.categories['practice-problems'] %}
-        <h4>
-          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
-        </h4>
-  {% endfor %}
-</div>
-
-<div class="recent-posts">
-  <h1>Quizzes</h1>
-  {% for post in site.categories['quizzes'] %}
         <h4>
           <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
         </h4>

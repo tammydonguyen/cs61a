@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spring 2016 Midterm 1 Walkthrough"
+title:  "Spring 2016 MT1 Walkthrough"
 date:   2015-10-18 11:14:11
 category: other
 ---

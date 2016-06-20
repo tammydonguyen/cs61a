@@ -4,17 +4,15 @@ title:  "About"
 date:   2015-12-1 12:24:50
 ---
 
-I'm Tammy and I am a teaching assistant for CS 61A. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com). 
-
-This semester, I am teaching CS Scholars sections. Please only attend the following sections if you are part of the [CS Scholars Program](http://cs-scholars.berkeley.edu/).
+I'm Tammy and I am a teaching assistant for CS 61A. This site is a collection of my resources for the course. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com). 
 
 **Sections:**  
-*015 Lab*: Tuesday 11am-12:30pm, 275 Soda  
-*115 Discussion*: Thursday 11am-12:30pm, 242 Dwinelle
+*101 Lab*: MW 1-2:30pm, 271 Soda  
+*101 Discussion*: TuTh 1-2:30pm, 320 Soda
 
 **Office Hours:**  
-Wednesday 12-1pm, B6 Evans
+MW 3-4pm, 521 Cory
 
-Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and have no impact on your 61A grade.
+Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and provide extra practice; they have no impact on your 61A grade.
 
 You can contact me through email, [tammynguyen@berkeley.edu](mailto:tammynguyen@berkeley.edu), or through this [anonymous form](http://goo.gl/forms/RRPgZTk8qe). Feel free to leave feedback about my teaching, this website, or whatever else is on your mind!

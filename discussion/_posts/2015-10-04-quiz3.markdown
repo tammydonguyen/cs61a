@@ -1,18 +1,12 @@
 ---
 layout: post
-title:  "Week 3 Quiz"
-date:   2015-10-04 11:00:00
+title:  "Discussion 3 Quiz"
+date:   2016-06-28 13:00:00
 categories: quizzes
 ---
 
 [Link to attendance and pizza.](http://tiny.cc/tammydisc3)  
 [This week's slides.](https://docs.google.com/presentation/d/1cfwWzadsrDU5RFfsLNQLVahf3m3dhX7f-iI-NdkB0aY/edit?usp=sharing)
-
----
-
-This quiz reviews topics covered in these lectures:  
-[Higher Order Functions](http://cs61a.org/assets/slides/04_6pp.pdf)   
-[Environments](http://cs61a.org/assets/slides/05_6pp.pdf)
 
 ---
 

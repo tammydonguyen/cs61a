@@ -11,6 +11,15 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        <li class="cat3-toggle"><h5 class="toggle">Discussion Resources</h5></li>
+        <div class="cat3">
+          {% for post in site.categories['discussion'] %}
+            <li> 
+              <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
+            </li>
+          {% endfor %}
+        </div>
+
         <li class="cat1-toggle"><h5 class="toggle">Guides</h5></li>
         <div class="cat1">
           {% for post in site.categories['guides'] %}
@@ -19,6 +28,7 @@
             </li>
           {% endfor %}
         </div>
+
         <li class="cat2-toggle"><h5 class="toggle">Practice Problems</h5></li>
         <div class="cat2">
           {% for post in site.categories['practice-problems'] %}
@@ -27,14 +37,7 @@
             </li>
           {% endfor %}
         </div>
-        <li class="cat3-toggle"><h5 class="toggle">Quizzes</h5></li>
-        <div class="cat3">
-          {% for post in site.categories['quizzes'] %}
-            <li> 
-              <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
-            </li>
-          {% endfor %}
-        </div>
+
         <li class="cat4-toggle"><h5 class="toggle">Other</h5></li>
         <div class="cat4">
           {% for post in site.categories['other'] %}
@@ -43,7 +46,7 @@
             </li>
           {% endfor %}
         </div>
-        <li><a href="{{site.baseurl}}/about.html"><h5>About</h5></a></li>
+        <li><a href="{{site.baseurl}}/about.html"><h5 class="toggle">About</h5></a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -58,6 +61,14 @@
     <div style="margin: 10px 40px">{{ site.description }}</div>
     {% endunless %}
     <hr />
+        <li class="cat3-toggle"><h4 class="toggle">Discussion Resources</h4></li>
+    <div class="cat3">
+      {% for post in site.categories['discussion'] %}
+        <li> 
+          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
+        </li>
+      {% endfor %}
+    </div>
     <li class="cat1-toggle"><h4 class="toggle">Guides</h4></li>
     <div class="cat1">
       {% for post in site.categories['guides'] %}
@@ -74,14 +85,7 @@
         </li>
       {% endfor %}
     </div>
-    <li class="cat3-toggle"><h4 class="toggle">Quizzes</h4></li>
-    <div class="cat3">
-      {% for post in site.categories['quizzes'] %}
-        <li> 
-          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
-        </li>
-      {% endfor %}
-    </div>
+
     <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
     <div class="cat4">
       {% for post in site.categories['other'] %}

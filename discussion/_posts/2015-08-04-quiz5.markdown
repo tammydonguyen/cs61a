@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Week 5 Quiz"
-date:   2015-08-04 11:00:00
+title:  "Discussion 5 Quiz"
+date:   2016-07-05 13:00:00
 categories: quizzes
 ---
 

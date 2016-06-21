@@ -1,11 +1,25 @@
 ---
 layout: post
-title:  "Discussion 1 Quiz"
-date:   2016-06-21 13:00:00
-categories: quizzes
+title:  "Discussion 0"
+date:   2016-06-20 13:00:00
+categories: discussion
 ---
 
-### Question 1 
+# Links  
+[Slides](http://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit#slide=id.gba074a2be_1_15)  
+
+--------
+
+# Concepts  
+1. (values, expressions) `_________` evaluate to `___________`.
+2. How do you evaluate a name?
+3. What is the difference between a function and a function call?
+4. What are the 3 steps to evaluating function calls, or call expressions?
+5. What is the purpose of an assignment statement? Which side do you evaluate first when executing an assignment statement?
+
+# Problems   
+
+### Question 1  
 
 {% highlight python %}
 >>> a = 3
@@ -42,43 +56,3 @@ If I call the function `foo` with argument `x`, what would the return value be?
 The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> assigned to the number 50 in the local frame. Variables in the local frame have priority over variables in the global frame, so the value that is returned is <code>100</code>.
 </blockquote>
 
- --- 
-  
-### Question 3  
-
-Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
-
-{% highlight python %}
-def cs61a(n):
-    """
-    >>> cs61a(3)
-    cs
-    61a
-    cs
-    >>> cs61a(2)
-    cs
-    61a
-    """
-    i = 0
-    while __________:
-        if _________:
-            print("cs")
-        else:
-            print("61a")
-        ____________
-{% endhighlight %}    
-
-<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
-
-<div class="solution-3">
-{% highlight py3 %}
-def cs61a(n):
-    i = 0
-    while i < n:
-        if i % 2 == 0:
-            print("cs")
-        else:
-            print("61a")
-        i += 1
-{% endhighlight %}    
-</blockquote>

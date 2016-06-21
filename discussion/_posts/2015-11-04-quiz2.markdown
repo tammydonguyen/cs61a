@@ -9,6 +9,44 @@ categories: quizzes
 [This week's slides.](https://docs.google.com/presentation/d/1UQx9sSLovlhm2oy7f0SKb8vDV_4glXCa0Co8HHtzzi0/edit?usp=sharing)
 
 ---
+### Question 3  
+
+Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
+
+{% highlight python %}
+def cs61a(n):
+    """
+    >>> cs61a(3)
+    cs
+    61a
+    cs
+    >>> cs61a(2)
+    cs
+    61a
+    """
+    i = 0
+    while __________:
+        if _________:
+            print("cs")
+        else:
+            print("61a")
+        ____________
+{% endhighlight %}    
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<div class="solution-3">
+{% highlight py3 %}
+def cs61a(n):
+    i = 0
+    while i < n:
+        if i % 2 == 0:
+            print("cs")
+        else:
+            print("61a")
+        i += 1
+{% endhighlight %}    
+</blockquote>
 
 ### Question 1 
 

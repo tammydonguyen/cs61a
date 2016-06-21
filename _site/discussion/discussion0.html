@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Midterm 1</title>
+<title>Discussion 0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -200,52 +200,58 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Midterm 1</div>
+  <div class="article-title">Discussion 0</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction.</strong></p>
+    <h1 id="links">Links</h1>
+<p><a href="http://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit#slide=id.gba074a2be_1_15">Slides</a></p>
 
 <hr />
 
-<p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
+<h1 id="concepts">Concepts</h1>
+<ol>
+  <li>(values, expressions) <code>_________</code> evaluate to <code>___________</code>.</li>
+  <li>How do you evaluate a name?</li>
+  <li>What is the difference between a function and a function call?</li>
+  <li>What are the 3 steps to evaluating function calls, or call expressions?</li>
+  <li>What is the purpose of an assignment statement? Which side do you evaluate first when executing an assignment statement?</li>
+</ol>
+
+<h1 id="problems">Problems</h1>
+
+<h3 id="question-1">Question 1</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span></code></pre></figure>
+
+<p>What is <code>a + b</code>? What is data type of the value stored in <code>c</code>?</p>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">
+<code>a + b</code> is <code>6</code>. The value <code>3</code> gets assigned to <code>b</code> in the second statement. The value stored in <code>c</code> is <code>"a"</code> which is a string.
+</blockquote>
 
 <hr />
 
-<p><a name="wwpp" class="anchor"></a></p>
+<h3 id="question-2">Question 2</h3>
 
-<h2 id="what-would-python-print">What would Python print?</h2>
+<p>The following code is entered into the Python interpreter.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">sub</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">50</span> </code></pre></figure>
 
-<span class="n">this</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">a</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">30</span>
+<p>If I call the function <code>foo</code> with argument <code>x</code>, what would the return value be?</p>
 
-<span class="k">def</span> <span class="nf">that</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">e</span> <span class="ow">and</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">e</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">e</span><span class="p">)(</span><span class="mi">5</span><span class="p">),</span> <span class="n">e</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="mi">20</span>
-    <span class="k">def</span> <span class="nf">this</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-       <span class="k">return</span> <span class="k">lambda</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">this</span></code></pre></figure>
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
 
-<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it.</p>
+<blockquote class="solution-2">
+The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> assigned to the number 50 in the local frame. Variables in the local frame have priority over variables in the global frame, so the value that is returned is <code>100</code>.
+</blockquote>
 
-<pre><code>&gt;&gt;&gt; this(sub, d)()
-<span class="solution">Error, second function call missing an argument</span>
-&gt;&gt;&gt; this(print, 40)(d)
-<span class="solution">40 30</span>
-&gt;&gt;&gt; this(lambda x, y : y, d)(20)
-<span class="solution">20</span>
-&gt;&gt;&gt; that(d, 0)(sub)
-<span class="solution">30<br />&lt;\function ...&gt;</span>
-&gt;&gt;&gt; other = that(10, this)(print)
-<span class="solution"></span>
-&gt;&gt;&gt; other() 
-<span class="solution">10 5<br />None</span></code></pre>
-
-<p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
   </div>
 </div>

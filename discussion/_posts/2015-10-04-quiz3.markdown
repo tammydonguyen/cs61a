@@ -10,6 +10,30 @@ categories: quizzes
 
 ---
 
+{% highlight python %}
+def decrement(x):
+    return x - 1
+
+def half(x):
+    return x // 2
+
+def decrease_to_one(f, n):
+    i = 0
+    while n > 1:
+        n = f(n)
+        i += 1
+    return i
+{% endhighlight %}
+
+
+How many call frames are opened if you call `decrease_to_one(decrement, 5)`? What about `decrease_to_one(half, 8)`?
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">The initial call to <code>decrease_to_one</code> will open a frame. In the body of <code>decrease_to_one</code>, <code>f</code> is called until <code>n</code> reaches <code>1</code>. So the question is, how many times does it take to reach <code>1</code> from <code>n</code> by calling <code>f</code> on it? For <code>decrease_to_one(decrement, 5)</code>, it'll take 4 calls to <code>f</code> (<code>f(5)</code>, <code>f(4)</code>, <code>f(3)</code>, <code>f(2)</code>), and for <code>decrease_to_one(half, 8)</code>, it'll take 3 calls to <code>f</code> (<code>f(8)</code>, <code>f(4)</code>, <code>f(2)</code>). Each of these calls requires a new frame, so the answers are <b>5</b> and <b>4</b>.
+</blockquote>
+
+ 
 ### Question 1
 
 Fill in the blanks below.
@@ -47,3 +71,28 @@ Now, to figure out what that inner lambda should return, we must turn back to <c
 <b>Important note #1:</b> Throughout the explanation I said that certain variables are bound to <code>lambda ... : ...</code>. I do not that the variables are literally bound to those lambda expressions; it was simply a clean way to refer to certain functions. Remember than lambda expressions are just unevaluated expressions just like <code>2+4</code>. What I mean is that the variable is bound to the function object that that lambda expression creates. <br/><br/>
 <b>Important note #2:</b> I don't expect you to read through this lengthy explanation and totally understand everything that's going on. For that reason I highly recommend drawing out the environment diagram. You can find the solution to the environment diagram <a href="http://pythontutor.com/composingprograms.html#code=def+bern(ie%29%3A%0A++++def+san(ders%29%3A%0A++++++++return+ie(%22It+is+unacceptable+that+%22+%2B+ders%29%0A++++return+san%0Adef+hill(ary%29%3A%0A++++print(ary(%29%29%0Ahill(bern(lambda+x%3A+lambda%3A+x%29(%22women+make+less+than+men%22%29%29&mode=display&origin=composingprograms.js&cumulative=true&py=3&rawInputLstJSON=%5B%5D&curInstr=19">here</a>.
 </blockquote>
+
+
+### Question 1 
+
+Name the higher order function(s) in the code below and tell why they are higher order
+
+{% highlight python %}
+def foo(g, x):
+    def baz(y):
+        return g(x, y)
+    z = baz
+    return z
+
+def bar():
+    return baz
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution"><code>foo</code> is higher order because it takes in a function as its first argument (parameter <code>g</code>) as well as returns the function object <code>baz</code> referenced to by <code>z</code>. <br/>
+<code>baz</code> is not higher order because it neither takes in a function as an argument nor returns a function. Rather, it returns a <i>function call</i> to <code>g</code> on the arguments <code>x</code> and <code>y</code>. <br/>
+<code>bar</code> is also not higher order because it neither takes in a function as an argument nor returns a function. In fact, when called, a <code>NameError</code> will be raised because there is no name <code>bar</code> defined in its environment.
+</blockquote>
+
+

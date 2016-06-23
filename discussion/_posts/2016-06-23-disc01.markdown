@@ -1,0 +1,91 @@
+---
+layout: post
+title:  "Discussion 1"
+date:   2016-06-23 13:00:00
+categories: discussion
+---
+
+# Links
+[Attendance](http://tiny.cc/tammy-disc01)  
+[Slides](https://docs.google.com/presentation/d/1lnPyRlLJZR7JA1NlpUooiSJqDLw3GOy6IA3IbfrZsSY/edit?usp=sharing)
+
+---
+
+# Concepts  
+1. What is the maximum number of suites that can be executed in a single conditional (`if-elif-else`) block?
+2. When is short-circuiting in terms of boolean operators? What does an `and` expression return? An `or` expression?
+3. When does the body of a `while` block stop executing? When does the body of a `for` block stop executing?
+4. `___________` will get you a single element in a list, and `__________` gets you a chunk of a list.
+5. What is the use of an environment diagram? What goes on the left side (inside frames) and what goes on the right?
+6. What is the first step to evaluate an **assignment statement**? What about a **call expression**?
+6. When executing a call expression, you draw and label a new frame after evaluating the operator and operands. What is the first thing you write inside the new frame?
+
+--- 
+
+# Problems  
+
+### Question 1  
+
+Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
+
+{% highlight python %}
+def cs61a(n):
+    """
+    >>> cs61a(3)
+    cs
+    61a
+    cs
+    >>> cs61a(2)
+    cs
+    61a
+    """
+    i = 0
+    while __________:
+        if _________:
+            print("cs")
+        else:
+            print("61a")
+        ____________
+{% endhighlight %}    
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-3">
+{% highlight py3 %}
+def cs61a(n):
+    i = 0
+    while i < n:
+        if i % 2 == 0:
+            print("cs")
+        else:
+            print("61a")
+        i += 1
+{% endhighlight %}    
+</blockquote>
+ --- 
+  
+### Question 2  
+Draw the environment diagram for the following code:  
+{% highlight python %}
+def lg(b, t):
+    if b > t:
+        return 'pride'
+    elif b == 3:
+        print('love')
+    if t == 5:
+        return lg(t, b)
+    return lg(t, b + t)
+
+lg(2, 3)
+{% endhighlight %}
+
+**Extra:** What is the output?
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2"><a href="http://pythontutor.com/composingprograms.html#code=def+lg(b,+t%29%3A%0A++++if+b+%3E+t%3A%0A++++++++return+'pride'%0A++++elif+b+%3D%3D+3%3A%0A++++++++print('pride'%29%0A++++if+t+%3D%3D+5%3A%0A++++++++return+lg(t,+b%29%0A++++return+lg(b,+b+%2B+t%29%0A%0Alg(2,+3%29&mode=display&origin=composingprograms.js&cumulative=true&py=3&rawInputLstJSON=%5B%5D&curInstr=16">Python tutor</a> <br/>
+<b>Output:</b>
+<pre>love
+'pride'
+</pre>
+

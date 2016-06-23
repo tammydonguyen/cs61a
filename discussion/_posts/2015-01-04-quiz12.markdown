@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Discussion 12 Quiz"
-date:   2016-06-21 11:00:00
-categories: quizzes
+date:   2016-08-21 11:00:00
+categories: discussion
 ---
 
 [This week's slides](https://docs.google.com/presentation/d/1CgSiWby7K42Cs8eOO9DpGcXWtY3K8mHny726giwrYjo/edit?usp=sharing)  

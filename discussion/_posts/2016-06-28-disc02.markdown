@@ -6,12 +6,13 @@ categories: discussion
 ---
 
 # Links  
-[Attendance and feedback.](http://tiny.cc/tammy-disc02)  
+[Attendance and feedback](http://tiny.cc/tammy-disc02)  
 [Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1gg8jKn3-bIQ6ziJds53cb3WxhEeY0yazm_tW7cHua5c/edit?usp=sharing)  
 
 ---
 
 # Problems  
+  
 ## Question 1  
 
 {% highlight python %}

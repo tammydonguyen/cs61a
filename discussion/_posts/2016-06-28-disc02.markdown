@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Discussion 3"
+title:  "Discussion 2"
 date:   2016-06-28 13:00:00
 categories: discussion
 ---

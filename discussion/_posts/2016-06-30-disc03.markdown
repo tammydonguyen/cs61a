@@ -13,7 +13,9 @@ categories: discussion
 
 # Concepts  
 1. What are the components of a recursive function? 
-2. When making a recursive call, what should you assume about that call?
+2. When making a recursive call, what should you assume about that call?  
+3. What makes a function tree recursive?  
+4. Describe a type of problem that would require tree recursion.  
 
 ---
 

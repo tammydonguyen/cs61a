@@ -1,0 +1,129 @@
+---
+layout: post
+title:  "Discussion 3"
+date:   2016-06-29 13:00:00
+categories: discussion
+---
+
+# Links  
+[Slides](https://docs.google.com/presentation/d/1Clr0cPcLZGDu20ajLVRAVdkVEqH58EfBfYd9482Hiog/edit?usp=sharing)  
+[Attendance](https://docs.google.com/forms/d/1P0_q7PT0JPxOf1_NSS5Ww_CO4p_Il2CP-1nbHDQixl8/viewform)
+
+---
+
+# Concepts  
+1. What are the components of a recursive function? 
+2. When making a recursive call, what should you assume about that call?
+
+---
+
+# Problems  
+
+## Question 1   
+Write a function that counts the number of occurences of x in lst.  
+{% highlight python %}
+def count(lst, x):
+    "*** YOUR CODE HERE ***"
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">
+{% highlight python %}
+def count(lst, x):
+    if lst == []:
+        return 0
+    if lst[0] == x:
+        return 1 + count(lst[1:], x)
+    return count(lst[1:], x)
+{% endhighlight %}
+</blockquote>
+
+## Question 2  
+Draw the environment diagram for the following function.  
+{% highlight python %}
+def log2(x):
+    if x == 1:
+        return 0
+    return 1 + log2(x // 2)
+
+log2(8)
+{% endhighlight %}
+
+Which frame is the first to have a return value? Which frame is the last? What's the pattern?
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">
+[Python Tutor]()   
+
+The frame for the base case, <code>log2(1)</code> is the first to have a return value. This is because this case does not make any additional function calls, it merely returns the number 0. On the other hand, all the previous frames make the call <code>log2(x//2)</code>, which means it has to wait until the frame for that call has a return value before it can have its own return value. The pattern is that in each frame, we bind the parameter <code>x</code> to half its value in the previous frame. Then when we finally get the return value of frame 4, we add 1 to it to get the RV for f3. Then we add 1 to that to get the RV of f2, and so on for f1.
+</blockquote>
+
+
+<!-- The following code is loaded into the Python interpreter.
+
+{% highlight python %}
+def mid(term):
+    def to(night):
+        if night[-1] == term:
+            return night
+        return lambda next: to(night + " " + next)
+    return to
+{% endhighlight %}
+
+---
+
+### Question 1
+What will the following lines output (executed in order in the same session)? Write `Error` if you think the code will error and `Function` if you think a function object representation will be output.
+
+{% highlight python %}
+>>> exclamation = mid("!")
+
+>>> x = exclamation("The")("midterm")("is tonight")
+
+>>> x("!")
+
+>>> exclamation("Ugh!")("I’m gonna fail.")
+
+>>> exclamation("How")("should I")("study?")
+
+>>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
+
+>>> f("ace")
+
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">{% highlight python %}
+>>> exclamation = mid("!")
+>>> x = exclamation("The")("midterm")("is tonight")
+>>> x("!")
+'The midterm is tonight !'
+>>> exclamation("Ugh!")("I’m gonna fail.") # TypeError: 'str' object is not callable
+Error
+>>> exclamation("How")("should I")("study?")
+Function
+>>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
+>>> f("ace")
+'I’m gonna ace the midterm!'
+{% endhighlight %}
+</blockquote>
+
+---
+
+### Question 2  
+Fill in the blank to get the following output (you may have to add more parentheses).
+
+{% highlight python %}
+>>> mid(________________________________)
+"I love 61A! It's the cooliest class ever."
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight python %}
+mid(".")("I love 61A! It's the cooliest class ever.")
+{% endhighlight %}
+</blockquote> -->

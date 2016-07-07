@@ -1,0 +1,84 @@
+<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1B3D5uCMBEuyZrgHbhKF5zOJK6LVJwvI5FXXD2QE_bGY/edit?usp=sharing">This week’s slides</a><br />
+<a href="http://goo.gl/forms/b3scpxFBvl">Link to form</a></p>
+
+<hr />
+
+<h3 id="concepts">Concepts</h3>
+<ol>
+  <li>What is the difference between a special form expression and other expressions in Scheme?</li>
+  <li>How many elements does a pair consist of?</li>
+  <li>What is the difference between a well-formed list and a malformed list?</li>
+</ol>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">
+1. All expressions but special forms get evaluated using the 3-step rule, 1) eval operator, 2) eval operands, and 3) apply operator to operands. Special forms, however, don't necessarily evaluate all their operands before apply the operator. Take the <code>if</code> form, which only evaluates the operand that corresponds to the truth value of the predicate. <br />
+2. A pair always only consists of two elements. Don't confuse pairs with lists. Lists are constructed using pairs, whose first argument is an element in the list and whose second argument is another pair. <br />
+3. A well-formed list is recursively defined as a pair whose first argument is the first element in the list and the second argument is another well-formed list. The base case for this recursive definition is <code>nil</code>, the empty well-formed list. A malformed list has non-well-formed lists as its second arguments in one or more of its pairs.
+</blockquote>
+
+<hr />
+
+<h3 id="problems">Problems</h3>
+
+<h4 id="question-1">Question 1</h4>
+<p>Draw the box and pointer diagrams for the following Scheme lists. How does each get output in the Scheme interpreter?</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="nv">nil</span><span class="p">))</span>
+
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="nv">nil</span><span class="p">))))</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="nf">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span> <span class="o">.</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="nv">nil</span><span class="p">))</span>
+<span class="p">(</span><span class="nf">1</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">1</span> <span class="p">(</span><span class="nb">cons</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons</span> <span class="mi">3</span> <span class="nv">nil</span><span class="p">))))</span>
+<span class="p">(</span><span class="nf">1</span> <span class="p">(</span><span class="nf">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
+
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="question-2">Question 2</h4>
+<p>Define <code class="highlighter-rouge">count</code> so that it returns the number of times <code class="highlighter-rouge">x</code> appears in <code class="highlighter-rouge">lst</code>, a well-formed list.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="c1">; your code here</span>
+<span class="p">)</span></code></pre></figure>
+
+<p>Remember, you can nest <code>if</code> statements to simulate an <code class="highlighter-rouge">elif</code>, as follows:</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&gt;</span> <span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="ss">'positive</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">&lt;</span> <span class="nv">x</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="ss">'negative</span>
+        <span class="ss">'zero</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+<p>Here we’re saying <code class="highlighter-rouge">if x &gt; 0</code> return <code class="highlighter-rouge">positive</code>, <code class="highlighter-rouge">elif x &lt; 0</code> return <code class="highlighter-rouge">negative</code>, <code class="highlighter-rouge">else</code> return <code class="highlighter-rouge">zero</code>.</p>
+
+<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-3">
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define</span> <span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
+    <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">null?</span> <span class="nv">lst</span><span class="p">)</span>
+        <span class="mi">0</span>
+        <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="nb">=</span> <span class="nv">x</span> <span class="p">(</span><span class="nb">car</span> <span class="nv">lst</span><span class="p">))</span>
+            <span class="p">(</span><span class="nb">+</span> <span class="mi">1</span> <span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span>
+            <span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr</span> <span class="nv">lst</span><span class="p">)</span> <span class="nv">x</span><span class="p">)</span>
+          <span class="p">)</span>
+      <span class="p">)</span>
+  <span class="p">)</span></code></pre></figure>
+
+</blockquote>

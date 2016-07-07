@@ -1,0 +1,133 @@
+<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1iWAC72SmQ8H6olLTkuUqovPqe_vbKO2jCv68eCbNTIo/edit?usp=sharing">This week’s slides</a><br />
+<a href="http://goo.gl/forms/98LV91x4xH">Link to form</a></p>
+
+<hr />
+
+<h3 id="concepts">Concepts</h3>
+<ol>
+  <li>Big-O notation denotes a(n) <strong>__</strong>__ bound on runtime.</li>
+  <li>What is ordering of Big-O growth rates from fastest to slowest?</li>
+  <li>How are Tree objects different from tree ADT’s that we’ve worked with previously?</li>
+</ol>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">
+1. Big-O notation denotes an upper bound on runtime. O(f(n)) tells us that the change in runtime of some function as the input size increases grows no faster than f(n). <br />
+2. O(1) &lt; O(log(n)) &lt; O(n) &lt; O(n^2) &lt; O(2^n). Note that I'm using the less than sign to denote "is a better (faster) runtime". Recall that we care about how fast these functions grow, not what their values are. <br />
+3. Tree objects are instances of the Tree class. We can access it's attributes by using <code>t.label</code> and <code>t.children</code> rather than calling the functions <code>label(t)</code> and <code>children(t)</code>. More importantly, since can access and modify these attributes, Tree objects are mutable. The getter functions for the tree ADT only tell us what the values of the tree are, but do not allow us to modify them.
+</blockquote>
+
+<hr />
+
+<h3 id="problems">Problems</h3>
+<p>What is the Big-O runtime of the following functions?</p>
+
+<h4 id="function-1">Function 1</h4>
+<blockquote class="solution-2"><b><i>Hint:</i></b> Use the addition technique in the slides! How many operations are done in the first <code>for</code> iteration? The second...? Is there a pattern?</blockquote>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">2</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">total</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE HINT</a>
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-3"><b>Using the addition technique:</b><br />
+We add up how many operations are done for each iteration of the <code>for</code> loop. The number of operations depends on what <code>i</code> is, which will range from 1 to <code>n</code>. Since we do a constant amount of operations inside of the <code>while</code> loop (two variable updates), we simply need to count how many times we are going to enter the <code>while</code> loop for each <code>i</code>. When <code>i</code> is 1, the <code>while</code> condition is false so we loop 0 times. When <code>i</code> is 2, it'll loop once (<code>i</code> gets set to 1 inside of the <code>while</code> loop, which turns the <code>while</code> condition false). When <code>i</code> is 3, it'll also loop once (3 - 2 = 1). When i is 4 and 5, we loop twice (it takes 2 subtractions by 2 to get to &lt; 1.) Do you see the pattern?
+<table border="1">
+  <tr style="padding:5px;">
+    <td><code>i</code></td>
+    <td>1</td> 
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td>...</td>
+    <td><code>n-1</code></td>
+    <td><code>n</code></td>
+  </tr>
+  <tr>
+    <td><b>number of loops</b></td>
+    <td>0</td> 
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+    <td>3</td>
+    <td>3</td>
+    <td>4</td>
+    <td>4</td>
+    <td>...</td>
+    <td><code>n//2</code></td>
+    <td><code>n//2</code></td>
+  </tr>
+</table>
+For each <code>i</code>, the <code>while</code> loop is entered is exactly <code>i//2</code> times! From here we can add all up the number of operations for each <code>i</code>: <br />
+<code>0 + 1 + 1 + 2 + 2 + 3 + 3 + ... + n//2 + n//2 <br />= 2(1 + 2 + 3 + ... + n//2) </code><br />
+The sum of the series <code>1 + 2 + 3 + ... + n</code> is given by <code>n(n+1)/2</code>. You can see an explanation for that <a href="http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/runsums/triNbProof.html">here</a>.
+Thus, we have<br />
+<code>2(n(n+1)/2) = n(n+1) = n^2 + n </code>.<br />
+Remember that we can drop the term <code>n</code> because it is lower order than <code>n^2</code>, so we get a final runtime of <b>O(n^2)</b>.<br /><br />
+<b>Some notes:</b><br />
+<ul>
+<li>The multiplication trick could also work here too, but requires Big-O analysis on the number of operations done inside the inner loop. Once you realize what the while loop is doing, you know that each iteration of the for loop does, in the worse case, O(n//2) = O(n) operations. We know the for loop iterates <code>n</code> times, so we get n*O(n) = O(n^2).</li>
+<li>If we wanted to be very exact and count the two variable assignments in the while loop separately, we do exactly (<code>i//2</code> iterations) * (2 operations/loop) = <code>i</code> operations for each <code>i</code> in the <code>for</code> loop. This still gets us a runtime of <code>1 + 2 + 3 + ... = O(n^2)</code> time.</li>
+</ul>
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="function-2">Function 2</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">bar</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">x</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-4">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-4">This looks scary, but it is pretty much just problem 5 of section 1.2 on the Discussion sheet with a little twist. First, let's examine what <code>bar</code> does. <code>bar(n)</code> finds the log base 2 of <code>n</code> by repeatedly dividing by 2 until <code>n == 1</code>. Therefore, it takes <code>O(log(n))</code> time. After we define <code>bar</code> in <code>foo</code> we loop through the range 1 through <code>n</code>. However, we don't actually iterate <code>n</code> times. In the very first iteration, we assign <code>x</code> to <code>bar(i)</code>, where <code>i = 1</code>. <code>log(1) = 0</code> (remember that 2^0 = 1), so the value <code>0</code> is assigned to <code>x</code>. This makes the <code>if</code> condition true in the first iteration, so we immediately return, resulting in a total runtime of <code>O(1)</code>.
+</blockquote>
+<p><br /></p>
+
+<h4 id="function-3">Function 3</h4>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">foo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">foo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">foo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">foo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-5">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-5">If <code>n</code> is even, there is only one recursive call that reduces the input size by 2. An even number takes <code>n//2</code> subtractions by 2 to reach 0, resulting in a runtime of <code>n//2 = O(n)</code>. However, we care about the worst case, which occurs when <code>n</code> is odd. There are multiple recursive calls, so we should draw a tree! The root will have three branches. Let's use <code>foo(11)</code> for our root: <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>foo(11)</code> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\ <br />
+<code>foo(10)</code>&nbsp;<code>foo(8)</code>&nbsp;<code>foo(6)</code> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br />
+<code>foo(8)</code>&nbsp;<code>foo(6)</code>&nbsp;<code>foo(4)</code> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br />
+<code>foo(6)</code>&nbsp;<code>foo(4)</code>&nbsp;<code>foo(2)</code> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br />
+<code>foo(4)</code>&nbsp;<code>foo(2)</code>&nbsp;<code>foo(0)</code> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br />
+<code>foo(2)</code>&nbsp;<code>foo(0)</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <br />
+<code>foo(0)</code><br />
+Notice that all calls after the root will have even input. This is true for any odd <code>n</code>. Since even input results in only one branch instead of three, we end up with linear time. More explicitly, what happens is that a call to <code>foo(k)</code> where <code>k</code> is odd will call <code>foo</code> 3 times with smaller, even arguments. Each of these three calls will take <code>O(n-1)</code>, <code>O(n-3)</code>, and <code>O(n-5)</code> time, respectively, which all simplify to <code>O(n)</code>. We end up with <code>3 * O(n)</code>, which is still <b>O(n)</b>!
+</blockquote>

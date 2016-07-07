@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Discussion 7"
+title:  "Discussion 5"
 date:   2016-07-07 13:00:00
 categories: discussion
 ---
@@ -13,7 +13,11 @@ categories: discussion
 ---
 
 # Concepts  
-soon come
+
+1. What makes a tree recursively defined?  
+2. What does the `entry` selector return? What does the `children` selector return? Why is it wrong to do `entry(children(t))`, where `t` is a tree?  
+3. Why do we sometimes not need a base case for tree processing functions?  
+
 
 <!-- 2. What is `self` assigned to during a method call?  
 3. **(T/F)** A class that inherits another class is not allowed to create new attributes or methods of the same names as the superclass.  

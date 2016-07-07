@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>About</title>
+<title>Discussion 0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -240,21 +240,58 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">About</div>
+  <div class="article-title">Discussion 0</div>
   <hr/>
   <div class="post">
-    <p>I’m Tammy and I am a teaching assistant for CS 61A. This site is a collection of my resources for the course. You can find my teaching ratings <a href="https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466">here</a> and my personal website <a href="http://tmmydngyn.com">here</a>.</p>
+    <h1 id="links">Links</h1>
+<p><a href="http://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit#slide=id.gba074a2be_1_15">Slides</a></p>
 
-<p><strong>Sections:</strong><br />
-<em>101 Lab</em>: MW 1-2:30pm, 271 Soda<br />
-<em>101 Discussion</em>: TuTh 1-2:30pm, 320 Soda</p>
+<hr />
 
-<p><strong>Office Hours:</strong><br />
-MW 3-4pm, 521 Cory</p>
+<h1 id="concepts">Concepts</h1>
+<ol>
+  <li>(values, expressions) <code>_________</code> evaluate to <code>___________</code>.</li>
+  <li>How do you evaluate a name?</li>
+  <li>What is the difference between a function and a function call?</li>
+  <li>What are the 3 steps to evaluating function calls, or call expressions?</li>
+  <li>What is the purpose of an assignment statement? Which side do you evaluate first when executing an assignment statement?</li>
+</ol>
 
-<p>Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and provide extra practice; they have no impact on your 61A grade.</p>
+<h1 id="problems">Problems</h1>
 
-<p>You can contact me through email, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#097;&#109;&#109;&#121;&#110;&#103;&#117;&#121;&#101;&#110;&#064;&#098;&#101;&#114;&#107;&#101;&#108;&#101;&#121;&#046;&#101;&#100;&#117;">&#116;&#097;&#109;&#109;&#121;&#110;&#103;&#117;&#121;&#101;&#110;&#064;&#098;&#101;&#114;&#107;&#101;&#108;&#101;&#121;&#046;&#101;&#100;&#117;</a>, or through this <a href="http://goo.gl/forms/RRPgZTk8qe">anonymous form</a>. Feel free to leave feedback about my teaching, this website, or whatever else is on your mind!</p>
+<h3 id="question-1">Question 1</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">c</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span></code></pre></figure>
+
+<p>What is <code>a + b</code>? What is data type of the value stored in <code>c</code>?</p>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">
+<code>a + b</code> is <code>6</code>. The value <code>3</code> gets assigned to <code>b</code> in the second statement. The value stored in <code>c</code> is <code>"a"</code> which is a string.
+</blockquote>
+
+<hr />
+
+<h3 id="question-2">Question 2</h3>
+
+<p>The following code is entered into the Python interpreter.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">50</span> </code></pre></figure>
+
+<p>If I call the function <code>foo</code> with argument <code>x</code>, what would the return value be?</p>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+The value <code>30</code> is passed in as an argument and is bound to <code>x</code>. Inside of the function body, <code>x</code> assigned to the number 50 in the local frame. Variables in the local frame have priority over variables in the global frame, so the value that is returned is <code>100</code>.
+</blockquote>
+
 
   </div>
 </div>

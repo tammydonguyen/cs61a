@@ -1,0 +1,122 @@
+<h1 id="links">Links</h1>
+<p><a href="https://docs.google.com/presentation/d/1Clr0cPcLZGDu20ajLVRAVdkVEqH58EfBfYd9482Hiog/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/1P0_q7PT0JPxOf1_NSS5Ww_CO4p_Il2CP-1nbHDQixl8/viewform">Attendance</a></p>
+
+<hr />
+
+<h1 id="concepts">Concepts</h1>
+<ol>
+  <li>What are the components of a recursive function?</li>
+  <li>When making a recursive call, what should you assume about that call?</li>
+  <li>What makes a function tree recursive?</li>
+  <li>Describe a type of problem that would require tree recursion.</li>
+</ol>
+
+<hr />
+
+<h1 id="problems">Problems</h1>
+
+<h2 id="question-1">Question 1</h2>
+<p>Write a function that counts the number of occurences of x in lst.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="s">"*** YOUR CODE HERE ***"</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution">
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">lst</span> <span class="o">==</span> <span class="p">[]:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">count</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">count</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">)</span></code></pre></figure>
+
+</blockquote>
+
+<h2 id="question-2">Question 2</h2>
+<p>Draw the environment diagram for the following function.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">log2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">log2</span><span class="p">(</span><span class="n">x</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">log2</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span></code></pre></figure>
+
+<p>Which frame is the first to have a return value? Which frame is the last? What’s the pattern?</p>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+[Python Tutor]()   
+
+The frame for the base case, <code>log2(1)</code> is the first to have a return value. This is because this case does not make any additional function calls, it merely returns the number 0. On the other hand, all the previous frames make the call <code>log2(x//2)</code>, which means it has to wait until the frame for that call has a return value before it can have its own return value. The pattern is that in each frame, we bind the parameter <code>x</code> to half its value in the previous frame. Then when we finally get the return value of frame 4, we add 1 to it to get the RV for f3. Then we add 1 to that to get the RV of f2, and so on for f1.
+</blockquote>
+
+<!-- The following code is loaded into the Python interpreter.
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mid</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="n">night</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">night</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">term</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">night</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="nb">next</span><span class="p">:</span> <span class="n">to</span><span class="p">(</span><span class="n">night</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="nb">next</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">to</span></code></pre></figure>
+
+
+---
+
+### Question 1
+What will the following lines output (executed in order in the same session)? Write `Error` if you think the code will error and `Function` if you think a function object representation will be output.
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">"!"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"The"</span><span class="p">)(</span><span class="s">"midterm"</span><span class="p">)(</span><span class="s">"is tonight"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">"!"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"Ugh!"</span><span class="p">)(</span><span class="s">"I’m gonna fail."</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"How"</span><span class="p">)(</span><span class="s">"should I"</span><span class="p">)(</span><span class="s">"study?"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"I’m"</span><span class="p">)(</span><span class="s">"gonna"</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">"the"</span><span class="p">)(</span><span class="s">"midterm!"</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">"ace"</span><span class="p">)</span></code></pre></figure>
+
+
+<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
+
+<blockquote class="solution">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">"!"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"The"</span><span class="p">)(</span><span class="s">"midterm"</span><span class="p">)(</span><span class="s">"is tonight"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">"!"</span><span class="p">)</span>
+<span class="s">'The midterm is tonight !'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"Ugh!"</span><span class="p">)(</span><span class="s">"I’m gonna fail."</span><span class="p">)</span> <span class="c"># TypeError: 'str' object is not callable</span>
+<span class="n">Error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"How"</span><span class="p">)(</span><span class="s">"should I"</span><span class="p">)(</span><span class="s">"study?"</span><span class="p">)</span>
+<span class="n">Function</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">"I’m"</span><span class="p">)(</span><span class="s">"gonna"</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">"the"</span><span class="p">)(</span><span class="s">"midterm!"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">"ace"</span><span class="p">)</span>
+<span class="s">'I’m gonna ace the midterm!'</span></code></pre></figure>
+
+</blockquote>
+
+---
+
+### Question 2  
+Fill in the blank to get the following output (you may have to add more parentheses).
+
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">mid</span><span class="p">(</span><span class="n">________________________________</span><span class="p">)</span>
+<span class="s">"I love 61A! It's the cooliest class ever."</span></code></pre></figure>
+
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mid</span><span class="p">(</span><span class="s">"."</span><span class="p">)(</span><span class="s">"I love 61A! It's the cooliest class ever."</span><span class="p">)</span></code></pre></figure>
+
+</blockquote> -->

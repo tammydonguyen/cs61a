@@ -1,19 +1,21 @@
 ---
 layout: post
-title:  "Discussion 6 Quiz"
+title:  "Discussion 7"
 date:   2016-07-07 13:00:00
-categories: quizzes
+categories: discussion
 ---
 
-[This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1LSpUv8RxbqxjT--zKk5jGLsVtSQGgmLVUGV6V2eEqCw/edit?usp=sharing)  
-[Link to form](https://docs.google.com/a/berkeley.edu/forms/d/1FGrZEh57H9BynxfMFkVdrqUq1RimyGxNAn36WnGNRgI/viewform)  
-[OOP Guide](http://tmmydngyn.com/cs61a-resources/guides/oop.html)
+# Links  
+
+[Slides](https://docs.google.com/presentation/d/1I9OY5vRoDthyR-7RLU9ROR7vRIiDpnnOcIXyVuxh8Do/edit?usp=sharing)  
+[Attendance and Feedback](https://docs.google.com/forms/d/18D-l4VnZunCpnQuMga5OCF4dH-h8xo4sck5S-FOcb0s/viewform)
 
 ---
 
-### Concepts
-1. What is the difference between an instance attribute and a class attribute?  
-2. What is `self` assigned to during a method call?  
+# Concepts  
+soon come
+
+<!-- 2. What is `self` assigned to during a method call?  
 3. **(T/F)** A class that inherits another class is not allowed to create new attributes or methods of the same names as the superclass.  
 4. **(T/F)** The nonlocal statement allows you to access variables in parent frames.  
 5. **(T/F)** The nonlocal statement does not allow to change global variables.
@@ -91,3 +93,4 @@ Error
 Error
 {% endhighlight %}
 </blockquote>
+ -->

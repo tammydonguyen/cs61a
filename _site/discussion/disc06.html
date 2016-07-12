@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>About</title>
+<title>Discussion 6</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -248,21 +248,95 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">About</div>
+  <div class="article-title">Discussion 6</div>
   <hr/>
   <div class="post">
-    <p>I’m Tammy and I am a teaching assistant for CS 61A. This site is a collection of my resources for the course. You can find my teaching ratings <a href="https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466">here</a> and my personal website <a href="http://tmmydngyn.com">here</a>.</p>
+    <h1 id="links">Links</h1>
 
-<p><strong>Sections:</strong><br />
-<em>101 Lab</em>: MW 1-2:30pm, 271 Soda<br />
-<em>101 Discussion</em>: TuTh 1-2:30pm, 320 Soda</p>
+<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1J1hLtxYBsU2RfZlWLWX_EQalyEdxRhm7ubef2dOrk5c/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSe0n_STE7uSkDz0Rb4YjZEBnX3oLe-i5amzPvIx_2Ryc-MOZw/viewform">Attendance and feedback</a></p>
 
-<p><strong>Office Hours:</strong><br />
-MW 3-4pm, 521 Cory</p>
+<hr />
 
-<p>Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and provide extra practice; they have no impact on your 61A grade.</p>
+<h1 id="concepts">Concepts</h1>
+<ol>
+  <li>What is the relationship between expressions and values?</li>
+  <li>What is the difference between a function, a function name, and a function call?</li>
+  <li>What is the purpose of an assignment statement? What are the 2 steps to evaluating assignment statements?</li>
+  <li>What is an environment diagram used for?</li>
+  <li>Higher order functions must have at least one of what two properties?</li>
+  <li>What is the difference between a <code>lambda</code> expression and a <code>def</code> statement? How is a <code>lambda</code> function any different that a function created with a <code>def</code> statement?</li>
+  <li>What are the three components of a recursive call?</li>
+  <li>T/F: When making a recursive call, you can assume that it will return the correct thing, regardless of how your function is written.</li>
+  <li>What makes a function tree recursive? Are these more efficient or less efficient to non-tree-recursive recursive functions?</li>
+  <li>What two things are we trying to separate with data abstraction? What does it mean to “violate the abstraction barrier”?</li>
+  <li>How is a linked list similar to a regalar Python list. How are they different?</li>
+  <li>Describe the tree ADT. What does the <code>children</code> selector return?</li>
+</ol>
 
-<p>You can contact me through email, <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#116;&#097;&#109;&#109;&#121;&#110;&#103;&#117;&#121;&#101;&#110;&#064;&#098;&#101;&#114;&#107;&#101;&#108;&#101;&#121;&#046;&#101;&#100;&#117;">&#116;&#097;&#109;&#109;&#121;&#110;&#103;&#117;&#121;&#101;&#110;&#064;&#098;&#101;&#114;&#107;&#101;&#108;&#101;&#121;&#046;&#101;&#100;&#117;</a>, or through this <a href="http://goo.gl/forms/RRPgZTk8qe">anonymous form</a>. Feel free to leave feedback about my teaching, this website, or whatever else is on your mind!</p>
+<hr />
+
+<h1 id="problems">Problems</h1>
+
+<h2 id="question-1">Question 1</h2>
+
+<p>The following code is loaded into the Python interpreter. The midterm is not actually tonight, don’t worry :)</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">mid</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to</span><span class="p">(</span><span class="n">night</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">night</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">term</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">night</span>
+        <span class="k">return</span> <span class="k">lambda</span> <span class="nb">next</span><span class="p">:</span> <span class="n">to</span><span class="p">(</span><span class="n">night</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="nb">next</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">to</span></code></pre></figure>
+
+<p>What will the following lines output (executed in order in the same session)? Write <code>Error</code> if you think the code will error, <code>Function</code> if the expression evaluates to a function, and <code>Nothing</code> if you think nothing will be displayed.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span> <span class="o">=</span> <span class="n">mid</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;The&quot;</span><span class="p">)(</span><span class="s">&quot;midterm&quot;</span><span class="p">)(</span><span class="s">&quot;is tonight&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;Ugh!&quot;</span><span class="p">)(</span><span class="s">&quot;I’m gonna fail.&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;How&quot;</span><span class="p">)(</span><span class="s">&quot;should I&quot;</span><span class="p">)(</span><span class="s">&quot;study?&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">take</span><span class="p">:</span> <span class="n">exclamation</span><span class="p">(</span><span class="s">&quot;I’m&quot;</span><span class="p">)(</span><span class="s">&quot;gonna&quot;</span><span class="p">)(</span><span class="n">take</span><span class="p">)(</span><span class="s">&quot;the&quot;</span><span class="p">)(</span><span class="s">&quot;midterm!&quot;</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span><span class="p">(</span><span class="s">&quot;ace&quot;</span><span class="p">)</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution"><pre>&gt;&gt;&gt; exclamation = mid("!")
+Nothing
+&gt;&gt;&gt; x = exclamation("The")("midterm")("is tonight")
+Nothing
+&gt;&gt;&gt; x("!")
+'The midterm is tonight!'
+&gt;&gt;&gt; exclamation("Ugh!")("I’m gonna fail.")# TypeError: 'str' object is not callable
+Error
+&gt;&gt;&gt; exclamation("How")("should I")("study?")
+Function
+&gt;&gt;&gt; f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
+Nothing
+&gt;&gt;&gt; f("ace")
+'I’m gonna ace the midterm!'</pre>
+</blockquote>
+
+<hr />
+
+<h3 id="question-2">Question 2</h3>
+<p>Fill in the blank to get the following output (you may have to add more parentheses).</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">mid</span><span class="p">(</span><span class="n">________________________________</span><span class="p">)</span>
+<span class="s">&quot;I love 61A! It&#39;s the cooliest class ever.&quot;</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mid</span><span class="p">(</span><span class="s">"."</span><span class="p">)(</span><span class="s">"I love 61A! It's the cooliest class ever."</span><span class="p">)</span></code></pre></figure>
+
+</blockquote>
 
   </div>
 </div>

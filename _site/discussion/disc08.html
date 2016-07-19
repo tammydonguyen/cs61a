@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Discussion 1</title>
+<title>Discussion 8</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -256,93 +256,31 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Discussion 1</div>
+  <div class="article-title">Discussion 8</div>
   <hr/>
   <div class="post">
     <h1 id="links">Links</h1>
-<p><a href="http://tiny.cc/tammy-disc01">Attendance</a><br />
-<a href="https://docs.google.com/presentation/d/1lnPyRlLJZR7JA1NlpUooiSJqDLw3GOy6IA3IbfrZsSY/edit?usp=sharing">Slides</a></p>
+
+<p><a href="https://docs.google.com/presentation/d/1qBEh2tABg6raGjb1ScWw3BMdaG6J7SsIXMHPHv5CIpA/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSceJGA5gcgaUSMQAUpYukLjnFZWM9zvONRBG8h08sJfdq-pwA/viewform">Attendance and feedback</a></p>
 
 <hr />
 
 <h1 id="concepts">Concepts</h1>
 <ol>
-  <li>What is the maximum number of suites that can be executed in a single conditional (<code>if-elif-else</code>) block?</li>
-  <li>When is short-circuiting in terms of boolean operators? What does an <code>and</code> expression return? An <code>or</code> expression?</li>
-  <li>When does the body of a <code>while</code> block stop executing? When does the body of a <code>for</code> block stop executing?</li>
-  <li><code>___________</code> will get you a single element in a list, and <code>__________</code> gets you a chunk of a list.</li>
-  <li>What is the use of an environment diagram? What goes on the left side (inside frames) and what goes on the right?</li>
-  <li>What is the first step to evaluate an <strong>assignment statement</strong>? What about a <strong>call expression</strong>?</li>
-  <li>When executing a call expression, you draw and label a new frame after evaluating the operator and operands. What is the first thing you write inside the new frame?</li>
+  <li>What is the relationship between a class and an instance?</li>
+  <li>What is the difference between an instance attribute and a class attribute?</li>
+  <li>What is the difference between a class method and a local function?</li>
+  <li>What happens if you try to change a class attribute while accessing it from an instance?</li>
+  <li>When you call a method using dot notation on an instance, what parameter can you omit? When you call a method using dot notation on a class, can you omit this same parameter?</li>
+  <li>A subclass inherits what from its superclass?</li>
 </ol>
 
 <hr />
 
 <h1 id="problems">Problems</h1>
 
-<h3 id="question-1">Question 1</h3>
-
-<p>Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(3)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    cs</span>
-<span class="sd">    &gt;&gt;&gt; cs61a(2)</span>
-<span class="sd">    cs</span>
-<span class="sd">    61a</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">__________</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">_________</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">____________</span></code></pre></figure>
-
-<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
-
-<blockquote class="solution-3">
-
-<figure class="highlight"><pre><code class="language-py3" data-lang="py3"><span class="k">def</span> <span class="nf">cs61a</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;cs&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">&quot;61a&quot;</span><span class="p">)</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span></code></pre></figure>
-    
-</blockquote>
-<hr />
-
-<h3 id="question-2">Question 2</h3>
-<p>Draw the environment diagram for the following code:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">lg</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="n">t</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&#39;pride&#39;</span>
-    <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;love&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">lg</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">lg</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="n">lg</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
-
-<p><strong>Extra:</strong> What is the output?</p>
-
-<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
-
-<blockquote class="solution-2"><a href="http://pythontutor.com/composingprograms.html#code=def+lg(b,+t%29%3A%0A++++if+b+%3E+t%3A%0A++++++++return+'pride'%0A++++elif+b+%3D%3D+3%3A%0A++++++++print('pride'%29%0A++++if+t+%3D%3D+5%3A%0A++++++++return+lg(t,+b%29%0A++++return+lg(b,+b+%2B+t%29%0A%0Alg(2,+3%29&amp;mode=display&amp;origin=composingprograms.js&amp;cumulative=true&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;curInstr=16">Python tutor</a> <br />
-<b>Output:</b>
-<pre>love
-'pride'
-</pre>
-
-</blockquote>
+<p>Try out the WWPD at the end of this <a href="/cs61a-resources/guides/oop.html">guide</a>.</p>
 
   </div>
 </div>

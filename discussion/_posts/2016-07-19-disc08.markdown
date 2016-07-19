@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "Discussion 8"
+date:   2016-07-18 13:00:00
+categories: discussion
+---
+
+# Links
+
+[Slides](https://docs.google.com/presentation/d/1qBEh2tABg6raGjb1ScWw3BMdaG6J7SsIXMHPHv5CIpA/edit?usp=sharing)  
+[Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLSceJGA5gcgaUSMQAUpYukLjnFZWM9zvONRBG8h08sJfdq-pwA/viewform)  
+
+---
+
+# Concepts  
+1. What is the relationship between a class and an instance?
+2. What is the difference between an instance attribute and a class attribute?
+3. What is the difference between a class method and a local function?
+4. What happens if you try to change a class attribute while accessing it from an instance?
+5. When you call a method using dot notation on an instance, what parameter can you omit? When you call a method using dot notation on a class, can you omit this same parameter?
+6. A subclass inherits what from its superclass?
+
+---
+
+# Problems  
+
+Try out the WWPD at the end of this [guide](/cs61a-resources/guides/oop.html).

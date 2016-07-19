@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Discussion 10 Quiz"
-date:   2016-07-14 13:00:00
+date:   2016-07-31 13:00:00
 categories: quizzes
 ---
 

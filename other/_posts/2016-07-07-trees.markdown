@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Summer 2016 Trees Guest Lecture"
+date:   2016-07-07 12:00:00
+category: other
+---
+
+These are my slides from a guest lecture that I gave in Summer 2016.
+
+<iframe src="https://docs.google.com/presentation/d/1uZL_cuJQG9iJ2D8W518RuZJDTc1loAKPcnzalVJiEdY/embed?start=false&loop=false&delayms=15000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+Last updated: July 7, 2016

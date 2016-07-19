@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Discussion 10 Quiz"
-date:   2016-07-31 13:00:00
-categories: quizzes
+title:  "Discussion 10"
+date:   2016-07-26 13:00:00
+categories: discussion
 ---
 
 [This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1ulpQih6seuyInFaARsR1yRk-nNR5_wixutbBqlIWME0/edit?usp=sharing)  

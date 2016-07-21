@@ -5,9 +5,15 @@ date:   2016-07-21 13:00:00
 categories: discussion
 ---
 
-[This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1J2i4duw7i0XhL1dqvYL4WV-h0rpk_vyKos5C31hq7Bs/edit?usp=sharing)  
-[Link to form](http://goo.gl/forms/a4Kn8Pz3VA)  
+# Links
+
+[Slides](https://docs.google.com/presentation/d/1H7Y14IbNvUUkCKNImkJhRZWkePRAAMEByVja4axByps/edit?usp=sharing)  
+[Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLSeDt_CuIIaDIhSk53ct6U0tOUrciHLLSz1nRMhAac4dlPHTkA/viewform)  
 
 ---
 
-No quiz this week. I will post problems for these topics sometime next week... maybe :)
+# Concepts
+1. What are the differences between the `link`/`tree` ADT's we learned two weeks ago and the `Link`/`Tree` objects we learned about this week?  
+2. What can we do to `Link`/`Tree` objects that we couldn't do with ADT's?
+
+---

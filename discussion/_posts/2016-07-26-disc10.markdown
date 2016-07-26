@@ -5,21 +5,85 @@ date:   2016-07-26 13:00:00
 categories: discussion
 ---
 
-[This week's slides](https://docs.google.com/a/berkeley.edu/presentation/d/1ulpQih6seuyInFaARsR1yRk-nNR5_wixutbBqlIWME0/edit?usp=sharing)  
-[Link to form](https://docs.google.com/a/berkeley.edu/forms/d/1DUWSl6QW4KqJfPCWmNq-SAto6E6EQc7Bdq03jJEJ8B0/viewform)  
+# Links
+
+[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1JkXtvHwL3pt6h0fIKcq8gf7m-cG_cG7dVudPup_OvS0/edit?usp=sharing)  
+[Attendance and Feedback](https://docs.google.com/forms/d/e/1FAIpQLSeGeC6HKT7t1bmts1BTV2UOWzPOHHIDV4N-PD7KjCvXmMAGZw/viewform)  
+[Scheme Interpreter](http://cs61a.org/assets/interpreter/scheme)
 
 ---
 
-### Concepts
-1. An _________ keeps track of the current element in an ___________.  
-2. What are the properties of `yield`? What is it used for?  
-3. When constructing a Scheme stream with `(cons-stream <first> <rest>)`, what is `<rest>`?  
-4. When constructing a Python stream with `Stream(<first>, <rest>)`, what is `<rest>`?  
-5. You make a stream and you call `cdr-stream` on it (or, in Python, you access its `.rest`). What happens when you call `cdr-stream` again?  
+# Concepts  
+1. What is the difference between a call expression and a special form?
+2. How many items can a pair hold? How many items can a list hold?
+3. When constructing a Scheme stream with `(cons-stream <first> <rest>)`, what is `<rest>`?
+4. When constructing a Python stream with `Stream(<first>, <rest>)`, what is `<rest>`?
+5. You make a stream and you call `cdr-stream` on it. What happens when you call `cdr-stream` again?
+6. What makes tail recursion more desirable than regular recursion in Scheme?
+7. What are some examples of tail context?
 
-### Problems
+---
 
-#### Question 1: WWSP?
+# Problems
+
+## Lists 
+
+### Question 1
+Draw the box and pointer diagrams for the following Scheme lists. How does each get output in the Scheme interpreter?
+
+{% highlight scheme %}
+scm> (cons (cons 1 2) (cons 3 4))
+
+scm> (cons (list 'a 2) nil)
+
+scm> (cons '(a b) '(b c))
+
+scm> (list (cons 2 (cons 5 8)) 3 (list 4))
+
+scm>(cons 1 (cons 3 '(list 4 5 9)))
+
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight scheme %}
+scm> (cons (cons 1 2) (cons 3 4))
+((1 . 2) 3 . 4)
+scm> (cons (list 'a 2) nil)
+((a 2))
+scm> (cons '(a b) '(b c))
+((a b) b c)
+scm> (list (cons 2 (cons 5 8)) 3 (list 4))
+((2 5 . 8) 3 (4))
+scm>(cons 1 (cons 3 '(list 4 5 9)))
+(1 3 list 4 5 9)
+{% endhighlight %}
+</blockquote>
+
+### Question 2
+Define `count` so that it returns the number of times `x` appears in `lst`, a well-formed list.
+
+{% highlight scheme %}
+(define (count lst x)
+    ; your code here
+)
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-3">{% highlight scheme %}
+(define (count lst x)
+    (cond ((null? lst) 0)
+          ((= x (car lst)) (+ 1 (count (cdr lst) x)))
+          (else (count (cdr lst) x))
+      )
+  )
+{% endhighlight %}
+</blockquote>
+
+## Streams 
+
+### Question 1: WWSD?
 
 {% highlight scheme %}
 scm> (define a (cons-stream (+ 1 2) (lambda () (cons-stream 6 nil))))
@@ -38,9 +102,9 @@ scm> ((cdr-stream a))
 {% endhighlight %}
 
 Between `a` and `b`, which is a well-formed stream? Why?
-  
 
-#### Question 2: Filter List to Stream
+
+### Question 2: Filter List to Stream
 Given a list `lst`, turn it into a stream that contains only the elements in `lst` that satisfy the filter function `f`.
 
 {% highlight scheme %}
@@ -59,7 +123,7 @@ scm> (cdr-stream evens)
 {% endhighlight %}
   
 
-#### Question 3: Repeated Naturals
+### Question 3: Repeated Naturals
 Implement the 0 argument procedure `repeated-naturals` that returns an infinite stream similar to natural numbers, except that each element is repeated as many times as its value. In other words, create the stream version of this sequence: `(1 2 2 3 3 3 4 4 4 4 ...)`
 
 You might want to create a helper function that takes in two parameters, one that keeps track of the current number you're on, and another that keeps track of how many times you've added the current number.

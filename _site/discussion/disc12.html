@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Midterm 1</title>
+<title>Discussion 12</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -296,52 +296,14 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Midterm 1</div>
+  <div class="article-title">Discussion 12</div>
   <hr/>
   <div class="post">
-    <p><strong>This page is under construction.</strong></p>
+    <h1 id="links">Links</h1>
 
-<hr />
+<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1MzTxRKxPHmT6xPAHxdv6wg12gZoFBlk1H_1IU294g-8/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeTKnl9n6jhMigXX5Rc1k0gXOPM4uNWr_3r_fuWUSvayNTYyA/viewform">Attendance and Feedback</a></p>
 
-<p>These problems are designed to be around exam difficulty. For more basic problems, see the topic-based guides and practice problems!</p>
-
-<hr />
-
-<p><a name="wwpp" class="anchor"></a></p>
-
-<h2 id="what-would-python-print">What would Python print?</h2>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">sub</span>
-
-<span class="n">this</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">a</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="k">def</span> <span class="nf">that</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">e</span> <span class="ow">and</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">e</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">e</span><span class="p">)(</span><span class="mi">5</span><span class="p">),</span> <span class="n">e</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="mi">20</span>
-    <span class="k">def</span> <span class="nf">this</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-       <span class="k">return</span> <span class="k">lambda</span> <span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">this</span></code></pre></figure>
-
-<p>The code above is loaded into the Python interpreter. What would the following lines output? Assume they are entered one after the other in the same environment. If there is no output, leave the space blank. If the code causes an error, write Error and describe in a few words what caused it.</p>
-
-<pre><code>&gt;&gt;&gt; this(sub, d)()
-<span class="solution">Error, second function call missing an argument</span>
-&gt;&gt;&gt; this(print, 40)(d)
-<span class="solution">40 30</span>
-&gt;&gt;&gt; this(lambda x, y : y, d)(20)
-<span class="solution">20</span>
-&gt;&gt;&gt; that(d, 0)(sub)
-<span class="solution">30<br />&lt;\function ...&gt;</span>
-&gt;&gt;&gt; other = that(10, this)(print)
-<span class="solution"></span>
-&gt;&gt;&gt; other() 
-<span class="solution">10 5<br />None</span></code></pre>
-
-<p><a class="solution-toggle btn btn-default">TOGGLE SOLUTION</a></p>
 
   </div>
 </div>

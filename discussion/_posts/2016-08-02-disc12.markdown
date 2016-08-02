@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Discussion 12"
+date:   2016-08-02 13:00:00
+categories: discussion
+---
+
+# Links
+
+[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1MzTxRKxPHmT6xPAHxdv6wg12gZoFBlk1H_1IU294g-8/edit?usp=sharing)  
+[Attendance and Feedback](https://docs.google.com/forms/d/e/1FAIpQLSeTKnl9n6jhMigXX5Rc1k0gXOPM4uNWr_3r_fuWUSvayNTYyA/viewform)  
+[Logic Interpreter](http://cs61a.org/assets/interpreter/logic)

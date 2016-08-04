@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Discussion 13"
+date:   2016-08-04 13:00:00
+categories: discussion
+---
+
+# Links
+
+[End of Semester Feedback](https://docs.google.com/a/berkeley.edu/forms/d/e/1FAIpQLSdzpa1wZfBBKZNmSAkmftuy1j13RSGeNWsbh-2nE-v50yoNcQ/viewform)  
+[Attendance](https://docs.google.com/forms/d/e/1FAIpQLSdmJWJ3fYUxZJ9XiZsbTXDnm1y_ywCFvtIerQUk6OUmWN3sCQ/viewform)  
+[Scheme Interpreter](http://cs61a.org/assets/interpreter/scheme)  
+[Logic Interpreter](http://cs61a.org/assets/interpreter/logic)  
+[Past Exams](https://www.ocf.berkeley.edu/~shidi/cs61a/wiki/Past_exams)  
+[Other resources](http://cs61a.org/articles/resources.html)

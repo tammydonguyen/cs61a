@@ -7,11 +7,13 @@ date:   2015-12-1 12:24:50
 I'm Tammy and I am a teaching assistant for CS 61A. This site is a collection of my resources for the course. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com). 
 
 **Sections:**  
-*101 Lab*: MW 1-2:30pm, 271 Soda  
-*101 Discussion*: TuTh 1-2:30pm, 320 Soda
+#*101 Lab*: Tuesday 11am-12:30pm, 271 Soda  
+#*101 Discussion*: Thursday 11am-12:30pm, 320 Soda
+Check back later.
 
 **Office Hours:**  
-MW 3-4pm, 521 Cory
+# MW 3-4pm, 521 Cory
+Check back later.
 
 Quizzes posted on this site are solely used to evaluate the progress of students in my discussion section and provide extra practice; they have no impact on your 61A grade.
 

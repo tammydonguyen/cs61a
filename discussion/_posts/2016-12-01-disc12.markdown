@@ -2,7 +2,7 @@
 layout: post
 title:  "Discussion 12"
 date:   2017-08-02 13:00:00
-categories: discussion
+categories: disc
 ---
 
 # Links

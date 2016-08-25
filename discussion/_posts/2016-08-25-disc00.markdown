@@ -1,21 +1,20 @@
 ---
 layout: post
 title:  "Discussion 0"
-date:   2016-08-25 11:00:00
+date:   2016-08-25 12:30:00
 categories: discussion
 ---
 
 # Links  
-[Slides](http://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit#slide=id.gba074a2be_1_15)  
+[Slides](https://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit?usp=sharing)  
+[Attendance](https://docs.google.com/forms/d/e/1FAIpQLSfC59CUFfUXX9bTLnr3m7IpUABg1U-eziMR4l01rOlHynGE8A/viewform)
 
 --------
 
 # Concepts  
 1. (values, expressions) `_________` evaluate to `___________`.
-2. How do you evaluate a name?
+2. What is a name? Can one object have many names? Can one name refererence many objects?
 3. What is the difference between a function and a function call?
-4. What are the 3 steps to evaluating function calls, or call expressions?
-5. What is the purpose of an assignment statement? Which side do you evaluate first when executing an assignment statement?
 
 # Problems   
 

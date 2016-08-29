@@ -2,7 +2,7 @@
 layout: post
 title:  "Discussion 6"
 date:   2016-10-27 11:00:00
-categories: disc
+published: false
 ---
 
 # Links

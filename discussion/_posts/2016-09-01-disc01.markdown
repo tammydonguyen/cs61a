@@ -2,11 +2,10 @@
 layout: post
 title:  "Discussion 1"
 date:   2016-09-01 11:00:00
-published: false
 ---
 
 # Links
-[Attendance](http://tiny.cc/tammy-disc01)  
+[Attendance](https://docs.google.com/forms/d/e/1FAIpQLSeC7l0YYksserNYpForte3_0d7rFusDeDdDueEs1nc82kHe0w/viewform)  
 [Slides](https://docs.google.com/presentation/d/1lnPyRlLJZR7JA1NlpUooiSJqDLw3GOy6IA3IbfrZsSY/edit?usp=sharing)
 
 ---
@@ -15,16 +14,15 @@ published: false
 1. What is the maximum number of suites that can be executed in a single conditional (`if-elif-else`) block?
 2. When is short-circuiting in terms of boolean operators? What does an `and` expression return? An `or` expression?
 3. When does the body of a `while` block stop executing? When does the body of a `for` block stop executing?
-4. `___________` will get you a single element in a list, and `__________` gets you a chunk of a list.
-5. What is the use of an environment diagram? What goes on the left side (inside frames) and what goes on the right?
-6. What is the first step to evaluate an **assignment statement**? What about a **call expression**?
+4. What is the use of an environment diagram? What goes on the left side (inside frames) and what goes on the right?
+5. What are the steps to evaluate an **assignment statement**? What about a **call expression**?
 6. When executing a call expression, you draw and label a new frame after evaluating the operator and operands. What is the first thing you write inside the new frame?
 
 --- 
 
 # Problems  
 
-### Question 1  
+## Question 1  
 
 Fill in the blanks so that <code>cs</code> and <code>61a</code> alternate printing for a total of <code>n</code> times.
 
@@ -64,7 +62,7 @@ def cs61a(n):
 </blockquote>
  --- 
   
-### Question 2  
+## Question 2  
 Draw the environment diagram for the following code:  
 {% highlight python %}
 def lg(b, t):

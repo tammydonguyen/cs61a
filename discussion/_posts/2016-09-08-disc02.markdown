@@ -2,14 +2,20 @@
 layout: post
 title:  "Discussion 2"
 date:   2016-09-08 11:00:00
-published: false
 ---
 
 # Links  
-[Attendance and feedback](http://tiny.cc/tammy-disc02)  
-[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1gg8jKn3-bIQ6ziJds53cb3WxhEeY0yazm_tW7cHua5c/edit?usp=sharing)  
+[Slides](https://docs.google.com/presentation/d/1gg8jKn3-bIQ6ziJds53cb3WxhEeY0yazm_tW7cHua5c/edit?usp=sharing)  
+[Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLScRdPjoX-0zgsfsqK-sr5fiO-uOKp6IViQVW1wPEx3dJIUYpQ/viewform)
 
 ---
+
+# Concepts
+1. What are the components of a recursive function?
+2. How can we verify that a recursive function is correct?
+3. What is tree recursion?
+
+--- 
 
 # Problems  
   

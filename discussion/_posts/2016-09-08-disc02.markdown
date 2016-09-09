@@ -6,7 +6,8 @@ date:   2016-09-08 11:00:00
 
 # Links  
 [Slides](https://docs.google.com/presentation/d/1gg8jKn3-bIQ6ziJds53cb3WxhEeY0yazm_tW7cHua5c/edit?usp=sharing)  
-[Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLScRdPjoX-0zgsfsqK-sr5fiO-uOKp6IViQVW1wPEx3dJIUYpQ/viewform)
+[Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLScRdPjoX-0zgsfsqK-sr5fiO-uOKp6IViQVW1wPEx3dJIUYpQ/viewform)   
+[CS Scholars Midterm Review Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1jtXBUMt3h5rm1dPz8b-eHtul-Qth_x29gzfRj8xnb8M/edit?usp=sharing)
 
 ---
 

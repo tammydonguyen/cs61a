@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Midterm 1 Review"
+date:   2016-09-13 11:00:00
+---
+
+# Links
+[09/08 Slides](https://docs.google.com/presentation/d/1jtXBUMt3h5rm1dPz8b-eHtul-Qth_x29gzfRj8xnb8M/edit?usp=sharing)  
+[09/13 Slides](https://docs.google.com/presentation/d/1vmnBUkGD9KjrN0U-7PyIJlEzPuao3yPLqAf4dmxiRnk/edit?usp=sharing)
+
+

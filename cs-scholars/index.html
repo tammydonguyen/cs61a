@@ -1,0 +1,18 @@
+---
+title: CS 61A Resources
+layout: default
+---
+
+<div id="welcome-greeting">
+  <h1>{{site.name}}</h1>
+</div>
+
+<div class="recent-posts">
+  <h1>CS Scholars Material</h1>
+  {% for post in site.categories['cs-scholars'] %}
+       <h4>
+          <a href="{{site.baseurl}}{{ post.url }}"> {{ post.title }} </a>
+      </h4>
+  {% endfor %}
+</div>
+

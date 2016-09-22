@@ -14,6 +14,3 @@ published: false
 
 # Concepts  
 
-1. What makes a tree recursively defined?  
-2. What does the `entry` selector return? What does the `children` selector return? Why is it wrong to do `entry(children(t))`, where `t` is a tree?  
-3. Why do we sometimes not need a base case for tree processing functions?  

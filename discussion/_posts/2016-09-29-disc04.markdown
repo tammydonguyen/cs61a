@@ -2,7 +2,6 @@
 layout: post
 title:  "Discussion 4"
 date:   2016-10-06 11:00:00
-published: false
 ---
 
 # Links  
@@ -14,9 +13,9 @@ published: false
 
 # Concepts  
 1. How do we measure the runtime performance of a function?  
-2. What are the orders of growth from slowest to fastest?
-3. What two things are we trying to separate with data abstraction?
-4. What does it mean to "violate the abstraction barrier"?
+2. What are the orders of growth from slowest to fastest?  
+3. What is the difference between lst.append(4) and lst = lst + [4]?   
+4. What does mutation allow us to do that assignment statements don't?
 
 ---
 

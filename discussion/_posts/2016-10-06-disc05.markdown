@@ -2,15 +2,89 @@
 layout: post
 title:  "Discussion 5"
 date:   2016-10-13 11:00:00
-published: false
 ---
 
 # Links  
 
 [Slides](https://docs.google.com/presentation/d/1I9OY5vRoDthyR-7RLU9ROR7vRIiDpnnOcIXyVuxh8Do/edit?usp=sharing)  
-[Attendance and Feedback](https://docs.google.com/forms/d/18D-l4VnZunCpnQuMga5OCF4dH-h8xo4sck5S-FOcb0s/viewform)
+[Attendance](https://docs.google.com/forms/d/18D-l4VnZunCpnQuMga5OCF4dH-h8xo4sck5S-FOcb0s/viewform)  
+[Midsemester Feedback](https://docs.google.com/forms/d/e/1FAIpQLSdRL8bBrzxUMm6Ig-58qpkbJmVreddO-gG527jGtEdEe3L5Eg/viewform)
 
 ---
 
 # Concepts  
+1. What is the difference between a local name and an instance attribute?  
+2. What are the lookup rules for dot notation?  
+3. What does a subclass inherit from its superclass?  
+4. What happens when a subclass has a method with the same signature as its superclass?
 
+---
+
+# Problems  
+
+## Question 1
+
+Try out the WWPD at the end of this [guide](/cs61a-resources/guides/oop.html).
+
+## Question 2  
+
+Take a look at the two classes below and figure out what Python would output. Try drawing out a diagram to keep track of changing attributes!
+{% highlight python %}
+class Random:
+    x = 0
+
+    def __init__(self, x, y):
+        Random.x = x
+        self.x = y
+
+    def foo(self):
+        return Random.x + self.x
+
+class Randomer(Random):
+    x = 3
+
+    def bar(self, y):
+        self.x = y
+        return self.foo()
+{% endhighlight %}
+
+{% highlight python %}
+>>> a = Random(2, 3)
+>>> b = Randomer(4, 5)
+>>> a.x
+
+>>> a.y
+
+>>> Random.x
+
+>>> b.bar(10)
+
+>>> b.x
+
+>>> Random.foo(a)
+
+>>> a.bar(1000000)
+
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-2">{% highlight python %}
+>>> lol = Random(2, 3)
+>>> wtf = Randomer(4, 5)
+>>> lol.x
+3
+>>> lol.y
+Error
+>>> Random.x
+4
+>>> wtf.bar(10)
+14
+>>> wtf.x
+10
+>>> Random.foo(lol)
+7
+>>> lol.bar(1000000)
+Error
+{% endhighlight %}
+</blockquote>

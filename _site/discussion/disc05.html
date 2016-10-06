@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Spring 2016 MT1 Walkthrough</title>
+<title>Discussion 5</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -248,14 +248,91 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Spring 2016 MT1 Walkthrough</div>
+  <div class="article-title">Discussion 5</div>
   <hr/>
   <div class="post">
-    <p>These slides are from a CS Scholars seminar in which I walked through 4 problems from the Spring 2016 MT1.</p>
+    <h1 id="links">Links</h1>
 
-<iframe src="https://docs.google.com/a/berkeley.edu/presentation/d/1koa6vZ5e4jSEXOSmCk2mr87V2v3BZtCUrfezwC_GIU0/embed?start=false&amp;loop=false&amp;delayms=60000" frameborder="0" width="100%" height="500px" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<p><a href="https://docs.google.com/presentation/d/1I9OY5vRoDthyR-7RLU9ROR7vRIiDpnnOcIXyVuxh8Do/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/18D-l4VnZunCpnQuMga5OCF4dH-h8xo4sck5S-FOcb0s/viewform">Attendance</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdRL8bBrzxUMm6Ig-58qpkbJmVreddO-gG527jGtEdEe3L5Eg/viewform">Midsemester Feedback</a></p>
 
-<p>Last updated: March 4, 2016</p>
+<hr />
+
+<h1 id="concepts">Concepts</h1>
+<ol>
+  <li>What is the difference between a local name and an instance attribute?</li>
+  <li>What are the lookup rules for dot notation?</li>
+  <li>What does a subclass inherit from its superclass?</li>
+  <li>What happens when a subclass has a method with the same signature as its superclass?</li>
+</ol>
+
+<hr />
+
+<h1 id="problems">Problems</h1>
+
+<h2 id="question-1">Question 1</h2>
+
+<p>Try out the WWPD at the end of this <a href="/cs61a-resources/guides/oop.html">guide</a>.</p>
+
+<h2 id="question-2">Question 2</h2>
+
+<p>Take a look at the two classes below and figure out what Python would output. Try drawing out a diagram to keep track of changing attributes!</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Random</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">Random</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Random</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">Randomer</span><span class="p">(</span><span class="n">Random</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">foo</span><span class="p">()</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Randomer</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">x</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Random</span><span class="o">.</span><span class="n">x</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">x</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Random</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span></code></pre></figure>
+
+<p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
+
+<blockquote class="solution-2">
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">lol</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wtf</span> <span class="o">=</span> <span class="n">Randomer</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lol</span><span class="o">.</span><span class="n">x</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lol</span><span class="o">.</span><span class="n">y</span>
+<span class="n">Error</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Random</span><span class="o">.</span><span class="n">x</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wtf</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="mi">14</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wtf</span><span class="o">.</span><span class="n">x</span>
+<span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Random</span><span class="o">.</span><span class="n">foo</span><span class="p">(</span><span class="n">lol</span><span class="p">)</span>
+<span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lol</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">Error</span></code></pre></figure>
+
+</blockquote>
 
   </div>
 </div>

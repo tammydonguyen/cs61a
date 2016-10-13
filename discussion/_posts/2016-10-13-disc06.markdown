@@ -1,97 +1,16 @@
 ---
 layout: post
 title:  "Discussion 6"
-date:   2016-10-27 11:00:00
-published: false
+date:   2016-10-13 11:00:00
 ---
 
 # Links
 
-[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1J1hLtxYBsU2RfZlWLWX_EQalyEdxRhm7ubef2dOrk5c/edit?usp=sharing)  
+[Slides](https://docs.google.com/presentation/d/1H7Y14IbNvUUkCKNImkJhRZWkePRAAMEByVja4axByps/edit?usp=sharing)  
 [Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLSe0n_STE7uSkDz0Rb4YjZEBnX3oLe-i5amzPvIx_2Ryc-MOZw/viewform)
-
----
-
-# Concepts
-1. What is the relationship between expressions and values?  
-2. What is the difference between a function, a function name, and a function call?  
-3. What is the purpose of an assignment statement? What are the 2 steps to evaluating assignment statements?   
-4. What is an environment diagram used for?  
-5. Higher order functions must have at least one of what two properties?  
-6. What is the difference between a `lambda` expression and a `def` statement? How is a `lambda` function any different that a function created with a `def` statement?  
-7. What are the three components of a recursive call?  
-8. T/F: When making a recursive call, you can assume that it will return the correct thing, regardless of how your function is written.  
-9. What makes a function tree recursive? Are these more efficient or less efficient to non-tree-recursive recursive functions?  
-10. What two things are we trying to separate with data abstraction? What does it mean to "violate the abstraction barrier"?  
-11. How is a linked list similar to a regalar Python list. How are they different?  
-12. Describe the tree ADT. What does the `children` selector return?
 
 ---
 
 # Problems
 
-## Question 1
-
-The following code is loaded into the Python interpreter. The midterm is not actually tonight, don't worry :)
-
-{% highlight python %}
-def mid(term):
-    def to(night):
-        if night[-1] == term:
-            return night
-        return lambda next: to(night + " " + next)
-    return to
-{% endhighlight %}
-
-What will the following lines output (executed in order in the same session)? Write `Error` if you think the code will error, `Function` if the expression evaluates to a function, and `Nothing` if you think nothing will be displayed.
-
-{% highlight python %}
->>> exclamation = mid("!")
-
->>> x = exclamation("The")("midterm")("is tonight")
-
->>> x("!")
-
->>> exclamation("Ugh!")("I’m gonna fail.")
-
->>> exclamation("How")("should I")("study?")
-
->>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
-
->>> f("ace")
-{% endhighlight %} 
-
-<a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a>
-
-<blockquote class="solution"><pre>>>> exclamation = mid("!")
-Nothing
->>> x = exclamation("The")("midterm")("is tonight")
-Nothing
->>> x("!")
-'The midterm is tonight!'
->>> exclamation("Ugh!")("I’m gonna fail.")# TypeError: 'str' object is not callable
-Error
->>> exclamation("How")("should I")("study?")
-Function
->>> f = lambda take: exclamation("I’m")("gonna")(take)("the")("midterm!")
-Nothing
->>> f("ace")
-'I’m gonna ace the midterm!'</pre>
-</blockquote>
-
----
-
-### Question 2  
-Fill in the blank to get the following output (you may have to add more parentheses).
-
-{% highlight python %}
->>> mid(________________________________)
-"I love 61A! It's the cooliest class ever."
-{% endhighlight %}
-
-<a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
-
-<blockquote class="solution-2">
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mid</span><span class="p">(</span><span class="s">"."</span><span class="p">)(</span><span class="s">"I love 61A! It's the cooliest class ever."</span><span class="p">)</span></code></pre></figure>
-
-</blockquote>
+Start practicing [past midterm exams](http://cs61a.org/articles/resources.html#past-exams)!

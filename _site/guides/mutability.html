@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Mutability and Nonlocal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tammy's 61A resources.">
+<link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="/cs61a-resources/css/hc.css" rel="stylesheet">
+<link href="/cs61a-resources/css/slidin.css" rel="stylesheet">
+<link href="/cs61a-resources/css/pygments/tango.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="cat3-toggle"><h5 class="toggle">Discussion Material</h5></li>
+        <div class="cat3">
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc06.html"> Discussion 6 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc05.html"> Discussion 5 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc04.html"> Discussion 4 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc03.html"> Discussion 3 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc02.html"> Discussion 2 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc01.html"> Discussion 1 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc00.html"> Discussion 0 </a>
+            </li>
+          
+        </div>
+
+        <li class="cat1-toggle"><h5 class="toggle">Guides</h5></li>
+        <div class="cat1">
+          
+            <li> 
+              <a href="/guides/mutability.html"> Mutability and Nonlocal </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/scheme.html"> Scheme </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/recursion.html"> Recursion </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/oop.html"> Object Oriented Programming </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/env-diag.html"> Environment Diagrams </a>
+            </li>
+          
+        </div>
+
+        <li class="cat2-toggle"><h5 class="toggle">Practice Problems</h5></li>
+        <div class="cat2">
+          
+            <li> 
+              <a href="/practice-problems/scheme.html"> Scheme </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/mt2.html"> Midterm 2 </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/mt1.html"> Midterm 1 </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/iter.html"> Iterables </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/final.html"> Final </a>
+            </li>
+          
+        </div>
+
+        <li class="cat4-toggle"><h5 class="toggle">Other</h5></li>
+        <div class="cat4">
+          
+            <li> 
+              <a href="/cs61a-resources/other/trees.html"> Summer 2016 Trees Guest Lecture </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/other/sp16-mt1.html"> Spring 2016 MT1 Walkthrough </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
+            </li>
+          
+        </div>
+        <li><a href="/cs61a-resources/about.html"><h5 class="toggle">About</h5></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/cs61a-resources/"><h1 class="brand">CS 61A</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+        <li class="cat3-toggle"><h4 class="toggle">Discussion Material</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc06.html"> Discussion 6 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc05.html"> Discussion 5 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc04.html"> Discussion 4 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc03.html"> Discussion 3 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc02.html"> Discussion 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc01.html"> Discussion 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc00.html"> Discussion 0 </a>
+        </li>
+      
+    </div>
+    <li class="cat1-toggle"><h4 class="toggle">Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/cs61a-resources/guides/mutability.html"> Mutability and Nonlocal </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4 class="toggle">Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/cs61a-resources/practice-problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/practice-problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/practice-problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/practice-problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/practice-problems/final.html"> Final </a>
+        </li>
+      
+    </div>
+
+    <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
+    <div class="cat4">
+      
+        <li> 
+          <a href="/cs61a-resources/other/trees.html"> Summer 2016 Trees Guest Lecture </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/other/sp16-mt1.html"> Spring 2016 MT1 Walkthrough </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/other/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/other/exams.html"> Course Advice </a>
+        </li>
+      
+    </div>
+    <li><a href="/cs61a-resources/about.html"><h4>About</h4></a></li>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Mutability and Nonlocal</div>
+  <hr/>
+  <div class="post">
+    <h1 id="intro">Intro</h1>
+<p>This is a brief guide meant to serve as an extension to our discussion about mutability and nonlocal. Before continuing, be sure to have a good understanding of the difference between expressions and values and what a name is.</p>
+
+<h1 id="names">Names</h1>
+<p>Let’s briefly review names. In Python, a name contains exactly one value. This value could be of any data type.</p>
+
+<p>The easiest way to make a name-value binding is with an assignment statement. Let’s assign <code>x</code> to the value 3:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="mi">3</span></code></pre></figure>
+
+<p>Assignment statements evaluate the right hand side of the <code>=</code> before assigning it to the name on the left. Here, <code>x</code> is also assigned to the value 3, since that’s what <code>1 + 2</code> evaluates to. We do <em>not</em> store the expression that was used in the assignment statement. Therefore, names have no knowledge of where their value came from.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> 
+<span class="mi">3</span></code></pre></figure>
+
+<p>We can change the value of a name by just overriding it with another assignment statement.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span></code></pre></figure>
+
+<p>First, we assign <code>x</code> to <code>3</code>. Then, we change its assignment to the value <code>5</code>. <code>x</code> does not know that it used to be assigned to <code>3</code>. It only knows its new value.</p>
+
+<h3 id="local-names">Local names</h3>
+<p>Names that exist in frames are <strong>local</strong> to that frame. You are allowed to change and access its value within the same frame. Functions that are defined in the frame can also access these names.</p>
+
+<p>Here, we define <code>bar</code> inside of <code>foo</code>, so when we call <code>foo</code>, it returns a <code>bar</code> function whose parent is f1. The <code>bar</code> frame will look for the name <code>x</code> in <code>foo</code>’s frame since it has no <code>x</code> defined in its own frame:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">bar</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()()</span>
+<span class="mi">4</span></code></pre></figure>
+
+<pre><code>===================
+| f1: foo [p = G] |
+-------------------
+|            x: 4 |
+===================
+
+===================
+| f2: bar [p = f1] |
+|------------------|
+|  return value: 4 |  
+===================
+</code></pre>
+
+<p>Frames can do lookup in their parent’s parent frame and so on all the way until the global frame</p>
+
+<p>However, lookup is different from assignment. With lookup, if we cannot find the name in the current frame, we can look in parent frames as described above. However, with assignment, we are restricted to either making or changing a name in we local scope. In other words, if we cannot find the name in the current frame, we simple add a new binding to that frame.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>         <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">bar</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()()</span>
+<span class="mi">5</span></code></pre></figure>
+
+<p>Here, we assign <code>5</code> to <code>x</code> in <code>bar</code>’s frame which creates a new name in f2 instead of changing <code>x</code> from f1. The <code>x</code> in f1 still exists, but lookup for <code>x</code> in f2 will find <code>5</code> instead of <code>4</code>.</p>
+
+<pre><code>===================
+| f1: foo [p = G] |
+-------------------
+|            x: 4 |
+===================
+
+====================
+| f2: bar [p = f1] |
+--------------------
+|             x: 5 |
+|  return value: 5 |
+====================
+</code></pre>
+
+<p>This makes for some funky behavior if you’re not careful:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">bar</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()()</span>
+<span class="ne">UnboundLocalError</span></code></pre></figure>
+
+<p>Here, our intention might be to grab the value <code>4</code> from f1, add 1 to it, then store it in a new name <code>x</code> in f2. However, we end up getting an error because Python either sees a name as nonlocal or local, but not both. Specifically, when it sees the <code>x</code> on the left hand side of the assignment statement, it notes that <code>x</code> must be a local name, since we can’t change bindings that aren’t local. However, when it gets the right hand side of the assignment statement and tries to lookup the name <code>x</code> locally, it fails. That is why we get the <code>UnboundLocalError</code>; it sees no local binding for <code>x</code>.</p>
+
+<h1 id="nonlocal">Nonlocal</h1>
+<p>Now we introduce the <strong>nonlocal</strong> statement, which allows you to change an assignment in a parent or ancestor frame.</p>
+
+<p>The following code will change <code>x</code>’s assignment in <code>foo</code>’s frame to 5 instead of creating a new name <code>x</code> in f2. This is because we tell Python explicitly that any references to <code>x</code> in this frame will be nonlocal, i.e. outside the scope of this frame.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>     	<span class="n">nonlocal</span> <span class="n">x</span>
+<span class="o">...</span>         <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="o">...</span>         <span class="k">return</span> <span class="n">x</span>
+<span class="o">...</span>     <span class="k">return</span> <span class="n">bar</span>
+
+<span class="n">foo</span><span class="p">()()</span></code></pre></figure>
+
+<pre><code>===================
+| f1: foo [p = G] |
+-------------------
+|            x: 5 |
+===================
+
+====================
+| f2: bar [p = f1] |
+--------------------
+|  return value: 5 |
+====================
+</code></pre>
+
+<p>As with regular name lookup, <code>nonlocal</code> lookup can continue in parents’ parent frames. There are two major caveats, however:</p>
+
+<ol>
+  <li>You cannot use the <code>nonlocal</code> keyword to change global bindings. You must use the <code>global</code> keyword for this.</li>
+  <li>You cannot use <code>nonlocal</code> to override bindings in the current frame.</li>
+</ol>
+
+<h1 id="mutability">Mutability</h1>
+<p><strong>Mutability</strong> refers to an object’s ability to change its state after being created. For example, after you create a list, you are able to add things to it or remove things from it.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span></code></pre></figure>
+
+<p>Notice that <code>b</code>’s value changes too, because we change <code>a</code>’s value, which <code>b</code> also points to. Here, we’ve used the list method <code>append</code>. There are several more list mutation methods that you should know, including <code>extend</code>, <code>pop</code>, <code>insert</code>, and <code>remove</code>. Note that although their effects are different, they all mutate the actual list and return <code>None</code> (with the exception of <code>pop</code>).</p>
+
+<h1 id="mutation-vs-changing-bindings">Mutation vs. Changing Bindings</h1>
+<p>It is important to recognize whether code is simply changing the assignment of a name from one value to another value, or is actually mutating the existing value to a different state.</p>
+
+<p>Changing an assignment of a variable requires using an assignment statement to get the variable to point to a new value. This <strong>does not</strong> change, or <em>mutate</em>, any existing values.</p>
+
+<p>Mutating a value actually changes an existing value, without affecting any bindings.</p>
+
+<p>You can achieve similar but not the exact same effects with both techniques.</p>
+
+<p>For example, let’s say I want to define a function <code>bar</code> such that the following output is produced:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>         <span class="c"># fill this in</span>
+<span class="o">...</span>     <span class="n">bar</span><span class="p">()</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span></code></pre></figure>
+
+<p>I don’t care how it’s done or whether or not new values are created, but the end result should be that <code>a</code> in frame 1 evaluates to <code>[1, 2, 3, 4, 5]</code>.</p>
+
+<p>Here’s one way:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="n">nonlocal</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span></code></pre></figure>
+
+<p>Here, we use a nonlocal statement to tell Python to look for a in parent frames only. Then we assign a to a new list containing <code>[1, 2, 3, 4, 5]</code>. Why do I need to use nonlocal? Because I’m changing a variable that isn’t in my current frame. If you were to draw this out, and I encourage that you do, you duplicate the list <code>[1, 2, 3, 4]</code>, add a 5 to the end to make <code>[1, 2, 3, 4, 5]</code>, erase a’s pointer to the object <code>[1, 2, 3, 4]</code> and point it to the new list. Doing <code>a = [1, 2, 3, 4, 5]</code> has the same effect.</p>
+
+<p>Can we do this without nonlocal? That is, can we achieve this effect without changing a’s assignment, but instead by changing the actual list? That’s where mutation comes in. Here’s an example using the methods append, extend, and insert.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<p>Here, we don’t touch a’s assignment. We simply add 5 after 4 to the list object. The list is mutated, or changed, from its original state, but it still has the same object ID as before. Because we don’t change what a references, we don’t need a nonlocal statement. If we draw this out, no new objects are created and no pointers are changed/erased.</p>
+
+<p>As a final example of Python’s quirkiness, take a look at this example:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+    <span class="n">nonlocal</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="c"># equivalent to a.extend([5])</span></code></pre></figure>
+
+<p>In this code, <code>+=</code> behaves much like <code>extend</code> instead of <code>a = a + [5]</code> as expected and actually mutates <code>a</code>. However, Python still sees the <code>=</code> as an assignment statement and requires the <code>nonlocal</code> statement. It is <strong>not</strong> recommended to do this as we are combining the use of <code>nonlocal</code> and mutation. Instead, use the previous example if you want to make a new list, or the following examples if you want to mutate.</p>
+
+<h1 id="summary">Summary</h1>
+<p>The takeaway is that you need a <code>nonlocal</code> statement in order to use a nonlocal name on the left hand side of an assignment statement. You do not need <code>nonlocal</code> if you are simply mutating the value in a nonlocal frame. Take a look at all of these functions drawn out and take note of the objects being created and pointers being changed.</p>
+
+<p>I recommend that you run the following block of code in Python tutor, replacing the <code>bar</code> function with the various examples above and some of your own attempts.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="o">...</span>     <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="o">...</span>     <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="o">...</span>     <span class="k">def</span> <span class="nf">bar</span><span class="p">():</span>
+<span class="o">...</span>         <span class="c"># fill this in</span>
+<span class="o">...</span>     <span class="n">bar</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">()</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span></code></pre></figure>
+
+<p>Notice that we make an additional reference to the initial list here. Make sure you understand when <code>b</code> will change along with <code>a</code> (because of mutation) and when it still remains <code>[1, 2, 3, 4]</code>.</p>
+
+  </div>
+</div>
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2016 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/cs61a-resources/js/jquery-1.10.2.min.js"></script>
+<script src="/cs61a-resources/js/bootstrap.min.js"></script>
+<script src="/cs61a-resources/js/hc.js"></script>
+<script src="/cs61a-resources/js/slidin.js"></script>
+
+  </body>
+</html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70344118-2', 'auto');
+  ga('send', 'pageview');
+
+</script>

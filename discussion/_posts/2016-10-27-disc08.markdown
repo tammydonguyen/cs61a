@@ -1,92 +1,141 @@
 ---
 layout: post
-title:  "Discussion 8"
-date:   2016-11-03 11:00:00
-published: false
+title:  "Discussion 7"
+date:   2016-10-27 11:00:00
 ---
 
 # Links
 
-[Slides](https://docs.google.com/presentation/d/1qBEh2tABg6raGjb1ScWw3BMdaG6J7SsIXMHPHv5CIpA/edit?usp=sharing)  
+[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1JkXtvHwL3pt6h0fIKcq8gf7m-cG_cG7dVudPup_OvS0/edit?usp=sharing)  
 [Attendance and feedback](https://docs.google.com/forms/d/e/1FAIpQLSceJGA5gcgaUSMQAUpYukLjnFZWM9zvONRBG8h08sJfdq-pwA/viewform)  
+[Command line Scheme interpreter](http://cs61a.org/assets/interpreter/scheme)   
+[In-browser Scheme interpreter](http://scheme.cs61a.org)  
+[Scheme Specification](http://cs61a.org/articles/scheme-spec.html)  
+[Scheme Primitives Guide](http://cs61a.org/articles/scheme-primitives.html)
 
 ---
 
 # Concepts  
-1. What is the relationship between a class and an instance?
-2. What is the difference between an instance attribute and a class attribute?
-3. What is the difference between a class method and a local function?
-4. What happens if you try to change a class attribute while accessing it from an instance?
-5. When you call a method using dot notation on an instance, what parameter can you omit? When you call a method using dot notation on a class, can you omit this same parameter?
-6. A subclass inherits what from its superclass?
+1. What is the difference between a call expression and a special form?
+2. How many items can a pair hold? How many items can a list hold?
 
 ---
 
-# Problems  
+# Problems
 
-## Question 1
+## Lists 
 
-Try out the WWPD at the end of this [guide](/cs61a-resources/guides/oop.html).
+### Question 1
+Draw the box and pointer diagrams for the following Scheme lists. How does each get output in the Scheme interpreter?
 
-## Question 2  
+{% highlight scheme %}
+scm> (cons (cons 1 2) (cons 3 4))
 
-Take a look at the two classes below and figure out what Python would output. Try drawing out a diagram to keep track of changing attributes!
-{% highlight python %}
-class Random:
-    x = 0
+scm> (cons (list 'a 2) nil)
 
-    def __init__(self, x, y):
-        Random.x = x
-        self.x = y
+scm> (cons '(a b) '(b c))
 
-    def foo(self):
-        return Random.x + self.x
+scm> (list (cons 2 (cons 5 8)) 3 (list 4))
 
-class Randomer(Random):
-    x = 3
-
-    def bar(self, y):
-        self.x = y
-        return self.foo()
-{% endhighlight %}
-
-{% highlight python %}
->>> lol = Random(2, 3)
->>> wtf = Randomer(4, 5)
->>> lol.x
-
->>> lol.y
-
->>> Random.x
-
->>> wtf.bar(10)
-
->>> wtf.x
-
->>> Random.foo(lol)
-
->>> lol.bar(1000000)
+scm>(cons 1 (cons 3 '(list 4 5 9)))
 
 {% endhighlight %}
 
 <a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a>
 
-<blockquote class="solution-2">{% highlight python %}
->>> lol = Random(2, 3)
->>> wtf = Randomer(4, 5)
->>> lol.x
-3
->>> lol.y
-Error
->>> Random.x
-4
->>> wtf.bar(10)
-14
->>> wtf.x
-10
->>> Random.foo(lol)
-7
->>> lol.bar(1000000)
-Error
+<blockquote class="solution-2">{% highlight scheme %}
+scm> (cons (cons 1 2) (cons 3 4))
+((1 . 2) 3 . 4)
+scm> (cons (list 'a 2) nil)
+((a 2))
+scm> (cons '(a b) '(b c))
+((a b) b c)
+scm> (list (cons 2 (cons 5 8)) 3 (list 4))
+((2 5 . 8) 3 (4))
+scm>(cons 1 (cons 3 '(list 4 5 9)))
+(1 3 list 4 5 9)
 {% endhighlight %}
 </blockquote>
+
+### Question 2
+Define `count` so that it returns the number of times `x` appears in `lst`, a well-formed list.
+
+{% highlight scheme %}
+(define (count lst x)
+    ; your code here
+)
+{% endhighlight %}
+
+<a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a>
+
+<blockquote class="solution-3">{% highlight scheme %}
+(define (count lst x)
+    (cond ((null? lst) 0)
+          ((= x (car lst)) (+ 1 (count (cdr lst) x)))
+          (else (count (cdr lst) x))
+      )
+  )
+{% endhighlight %}
+</blockquote>
+
+## Streams 
+
+### Question 1: WWSD?
+
+{% highlight scheme %}
+scm> (define a (cons-stream (+ 1 2) (lambda () (cons-stream 6 nil))))
+s
+scm> (define b (cons-stream (+ 1 2) (cons-stream 6 nil)))
+scm> a
+
+scm> b
+
+scm> (cdr-stream a)
+
+scm> (cdr-stream b)
+
+scm> ((cdr-stream a))
+
+{% endhighlight %}
+
+Between `a` and `b`, which is a well-formed stream? Why?
+
+
+### Question 2: Filter List to Stream
+Given a list `lst`, turn it into a stream that contains only the elements in `lst` that satisfy the filter function `f`.
+
+{% highlight scheme %}
+scm> (define evens (lst-to-stream-filter '(1 2 3 4 5 6) even?))
+evens
+scm> (car evens)
+2
+scm> (cdr-stream evens)
+(4 . #[promised(not forced)])
+{% endhighlight %}
+
+{% highlight scheme %}
+(define (lst-to-stream-filter lst f)
+    'YOUR-CODE-HERE
+)
+{% endhighlight %}
+  
+
+### Question 3: Repeated Naturals
+Implement the 0 argument procedure `repeated-naturals` that returns an infinite stream similar to natural numbers, except that each element is repeated as many times as its value. In other words, create the stream version of this sequence: `(1 2 2 3 3 3 4 4 4 4 ...)`
+
+You might want to create a helper function that takes in two parameters, one that keeps track of the current number you're on, and another that keeps track of how many times you've added the current number.
+
+{% highlight scheme %}
+(define (repeated-naturals)
+    'YOUR-CODE-HERE
+)
+{% endhighlight %}
+
+Feel free to use the following function that turns the first n elements of a stream into a list to debug:
+
+{% highlight scheme %}
+(define (stream-to-list s n)
+    (if (or (null? s) (= n 0)) nil
+        (cons (car s) (stream-to-list (cdr-stream s) (- n 1)))
+))
+{% endhighlight %}

@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Discussion 08"
+title:  "Discussion 8"
 date:   2016-11-03 11:00:00
 ---
 
 # Links
 
 [Slides](https://docs.google.com/presentation/d/1EvIBXCCXNqHtvYxb-75pgG3ruqsq694IPUT-DyxHaHo/edit?usp=sharing)  
-[Attendance and Feedback](https://docs.google.com/forms/d/e/1FAIpQLSeYmt2n87zBIj8xHmBEEvmilIbRwLwTUOEV0oEJnsal7JAaNQ/viewform)  
+[Attendance and Feedback](https://docs.google.com/forms/d/e/1FAIpQLSfzKBBtujEoYi0KkSYjpk92Agbk4dNjz5P10qY__hthAHZHSg/viewform)  
 [Scheme Interpreter](http://cs61a.org/assets/interpreter/scheme)
 
 ---

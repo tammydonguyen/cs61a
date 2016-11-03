@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Discussion 7</title>
+<title>Discussion 08</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +34,14 @@
       <ul class="nav navbar-nav">
         <li class="cat3-toggle"><h5 class="toggle">Discussion Material</h5></li>
         <div class="cat3">
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc09.html"> Discussion 08 </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a-resources/discussion/disc08.html"> Discussion 08 </a>
+            </li>
           
             <li> 
               <a href="/cs61a-resources/discussion/disc08.html"> Discussion 7 </a>
@@ -160,6 +168,14 @@
     <div class="cat3">
       
         <li> 
+          <a href="/cs61a-resources/discussion/disc09.html"> Discussion 08 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a-resources/discussion/disc08.html"> Discussion 08 </a>
+        </li>
+      
+        <li> 
           <a href="/cs61a-resources/discussion/disc08.html"> Discussion 7 </a>
         </li>
       
@@ -272,129 +288,45 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Discussion 7</div>
+  <div class="article-title">Discussion 08</div>
   <hr/>
   <div class="post">
     <h1 id="links">Links</h1>
 
-<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1JkXtvHwL3pt6h0fIKcq8gf7m-cG_cG7dVudPup_OvS0/edit?usp=sharing">Slides</a><br />
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSceJGA5gcgaUSMQAUpYukLjnFZWM9zvONRBG8h08sJfdq-pwA/viewform">Attendance and feedback</a><br />
-<a href="http://cs61a.org/assets/interpreter/scheme">Command line Scheme interpreter</a> <br />
-<a href="http://scheme.cs61a.org">In-browser Scheme interpreter</a><br />
-<a href="http://cs61a.org/articles/scheme-spec.html">Scheme Specification</a><br />
-<a href="http://cs61a.org/articles/scheme-primitives.html">Scheme Primitives Guide</a></p>
+<p><a href="https://docs.google.com/presentation/d/1EvIBXCCXNqHtvYxb-75pgG3ruqsq694IPUT-DyxHaHo/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfzKBBtujEoYi0KkSYjpk92Agbk4dNjz5P10qY__hthAHZHSg/viewform">Attendance and Feedback</a><br />
+<a href="http://cs61a.org/assets/interpreter/scheme">Scheme Interpreter</a></p>
 
 <hr />
 
 <h1 id="concepts">Concepts</h1>
 <ol>
-  <li>What is the difference between a call expression and a special form?</li>
-  <li>How many items can a pair hold? How many items can a list hold?</li>
+  <li>When are <code>eval</code> and <code>apply</code> mutually recursive?</li>
+  <li>Why do special forms have to be handled separately from regular call expressions?</li>
+  <li>What makes tail recursion more desirable than regular recursion in Scheme, but not in Python?</li>
 </ol>
 
 <hr />
 
 <h1 id="problems">Problems</h1>
 
-<h2 id="lists">Lists</h2>
+<h2 id="question-1">Question 1</h2>
+<p>Consider today’s <code>Calculator</code> interpreter. How many calls to <code>calc_eval</code> and <code>calc_apply</code> are there for the following two pieces of code?</p>
 
-<h3 id="question-1">Question 1</h3>
-<p>Draw the box and pointer diagrams for the following Scheme lists. How does each get output in the Scheme interpreter?</p>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="nb">+ </span><span class="p">(</span><span class="nb">- </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nb">* </span><span class="mi">2</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">))</span> <span class="mi">4</span><span class="p">)</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+<blockquote class="solution">
+Each time we get to a function call, we count 1 eval for the entire expression, 1 eval for its operator, and 1 eval for each of its operands. For example, <code>(- 1 2 3)</code> takes (1 call for the entire expression) + (1 call for the operand -) + (3 calls for the operands) = 5 calls to eval. After evaluating the last operand, in this case the primitive expression 3, we do one apply. Since these arithmetic functions are primitive, there are no eval calls made in the process of applying. If we recursively apply this technique, we end up with 15 calls to eval and 4 calls to apply.
+</blockquote>
 
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="mi">2</span><span class="p">)</span> <span class="nv">nil</span><span class="p">)</span>
-
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
-
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">5</span> <span class="mi">8</span><span class="p">))</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">4</span><span class="p">))</span>
-
-<span class="nv">scm&gt;</span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">list</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">9</span><span class="p">)))</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="nv">foo</span> <span class="p">(</span><span class="k">lambda </span><span class="p">(</span><span class="nf">x</span><span class="p">)</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">7</span> <span class="p">(</span><span class="nb">* </span><span class="nv">x</span> <span class="mi">2</span><span class="p">))))</span>
+<span class="p">(</span><span class="nb">- </span><span class="mi">4</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">(</span><span class="nf">foo</span> <span class="p">(</span><span class="nb">* </span><span class="mi">3</span> <span class="mi">2</span><span class="p">)))</span></code></pre></figure>
 
 <p><a class="btn btn-default solution-toggle-2">TOGGLE SOLUTION</a></p>
-
 <blockquote class="solution-2">
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="mi">4</span><span class="p">))</span>
-<span class="p">((</span><span class="mi">1</span> <span class="o">.</span> <span class="mi">2</span><span class="p">)</span> <span class="mi">3</span> <span class="o">.</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">list </span><span class="ss">&#39;a</span> <span class="mi">2</span><span class="p">)</span> <span class="nv">nil</span><span class="p">)</span>
-<span class="p">((</span><span class="nf">a</span> <span class="mi">2</span><span class="p">))</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">b</span> <span class="nv">c</span><span class="p">))</span>
-<span class="p">((</span><span class="nf">a</span> <span class="nv">b</span><span class="p">)</span> <span class="nv">b</span> <span class="nv">c</span><span class="p">)</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">5</span> <span class="mi">8</span><span class="p">))</span> <span class="mi">3</span> <span class="p">(</span><span class="nb">list </span><span class="mi">4</span><span class="p">))</span>
-<span class="p">((</span><span class="mi">2</span> <span class="mi">5</span> <span class="o">.</span> <span class="mi">8</span><span class="p">)</span> <span class="mi">3</span> <span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="nv">scm&gt;</span><span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">list</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">9</span><span class="p">)))</span>
-<span class="p">(</span><span class="mi">1</span> <span class="mi">3</span> <span class="nv">list</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">9</span><span class="p">)</span></code></pre></figure>
-
+First, we define the function foo. We <code>calc_eval</code> the line, and fine that define is a special form. The define special form requires just evaluating the 2nd operand. Evaluating a lambda expression doesn't involve any calls to eval or apply. Thus, the first line takes two calls to <code>calc_eval</code>, one for the define expression and another to evaluate the lambda expression. Then, we follow the same technique as above, except this time we encounter a user-defined function foo. In this case, in order to apply foo, we have to make calls to eval. Specifically, applying foo means evaluating the expression (+ 7 (* x 2)), which itself takes 7 calls to eval and 2 to apply. This makes for a total of 22 calls to eval and 6 calls to apply.
 </blockquote>
-
-<h3 id="question-2">Question 2</h3>
-<p>Define <code>count</code> so that it returns the number of times <code>x</code> appears in <code>lst</code>, a well-formed list.</p>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
-    <span class="c1">; your code here</span>
-<span class="p">)</span></code></pre></figure>
-
-<p><a class="btn btn-default solution-toggle-3">TOGGLE SOLUTION</a></p>
-
-<blockquote class="solution-3">
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">count</span> <span class="nv">lst</span> <span class="nv">x</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">cond </span><span class="p">((</span><span class="nb">null? </span><span class="nv">lst</span><span class="p">)</span> <span class="mi">0</span><span class="p">)</span>
-          <span class="p">((</span><span class="nb">= </span><span class="nv">x</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">))</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span> <span class="nv">x</span><span class="p">)))</span>
-          <span class="p">(</span><span class="k">else </span><span class="p">(</span><span class="nf">count</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span> <span class="nv">x</span><span class="p">))</span>
-      <span class="p">)</span>
-  <span class="p">)</span></code></pre></figure>
-
-</blockquote>
-
-<h2 id="streams">Streams</h2>
-
-<h3 id="question-1-wwsd">Question 1: WWSD?</h3>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">a</span> <span class="p">(</span><span class="nf">cons-stream</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="k">lambda </span><span class="p">()</span> <span class="p">(</span><span class="nf">cons-stream</span> <span class="mi">6</span> <span class="nv">nil</span><span class="p">))))</span>
-<span class="nv">s</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">b</span> <span class="p">(</span><span class="nf">cons-stream</span> <span class="p">(</span><span class="nb">+ </span><span class="mi">1</span> <span class="mi">2</span><span class="p">)</span> <span class="p">(</span><span class="nf">cons-stream</span> <span class="mi">6</span> <span class="nv">nil</span><span class="p">)))</span>
-<span class="nv">scm&gt;</span> <span class="nv">a</span>
-
-<span class="nv">scm&gt;</span> <span class="nv">b</span>
-
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cdr-stream</span> <span class="nv">a</span><span class="p">)</span>
-
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cdr-stream</span> <span class="nv">b</span><span class="p">)</span>
-
-<span class="nv">scm&gt;</span> <span class="p">((</span><span class="nf">cdr-stream</span> <span class="nv">a</span><span class="p">))</span></code></pre></figure>
-
-<p>Between <code>a</code> and <code>b</code>, which is a well-formed stream? Why?</p>
-
-<h3 id="question-2-filter-list-to-stream">Question 2: Filter List to Stream</h3>
-<p>Given a list <code>lst</code>, turn it into a stream that contains only the elements in <code>lst</code> that satisfy the filter function <code>f</code>.</p>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">evens</span> <span class="p">(</span><span class="nf">lst-to-stream-filter</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">)</span> <span class="nv">even?</span><span class="p">))</span>
-<span class="nv">evens</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car </span><span class="nv">evens</span><span class="p">)</span>
-<span class="mi">2</span>
-<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nf">cdr-stream</span> <span class="nv">evens</span><span class="p">)</span>
-<span class="p">(</span><span class="mi">4</span> <span class="o">.</span> <span class="o">#</span><span class="p">[</span><span class="nv">promised</span><span class="p">(</span><span class="nb">not </span><span class="nv">forced</span><span class="p">)])</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">lst-to-stream-filter</span> <span class="nv">lst</span> <span class="nv">f</span><span class="p">)</span>
-    <span class="ss">&#39;YOUR-CODE-HERE</span>
-<span class="p">)</span></code></pre></figure>
-
-<h3 id="question-3-repeated-naturals">Question 3: Repeated Naturals</h3>
-<p>Implement the 0 argument procedure <code>repeated-naturals</code> that returns an infinite stream similar to natural numbers, except that each element is repeated as many times as its value. In other words, create the stream version of this sequence: <code>(1 2 2 3 3 3 4 4 4 4 ...)</code></p>
-
-<p>You might want to create a helper function that takes in two parameters, one that keeps track of the current number you’re on, and another that keeps track of how many times you’ve added the current number.</p>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">repeated-naturals</span><span class="p">)</span>
-    <span class="ss">&#39;YOUR-CODE-HERE</span>
-<span class="p">)</span></code></pre></figure>
-
-<p>Feel free to use the following function that turns the first n elements of a stream into a list to debug:</p>
-
-<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="p">(</span><span class="k">define </span><span class="p">(</span><span class="nf">stream-to-list</span> <span class="nv">s</span> <span class="nv">n</span><span class="p">)</span>
-    <span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="k">or </span><span class="p">(</span><span class="nb">null? </span><span class="nv">s</span><span class="p">)</span> <span class="p">(</span><span class="nb">= </span><span class="nv">n</span> <span class="mi">0</span><span class="p">))</span> <span class="nv">nil</span>
-        <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">car </span><span class="nv">s</span><span class="p">)</span> <span class="p">(</span><span class="nf">stream-to-list</span> <span class="p">(</span><span class="nf">cdr-stream</span> <span class="nv">s</span><span class="p">)</span> <span class="p">(</span><span class="nb">- </span><span class="nv">n</span> <span class="mi">1</span><span class="p">)))</span>
-<span class="p">))</span></code></pre></figure>
-
 
   </div>
 </div>

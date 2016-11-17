@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>Discussion 6</title>
+<title>Discussion 10</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Tammy's 61A resources.">
 <link href="/cs61a-resources/css/bootstrap.min.css" rel="stylesheet">
@@ -296,19 +296,36 @@
 
       <div class="container">
         <div id="article">
-  <div class="article-title">Discussion 6</div>
+  <div class="article-title">Discussion 10</div>
   <hr/>
   <div class="post">
     <h1 id="links">Links</h1>
 
-<p><a href="https://docs.google.com/presentation/d/1H7Y14IbNvUUkCKNImkJhRZWkePRAAMEByVja4axByps/edit?usp=sharing">Slides</a><br />
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSe0n_STE7uSkDz0Rb4YjZEBnX3oLe-i5amzPvIx_2Ryc-MOZw/viewform">Attendance and feedback</a></p>
+<p><a href="https://docs.google.com/a/berkeley.edu/presentation/d/1l63AX92VqGCbNvvF6Sxtc33nWhbZh86Yhc9kDXtvgvo/edit?usp=sharing">Slides</a><br />
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeGeC6HKT7t1bmts1BTV2UOWzPOHHIDV4N-PD7KjCvXmMAGZw/viewform">Attendance and Feedback</a></p>
 
 <hr />
 
-<h1 id="problems">Problems</h1>
+<p>Here are the tables on today’s discussions sheet. Feel free to copy them to a file and run queries in your own terminal!</p>
 
-<p>Start practicing <a href="http://cs61a.org/articles/resources.html#past-exams">past midterm exams</a>!</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">records</span> <span class="k">AS</span> 
+  <span class="k">SELECT</span> <span class="ss">&quot;Ben Bitdiddle&quot;</span> <span class="k">AS</span> <span class="n">name</span><span class="p">,</span> <span class="ss">&quot;Computer&quot;</span> <span class="k">AS</span> <span class="n">division</span><span class="p">,</span> <span class="ss">&quot;Wizard&quot;</span> <span class="k">AS</span> <span class="n">title</span><span class="p">,</span> <span class="mi">60000</span> <span class="k">AS</span> <span class="n">salary</span><span class="p">,</span> <span class="ss">&quot;Oliver Warbucks&quot;</span> <span class="k">AS</span> <span class="n">supervisor</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Alyssa P Hacker&quot;</span><span class="p">,</span> <span class="ss">&quot;Computer&quot;</span><span class="p">,</span> <span class="ss">&quot;Programmer&quot;</span><span class="p">,</span> <span class="mi">40000</span><span class="p">,</span> <span class="ss">&quot;Ben Bitdiddle&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Cy D Fect&quot;</span><span class="p">,</span> <span class="ss">&quot;Computer&quot;</span><span class="p">,</span> <span class="ss">&quot;Programmer&quot;</span><span class="p">,</span> <span class="mi">35000</span><span class="p">,</span> <span class="ss">&quot;Ben Bitdiddle&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Lem E Tweakit&quot;</span><span class="p">,</span> <span class="ss">&quot;Computer&quot;</span><span class="p">,</span> <span class="ss">&quot;Technician&quot;</span><span class="p">,</span> <span class="mi">25000</span><span class="p">,</span> <span class="ss">&quot;Ben Bitdiddle&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Louis Reasoner&quot;</span><span class="p">,</span> <span class="ss">&quot;Computer&quot;</span><span class="p">,</span> <span class="ss">&quot;Programmer Trainee&quot;</span><span class="p">,</span> <span class="mi">30000</span><span class="p">,</span> <span class="ss">&quot;Alyssa P Hacker&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Oliver Warbucks&quot;</span><span class="p">,</span> <span class="ss">&quot;Administration&quot;</span><span class="p">,</span> <span class="ss">&quot;Big Wheel&quot;</span><span class="p">,</span> <span class="mi">150000</span><span class="p">,</span> <span class="ss">&quot;Oliver Warbucks&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;DeWitt Aull&quot;</span><span class="p">,</span> <span class="ss">&quot;Administration&quot;</span><span class="p">,</span> <span class="ss">&quot;Secretary&quot;</span><span class="p">,</span> <span class="mi">25000</span><span class="p">,</span> <span class="ss">&quot;Oliver Warbucks&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Eben Scrooge&quot;</span><span class="p">,</span> <span class="ss">&quot;Accounting&quot;</span><span class="p">,</span> <span class="ss">&quot;Chief Accountant&quot;</span><span class="p">,</span> <span class="mi">75000</span><span class="p">,</span> <span class="ss">&quot;Oliver Warbucks&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Robert Cratchet&quot;</span><span class="p">,</span> <span class="ss">&quot;Accounting&quot;</span><span class="p">,</span> <span class="ss">&quot;Scrivener&quot;</span><span class="p">,</span> <span class="mi">18000</span><span class="p">,</span> <span class="ss">&quot;Eben Scrooge&quot;</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">meetings</span> <span class="k">AS</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Accounting&quot;</span> <span class="k">AS</span> <span class="n">division</span><span class="p">,</span> <span class="ss">&quot;Monday&quot;</span> <span class="k">AS</span> <span class="k">day</span><span class="p">,</span> <span class="ss">&quot;9am&quot;</span> <span class="k">AS</span> <span class="n">time</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Computer&quot;</span><span class="p">,</span> <span class="ss">&quot;Wednesday&quot;</span><span class="p">,</span> <span class="ss">&quot;4pm&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Administration&quot;</span><span class="p">,</span> <span class="ss">&quot;Monday&quot;</span><span class="p">,</span> <span class="ss">&quot;11am&quot;</span> <span class="k">UNION</span>
+  <span class="k">SELECT</span> <span class="ss">&quot;Administration&quot;</span><span class="p">,</span> <span class="ss">&quot;Thursday&quot;</span><span class="p">,</span> <span class="ss">&quot;1pm&quot;</span><span class="p">;</span>
+ </code></pre></figure>
+
 
   </div>
 </div>

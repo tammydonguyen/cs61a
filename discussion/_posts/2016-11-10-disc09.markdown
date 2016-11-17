@@ -1,0 +1,81 @@
+---
+layout: post
+title:  "Discussion 9"
+date:   2016-11-10 11:00:00
+---
+
+# Links
+
+[Slides](https://docs.google.com/a/berkeley.edu/presentation/d/1feU6UHeMlbZ0p_HIPe1tBMqEsuLID1yIt3bPuCpneOo/edit?usp=sharing)  
+
+---
+
+# Concepts  
+1. How is are calls to `cons-stream` different from calls to `cons`?
+2. You make a stream and you call `cdr-stream` on it. What happens when you call `cdr-stream` again?
+
+---
+
+# Problems
+
+## Streams 
+
+### Question 1: WWSD?
+
+{% highlight scheme %}
+scm> (define a (cons-stream (+ 1 2) (lambda () (cons-stream 6 nil))))
+s
+scm> (define b (cons-stream (+ 1 2) (cons-stream 6 nil)))
+scm> a
+
+scm> b
+
+scm> (cdr-stream a)
+
+scm> (cdr-stream b)
+
+scm> ((cdr-stream a))
+
+{% endhighlight %}
+
+Between `a` and `b`, which is a well-formed stream? Why?
+
+
+### Question 2: Filter List to Stream
+Given a list `lst`, turn it into a stream that contains only the elements in `lst` that satisfy the filter function `f`.
+
+{% highlight scheme %}
+scm> (define evens (lst-to-stream-filter '(1 2 3 4 5 6) even?))
+evens
+scm> (car evens)
+2
+scm> (cdr-stream evens)
+(4 . #[promised(not forced)])
+{% endhighlight %}
+
+{% highlight scheme %}
+(define (lst-to-stream-filter lst f)
+    'YOUR-CODE-HERE
+)
+{% endhighlight %}
+  
+
+### Question 3: Repeated Naturals
+Implement the 0 argument procedure `repeated-naturals` that returns an infinite stream similar to natural numbers, except that each element is repeated as many times as its value. In other words, create the stream version of this sequence: `(1 2 2 3 3 3 4 4 4 4 ...)`
+
+You might want to create a helper function that takes in two parameters, one that keeps track of the current number you're on, and another that keeps track of how many times you've added the current number.
+
+{% highlight scheme %}
+(define (repeated-naturals)
+    'YOUR-CODE-HERE
+)
+{% endhighlight %}
+
+Feel free to use the following function that turns the first n elements of a stream into a list to debug:
+
+{% highlight scheme %}
+(define (stream-to-list s n)
+    (if (or (null? s) (= n 0)) nil
+        (cons (car s) (stream-to-list (cdr-stream s) (- n 1)))
+))
+{% endhighlight %}

@@ -86,7 +86,7 @@ A function is then **tail recursive** if the recursive call(s) is a/are tail cal
 <a name="keep" class="anchor"></a>
 
 ## Writing tail recursive functions
-Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let's try to write a function that makes a list out of the first `n` elements of a given `lst` (assume `lst` is at least length `n`). If you want to try this out on your own first, click [here](/cs61a-resources/practice-problems/final.html#tail).
+Often, you may find it easier to first come up with an iterative solution in Python and convert it into a tail recursive Scheme solution. For example, let's try to write a function that makes a list out of the first `n` elements of a given `lst` (assume `lst` is at least length `n`). If you want to try this out on your own first, click [here](/cs61a/practice-problems/final.html#tail).
 
 To do this, we would start with an empty `result` list and keep a counter, adding elements to `result` from `lst` until our counter hits `n`. Here's the iterative Python version for a linked list:  
     

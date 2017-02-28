@@ -24,7 +24,7 @@ date:   2016-10-13 11:00:00
 
 ## Question 1
 
-Try out the WWPD at the end of this [guide](/cs61a-resources/guides/oop.html).
+Try out the WWPD at the end of this [guide](/cs61a/guides/oop.html).
 
 ## Question 2  
 

@@ -139,5 +139,5 @@ True
 5. To retrieve the first element of a pair or list, call `car`.   
 6. To retrieve the second element of a pair or the rest of a list, call `cdr`.  7. Check whether a list is empty using the predicate `null?`.
 
-<a class="btn btn-default" href="/cs61a-resources/practice-problems/scheme.html#lists">BASIC PROBLEMS</a>&nbsp;&nbsp;
-<a class="btn btn-default" href="/cs61a-resources/practice-problems/final.html#scheme-lists">EXAM-LEVEL PROBLEMS</a>
+<a class="btn btn-default" href="/cs61a/practice-problems/scheme.html#lists">BASIC PROBLEMS</a>&nbsp;&nbsp;
+<a class="btn btn-default" href="/cs61a/practice-problems/final.html#scheme-lists">EXAM-LEVEL PROBLEMS</a>

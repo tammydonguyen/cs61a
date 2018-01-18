@@ -1,17 +1,25 @@
 ---
 layout: post
 title:  "About"
-date:   2016-08-23 12:00:00
+date:   2018-01-17 12:00:00
 ---
 
-I'm Tammy and I am a teaching assistant for CS 61A. This site is a collection of my resources for the course. You can find my teaching ratings [here](https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466) and my personal website [here](http://tmmydngyn.com). 
+I'm Tammy and I am a teaching assistant for CS 61A. This site is a collection of 
+my resources for the course. You can find my teaching ratings 
+[here][ratings] and my personal website [here](http://tmmydngyn.com). 
 
 **Sections:**  
-*107C Lab*: Tuesday 12:30-1pm, 271 Soda  
-*107B Discussion*: Thursday 12:30-1:00pm, 3105 Etcheverry
-Check back later.
+*Lab 27* Tues. 5-6:30pm (275 Soda)  
+*Disc 127* Thur. 5-6:30pm (3105 Etcheverry)  
 
 **Office Hours:**  
-M 4-5pm, 109 Morgan
+Tues. 3-4PM (109 Morgan)
 
-You can contact me through email, [tammynguyen@berkeley.edu](mailto:tammynguyen@berkeley.edu), or through this [anonymous form](http://goo.gl/forms/RRPgZTk8qe). Feel free to leave feedback about my teaching, this website, or whatever else is on your mind!
+You can contact me through email, [tammynguyen@berkeley.edu][email], or through this
+[anonymous form][anon]. Feel free to leave feedback about my teaching, this website,
+or whatever else is on your mind!
+
+[ratings]: https://hkn.eecs.berkeley.edu/coursesurveys/instructor/8466
+[email]: mailto:tammynguyen@berkeley.edu
+[anon]: http://goo.gl/forms/RRPgZTk8qe
+

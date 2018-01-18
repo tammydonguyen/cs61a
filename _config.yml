@@ -5,7 +5,7 @@ baseurl: /cs61a
 email: tammynguyen@berkeley.edu
 disqus: tmmydngyn
 permalink: none
-description: Tammy's 61A resources.
+description: Tammy's Spring 2018 CS 61A resources.
 
 markdown: kramdown
 highlighter: pygments

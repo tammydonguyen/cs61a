@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Scheme</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tammy's Spring 2018 CS 61A resources.">
+<link href="/cs61a/css/bootstrap.min.css" rel="stylesheet">
+<link href="/cs61a/css/hc.css" rel="stylesheet">
+<link href="/cs61a/css/slidin.css" rel="stylesheet">
+<link href="/cs61a/css/pygments/tango.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif] d-->
+
+  </head>
+  <body>
+    <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+    <div id = "wrapper">
+      <div class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-brand">CS 61A Resources</p>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="cat3-toggle"><h5 class="toggle">Discussion Material</h5></li>
+        <div class="cat3">
+          
+            <li> 
+              <a href="/cs61a/discussion/disc00.html"> Discussion 0 </a>
+            </li>
+          
+        </div>
+
+        <li class="cat1-toggle"><h5 class="toggle">Guides</h5></li>
+        <div class="cat1">
+          
+            <li> 
+              <a href="/guides/mutability.html"> Mutability and Nonlocal </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/tail-recursion.html"> Tail Recursion </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/scheme.html"> Scheme </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/recursion.html"> Recursion </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/oop.html"> Object Oriented Programming </a>
+            </li>
+          
+            <li> 
+              <a href="/guides/env-diag.html"> Environment Diagrams </a>
+            </li>
+          
+        </div>
+
+        <li class="cat2-toggle"><h5 class="toggle">Practice Problems</h5></li>
+        <div class="cat2">
+          
+            <li> 
+              <a href="/practice-problems/scheme.html"> Scheme </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/mt2.html"> Midterm 2 </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/mt1.html"> Midterm 1 </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/iter.html"> Iterables </a>
+            </li>
+          
+            <li> 
+              <a href="/practice-problems/final.html"> Final </a>
+            </li>
+          
+        </div>
+
+        <li class="cat4-toggle"><h5 class="toggle">Other</h5></li>
+        <div class="cat4">
+          
+            <li> 
+              <a href="/cs61a/other/interpreters-review.html"> Fall 2016 Interpreters Final Review </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a/other/trees.html"> Summer 2016 Trees Guest Lecture </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a/other/sp16-mt1.html"> Spring 2016 MT1 Walkthrough </a>
+            </li>
+          
+            <li> 
+              <a href="/cs61a/other/mt1-review.html"> Midterm 1 Review Slides </a>
+            </li>
+          
+        </div>
+        <li><a href="/cs61a/about.html"><h5 class="toggle">About</h5></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand"><a href="/cs61a/"><h1 class="brand">CS 61A</h1></a></li>
+    <!-- todo: find a better way to hide on posts -->
+    
+    <hr />
+        <li class="cat3-toggle"><h4 class="toggle">Discussion Material</h4></li>
+    <div class="cat3">
+      
+        <li> 
+          <a href="/cs61a/discussion/disc00.html"> Discussion 0 </a>
+        </li>
+      
+    </div>
+    <li class="cat1-toggle"><h4 class="toggle">Guides</h4></li>
+    <div class="cat1">
+      
+        <li> 
+          <a href="/cs61a/guides/mutability.html"> Mutability and Nonlocal </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/guides/tail-recursion.html"> Tail Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/guides/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/guides/recursion.html"> Recursion </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/guides/oop.html"> Object Oriented Programming </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/guides/env-diag.html"> Environment Diagrams </a>
+        </li>
+      
+    </div>
+    <li class="cat2-toggle"><h4 class="toggle">Practice Problems</h4></li>
+    <div class="cat2">
+      
+        <li> 
+          <a href="/cs61a/practice-problems/scheme.html"> Scheme </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/practice-problems/mt2.html"> Midterm 2 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/practice-problems/mt1.html"> Midterm 1 </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/practice-problems/iter.html"> Iterables </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/practice-problems/final.html"> Final </a>
+        </li>
+      
+    </div>
+
+    <li class="cat4-toggle"><h4 class="toggle">Other</h4></li>
+    <div class="cat4">
+      
+        <li> 
+          <a href="/cs61a/other/interpreters-review.html"> Fall 2016 Interpreters Final Review </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/other/trees.html"> Summer 2016 Trees Guest Lecture </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/other/sp16-mt1.html"> Spring 2016 MT1 Walkthrough </a>
+        </li>
+      
+        <li> 
+          <a href="/cs61a/other/mt1-review.html"> Midterm 1 Review Slides </a>
+        </li>
+      
+    </div>
+    <li><a href="/cs61a/about.html"><h4>About</h4></a></li>
+    <hr />
+  </ul>
+</div>
+
+      <div class="container">
+        <div id="article">
+  <div class="article-title">Scheme</div>
+  <hr/>
+  <div class="post">
+    <p><strong>This page is under construction!</strong></p>
+
+<hr />
+
+<h2 id="intro">Intro</h2>
+<p>Scheme, a dialect of another language called Lisp, is a very powerful functional programming language. In this class, we are only concerned with a very basic subset of the Scheme language which includes writing basic procedures, manipulating pairs and lists, writing tail recursive procedures, and working with streams.</p>
+
+<p>This guide assumes you know basic Scheme, including primitives, variable and procedure definitions, and call expressions. For a quick review, what would Scheme output after each of the following lines are input?</p>
+
+<pre><code>scm&gt; (define x 3)  
+<span class="solution">x</span>
+scm&gt; (define y (+ 10 x))  
+<span class="solution">y</span>
+scm&gt; y
+<span class="solution">13</span>
+scm&gt; (define (foo x y)  
+    (cond ((&gt; x y) 1)
+        ((&lt; x y) -1)
+        (else 0)))
+<span class="solution">foo</span>
+scm&gt; 'foo
+<span class="solution">foo</span>
+scm&gt; (eval '(foo y x))
+<span class="solution">1</span>
+scm&gt; ((lambda (x y) (if (&lt; x y) 'less-than 'greater-than)) y x)
+<span class="solution">greater-than</span>
+scm&gt; '(a b c)
+<span class="solution">(a b c)</span></code></pre>
+
+<p><a class="btn btn-default solution-toggle">TOGGLE SOLUTION</a></p>
+
+<p>If you had any trouble with this, take time to review the <a href="http://cs61a.org/lab/lab11/">Scheme lab</a>.</p>
+
+<h2 id="lists">Lists</h2>
+<p>Lists in Scheme are a lot like Linked Lists in Python. Whereas a Linked List in Python is comprised of several <code>Link</code>s, a list in Scheme is made up of pairs.</p>
+
+<h4 id="pairs">Pairs</h4>
+<p>A pair is the fundamental sequential unit in Scheme. To create one, use <code>cons</code>. <code>cons</code> takes in two arguments and creates a pair out of them.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">3</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<p>The elements in a pair are separated by a dot. To retrieve the first element, use <code>car</code>. To retrieve the second element, use <code>cdr</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">lst</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nv">lst</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">))</span>
+<span class="mi">5</span></code></pre></figure>
+
+<p>The entries in a pair can be other pairs.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">lst</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="nv">lst</span>
+<span class="nv">scm&gt;</span> <span class="nv">lst</span>
+<span class="p">(</span><span class="mi">3</span> <span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">car </span><span class="nv">lst</span><span class="p">)</span>
+<span class="mi">3</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cdr </span><span class="p">(</span><span class="nb">cdr </span><span class="nv">lst</span><span class="p">))</span>
+<span class="mi">5</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="mi">5</span><span class="p">)</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">6</span> <span class="mi">7</span><span class="p">))</span>
+<span class="p">((</span><span class="mi">4</span> <span class="o">.</span> <span class="mi">5</span><span class="p">)</span> <span class="mi">6</span> <span class="o">.</span> <span class="mi">7</span><span class="p">)</span></code></pre></figure>
+
+<p>When Scheme sees a <code>.</code> immediately followed by an open parenthesis, it removes the dot, the open parenthesis, <em>and</em> the corresponding close parenthesis. This way, we can construct what’s known as a <strong>well-formed list</strong> from a bunch of pairs!</p>
+
+<h4 id="well-formed-lists">Well-formed lists</h4>
+<p>A well-formed list is actually just a pair whose first argument is the first element of the list and the second argument is another well-formed list. The last list argument is an empty list, or <code>nil</code>, to signify the end of the sequence.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">5</span> <span class="nv">nil</span><span class="p">)</span> <span class="c1">; one-element list</span>
+<span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="nv">nil</span><span class="p">)))</span> <span class="c1">; three-element list</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">1</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="o">&#39;</span><span class="p">())))</span> <span class="c1">; same as previous</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">)</span></code></pre></figure>
+
+<p>The take-away is this: <code>cons</code> can be used to create a list if and only if the first arugument is the first element of the list and the second argument is another list, which can be <code>nil</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">first</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nv">first</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="k">define </span><span class="nv">rest</span> <span class="o">&#39;</span><span class="p">(</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">))</span> 
+<span class="nv">rest</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">cons </span><span class="nv">first</span> <span class="nv">rest</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<p>Notice above that it is possible to also create lists with <code>'</code>. Keep in mind that this will create the exact list that comes after it, which means we can’t do something like <code>'(1 (cons 2 nil))</code>.</p>
+
+<p>Scheme provides us with an alternate to <code>cons</code> that is much more succinct and readable: <code>list</code>. <code>list</code> takes in an arbitrary number of arguments and will simply create a well formed list of them.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">)</span></code></pre></figure>
+
+<p>Be careful, though; whereas with <code>cons</code> you can pass through the rest of the list as the second argument, passing lists through to <code>list</code> will create nested lists!</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">list </span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">3</span> <span class="p">(</span><span class="nb">cons </span><span class="mi">4</span> <span class="nv">nil</span><span class="p">))</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span> <span class="mi">2</span> <span class="p">(</span><span class="mi">3</span> <span class="mi">4</span><span class="p">)</span> <span class="mi">5</span><span class="p">)</span></code></pre></figure>
+
+<p>You can check whether a list is empty using <code>(null? lst)</code>. This is like asking whether <code>(= lst nil)</code>.</p>
+
+<figure class="highlight"><pre><code class="language-scheme" data-lang="scheme"><span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="nv">nil</span><span class="p">)</span>
+<span class="nv">True</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="p">(</span><span class="nb">list </span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nv">False</span>
+<span class="nv">scm&gt;</span> <span class="p">(</span><span class="nb">null? </span><span class="o">&#39;</span><span class="p">())</span>
+<span class="nv">True</span></code></pre></figure>
+
+<blockquote>
+  <p><strong>Summary</strong><br />
+1. A list is a pair whose second entry is another list.<br />
+2. To construct a pair, use <code>cons</code>.<br />
+3. To construct a list using <code>cons</code>, pass through its first element as the first argument and the rest of the list as the second argument.
+4. To construct a list using <code>list</code>, pass through every element in the list.<br />
+5. To retrieve the first element of a pair or list, call <code>car</code>. <br />
+6. To retrieve the second element of a pair or the rest of a list, call <code>cdr</code>.  7. Check whether a list is empty using the predicate <code>null?</code>.</p>
+</blockquote>
+
+<p><a class="btn btn-default" href="/cs61a/practice-problems/scheme.html#lists">BASIC PROBLEMS</a>  
+<a class="btn btn-default" href="/cs61a/practice-problems/final.html#scheme-lists">EXAM-LEVEL PROBLEMS</a></p>
+
+  </div>
+</div>
+
+      <div class="container">
+  <footer>
+    <p class="text-muted credit">
+      &copy; 2018 <a href="http://tmmydngyn.com/">Tammy Nguyen</a> &middot;
+      <a href="https://github.com/arnp/herring-cove"> Herring Cove for Jekyll </a>
+    </p>
+  </footer>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+<script src="/cs61a/js/jquery-1.10.2.min.js"></script>
+<script src="/cs61a/js/bootstrap.min.js"></script>
+<script src="/cs61a/js/hc.js"></script>
+<script src="/cs61a/js/slidin.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70344118-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

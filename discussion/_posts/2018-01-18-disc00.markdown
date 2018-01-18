@@ -1,13 +1,20 @@
 ---
 layout: post
 title:  "Discussion 0"
-date:   2016-08-25 12:30:00
+date:   2018-01-17 12:00:00
 categories: discussion
+published: false
 ---
 
 # Links  
-[Slides](https://docs.google.com/presentation/d/11jqbMGTiebjUpSp9UO-P1ZhTO3Rla06qrWbvcRGdr1s/edit?usp=sharing)  
-[Attendance](https://docs.google.com/forms/d/e/1FAIpQLSfC59CUFfUXX9bTLnr3m7IpUABg1U-eziMR4l01rOlHynGE8A/viewform)
+[Slides]()  
+[Check-in](https://docs.google.com/document/d/18RASARlqMSVKGTO0ynfXGWFbUNr6bUumZb7RBhCezqk/edit?usp=sharing)
+
+--------
+
+Welcome to CS 61A! Although we didn't go over any material in discussion today,
+I recommend trying to work through the problems below, using lecture and the
+textbooks as references, to prepare for next week!
 
 --------
 
